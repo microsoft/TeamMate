@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings Version="1.0">
+  <Servers>
+    <Server Uri="https://sample.visualstudio.com/DefaultCollection" Nickname="Azure" IsDefault="true" IsLastUsed="true" />
+    <Server Uri="https://sample2.visualstudio.com/DefaultCollection" Nickname="Phone" />
+  </Servers>
+  <DefaultWorkItemType>
+    <WorkItemType Name="Bug" ProjectName="Sandbox" ProjectCollectionUri="https://sample.visualstudio.com/DefaultCollection" />
+  </DefaultWorkItemType>
+  <LastWorkItemWindowState>
+    <WindowState State="Maximized" Bounds="2061,112,1537,929" />
+  </LastWorkItemWindowState>
+  <IsAudioCaptureEnabled>true</IsAudioCaptureEnabled>
+  <IsTracingEnabled>false</IsTracingEnabled>
+  <LaunchAnnotationToolAfterScreenCapture>true</LaunchAnnotationToolAfterScreenCapture>
+  <QuickCreateShortcutKey>J</QuickCreateShortcutKey>
+  <QuickSearchShortcutKey>K</QuickSearchShortcutKey>
+</Settings>

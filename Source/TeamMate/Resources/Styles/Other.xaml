@@ -1,0 +1,627 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:fwcd="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:fwme="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Effects;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    xmlns:tmc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+                    xmlns:tmcv="clr-namespace:Microsoft.Internal.Tools.TeamMate.Converters">
+
+    <fwme:GrayscaleEffect x:Key="GrayscaleEffect" />
+
+    <s:Double x:Key="TileWidth">287</s:Double>
+    <s:Double x:Key="TileHeight">140</s:Double>
+
+    <Thickness x:Key="PageContainerMargin">18,18,12,12</Thickness>
+
+    <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="PanningMode" Value="VerticalOnly" />
+    </Style>
+
+    <Style x:Key="SimpleWrappingListBoxStyle" TargetType="ListBox">
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="TileListBoxStyle" TargetType="ListBox">
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Margin" Value="2" />
+                    <Setter Property="Padding" Value="1" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <Border x:Name="Bd"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="true">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="QuickAccessToolBarButtonStyle" TargetType="Button">
+        <!--  TODO: Borrows from RibbonWindowsTitleBarButtonStyle, should be a subclass of it  -->
+        <Setter Property="Width" Value="46" />
+        <Setter Property="Height" Value="31" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="False" />
+
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.PreferredScreenTipTitle}" />
+        <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.SmallImage, Converter={x:Static tmcv:TeamMateConverters.CreateImage}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Focusable="False" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#CDE6F7" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="#92C0E0" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CommandMenuItemStyle" TargetType="MenuItem">
+        <Setter Property="Header" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.Text}" />
+        <Setter Property="Icon" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.Icon, Converter={x:Static tmcv:TeamMateConverters.CreateImage}}" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.Description}" />
+    </Style>
+
+    <Style x:Key="CommandButtonStyle" TargetType="Button">
+        <Setter Property="Padding" Value="3,3,3,3" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+
+        <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.Text}" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Command.Description}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                            Background="{TemplateBinding Panel.Background}"
+                            BorderBrush="{TemplateBinding Border.BorderBrush}"
+                            BorderThickness="{TemplateBinding Border.BorderThickness}"
+                            Padding="{TemplateBinding Button.Padding}"
+                            SnapsToDevicePixels="True">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Name="icon"
+                                   Margin="0,0,6,0"
+                                   Source="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                    Path=Command.Icon}"
+                                   UseLayoutRounding="True"
+                                   Visibility="{Binding RelativeSource={RelativeSource Self},
+                                                        Path=Source,
+                                                        Converter={x:Static fw:Converters.Visibility}}" />
+
+                            <ContentPresenter Name="contentPresenter"
+                                              Content="{TemplateBinding ContentControl.Content}"
+                                              RecognizesAccessKey="True" />
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource ButtonMouseOverBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+                            <Setter Property="Background" Value="{DynamicResource ButtonPressedBackgroundBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="contentPresenter" Property="TextBlock.Foreground" Value="#989898" />
+                            <Setter TargetName="icon" Property="Effect" Value="{StaticResource GrayscaleEffect}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Command, Converter={x:Static tmcv:TeamMateConverters.CommandToolTip}}" />
+    </Style>
+
+    <Style x:Key="CommandSymbolButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="16pt" />
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" ToolTip="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Command.TextAndShortcut}">
+                        <fwc:SymbolIcon HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Symbol="{Binding RelativeSource={RelativeSource TemplatedParent},
+                                                         Path=Command.SymbolIcon}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CommandAppBarButtonStyle"
+           BasedOn="{StaticResource CommandSymbolButtonStyle}"
+           TargetType="Button">
+        <Setter Property="Width" Value="68" />
+        <Setter Property="Background" Value="#F1F1F1" />
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsMouseOver" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="#D9D9D9" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="#C1C1C1" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource BaseMediumMidBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ExpanderToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="UIElement.Focusable" Value="False" />
+        <Setter Property="FrameworkElement.Width" Value="16" />
+        <Setter Property="FrameworkElement.Height" Value="16" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Width="16"
+                            Height="16"
+                            Background="#00FFFFFF"
+                            Padding="5,5,5,5">
+                        <Path Name="ExpandPath"
+                              Fill="#00FFFFFF"
+                              SnapsToDevicePixels="True"
+                              Stroke="#989898">
+                            <Path.Data>
+                                <PathGeometry Figures="M0,0L0,6L6,0z" />
+                            </Path.Data>
+                            <Path.RenderTransform>
+                                <RotateTransform Angle="135" CenterX="3" CenterY="3" />
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter TargetName="ExpandPath" Property="Shape.Stroke" Value="#1BBBFA" />
+                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="#00FFFFFF" />
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                            <Setter TargetName="ExpandPath" Property="Shape.Stroke" Value="#262626" />
+                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="#595959" />
+                            <Setter TargetName="ExpandPath" Property="UIElement.RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" CenterX="3" CenterY="3" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="DefaultErrorTemplate">
+        <DockPanel SnapsToDevicePixels="True" UseLayoutRounding="True">
+            <Image Name="image"
+                   Margin="3,0,0,0"
+                   VerticalAlignment="Center"
+                   DockPanel.Dock="Right"
+                   Source="{DynamicResource MiniErrorIcon}"
+                   ToolTip="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent,
+                                     ElementName=adornedElement}" />
+
+            <Grid ToolTip="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedElement}">
+                <AdornedElementPlaceholder Name="adornedElement" />
+                <Border BorderBrush="#DB000C" BorderThickness="1" />
+            </Grid>
+        </DockPanel>
+    </ControlTemplate>
+
+    <!--  List View  -->
+
+    <fwcd:GroupNameConverter x:Key="WindowsUniversalListGroupNameConverter" Mode="ToUpper" />
+
+    <Style x:Key="WindowsUniversalExpanderToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="UIElement.Focusable" Value="False" />
+        <Setter Property="FrameworkElement.Width" Value="16" />
+        <Setter Property="FrameworkElement.Height" Value="16" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Width="16"
+                            Height="16"
+                            Padding="5,5,5,5">
+                        <Path Name="ExpandPath"
+                              Fill="#A8A8A8"
+                              SnapsToDevicePixels="True"
+                              Stroke="#C5C5C5">
+                            <Path.Data>
+                                <PathGeometry Figures="M0,0L0,6L6,0z" />
+                            </Path.Data>
+                            <Path.RenderTransform>
+                                <RotateTransform Angle="135" CenterX="3" CenterY="3" />
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                            <Setter TargetName="ExpandPath" Property="Shape.Stroke" Value="#FF262626" />
+                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="#FF595959" />
+                            <Setter TargetName="ExpandPath" Property="UIElement.RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180" CenterX="3" CenterY="3" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter TargetName="ExpandPath" Property="Shape.Stroke" Value="#2E2E2E" />
+                            <Setter TargetName="ExpandPath" Property="Shape.Fill" Value="Black" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="WindowsUniversalGroupItemTemplate" TargetType="GroupItem">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="sbExpand" Storyboard.TargetName="ExpandSite">
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="1">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+
+            <Storyboard x:Key="sbCollapse" Storyboard.TargetName="ExpandSite">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.35" Value="0">
+                        <EasingDoubleKeyFrame.EasingFunction>
+                            <CubicEase EasingMode="EaseOut" />
+                        </EasingDoubleKeyFrame.EasingFunction>
+                    </EasingDoubleKeyFrame>
+                </DoubleAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:5">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Collapsed</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+
+        <Grid Margin="0,0,0,12" Focusable="False">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Height="24"
+                        Margin="0,0,0,1"
+                        Background="#EFF0F0"
+                        Focusable="True"
+                        Orientation="Horizontal">
+                <ToggleButton Name="expander"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              Margin="0,0,2,0"
+                              IsChecked="{Binding Path=(fwcd:GroupingViewUtilities.IsExpanded),
+                                                  RelativeSource={RelativeSource TemplatedParent},
+                                                  Mode=TwoWay}"
+                              Style="{StaticResource WindowsUniversalExpanderToggleButtonStyle}">
+                    <ToggleButton.Triggers>
+                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <BeginStoryboard Storyboard="{StaticResource sbExpand}" />
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <BeginStoryboard Storyboard="{StaticResource sbCollapse}" />
+                        </EventTrigger>
+                    </ToggleButton.Triggers>
+                </ToggleButton>
+                <TextBlock VerticalAlignment="Center"
+                           FontWeight="bold"
+                           Foreground="#444444"
+                           TextTrimming="CharacterEllipsis">
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{StaticResource WindowsUniversalListGroupNameConverter}">
+                            <Binding Path="Name" />
+                            <Binding Path="ItemCount" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <StackPanel.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{x:Static fwcd:ListView.CollapseAll}"
+                                  CommandTarget="{Binding Path=PlacementTarget,
+                                                          RelativeSource={RelativeSource FindAncestor,
+                                                                                         AncestorType={x:Type ContextMenu}}}"
+                                  Header="Collapse All Groups" />
+                        <MenuItem Command="{x:Static fwcd:ListView.ExpandAll}"
+                                  CommandTarget="{Binding Path=PlacementTarget,
+                                                          RelativeSource={RelativeSource FindAncestor,
+                                                                                         AncestorType={x:Type ContextMenu}}}"
+                                  Header="Expand All Groups" />
+                    </ContextMenu>
+                </StackPanel.ContextMenu>
+            </StackPanel>
+            <ItemsPresenter Name="ExpandSite"
+                            Grid.Row="1"
+                            Opacity="1">
+                <ItemsPresenter.LayoutTransform>
+                    <ScaleTransform />
+                </ItemsPresenter.LayoutTransform>
+            </ItemsPresenter>
+        </Grid>
+    </ControlTemplate>
+
+
+    <Style x:Key="WindowsUniversalListBoxGroupItemStyle" TargetType="GroupItem">
+        <Setter Property="Template" Value="{StaticResource WindowsUniversalGroupItemTemplate}" />
+    </Style>
+
+    <Style x:Key="WindowsUniversalListBoxStyle" TargetType="ListBox">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="0" />
+                    <Setter Property="ContextMenu" Value="{Binding Path=ItemContextMenu, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type fwcd:ListView}}}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Name="border" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                                      Content="{TemplateBinding ContentControl.Content}"
+                                                      ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                                      ContentTemplateSelector="{TemplateBinding ContentControl.ContentTemplateSelector}"
+                                                      SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsMouseOver" Value="True" />
+                                            <Condition Property="Selector.IsSelected" Value="False" />
+                                        </MultiTrigger.Conditions>
+                                        <Setter TargetName="border" Property="Background" Value="#E7E8E8" />
+                                    </MultiTrigger>
+                                    <Trigger Property="Selector.IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#D8D8D9" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="WindowsUniversalListView" TargetType="fwcd:ListView">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwcd:ListView">
+                    <Grid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Border Visibility="{Binding Filters, Converter={x:Static fw:Converters.Visibility}}">
+                                    <tmc:DropDownSelector Margin="0,12,12,18"
+                                                          ItemsSource="{Binding Filters}"
+                                                          Label="Filter:"
+                                                          Visibility="{Binding IsFilterByVisible,
+                                                                               Converter={x:Static fw:Converters.Visibility}}" />
+                                </Border>
+                                <Border Visibility="{Binding Fields, Converter={x:Static fw:Converters.Visibility}}">
+                                    <tmc:DropDownSelector Margin="18,12,12,18"
+                                                          ItemsSource="{Binding Fields}"
+                                                          Label="Group by:"
+                                                          Visibility="{Binding IsGroupByVisible,
+                                                                               Converter={x:Static fw:Converters.Visibility}}" />
+                                </Border>
+                            </StackPanel>
+                            <ListBox Name="PART_ListBox"
+                                     Grid.Row="1"
+                                     HorizontalContentAlignment="Stretch"
+                                     Background="Transparent"
+                                     IsSynchronizedWithCurrentItem="True"
+                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                     ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                     ItemsSource="{Binding CollectionView}"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     SelectionMode="Extended"
+                                     Style="{StaticResource WindowsUniversalListBoxStyle}"
+                                     TextElement.FontSize="13"
+                                     Visibility="{Binding CollectionView.IsEmpty,
+                                                          Converter={x:Static fw:Converters.InverseVisibilityHidden}}">
+                                <ListBox.GroupStyle>
+                                    <GroupStyle ContainerStyle="{StaticResource WindowsUniversalListBoxGroupItemStyle}" />
+                                </ListBox.GroupStyle>
+                                <ListBox.Resources>
+                                    <Style TargetType="ScrollBar">
+                                        <Setter Property="Margin" Value="6,0,0,0" />
+                                    </Style>
+                                </ListBox.Resources>
+                            </ListBox>
+                            <Grid Grid.Row="1"
+                                  Grid.Column="1"
+                                  Visibility="{Binding CollectionView.IsEmpty,
+                                                       Converter={x:Static fw:Converters.VisibilityHidden}}">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           Text="{Binding NoItemsText}"
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LeanContextMenuStyle" TargetType="ContextMenu">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Border>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="Tag" Value="{DynamicResource {x:Static SystemParameters.DropShadowKey}}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="True">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Padding" Value="0,0,5,5" />
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="4"
+                                                                  Opacity="0.8"
+                                                                  ShadowDepth="1" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer CanContentScroll="True" Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+                                <ItemsPresenter Margin="{TemplateBinding Padding}"
+                                                KeyboardNavigation.DirectionalNavigation="Cycle"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </ScrollViewer>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

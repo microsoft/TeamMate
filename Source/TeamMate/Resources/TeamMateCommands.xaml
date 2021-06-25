@@ -1,0 +1,584 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:System.Windows.Input;assembly=PresentationCore"
+                    xmlns:fwi="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;assembly=Microsoft.Internal.Tools.TeamMate.Foundation">
+
+    <!--  Main Window Commands  -->
+    <fwi:UICommand x:Key="HamburgerCommand" SymbolIcon="Hamburger" />
+
+    <fwi:UICommand x:Key="NavigateToHomePageCommand"
+                   SymbolIcon="Home"
+                   Text="Home">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+1</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="NavigateToNewWorkItemPageCommand"
+                   SymbolIcon="Add"
+                   Text="New Work Item">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+2</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="NavigateToProjectsPageCommand"
+                   SymbolIcon="AllApps"
+                   Text="Projects">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+3</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="NavigateToNewsPageCommand" Text="News">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+4</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="SendFeedbackToolBarCommand"
+                   SymbolIcon="Emoji2"
+                   Text="Send Feedback">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+5</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="NavigateToUpdatesAvailablePageCommand" Text="Updates Available" />
+
+    <fwi:UICommand x:Key="NavigateToDeveloperOptionsPageCommand"
+                   SymbolIcon="Developer"
+                   Text="Developer Options" />
+
+    <fwi:UICommand x:Key="NavigateToSettingsPageCommand"
+                   SymbolIcon="Setting"
+                   Text="Settings">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+6</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="BrowseBackCommand" SymbolIcon="Back" />
+
+    <!--  Global Toolbar  -->
+
+    <fwi:UICommand x:Key="AddWorkItemQueryTileCommand"
+                   SymbolIcon="Add"
+                   Text="Add Work Item Query" />
+
+    <fwi:UICommand x:Key="AddCodeFlowTileCommand"
+                   SymbolIcon="AddFriend"
+                   Text="Add CodeFlow Reviews" />
+
+    <fwi:UICommand x:Key="ChooseProjectsCommand"
+                   SymbolIcon="Add"
+                   Text="Add Projects" />
+
+    <!--  Commands in the Work Item Window Ribbon  -->
+    <fwi:UICommand x:Key="SaveCommand"
+                   Description="Save this work item."
+                   KeyTip="S"
+                   LargeImage="/Resources/Icons/Office15/Save.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/Save.16x16x32.png"
+                   Text="Save">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+S</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="SaveAndCloseCommand"
+                   Description="Save this work item and close the window."
+                   KeyTip="A"
+                   LargeImage="/Resources/Icons/Office15/SaveAndClose.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/SaveAndClose.16x16x32.png"
+                   Text="Save &amp; Close">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Alt+S</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="SaveAllCommand"
+                   Description="Save all work items."
+                   LargeImage="/Resources/Icons/Office15/SaveAll.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/SaveAll.16x16x32.png"
+                   Text="Save All">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Alt+S</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="RefreshCommand"
+                   Description="Refresh this work item from the server."
+                   SmallImage="/Resources/Icons/Office15/RefreshMeetingDetailsRunning.16x16x32.png"
+                   SymbolIcon="Refresh"
+                   Text="Refresh">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>F5</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="RevertCommand"
+                   Description="Reset this work item to its original values."
+                   LargeImage="/Resources/Icons/Office15/ResolveRevertOption.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/ResolveRevertOption.16x16x32.png"
+                   Text="Revert">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+Z</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CopyWorkItemCommand"
+                   Description="Create a new work item as a copy of this one."
+                   ScreenTipTitle="Copy Work Item"
+                   SmallImage="/Resources/Icons/Office15/Duplicate.16x16x32.png"
+                   Text="Create Copy">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+C</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CopyHyperlinkCommand"
+                   Description="Copy the URL to this work item."
+                   LargeImage="/Resources/Icons/Office15/copyaslink.32x32x32.png"
+                   ScreenTipTitle="Copy Hyperlink"
+                   SmallImage="/Resources/Icons/Office15/copyaslink.16x16x32.png"
+                   Text="Hyperlink">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+H</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CopyIdCommand"
+                   Description="Copy the work item id."
+                   LargeImage="/Resources/Icons/Office15/PageNumber.32x32x32.png"
+                   ScreenTipTitle="Copy ID"
+                   SmallImage="/Resources/Icons/Office15/PageNumber.16x16x32.png"
+                   Text="ID">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+J</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CopyTitleCommand"
+                   Description="Copy the work item type, id and title."
+                   ScreenTipTitle="Copy Title"
+                   SmallImage="/Resources/Icons/Office15/MathNormalText.16x16x32.png"
+                   Text="Title">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+K</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CopyDetailsCommand"
+                   Description="Copy the work item details."
+                   ScreenTipTitle="Copy Details"
+                   SmallImage="/Resources/Icons/Office15/Copy.16x16x32.png"
+                   Text="Details">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+OemSemicolon</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="AttachFileCommand"
+                   Description="Attach a file to this work item."
+                   LargeImage="/Resources/Icons/Office15/Attachment.32x32x32.png"
+                   ScreenTipTitle="Attach File"
+                   SmallImage="/Resources/Icons/Office15/Attachment.16x16x32.png"
+                   Text="File">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+O</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+
+    <fwi:UICommand x:Key="AttachClipboardContentsCommand"
+                   Description="Attach the contents of the clipboard to this work item.&#10;&#10;The types of clipboard contents that can be attached include images, text, files and Outlook messages."
+                   LargeImage="/Resources/Icons/Office15/Paste.32x32x32.png"
+                   ScreenTipTitle="Attach Clipboard Contents"
+                   SmallImage="/Resources/Icons/Office15/Paste.16x16x32.png"
+                   Text="From Clipboard">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+V</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+
+    <fwi:UICommand x:Key="AttachScreenshotCommand"
+                   Description="Attach a picture of part of the screen, or any program that is not minimized to the taskbar."
+                   LargeImage="/Resources/Icons/Office15/JotScreenCapture.32x32x32.png"
+                   ScreenTipTitle="Attach Screenshot"
+                   SmallImage="/Resources/Icons/Office15/JotScreenCapture.16x16x32.png"
+                   Text="Screenshot">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>F6</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="AttachScreenRecordingCommand"
+                   Description="Attach an interactive video recording of part of the screen, or any program that is not minimized to the taskbar."
+                   LargeImage="/Resources/Icons/Office15/JotInsertVideoRecordingShort.32x32x32.png"
+                   ScreenTipTitle="Attach Screen Recording"
+                   SmallImage="/Resources/Icons/Office15/JotInsertVideoRecordingShort.16x16x32.png"
+                   Text="Screen Recording">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>F7</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="AddLinkCommand"
+                   Description="Add a link to the work item."
+                   LargeImage="/Resources/Icons/Office15/LinkTasks.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/LinkTasks.16x16x32.png"
+                   Text="Add Link">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+L</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="NewLinkedWorkItemCommand"
+                   Description="Create a new work item that is linked to the current one."
+                   LargeImage="/Resources/Icons/Office15/DavConstraints.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/DavConstraints.16x16x32.png"
+                   Text="New Linked Work Item">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+L</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="SendEmailCommand"
+                   Description="Send an email that includes information on this work item."
+                   LargeImage="/Resources/Icons/Office15/OLForwardedMail.32x32x32.png"
+                   ScreenTipTitle="Send Mail"
+                   SmallImage="/Resources/Icons/Office15/OLForwardedMail.16x16x32.png"
+                   Text="Mail">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+F</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="ReplyWithEmailCommand"
+                   Description="Reply to the person this work item is assigned to or was updated by."
+                   LargeImage="/Resources/Icons/Office15/OLRepliedMail.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/OLRepliedMail.16x16x32.png"
+                   Text="Reply">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+R</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+
+    <fwi:UICommand x:Key="ReplyAllWithEmailCommand"
+                   Description="Reply to all of the people that have been involved with this work item."
+                   LargeImage="/Resources/Icons/Office15/ReplyAll.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/ReplyAll.16x16x32.png"
+                   Text="Reply All">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+R</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+
+    <fwi:UICommand x:Key="ReplyWithIMCommand"
+                   Description="Start an IM conversation with the person this work item is assigned to."
+                   LargeImage="/Resources/Icons/Office15/PersonaMenuSendIM.32x32x32.png"
+                   ScreenTipTitle="Reply with IM"
+                   SmallImage="/Resources/Icons/Office15/PersonaMenuSendIM.16x16x32.png"
+                   Text="IM">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+U</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="ReplyAllWithIMCommand"
+                   Description="Start an IM conversation with all of the people that have been involved with this work item."
+                   LargeImage="/Resources/Icons/Office15/PersonaMenuSendIM.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/PersonaMenuSendIM.16x16x32.png"
+                   Text="Reply All with IM">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Shift+U</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+
+    <fwi:UICommand x:Key="CreateMeetingCommand"
+                   Description="Create a meeting request from this work item. All of the people that have been involved with it will be invited."
+                   LargeImage="/Resources/Icons/Office15/ReplyWithMeeting.32x32x32.png"
+                   ScreenTipTitle="Reply with Meeting"
+                   SmallImage="/Resources/Icons/Office15/ReplyWithMeeting.16x16x32.png"
+                   Text="Meeting">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Alt+R</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="FlagCommand"
+                   Description="Set a flag to remind you to follow up on this work item."
+                   LargeImage="/Resources/Icons/Office15/89_16_N.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/89_16_N.16x16x32.png"
+                   Text="Flag">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Insert</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="FindInOutlookCommand"
+                   Description="Search for any messages related to this work item in Outlook."
+                   LargeImage="/Resources/Icons/Office15/NewSmartFolder.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/NewSmartFolder.16x16x32.png"
+                   Text="Search Outlook">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+O</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CaptureTemplateCommand"
+                   Description="Create a template based on the currently edited values in this work item.&#10;&#10;The template can then be applied to other work items to quickly edit their fields."
+                   LargeImage="/Resources/Icons/Office15/EditDocumentTemplate.32x32x32.png"
+                   ScreenTipTitle="Capture Template"
+                   SmallImage="/Resources/Icons/Office15/EditDocumentTemplate.16x16x32.png"
+                   Text="Capture Template..." />
+
+
+    <fwi:UICommand x:Key="ModifyTemplateContextMenuCommand"
+                   Description="Modify this template's name and field values."
+                   LargeImage="/Resources/Icons/Office15/EditDocumentTemplate.32x32x32.png"
+                   ScreenTipTitle="Edit Template"
+                   SmallImage="/Resources/Icons/Office15/EditDocumentTemplate.16x16x32.png"
+                   Text="Edit..." />
+
+    <fwi:UICommand x:Key="RemoveTemplateContextMenuCommand"
+                   Description="Delete this template."
+                   ScreenTipTitle="Delete Template"
+                   SmallImage="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
+                   Text="Delete" />
+
+    <fwi:UICommand x:Key="CaptureDesktopCommand"
+                   Description="Attach an image or video recording of your desktop."
+                   SmallImage="/Resources/Icons/Office15/DesktopMonitor.16x16x32.png"
+                   Text="Desktop" />
+
+    <fwi:UICommand x:Key="CaptureMainScreenCommand"
+                   Description="Attach an image or video recording of your main monitor."
+                   SmallImage="/Resources/Icons/Office15/DesktopMonitor1.16x16x32.png"
+                   Text="Main Monitor" />
+
+    <fwi:UICommand x:Key="CaptureSecondaryScreenCommand"
+                   Description="Attach an image or video recording of your secondary monitor."
+                   SmallImage="/Resources/Icons/Office15/DesktopMonitor2.16x16x32.png"
+                   Text="Secondary Monitor" />
+
+    <fwi:UICommand x:Key="CaptureAllScreensCommand"
+                   Description="Attach an image or video recording of your desktop."
+                   SmallImage="/Resources/Icons/Office15/DesktopMonitorAll.16x16x32.png"
+                   Text="All Monitors" />
+
+    <fwi:UICommand x:Key="OpenQueryInWebAccessCommand"
+                   Description="Open this query in Web Access."
+                   LargeImage="/Resources/Icons/Office15/WebInsertHyperlink.32x32x32.png"
+                   ScreenTipTitle="Open in Web Access"
+                   SmallImage="/Resources/Icons/Office15/WebInsertHyperlink.16x16x32.png"
+                   SymbolIcon="Globe"
+                   Text="Web Access" />
+
+    <fwi:UICommand x:Key="StartIMTriageCommand"
+                   Description="Start an IM conversation with window sharing for this triage session."
+                   LargeImage="/Resources/Icons/Office15/PersonaMenuSendIM.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/PersonaMenuSendIM.16x16x32.png"
+                   Text="Triage on IM" />
+
+    <fwi:UICommand x:Key="SendEmailForQueryCommand"
+                   Description="Send an email that includes information for all work items."
+                   LargeImage="/Resources/Icons/Office15/OLForwardedMail.32x32x32.png"
+                   ScreenTipTitle="Send Mail"
+                   SmallImage="/Resources/Icons/Office15/OLForwardedMail.16x16x32.png"
+                   SymbolIcon="MailForward"
+                   Text="Mail" />
+
+    <fwi:UICommand x:Key="ReplyAllInQueryWithEmailCommand"
+                   Description="Reply to all of the people that have a work item assigned to them."
+                   LargeImage="/Resources/Icons/Office15/ReplyAll.32x32x32.png"
+                   SmallImage="/Resources/Icons/Office15/ReplyAll.16x16x32.png"
+                   SymbolIcon="MailReplyAll"
+                   Text="Reply All" />
+
+    <!--  Tray Context Menu and Global Commands  -->
+
+    <c:RoutedUICommand x:Key="QuickSearchCommand" Text="_Search" />
+
+    <c:RoutedUICommand x:Key="QuickCreateCommand" Text="New Default Work Item" />
+
+    <c:RoutedUICommand x:Key="QuickCreateWithOptionsCommand" Text="New Work Item" />
+
+    <c:RoutedUICommand x:Key="AboutCommand" Text="_About..." />
+
+    <c:RoutedUICommand x:Key="ExitCommand" Text="E_xit" />
+
+    <c:RoutedUICommand x:Key="RestartCommand" Text="_Restart" />
+
+    <!--  Global Commands  -->
+
+    <fwi:UICommand x:Key="SendASmileCommand"
+                   Icon="/Resources/Icons/Office15/SendASmile.16x16x32.png"
+                   Text="Send a Smile..." />
+
+    <fwi:UICommand x:Key="SendAFrownCommand"
+                   Icon="/Resources/Icons/Office15/SendAFrown.16x16x32.png"
+                   Text="Send a Frown..." />
+
+    <fwi:UICommand x:Key="VoteOnFeaturesCommand" Text="Vote on Features" />
+
+    <fwi:UICommand x:Key="SuggestFeatureCommand" Text="Suggest a Feature" />
+
+    <fwi:UICommand x:Key="ReportBugCommand" Text="Report a Bug" />
+
+    <fwi:UICommand x:Key="ContactUsCommand"
+                   Icon="/Resources/Icons/Office15/Send2.16x16x32.png"
+                   Text="Contact Us" />
+
+    <fwi:UICommand x:Key="YammerUsCommand"
+                   Icon="/Resources/Icons/Other/Yammer.16x16x32.png"
+                   Text="Find us in Yammer" />
+
+    <fwi:UICommand x:Key="BecomeAContributorCommand" Text="Become a Contributor" />
+
+    <c:RoutedUICommand x:Key="HelpCommand" Text="Help" />
+
+    <c:RoutedUICommand x:Key="ConnectToProjectCommand" Text="Connect to Project" />
+
+    <!--  Attachment Commands  -->
+
+    <fwi:UICommand x:Key="OpenAttachmentCommand"
+                   Icon="/Resources/Icons/Office15/Open.16x16x32.png"
+                   Text="Open" />
+
+    <fwi:UICommand x:Key="SaveAttachmentAsCommand"
+                   Icon="/Resources/Icons/Office15/SaveAs.16x16x32.png"
+                   Text="Save As" />
+
+    <fwi:UICommand x:Key="SaveAllAttachmentsCommand"
+                   Icon="/Resources/Icons/Office15/SaveAttachments.16x16x32.png"
+                   Text="Save All Attachments..." />
+
+    <fwi:UICommand x:Key="RemoveAttachmentCommand"
+                   Icon="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
+                   Text="Remove Attachment" />
+
+    <fwi:UICommand x:Key="CopyAttachmentCommand"
+                   Icon="/Resources/Icons/Office15/Copy.16x16x32.png"
+                   Text="Copy" />
+
+    <fwi:UICommand x:Key="SelectAllAttachmentsCommand"
+                   Icon="/Resources/Icons/Office15/SelectAll.16x16x32.png"
+                   Text="Select All" />
+
+    <!--  Link Commands  -->
+
+    <fwi:UICommand x:Key="RemoveLinkCommand"
+                   Icon="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
+                   Text="Remove Link" />
+
+    <!--  Work Item Query & Work Item Commands  -->
+
+    <fwi:UICommand x:Key="TriageCommand"
+                   Description="Open this query in Triage mode"
+                   Icon="/Resources/Icons/Office15/AssetNE.16x16x32.png"
+                   SymbolIcon="People"
+                   Text="Triage" />
+
+    <fwi:UICommand x:Key="MarkAsReadCommand"
+                   Description="Mark this item as read"
+                   Icon="/Resources/Icons/Office15/MarkAsReadArrow.16x16x32.png"
+                   Text="Mar_k as Read">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+Q</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="MarkAsUnreadCommand"
+                   Description="Mark this item as unread"
+                   Icon="/Resources/Icons/Office15/MarkAsUnread.16x16x32.png"
+                   Text="Mark as U_nread">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+U</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="MarkAllAsReadCommand"
+                   Description="Mark all these items as read"
+                   Icon="/Resources/Icons/Office15/MarkAllAsRead.16x16x32.png"
+                   SymbolIcon="Read"
+                   Text="Mark All as Read" />
+
+    <fwi:UICommand x:Key="EditTagsCommand"
+                   Description="Bulk add or remove work item tags"
+                   Icon="/Resources/Icons/Office15/TagsAndNotes.16x16x32.png"
+                   Text="Edit Tags">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>Ctrl+T</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <!--  Code Flow Review Query & Review Commands  -->
+
+    <fwi:UICommand x:Key="NewCodeFlowReviewCommand"
+                   Description="Create a new code review in CodeFlow"
+                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
+                   SymbolIcon="Add"
+                   Text="New Code Review" />
+
+    <fwi:UICommand x:Key="OpenReviewInCodeFlowCommand"
+                   Description="Open code review in CodeFlow"
+                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
+                   Text="Open in _CodeFlow" />
+
+    <fwi:UICommand x:Key="OpenReviewInVisualStudioCommand"
+                   Description="Open code review in Visual Studio"
+                   Icon="/Resources/Icons/VisualStudio/VisualStudio.16x16x32.png"
+                   Text="Open in _Visual Studio" />
+
+    <fwi:UICommand x:Key="OpenReviewInWebCommand"
+                   Description="Open code review in web browser"
+                   Icon="/Resources/Icons/Office15/WebInsertHyperlink.16x16x32.png"
+                   Text="Open in _Browser" />
+
+    <fwi:UICommand x:Key="SendReviewReminderMailCommand"
+                   Description="Send a reminder email for authors to complete their active code reviews"
+                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
+                   Text="Send R_eminder Mail" />
+
+    <fwi:UICommand x:Key="SendAllReviewsReminderMailCommand"
+                   Description="Send a reminder email for authors to complete their active code reviews"
+                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
+                   SymbolIcon="MailReplyAll"
+                   Text="Send Reminder Mail" />
+
+    <fwi:UICommand x:Key="PingReviewersCommand"
+                   Description="Ping reviewers to remind them"
+                   Icon="/Resources/Icons/Other/17_16_N.16x16x32_modified.png"
+                   Text="_Ping" />
+
+    <fwi:UICommand x:Key="CompleteReviewsCommand"
+                   Description="Mark your CodeFlow reviews as completed"
+                   Icon="/Resources/Icons/Office15/CheckmarkCompleted.16x16x32.png"
+                   Text="_Complete" />
+
+    <!--  Screen Recording Tray Commands  -->
+
+    <fwi:UICommand x:Key="StopRecordingTrayCommand"
+                   Description="Stop recording"
+                   Icon="/Resources/Icons/Office15/Stop.16x16x32.png"
+                   Text="Stop">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>F8</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+    <fwi:UICommand x:Key="CancelRecordingTrayCommand"
+                   Description="Cancel and discard the recording"
+                   Text="Cancel">
+        <fwi:UICommand.InputGestures>
+            <KeyGesture>F9</KeyGesture>
+        </fwi:UICommand.InputGestures>
+    </fwi:UICommand>
+
+</ResourceDictionary>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://codeflow/Services/ReviewService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfCodeReviewSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeReviewSummary" nillable="true" type="tns:CodeReviewSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeReviewSummary" nillable="true" type="tns:ArrayOfCodeReviewSummary" />
+  <xs:complexType name="CodeReviewSummary">
+    <xs:sequence>
+      <xs:element name="AuthorLogin" nillable="true" type="xs:string" />
+      <xs:element name="Key" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="ProjectShortName" nillable="true" type="xs:string" />
+      <xs:element name="Revision" type="xs:int" />
+      <xs:element name="Status" type="tns:CodeReviewStatus" />
+      <xs:element minOccurs="0" name="Author" nillable="true" type="tns:Author" />
+      <xs:element minOccurs="0" name="CompletedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IterationCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Reviewers" nillable="true" type="tns:ArrayOfReviewer" />
+      <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeReviewSummary" nillable="true" type="tns:CodeReviewSummary" />
+  <xs:simpleType name="CodeReviewStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Aborted" />
+      <xs:enumeration value="Expired" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodeReviewStatus" nillable="true" type="tns:CodeReviewStatus" />
+  <xs:complexType name="Author">
+    <xs:sequence>
+      <xs:element name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Status" type="tns:AuthorStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Author" nillable="true" type="tns:Author" />
+  <xs:simpleType name="AuthorStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Preparing" />
+      <xs:enumeration value="Waiting" />
+      <xs:enumeration value="Working" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorStatus" nillable="true" type="tns:AuthorStatus" />
+  <xs:complexType name="ArrayOfReviewer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reviewer" nillable="true" type="tns:Reviewer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReviewer" nillable="true" type="tns:ArrayOfReviewer" />
+  <xs:complexType name="Reviewer">
+    <xs:sequence>
+      <xs:element name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Required" type="xs:boolean" />
+      <xs:element name="Status" type="tns:ReviewerStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reviewer" nillable="true" type="tns:Reviewer" />
+  <xs:simpleType name="ReviewerStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotStarted" />
+      <xs:enumeration value="Started" />
+      <xs:enumeration value="Reviewing" />
+      <xs:enumeration value="Waiting" />
+      <xs:enumeration value="SignedOff" />
+      <xs:enumeration value="InviteOnly" />
+      <xs:enumeration value="Declined" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReviewerStatus" nillable="true" type="tns:ReviewerStatus" />
+  <xs:complexType name="ArrayOfWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkItem" nillable="true" type="tns:WorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkItem" nillable="true" type="tns:ArrayOfWorkItem" />
+  <xs:complexType name="WorkItem">
+    <xs:sequence>
+      <xs:element name="id" nillable="true" type="xs:string" />
+      <xs:element name="title" nillable="true" type="xs:string" />
+      <xs:element name="type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uri" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkItem" nillable="true" type="tns:WorkItem" />
+  <xs:complexType name="ServiceFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceFault" nillable="true" type="tns:ServiceFault" />
+  <xs:complexType name="CodeReview">
+    <xs:sequence>
+      <xs:element name="Author" nillable="true" type="tns:Author" />
+      <xs:element name="Key" nillable="true" type="xs:string" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="ProjectShortName" nillable="true" type="xs:string" />
+      <xs:element name="Status" type="tns:CodeReviewStatus" />
+      <xs:element name="Version" nillable="true" type="tns:CodeFlowVersion" />
+      <xs:element name="codePackages" nillable="true" type="tns:ArrayOfCodePackage" />
+      <xs:element minOccurs="0" name="relatedWorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+      <xs:element name="reviewers" nillable="true" type="tns:ArrayOfReviewer" />
+      <xs:element name="threads" nillable="true" type="tns:ArrayOfCommentThread" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomData" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="AuditLog" nillable="true" type="tns:AuditLog" />
+      <xs:element minOccurs="0" name="CompletionMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeReview" nillable="true" type="tns:CodeReview" />
+  <xs:complexType name="CodeFlowVersion">
+    <xs:sequence>
+      <xs:element name="CompletedOn" type="xs:dateTime" />
+      <xs:element name="CreatedOn" type="xs:dateTime" />
+      <xs:element name="LastAccessedOn" type="xs:dateTime" />
+      <xs:element name="LastModifiedOn" type="xs:dateTime" />
+      <xs:element name="Revision" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeFlowVersion" nillable="true" type="tns:CodeFlowVersion" />
+  <xs:complexType name="ArrayOfCodePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodePackage" nillable="true" type="tns:CodePackage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodePackage" nillable="true" type="tns:ArrayOfCodePackage" />
+  <xs:complexType name="CodePackage">
+    <xs:sequence>
+      <xs:element name="Author" nillable="true" type="xs:string" />
+      <xs:element name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Format" type="tns:CodePackageFormat" />
+      <xs:element name="Location" nillable="true" type="xs:anyURI" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Revision" type="xs:int" />
+      <xs:element name="Status" type="tns:CodePackageStatus" />
+      <xs:element name="SubmittedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileChanges" nillable="true" type="tns:ArrayOfFileChange" />
+      <xs:element minOccurs="0" name="SourceInfo" nillable="true" type="tns:CodePackageSourceInfo" />
+      <xs:element minOccurs="0" name="UserAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IterationComment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodePackage" nillable="true" type="tns:CodePackage" />
+  <xs:simpleType name="CodePackageFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TeamFoundationServerShelveSet" />
+      <xs:enumeration value="SourceDepotPack" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodePackageFormat" nillable="true" type="tns:CodePackageFormat" />
+  <xs:simpleType name="CodePackageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Submitted" />
+      <xs:enumeration value="Revoked" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodePackageStatus" nillable="true" type="tns:CodePackageStatus" />
+  <xs:complexType name="ArrayOfFileChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileChange" nillable="true" type="tns:FileChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileChange" nillable="true" type="tns:ArrayOfFileChange" />
+  <xs:complexType name="FileChange">
+    <xs:sequence>
+      <xs:element name="ChangeType" nillable="true" type="xs:string" />
+      <xs:element name="DepotFilePath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileChange" nillable="true" type="tns:FileChange" />
+  <xs:complexType name="CodePackageSourceInfo">
+    <xs:sequence>
+      <xs:element name="ClientName" nillable="true" type="xs:string" />
+      <xs:element name="ServerUri" nillable="true" type="xs:string" />
+      <xs:element name="SourceControlSystem" nillable="true" type="xs:string" />
+      <xs:element name="SourceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodePackageSourceInfo" nillable="true" type="tns:CodePackageSourceInfo" />
+  <xs:complexType name="ArrayOfCommentThread">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentThread" nillable="true" type="tns:CommentThread" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentThread" nillable="true" type="tns:ArrayOfCommentThread" />
+  <xs:complexType name="CommentThread">
+    <xs:sequence>
+      <xs:element name="Context" nillable="true" type="tns:DiffContext" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="LastRevision" type="xs:int" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Level" type="tns:CommentScope" />
+      <xs:element name="ParentThreadId" type="xs:int" />
+      <xs:element name="Root" nillable="true" type="tns:Comment" />
+      <xs:element name="Status" type="tns:CommentThreadStatus" />
+      <xs:element name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Withdrawn" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentThread" nillable="true" type="tns:CommentThread" />
+  <xs:complexType name="DiffContext">
+    <xs:sequence>
+      <xs:element name="CorrelationData" nillable="true" type="xs:string" />
+      <xs:element name="LeftCodePackageName" nillable="true" type="xs:string" />
+      <xs:element name="Region" nillable="true" type="tns:FileRegion" />
+      <xs:element name="RightCodePackageName" nillable="true" type="xs:string" />
+      <xs:element name="View" type="tns:CommentViewContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiffContext" nillable="true" type="tns:DiffContext" />
+  <xs:complexType name="FileRegion">
+    <xs:sequence>
+      <xs:element name="EndCharPos" type="xs:int" />
+      <xs:element name="EndLine" type="xs:int" />
+      <xs:element name="FileName" nillable="true" type="xs:string" />
+      <xs:element name="StartCharPos" type="xs:int" />
+      <xs:element name="StartLine" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileRegion" nillable="true" type="tns:FileRegion" />
+  <xs:simpleType name="CommentViewContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Both" />
+      <xs:enumeration value="LeftOnly" />
+      <xs:enumeration value="RightOnly" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommentViewContext" nillable="true" type="tns:CommentViewContext" />
+  <xs:simpleType name="CommentScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Global" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommentScope" nillable="true" type="tns:CommentScope" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element name="CreatedOn" type="xs:dateTime" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="ParentId" type="xs:int" />
+      <xs:element name="Reviewer" nillable="true" type="xs:string" />
+      <xs:element name="Text" nillable="true" type="xs:string" />
+      <xs:element name="ThreadId" type="xs:int" />
+      <xs:element name="children" nillable="true" type="tns:ArrayOfComment" />
+      <xs:element minOccurs="0" name="Withdrawn" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+  <xs:complexType name="ArrayOfComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
+  <xs:simpleType name="CommentThreadStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="Resolved" />
+      <xs:enumeration value="WontFix" />
+      <xs:enumeration value="Closed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommentThreadStatus" nillable="true" type="tns:CommentThreadStatus" />
+  <xs:complexType name="AuditLog">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Events" nillable="true" type="q2:ArrayOfstring">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuditLog" nillable="true" type="tns:AuditLog" />
+  <xs:simpleType name="ReviewUpdateCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Full" />
+      <xs:enumeration value="CommentsOnly" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReviewUpdateCode" nillable="true" type="tns:ReviewUpdateCode" />
+</xs:schema>

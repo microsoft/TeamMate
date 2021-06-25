@@ -1,0 +1,24 @@
+﻿<!--
+***********************************************************************************************
+Microsoft.Internal.Tools.TeamMate.targets
+
+This file defines the custom variables and steps in the standard build process for TeamMate
+C# .NET projects.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <ApplicationVersion>2.1.21106.0</ApplicationVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)\BuildInfo.cs">
+      <InProject>False</InProject>
+    </Compile>
+  </ItemGroup>
+
+</Project>

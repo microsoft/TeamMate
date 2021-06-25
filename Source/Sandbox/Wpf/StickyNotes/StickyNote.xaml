@@ -1,0 +1,88 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.StickyNotes.StickyNote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        Title="StickyNote" Height="173" Width="180" WindowStyle="None" ResizeMode="NoResize" 
+        ShowInTaskbar="False" AllowsTransparency="True"
+        FocusManager.FocusedElement="{Binding ElementName=textBox}"
+        MinHeight="173" MinWidth="180" Background="Transparent"
+        >
+    <Window.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Opacity" Value="0.7"/>
+        </Style>
+
+        <SolidColorBrush x:Key="YellowHeader">#F8F7B6</SolidColorBrush>
+        <LinearGradientBrush  x:Key="YellowBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FEFECC" Offset="0"/>
+            <GradientStop Color="#FCF9A1" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="GreenHeader">#C5F7C1</SolidColorBrush>
+        <LinearGradientBrush  x:Key="GreenBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#D2FFCC" Offset="0"/>
+            <GradientStop Color="#B1E8AE" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="BlueHeader">#C9ECF8</SolidColorBrush>
+        <LinearGradientBrush  x:Key="BlueBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#D9F3FB" Offset="0"/>
+            <GradientStop Color="#B8DBF4" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="PinkHeader">#F1C3F1</SolidColorBrush>
+        <LinearGradientBrush  x:Key="PinkBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#F6D3F6" Offset="0"/>
+            <GradientStop Color="#EBAEEB" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="PurpleHeader">#D4CDF3</SolidColorBrush>
+        <LinearGradientBrush  x:Key="PurpleBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#DEDAFE" Offset="0"/>
+            <GradientStop Color="#C6B8FE" Offset="1"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="WhiteHeader">#F5F5F5</SolidColorBrush>
+        <LinearGradientBrush  x:Key="WhiteBody" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0"/>
+            <GradientStop Color="#EBEBEB" Offset="1"/>
+        </LinearGradientBrush>
+
+    </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu Name="contextMenu">
+            <MenuItem Header="Blue"/>
+            <MenuItem Header="Green"/>
+            <MenuItem Header="Pink"/>
+            <MenuItem Header="Purple"/>
+            <MenuItem Header="White"/>
+            <MenuItem Header="Yellow"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    
+    <!--
+    <Window.BorderBrush>#D8D8D8</Window.BorderBrush>
+    <Window.BorderThickness>1</Window.BorderThickness>
+    -->
+    
+    <Grid Margin="2,2,2,6">
+        <Grid.BitmapEffect>
+            <BitmapEffectGroup>
+                <DropShadowBitmapEffect Color="Black" ShadowDepth="3" Opacity="0.5" Direction="270" Softness="1"/>
+                <OuterGlowBitmapEffect GlowColor="Black" GlowSize="2"/>
+            </BitmapEffectGroup>
+        </Grid.BitmapEffect>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Name="header" Background="{StaticResource WhiteHeader}" />
+        <Grid Grid.Row="1" Name="body" Background="{StaticResource WhiteBody}">
+            <TextBox Name="textBox" 
+                     Background="Transparent" Margin="5" AcceptsReturn="True" TextWrapping="Wrap" 
+                     FontFamily="Segoe Print" FontSize="16"
+                     BorderThickness="0" VerticalScrollBarVisibility="Auto" />
+        </Grid>
+    </Grid>
+</Window>

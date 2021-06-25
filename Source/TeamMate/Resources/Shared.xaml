@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources">
+
+    <!--  Unfortunately we need a regular flavor and a RadContextMenu flavor of the same menu, keep these in sync  -->
+    <ContextMenu x:Key="FeedbackMenu">
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendASmile}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendAFrown}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.VoteOnFeatures}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.SuggestFeature}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.ReportBug}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.BecomeAContributor}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.YammerUs}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.ContactUs}" Style="{DynamicResource CommandMenuItemStyle}" />
+    </ContextMenu>
+
+    <ContextMenu x:Key="WorkItemContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"
+                  Header="Copy Hyperlink"
+                  Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyId}"
+                  Header="Copy ID"
+                  Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyTitle}"
+                  Header="Copy Title"
+                  Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.FindInOutlook}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.ReplyWithEmail}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.Flag}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsRead}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsUnread}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.EditTags}" Style="{DynamicResource CommandMenuItemStyle}" />
+    </ContextMenu>
+
+    <ContextMenu x:Key="CodeFlowReviewContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInCodeFlow}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInVisualStudio}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInWeb}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"
+                  Header="Copy Hyperlink"
+                  Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendReviewReminderMail}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.PingReviewers}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CompleteReviews}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <Separator />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsRead}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsUnread}" Style="{DynamicResource CommandMenuItemStyle}" />
+    </ContextMenu>
+
+    <Style x:Key="TileBorderStyle" TargetType="Border">
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Duration="0:0:0.025"
+                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                         To="0.97" />
+                        <DoubleAnimation Duration="0:0:0.025"
+                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                         To="0.97" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeftButtonUp">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Duration="0:0:0.025" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" />
+                        <DoubleAnimation Duration="0:0:0.025" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Duration="0:0:0.025" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" />
+                        <DoubleAnimation Duration="0:0:0.025" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="#D8D8D9" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

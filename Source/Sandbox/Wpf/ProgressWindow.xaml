@@ -1,0 +1,8 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.ProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProgressWindow" Height="300" Width="300">
+    <Grid>
+        <Button Name="button" HorizontalAlignment="Center" VerticalAlignment="Center">Run</Button>
+    </Grid>
+</Window>

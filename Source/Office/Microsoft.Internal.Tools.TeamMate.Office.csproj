@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Office</RootNamespace>
+    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Office</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OfficeUtilities.cs" />
+    <Compile Include="Outlook\Appointment.cs" />
+    <Compile Include="Outlook\MailMessage.cs" />
+    <Compile Include="Outlook\OutlookException.cs" />
+    <Compile Include="Outlook\OutlookService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Outlook">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>$(OfficeExternalPath)\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+      <Project>{1967369e-0368-4888-b743-b16abae28b1f}</Project>
+      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+</Project>

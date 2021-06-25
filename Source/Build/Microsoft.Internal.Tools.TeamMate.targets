@@ -1,0 +1,33 @@
+<!--
+***********************************************************************************************
+Microsoft.Internal.Tools.TeamMate.targets
+
+This file defines the custom variables and steps in the standard build process for TeamMate
+C# .NET projects.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <BaseBinOutputPath>bin\</BaseBinOutputPath>
+    <BasePublishOutputPath>publish\</BasePublishOutputPath>
+
+    <OutputPath>$(BaseBinOutputPath)$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(ClickOncePublish)' == 'True'">
+    <PublishUrl>$(BasePublishOutputPath)$(Configuration)\</PublishUrl>
+
+    <!-- KLUDGE: Required when doing msbuild /t:publish on the command-line -->
+    <PublishDir Condition="'$(BuildingInsideVisualStudio)' != 'true'">$(PublishUrl)</PublishDir>
+  </PropertyGroup>
+
+  <Import Project="Microsoft.Internal.Tools.TeamMate.Version.targets" />
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
+</Project>

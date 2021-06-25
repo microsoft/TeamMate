@@ -1,0 +1,42 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Windows.CodeFlowPingDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        MaxWidth="800"
+        FocusManager.FocusedElement="{Binding ElementName=inputTextBox}"
+        SizeToContent="WidthAndHeight"
+        Style="{StaticResource LyncDialogStyle}">
+    <AdornerDecorator>
+        <Grid>
+            <fwc:DialogPanel Margin="{StaticResource LyncDialogPanelMargin}">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource LyncDialogTitleStyle}">Ping Reviewers</TextBlock>
+                    <TextBlock>Send a notification to your reviewers</TextBlock>
+                    <TextBox Name="inputTextBox"
+                             MinWidth="500"
+                             MinHeight="250"
+                             Margin="0,12,0,12"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap">
+                        <fw:UI.HintText>An optional message to reviewers</fw:UI.HintText>
+                    </TextBox>
+                </StackPanel>
+                <fwc:DialogPanel.ButtonPanel>
+                    <fwc:ButtonPanel>
+                        <Button Name="okButton"
+                                IsDefault="True"
+                                Style="{StaticResource LyncButtonStyle}">
+                            Ping
+                        </Button>
+                        <Button Name="cancelButton"
+                                IsCancel="True"
+                                Style="{StaticResource LyncButtonStyle}">
+                            Cancel
+                        </Button>
+                    </fwc:ButtonPanel>
+                </fwc:DialogPanel.ButtonPanel>
+            </fwc:DialogPanel>
+        </Grid>
+    </AdornerDecorator>
+</Window>

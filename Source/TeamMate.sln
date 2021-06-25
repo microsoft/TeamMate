@@ -1,0 +1,106 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sandbox", "Sandbox", "{FE241A31-0408-4BFA-B71C-FCB5F50BFCB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{04FA9F2B-E302-475F-B060-79D22E9C2D15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{1805B498-AF12-4969-9A49-1156BA155D69}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Build.bat = Build\Build.bat
+		Build\Build.ps1 = Build\Build.ps1
+		Build\BuildInfo.cs = Build\BuildInfo.cs
+		Build\InstallKey.bat = Build\InstallKey.bat
+		Build\Microsoft.Internal.Tools.TeamMate.Settings.targets = Build\Microsoft.Internal.Tools.TeamMate.Settings.targets
+		Build\Microsoft.Internal.Tools.TeamMate.targets = Build\Microsoft.Internal.Tools.TeamMate.targets
+		Build\Microsoft.Internal.Tools.TeamMate.Version.targets = Build\Microsoft.Internal.Tools.TeamMate.Version.targets
+		Build\TeamMate.pfx = Build\TeamMate.pfx
+		Build\UpdateClickOnce.ps1 = Build\UpdateClickOnce.ps1
+		Build\version.txt = Build\version.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamMate", "TeamMate\TeamMate.csproj", "{01FCF244-D4B2-43DD-BB77-9D4946868299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Sandbox\Console\Console.csproj", "{12278B25-468D-4825-9594-830F895C0938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf", "Sandbox\Wpf\Wpf.csproj", "{DC68AD31-2756-45EE-9F89-E8E6791803F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Foundation", "Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj", "{1967369E-0368-4888-B743-B16ABAE28B1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Platform", "Platform\Microsoft.Internal.Tools.TeamMate.Platform.csproj", "{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Office.AddIns", "OfficeAddIns\Microsoft.Internal.Tools.TeamMate.Office.AddIns.csproj", "{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Office", "Office\Microsoft.Internal.Tools.TeamMate.Office.csproj", "{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Client", "Client\Microsoft.Internal.Tools.TeamMate.Client.csproj", "{9AC62340-334D-489B-8C36-5EC5F4C56C8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.WindowsRuntime", "WindowsRuntime\Microsoft.Internal.Tools.TeamMate.WindowsRuntime.csproj", "{5BB3A276-4460-4C5F-B842-42E4618DD034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi", "TeamFoundation.WebApi\Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.csproj", "{888E7687-95F8-4049-94DF-9DD3398B5592}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01FCF244-D4B2-43DD-BB77-9D4946868299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01FCF244-D4B2-43DD-BB77-9D4946868299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01FCF244-D4B2-43DD-BB77-9D4946868299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01FCF244-D4B2-43DD-BB77-9D4946868299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12278B25-468D-4825-9594-830F895C0938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12278B25-468D-4825-9594-830F895C0938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12278B25-468D-4825-9594-830F895C0938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12278B25-468D-4825-9594-830F895C0938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC68AD31-2756-45EE-9F89-E8E6791803F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC68AD31-2756-45EE-9F89-E8E6791803F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC68AD31-2756-45EE-9F89-E8E6791803F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC68AD31-2756-45EE-9F89-E8E6791803F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1967369E-0368-4888-B743-B16ABAE28B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1967369E-0368-4888-B743-B16ABAE28B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1967369E-0368-4888-B743-B16ABAE28B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1967369E-0368-4888-B743-B16ABAE28B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC62340-334D-489B-8C36-5EC5F4C56C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC62340-334D-489B-8C36-5EC5F4C56C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC62340-334D-489B-8C36-5EC5F4C56C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC62340-334D-489B-8C36-5EC5F4C56C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB3A276-4460-4C5F-B842-42E4618DD034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB3A276-4460-4C5F-B842-42E4618DD034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB3A276-4460-4C5F-B842-42E4618DD034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB3A276-4460-4C5F-B842-42E4618DD034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{888E7687-95F8-4049-94DF-9DD3398B5592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{888E7687-95F8-4049-94DF-9DD3398B5592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{888E7687-95F8-4049-94DF-9DD3398B5592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{888E7687-95F8-4049-94DF-9DD3398B5592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{01FCF244-D4B2-43DD-BB77-9D4946868299} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{12278B25-468D-4825-9594-830F895C0938} = {FE241A31-0408-4BFA-B71C-FCB5F50BFCB3}
+		{DC68AD31-2756-45EE-9F89-E8E6791803F5} = {FE241A31-0408-4BFA-B71C-FCB5F50BFCB3}
+		{1967369E-0368-4888-B743-B16ABAE28B1F} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{9AC62340-334D-489B-8C36-5EC5F4C56C8E} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{5BB3A276-4460-4C5F-B842-42E4618DD034} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+		{888E7687-95F8-4049-94DF-9DD3398B5592} = {04FA9F2B-E302-475F-B060-79D22E9C2D15}
+	EndGlobalSection
+EndGlobal

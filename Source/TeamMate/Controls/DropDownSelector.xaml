@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Controls.DropDownSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="self"
+             d:DesignHeight="20"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="DropDownButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource AccentHighBrush}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="border" Background="Transparent">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource BaseMediumMidBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Foreground" Value="{DynamicResource BaseLowBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DropDownRadioButtonStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border x:Name="radioButtonBorder"
+                                HorizontalAlignment="Stretch"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="{DynamicResource ListHoverBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" Value="{DynamicResource ListPressBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Background" Value="{DynamicResource AccentHighBrush}" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Style="{DynamicResource BodyTextBlockStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Popup Name="listPopup"
+               MinWidth="300"
+               StaysOpen="False">
+            <ListBox Name="listBox" ItemsSource="{Binding ElementName=self, Path=ItemsSource}" Background="{DynamicResource ChromeLowBrush}" Margin="0" Padding="0">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Name="radioButton"
+                                     Height="40"
+                                     Content="{Binding Name}"
+                                     IsChecked="{Binding IsSelected}"
+                                     Style="{StaticResource DropDownRadioButtonStyle}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Popup>
+        <TextBlock Grid.Column="0"
+                   Margin="0,0,6,0"
+                   VerticalAlignment="Center"
+                   Text="{Binding ElementName=self,
+                                  Path=Label}" />
+        <Button Name="button"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Content="{Binding ElementName=self,
+                                  Path=SelectedItem.Name}"
+                Style="{StaticResource DropDownButtonStyle}" />
+    </Grid>
+</UserControl>

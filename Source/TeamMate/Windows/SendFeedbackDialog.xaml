@@ -1,0 +1,84 @@
+﻿<Window
+    x:Class="Microsoft.Internal.Tools.TeamMate.Windows.SendFeedbackDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+    xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Windows"
+    x:Name="self"
+    fw:UI.EscapeAction="Close"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    FocusManager.FocusedElement="{Binding ElementName=feedbackTextBox}"
+    SizeToContent="WidthAndHeight"
+    Style="{StaticResource LyncDialogStyle}">
+    <Grid Width="700" Margin="12,0,12,12">
+        <StackPanel>
+            <TextBlock Name="headerTextBlock" FontSize="16">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="We appreciate your feedback. What did you like?" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FeedbackType}" Value="Frown">
+                                <Setter Property="Text" Value="We appreciate your feedback. Is there something we can do better?" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBox
+                Name="feedbackTextBox"
+                Height="90"
+                Margin="0,24,0,0"
+                VerticalContentAlignment="Top"
+                AcceptsReturn="True"
+                MaxLength="2048"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                TextWrapping="Wrap" />
+            <CheckBox
+                Name="includeScreenshotCheckbox"
+                Margin="0,12,0,0"
+                IsChecked="True">
+                Include _screenshot
+            </CheckBox>
+            <Border
+                Height="175"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                BorderBrush="#777777"
+                BorderThickness="1">
+                <Image Name="screenshotImage" />
+            </Border>
+
+            <Grid Margin="0,18,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Name="includeEmailCheckbox" Grid.Column="0">Include _email address</CheckBox>
+                <TextBox
+                    Name="emailTextBox"
+                    Grid.Column="1"
+                    Margin="12,-2,0,2"
+                    fw:UI.HintText="Add email address"
+                    IsEnabled="{Binding ElementName=includeEmailCheckbox,
+                                        Path=IsChecked}" />
+            </Grid>
+            <Button
+                Name="sendButton"
+                Margin="0,24,0,0"
+                HorizontalAlignment="Center"
+                Padding="6,2,6,2">
+                <Button.Style>
+                    <Style BasedOn="{StaticResource LyncButtonStyle}" TargetType="Button">
+                        <Setter Property="Content" Value="Send _a smile" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FeedbackType}" Value="Frown">
+                                <Setter Property="Content" Value="Send _a frown" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap">Thank you for taking the time to send us feedback! We may not have the time to respond to each piece of feedback, but we will work hard to make sure it is reviewed.</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

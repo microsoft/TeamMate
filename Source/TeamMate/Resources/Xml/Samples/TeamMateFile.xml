@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TeamMate Version="1.0">
+  <Action Type="CreateWorkItem">
+    <WorkItem>
+      <Fields>
+        <Field Name="System.Description">
+          
+        </Field>
+        <Field Name="System.History">
+          
+        </Field>
+        <Field Name="System.Subject">
+          
+        </Field>
+      </Fields>
+      <Attachments>
+        <Attachment Path="c:\foo\bar.msg" DeleteOnSave="True"/>
+        <Attachment Path="c:\foo\bar.msg" DeleteOnSave="True"/>
+      </Attachments>
+    </WorkItem>
+  </Action>
+</TeamMate>

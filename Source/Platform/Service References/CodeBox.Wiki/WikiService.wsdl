@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://CodeBox/services/WikiService/v1.0" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://CodeBox/services/WikiService/v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://CodeBox/services/WikiService/v1.0">
+      <s:element name="GetPageTitles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageTitlesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageTitlesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestPageContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageTitle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestPageContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestPageContentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageTitle" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageVersion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPageContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPageContentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewPageVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentPageTitle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewPageVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewPageVersionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewPage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parentPageTitle" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewPageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewPageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPageTitlesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPageTitles" />
+  </wsdl:message>
+  <wsdl:message name="GetPageTitlesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageTitlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestPageContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestPageContent" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestPageContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestPageContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPageContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPageContent" />
+  </wsdl:message>
+  <wsdl:message name="GetPageContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPageContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewPageVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewPageVersion" />
+  </wsdl:message>
+  <wsdl:message name="AddNewPageVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewPageVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewPageSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewPage" />
+  </wsdl:message>
+  <wsdl:message name="AddNewPageSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WikiServiceSoap">
+    <wsdl:operation name="GetPageTitles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the titles of all the Wiki Pages for a particular CodeBox or ToolBox project. This method is available to anyone who is assigned 
+            to any role for the project.</wsdl:documentation>
+      <wsdl:input message="tns:GetPageTitlesSoapIn" />
+      <wsdl:output message="tns:GetPageTitlesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPageContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the latest version of the content and related metadata for a particular wiki page, based on a specific title and project name. 
+            This method is available to anyone who is assigned to any role for the project.</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestPageContentSoapIn" />
+      <wsdl:output message="tns:GetLatestPageContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPageContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a specified version of the content and related metadata for a particular wiki page, based on a specific title and project name. 
+            This method is available to anyone who is assigned to any role for the project.</wsdl:documentation>
+      <wsdl:input message="tns:GetPageContentSoapIn" />
+      <wsdl:output message="tns:GetPageContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPageVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new version for an existing wiki page with the specified title and pagesource for a particular project. The related metadata will 
+            be updated (e.g. author, date stamp, etc.) automatically. If the parent page title is also provided for the new version of the page, it will 
+            be used to create the relationship between the page and the parent page. (The relationship will remain the same if the relationship already 
+            existed for the previous version of the page.) However, this does not add a link to the new page in the parent page. If the parent page title 
+            is not provided for the new version of the page, it will clear any existing relationship that may have existed for the previous version of the page. 
+            The method also gets the newly added version of the page. This method is available to anyone who is assigned to the Contributor or Coordinator role for the project.</wsdl:documentation>
+      <wsdl:input message="tns:AddNewPageVersionSoapIn" />
+      <wsdl:output message="tns:AddNewPageVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a new wiki page with the specified title and pagesource for a particular project. The related metadata (e.g. author, date stamp, etc.) 
+            will be generated automatically. If the parent page title is also provided, it will be used to establish the relationship between the new page
+            and the parent page. However, this does not add a link to the new page in the parent page. The method also gets the newly added page. This method 
+            is available to anyone who is assigned to the Contributor or Coordinator role for the project.</wsdl:documentation>
+      <wsdl:input message="tns:AddNewPageSoapIn" />
+      <wsdl:output message="tns:AddNewPageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true as a simple verfication that your client can do 
+        the following: connect, negotiate authentication protocols, able to use windows 
+        integrated authentication, and be authorized by the current NTFS permissions on the site.
+        Make sure that your .NET based clients set the Credentials property on the service 
+        wrapper to System.Net.CredentialCache.DefaultNetworkCredentials otherwise you will 
+        get 401.2 errors.</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WikiServiceSoap" type="tns:WikiServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPageTitles">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetPageTitles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPageContent">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetLatestPageContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageContent">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetPageContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPageVersion">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/AddNewPageVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPage">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/AddNewPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://CodeBox/services/WikiService/v1.0/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WikiServiceSoap12" type="tns:WikiServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPageTitles">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetPageTitles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPageContent">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetLatestPageContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPageContent">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/GetPageContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPageVersion">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/AddNewPageVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewPage">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/AddNewPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://CodeBox/services/WikiService/v1.0/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WikiService">
+    <wsdl:port name="WikiServiceSoap" binding="tns:WikiServiceSoap">
+      <soap:address location="http://codebox/Services/WikiService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WikiServiceSoap12" binding="tns:WikiServiceSoap12">
+      <soap12:address location="http://codebox/Services/WikiService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

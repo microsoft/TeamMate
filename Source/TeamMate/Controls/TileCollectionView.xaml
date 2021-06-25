@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Controls.TileCollectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:fwdd="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+             d:DesignHeight="800"
+             d:DesignWidth="716"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate x:Key="WorkItemQueryTileTemplate">
+            <Border Style="{StaticResource TileBorderStyle}">
+                <local:TileView>
+                    <local:TileView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="{x:Static tmr:TeamMateCommands.RemoveTile}"
+                                      CommandParameter="{Binding}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Header="_Remove" />
+                            <Separator />
+                            <MenuItem Header="Show _Notifications"
+                                      IsCheckable="True"
+                                      IsChecked="{Binding ShowNotifications}" />
+                            <MenuItem Header="_Include In Global Work Item Count"
+                                      IsCheckable="True"
+                                      IsChecked="{Binding IncludeInItemCountSummary}" />
+                            <Separator />
+                            <MenuItem Header="Select _Background Color"
+                                      Command="{x:Static tmr:TeamMateCommands.SelectTileBackgroundColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      CommandParameter="{Binding}" />
+                            <MenuItem Header="Reset Background _Color"
+                                      Command="{x:Static tmr:TeamMateCommands.ResetTileBackgroundColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Visibility="{Binding IsDefaultBackgroundColor, Converter={x:Static fw:Converters.InverseVisibility}}"
+                                      CommandParameter="{Binding}" />                            
+                        </ContextMenu>
+                    </local:TileView.ContextMenu>
+                </local:TileView>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="CodeFlowQueryTileTemplate">
+            <Border Style="{StaticResource TileBorderStyle}">
+                <local:TileView>
+                    <local:TileView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="{x:Static tmr:TeamMateCommands.RemoveTile}"
+                                      CommandParameter="{Binding}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Header="_Remove" />
+                            <Separator />
+                            <MenuItem Command="{x:Static tmr:TeamMateCommands.ModifyTile}"
+                                      CommandParameter="{Binding}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Header="_Modify" />
+                            <Separator />
+                            <MenuItem Header="Show _Notifications"
+                                      IsCheckable="True"
+                                      IsChecked="{Binding ShowNotifications}" />
+                            <Separator />
+                            <MenuItem Header="Select _Background Color"
+                                      Command="{x:Static tmr:TeamMateCommands.SelectTileBackgroundColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      CommandParameter="{Binding}" />
+                            <MenuItem Header="Reset Background _Color"
+                                      Command="{x:Static tmr:TeamMateCommands.ResetTileBackgroundColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Visibility="{Binding IsDefaultBackgroundColor, Converter={x:Static fw:Converters.InverseVisibility}}"
+                                      CommandParameter="{Binding}" />                            
+                        </ContextMenu>
+                    </local:TileView.ContextMenu>
+                </local:TileView>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="0,0,0,12"
+                   Style="{StaticResource SubheaderTextBlockStyle}"
+                   Text="{Binding TileGroupName}" />
+        <ListBox Name="tileListBox"
+                 Grid.Row="1"
+                 ItemTemplateSelector="{x:Static local:TileCollectionView.TileTemplateSelector}"
+                 ItemsSource="{Binding Tiles}"
+                 Style="{StaticResource TileListBoxStyle}"
+                 fwdd:ItemsControlDragDropService.IsDragSource="True"
+                 fwdd:ItemsControlDragDropService.IsDropTarget="True">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</UserControl>

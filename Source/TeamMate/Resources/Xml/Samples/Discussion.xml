@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Discussion>
+  <Fields>
+    <Field ReferenceName="System.Repro" Name="Repro Steps">
+      A lot of repro stuff here...
+    </Field>
+  </Fields>
+  <Revision>
+    <ChangedDate>2012-02-08T15:19:24.24-08:00</ChangedDate>
+    <ChangedBy>Chandramouli Kompella</ChangedBy>
+    <TagLine>Created by Chandramouli Kompella</TagLine>
+    <History>Copied from &lt;a&gt;Bug 833360&lt;/a&gt;</History>
+  </Revision>
+  <Revision>
+    <ChangedDate>2012-02-08T18:15:26.843-08:00</ChangedDate>
+    <ChangedBy>Ben Amodio</ChangedBy>
+    <TagLine>Edited by Ben Amodio</TagLine>
+    <History>This is a known issue, we have a 1 or 2 duplicate bugs already, and Nathalie I think was following up with WPF about doing a better job on making negative images on high contrast.</History>
+  </Revision>
+  <Revision>
+    <ChangedDate>2012-02-09T14:11:18.67-08:00</ChangedDate>
+    <ChangedBy>Justin Marks</ChangedBy>
+    <TagLine>Edited (Active to Resolved) by Justin Marks</TagLine>
+    <History>TRIAGE: Nathalie, please follow up with WPF and put the resolution into this bug.&amp;nbsp; If we're able to get a negative image through a WPF API, we can bring this back to triage and get on a dev's plate.</History>
+  </Revision>
+  <Revision>
+    <ChangedDate>2012-02-13T14:38:01.35-08:00</ChangedDate>
+    <ChangedBy>Nathalie Wilson</ChangedBy>
+    <TagLine>Edited (Resolved to Active) by Nathalie Wilson</TagLine>
+    <History>&lt;p&gt;Sending back to traige for discussion. Reached out to Dwayne, here's his response:&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font face=Calibri&gt;&lt;font size=3&gt;Generally you should provide special images for high-contrast, and then use a trigger based on HighContrastKey.&amp;nbsp; It’s a little round-about because you can’t use a DynamicResource in a trigger directly, but something like this:&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font size=3 face=Calibri&gt;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;lt;Style TargetType=&amp;quot;{x:Type Button}&amp;quot;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp; &amp;lt;Setter Property=&amp;quot;Tag&amp;quot; Value=&amp;quot;{DynamicResource {x:Static SystemParameters.HighContrastKey}}&amp;quot; /&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp; &amp;lt;Style.Triggers&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;Trigger&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Property=&amp;quot;Tag&amp;quot;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Value=&amp;quot;True&amp;quot;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;Setter Property=&amp;quot;Background&amp;quot; Value=&amp;quot;Red&amp;quot;/&amp;gt; &amp;lt;!-- set your image or whatever --&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;lt;/Trigger&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;nbsp; &amp;lt;/Style.Triggers&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt 0.5in" class=MsoNormal&gt;&lt;span style="font-family:Consolas;color:#1f497d"&gt;&lt;font size=3&gt;&amp;lt;/Style&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font size=3 face=Calibri&gt;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font size=3&gt;&lt;font face=Calibri&gt;You could write a pixel-shader to do a high-contrast version on-the-fly, but honestly it would be better to create the best image possible by hand.&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font size=3&gt;&lt;font face=Calibri&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p style="margin:0in 0in 0pt" class=MsoNormal&gt;&lt;span style="color:#1f497d"&gt;&lt;font size=3&gt;&lt;font face=Calibri&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&amp;nbsp;&lt;/p&gt;</History>
+  </Revision>
+  <Revision>
+    <ChangedDate>2012-02-14T10:00:03.27-08:00</ChangedDate>
+    <ChangedBy>Justin Marks</ChangedBy>
+    <TagLine>Edited by Justin Marks</TagLine>
+    <History>Based on the below, I think we should Won't Fix.&amp;nbsp; Making a &amp;quot;negative&amp;quot; image will look pretty bad visually and not really give the user a better experience.&amp;nbsp; The work around is to use High Contrast White.</History>
+  </Revision>
+  <Revision>
+    <ChangedDate>2012-02-14T12:00:05.12-08:00</ChangedDate>
+    <ChangedBy>Nathalie Wilson</ChangedBy>
+    <TagLine>Edited by Nathalie Wilson</TagLine>
+    <History>TRIAGE: Ben to do a little more investigation on the pixel shader solution.</History>
+  </Revision>
+</Discussion>

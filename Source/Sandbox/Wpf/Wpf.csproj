@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Force building to x86 at all times due to dependencies on x86 assemblies (TeamMate.exe, Expression) -->
+    <PlatformTarget>x86</PlatformTarget>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <PropertyGroup>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC68AD31-2756-45EE-9F89-E8E6791803F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf</RootNamespace>
+    <AssemblyName>Wpf</AssemblyName>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ExpressionBlendVersion>5.0.31017.0</ExpressionBlendVersion>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.13.9.1126, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.9\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.Platform, Version=3.13.9.1126, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.9\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Controls">
+      <HintPath>..\..\External\Lync\Microsoft.Lync.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Controls.Framework">
+      <HintPath>..\..\External\Lync\Microsoft.Lync.Controls.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Model">
+      <HintPath>..\..\External\Lync\Microsoft.Lync.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Lync.Utilities">
+      <HintPath>..\..\External\Lync\Microsoft.Lync.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Uc">
+      <HintPath>..\..\External\Lync\Microsoft.Office.Uc.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAzure.ServiceBus.4.0.0\lib\net45-full\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build2.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Build2.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Chat.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Chat.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.VisualStudio.Services.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Core.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Core.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Dashboards.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Dashboards.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DistributedTask.Common.Contracts, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundation.DistributedTask.Common.15.112.1\lib\net45\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Policy.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Policy.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.SourceControl.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.SourceControl.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Test.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Test.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.TestManagement.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Work.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.Work.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.TeamFoundationServer.Client.15.112.1\lib\net45\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Client.Interactive, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.VisualStudio.Services.InteractiveClient.15.112.1\lib\net45\Microsoft.VisualStudio.Services.Client.Interactive.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.VisualStudio.Services.Client.15.112.1\lib\net45\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.WebApi, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.VisualStudio.Services.Client.15.112.1\lib\net45\Microsoft.VisualStudio.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AnimationWindow.xaml.cs">
+      <DependentUpon>AnimationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Board\BoardView.xaml.cs">
+      <DependentUpon>BoardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Board\BoardViewModel.cs" />
+    <Compile Include="BoardViewTestWindow.xaml.cs">
+      <DependentUpon>BoardViewTestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataViews\ListViewWindow.xaml.cs">
+      <DependentUpon>ListViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DesignWindow.xaml.cs">
+      <DependentUpon>DesignWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DropTestWindow.xaml.cs">
+      <DependentUpon>DropTestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyGestureInputControl.xaml.cs">
+      <DependentUpon>KeyGestureInputControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MetroTile4.xaml.cs">
+      <DependentUpon>MetroTile4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MetroTile.xaml.cs">
+      <DependentUpon>MetroTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyTransitionWindow.xaml.cs">
+      <DependentUpon>MyTransitionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationToast.xaml.cs">
+      <DependentUpon>NotificationToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\PreviewWindow.xaml.cs">
+      <DependentUpon>PreviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileImageView.xaml.cs">
+      <DependentUpon>ProfileImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StickyNotes\StickyNote.xaml.cs">
+      <DependentUpon>StickyNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SandboxSampleData.cs" />
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tile.xaml.cs">
+      <DependentUpon>Tile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TileDataModel.cs" />
+    <Compile Include="TileModel.cs" />
+    <Compile Include="Tiles\TileCollection.cs" />
+    <Compile Include="Tiles\TileCollectionView.cs" />
+    <Compile Include="Tiles\TileGroup.cs" />
+    <Compile Include="Tiles\Tile.cs" />
+    <Compile Include="Tiles\TileView.cs" />
+    <Compile Include="Tiles\TileWindow.xaml.cs">
+      <DependentUpon>TileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TileWindow.xaml.cs">
+      <DependentUpon>TileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationViewModel.cs" />
+    <Compile Include="ValidationWindow.xaml.cs">
+      <DependentUpon>ValidationWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="app.config" />
+    <AppDesigner Include="Properties\" />
+    <None Include="packages.config" />
+    <Resource Include="Resources\Fonts\Segoe Z Bold.TTC">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Segoe Z Light.TTC">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Segoe Z Semi Bold.TTC">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Segoe Z.TTC">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+      <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
+      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Office\Microsoft.Internal.Tools.TeamMate.Office.csproj">
+      <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
+      <Name>Microsoft.Internal.Tools.TeamMate.Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Platform\Microsoft.Internal.Tools.TeamMate.Platform.csproj">
+      <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
+      <Name>Microsoft.Internal.Tools.TeamMate.Platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TeamFoundation.WebApi\Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.csproj">
+      <Project>{888E7687-95F8-4049-94DF-9DD3398B5592}</Project>
+      <Name>Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TeamMate\TeamMate.csproj">
+      <Project>{01FCF244-D4B2-43DD-BB77-9D4946868299}</Project>
+      <Name>TeamMate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AnimationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Board\BoardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BoardViewTestWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataViews\ListViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DesignWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DropTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeyGestureInputControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MetroTile4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MetroTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyTransitionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotificationToast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preview\PreviewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfileImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\Sandbox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StickyNotes\StickyNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tiles\TileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValidationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\AddTableHH.png" />
+    <Resource Include="Resources\Icons\AddTableHS.png" />
+    <Resource Include="Resources\Icons\FindHH.png" />
+    <Resource Include="Resources\Icons\FindHS.png" />
+    <Resource Include="Resources\Icons\JotCreateHyperlinkHH.png" />
+    <Resource Include="Resources\Icons\JotCreateHyperlinkHS.png" />
+    <Resource Include="Resources\Icons\LinkTasksHH.png" />
+    <Resource Include="Resources\Icons\LinkTasksHS.png" />
+    <Resource Include="Resources\Icons\NewCalendarHH.png" />
+    <Resource Include="Resources\Icons\NewCalendarHS.png" />
+    <Resource Include="Resources\Icons\OLGotoSearchFolderHS.png" />
+    <Resource Include="Resources\Icons\OutlookHH.png" />
+    <Resource Include="Resources\Icons\OutlookHS.png" />
+    <Resource Include="Resources\Icons\OutlookSearchMagnifyingGlassHS.png" />
+    <Resource Include="Resources\Icons\RefreshRevisionPaneSummaryHS.png" />
+    <Resource Include="Resources\Icons\SourceSafeAddObjectsHH.png" />
+    <Resource Include="Resources\Icons\SourceSafeAddObjectsHS.png" />
+    <Resource Include="Resources\Icons\WebInsertHyperlinkHH.png" />
+    <Resource Include="Resources\Icons\WebInsertHyperlinkHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\AddLink_16.png" />
+    <Resource Include="Resources\Icons\AddLink_32.png" />
+    <Resource Include="Resources\Icons\ApplicationGreen_32.png" />
+    <Resource Include="Resources\Icons\ApplicationRed_32.png" />
+    <Resource Include="Resources\Icons\ApplicationYellow_32.png" />
+    <Resource Include="Resources\Icons\Attachment_16.png" />
+    <Resource Include="Resources\Icons\Attachment_32.png" />
+    <Resource Include="Resources\Icons\Builds_16.png" />
+    <Resource Include="Resources\Icons\Builds_24.png" />
+    <Resource Include="Resources\Icons\Builds_32.png" />
+    <Resource Include="Resources\Icons\Cancel_16.png" />
+    <Resource Include="Resources\Icons\ChangesetFiles_16.png" />
+    <Resource Include="Resources\Icons\Changeset_16.png" />
+    <Resource Include="Resources\Icons\Changeset_24.png" />
+    <Resource Include="Resources\Icons\Changeset_32.png" />
+    <Resource Include="Resources\Icons\Close_16.png" />
+    <Resource Include="Resources\Icons\Close_32.png" />
+    <Resource Include="Resources\Icons\CopyId_16.png" />
+    <Resource Include="Resources\Icons\CopyId_32.png" />
+    <Resource Include="Resources\Icons\Copy_16.png" />
+    <Resource Include="Resources\Icons\Copy_32.png" />
+    <Resource Include="Resources\Icons\Dashboards_16.png" />
+    <Resource Include="Resources\Icons\Dashboards_24.png" />
+    <Resource Include="Resources\Icons\Dashboards_32.png" />
+    <Resource Include="Resources\Icons\Delete_16.png" />
+    <Resource Include="Resources\Icons\Delete_32.png" />
+    <Resource Include="Resources\Icons\Exit_16.png" />
+    <Resource Include="Resources\Icons\FieldChooser_16.png" />
+    <Resource Include="Resources\Icons\FileQuery_16.png" />
+    <Resource Include="Resources\Icons\Flag_16.png" />
+    <Resource Include="Resources\Icons\Flag_32.png" />
+    <Resource Include="Resources\Icons\FlatQuery_16.png" />
+    <Resource Include="Resources\Icons\FolderClosed_16.png" />
+    <Resource Include="Resources\Icons\FolderOpen_16.png" />
+    <Resource Include="Resources\Icons\ForwardMail_16.png" />
+    <Resource Include="Resources\Icons\ForwardMail_32.png" />
+    <Resource Include="Resources\Icons\FreezeColumns_16.png" />
+    <Resource Include="Resources\Icons\GreenSquare_16.png" />
+    <Resource Include="Resources\Icons\GroupByField_16.png" />
+    <Resource Include="Resources\Icons\Grouping_16.png" />
+    <Resource Include="Resources\Icons\HappyFace_16.png" />
+    <Resource Include="Resources\Icons\LinkQuery_16.png" />
+    <Resource Include="Resources\Icons\MessageError_32.png" />
+    <Resource Include="Resources\Icons\MyQueries_16.png" />
+    <Resource Include="Resources\Icons\NewTeamFoundationServer_32.png" />
+    <Resource Include="Resources\Icons\NewWorkItem_16.png" />
+    <Resource Include="Resources\Icons\NewWorkItem_32.png" />
+    <Resource Include="Resources\Icons\Next_16.png" />
+    <Resource Include="Resources\Icons\Next_32.png" />
+    <Resource Include="Resources\Icons\Options_16.png" />
+    <Resource Include="Resources\Icons\Options_32.png" />
+    <Resource Include="Resources\Icons\Paste_16.png" />
+    <Resource Include="Resources\Icons\Paste_32.png" />
+    <Resource Include="Resources\Icons\PlaceHolder_16.png" />
+    <Resource Include="Resources\Icons\PlaceHolder_32.png" />
+    <Resource Include="Resources\Icons\Previous_16.png" />
+    <Resource Include="Resources\Icons\Previous_32.png" />
+    <Resource Include="Resources\Icons\Properties_16.png" />
+    <Resource Include="Resources\Icons\Properties_32.png" />
+    <Resource Include="Resources\Icons\RecordVideo_16.png" />
+    <Resource Include="Resources\Icons\RecordVideo_32.png" />
+    <Resource Include="Resources\Icons\RedSquare_16.png" />
+    <Resource Include="Resources\Icons\RefreshAll_16.png" />
+    <Resource Include="Resources\Icons\RefreshAll_32.png" />
+    <Resource Include="Resources\Icons\Refresh_16.png" />
+    <Resource Include="Resources\Icons\Refresh_32.png" />
+    <Resource Include="Resources\Icons\Report_16.png" />
+    <Resource Include="Resources\Icons\Report_24.png" />
+    <Resource Include="Resources\Icons\Report_32.png" />
+    <Resource Include="Resources\Icons\Revert_16.png" />
+    <Resource Include="Resources\Icons\Revert_32.png" />
+    <Resource Include="Resources\Icons\SaveAndClose_16.png" />
+    <Resource Include="Resources\Icons\SaveAndClose_32.png" />
+    <Resource Include="Resources\Icons\SaveAndNew_16.png" />
+    <Resource Include="Resources\Icons\SaveAndNew_32.png" />
+    <Resource Include="Resources\Icons\SaveAs_16.png" />
+    <Resource Include="Resources\Icons\SaveAs_32.png" />
+    <Resource Include="Resources\Icons\Save_16.png" />
+    <Resource Include="Resources\Icons\Save_32.png" />
+    <Resource Include="Resources\Icons\ScreenCapture_16.png" />
+    <Resource Include="Resources\Icons\ScreenCapture_32.png" />
+    <Resource Include="Resources\Icons\Search_16.png" />
+    <Resource Include="Resources\Icons\SharePointDocuments_16.png" />
+    <Resource Include="Resources\Icons\SharePointFolder_16.png" />
+    <Resource Include="Resources\Icons\SharePointFolder_24.png" />
+    <Resource Include="Resources\Icons\SharePointFolder_32.png" />
+    <Resource Include="Resources\Icons\ShelvesetFiles_16.png" />
+    <Resource Include="Resources\Icons\Shelveset_16.png" />
+    <Resource Include="Resources\Icons\Shelveset_24.png" />
+    <Resource Include="Resources\Icons\SortDown_16.png" />
+    <Resource Include="Resources\Icons\SortUp_16.png" />
+    <Resource Include="Resources\Icons\SourceFiles_32.png" />
+    <Resource Include="Resources\Icons\StopSearch_16.png" />
+    <Resource Include="Resources\Icons\Task_16.png" />
+    <Resource Include="Resources\Icons\Task_24.png" />
+    <Resource Include="Resources\Icons\Task_32.png" />
+    <Resource Include="Resources\Icons\TeamFoundationServer_16.png" />
+    <Resource Include="Resources\Icons\TeamFoundationServer_32.png" />
+    <Resource Include="Resources\Icons\TeamQueries_16.png" />
+    <Resource Include="Resources\Icons\Templates_16.png" />
+    <Resource Include="Resources\Icons\Templates_32.png" />
+    <Resource Include="Resources\Icons\Themes_16.png" />
+    <Resource Include="Resources\Icons\Themes_32.png" />
+    <Resource Include="Resources\Icons\ToggleGroupBy_16.png" />
+    <Resource Include="Resources\Icons\TreeQuery_16.png" />
+    <Resource Include="Resources\Icons\UnhappyFace_16.png" />
+    <Resource Include="Resources\Icons\YellowSquare_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CopyToPersonalTaskListHS.png" />
+    <Resource Include="Resources\Icons\DuplicateHS.png" />
+    <Resource Include="Resources\Icons\DuplicateSlideHS.png" />
+    <Resource Include="Resources\Icons\MarkForCopyHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SaveToolAsTemplate_16x16x32.png" />
+    <Resource Include="Resources\Icons\SaveToolAsTemplate_32x32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\OLMeetingRequestHH.png" />
+    <Resource Include="Resources\Icons\OLMeetingRequestHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\EditDocumentTemplateHH.png" />
+    <Resource Include="Resources\Icons\EditDocumentTemplateHS.png" />
+    <Resource Include="Resources\Icons\LevelingOptionsHH.png" />
+    <Resource Include="Resources\Icons\LevelingOptionsHS.png" />
+    <Resource Include="Resources\Icons\SaveAsHH.png" />
+    <Resource Include="Resources\Icons\SaveAsHS.png" />
+    <Resource Include="Resources\Icons\SaveToolAsTemplateHH.png" />
+    <Resource Include="Resources\Icons\SaveToolAsTemplateHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\DeleteHH.png" />
+    <Resource Include="Resources\Icons\DeleteHS.png" />
+    <Resource Include="Resources\Icons\DeleteHyperlinkHS.png" />
+    <Resource Include="Resources\Icons\JotDeletePageHH.png" />
+    <Resource Include="Resources\Icons\JotDeletePageHS.png" />
+    <Resource Include="Resources\Icons\RejectRevisionHH.png" />
+    <Resource Include="Resources\Icons\RejectRevisionHS.png" />
+    <Resource Include="Resources\Icons\WordRemoveFooterHS.png" />
+    <Resource Include="Resources\Icons\WordRemoveHeaderHS.png" />
+    <Resource Include="Resources\Icons\WordRemoveTOCHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SaveHH.png" />
+    <Resource Include="Resources\Icons\SaveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CaptureTemplate_16.png" />
+    <Resource Include="Resources\Icons\CaptureTemplate_32.png" />
+    <Resource Include="Resources\Icons\CopyTitle_16.png" />
+    <Resource Include="Resources\Icons\CopyWorkItem_16.png" />
+    <Resource Include="Resources\Icons\NewLinkedWorkitem_16.png" />
+    <Resource Include="Resources\Icons\NewLinkedWorkitem_32.png" />
+    <Resource Include="Resources\Icons\ReplyAll_16.png" />
+    <Resource Include="Resources\Icons\ReplyAll_32.png" />
+    <Resource Include="Resources\Icons\ReplyWithIM_16.png" />
+    <Resource Include="Resources\Icons\ReplyWithIM_32.png" />
+    <Resource Include="Resources\Icons\ReplyWithMeeting_16.png" />
+    <Resource Include="Resources\Icons\ReplyWithMeeting_32.png" />
+    <Resource Include="Resources\Icons\Reply_16.png" />
+    <Resource Include="Resources\Icons\Reply_32.png" />
+    <Resource Include="Resources\Icons\SearchInOutlook_16.png" />
+    <Resource Include="Resources\Icons\SearchInOutlook_32.png" />
+    <Resource Include="Resources\Icons\Send_16.png" />
+    <Resource Include="Resources\Icons\Send_32.png" />
+    <Resource Include="Resources\Icons\Template_16.png" />
+    <Resource Include="Resources\Icons\Template_32.png" />
+    <Resource Include="Resources\Icons\TrayIcon_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CopyDetails_16.png" />
+    <Resource Include="Resources\Icons\CopyHyperlink_16.png" />
+    <Resource Include="Resources\Icons\CopyHyperlink_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\114_16_N.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\114_16_N.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\89_16_N.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\89_16_N.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\89_16_N.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\AccessDocTabClose.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\AccessDocTabClose.20x20x32.png" />
+    <Resource Include="Resources\Icons\Office15\AddBDCAction.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\AddBDCAction.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\AddLocation.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\AddLocation.20x20x32.png" />
+    <Resource Include="Resources\Icons\Office15\AskMeAboutUpdated.11x11x32.png" />
+    <Resource Include="Resources\Icons\Office15\Attachment.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Attachment.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\Attachment.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\CancelGlyphHover.20x20x32.png" />
+    <Resource Include="Resources\Icons\Office15\CCReplyIM.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CCReplyIM.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\ClosePaneGlyphWhite.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CLVRefreshPage.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CLVRefreshPage.20x20x32.png" />
+    <Resource Include="Resources\Icons\Office15\CLVRefreshPage.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\CoAuth_PlaceholderNeedRefreshGlyphHover.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CoAuth_PlaceholderNeedRefreshGlyphHover.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\CoAuth_PlaceholderNeedRefreshPngServer.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CommentDelete.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CommentDelete.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactMicrosoft.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactMicrosoft.48x48x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactMicrosoft.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactMicrosoft.96x96x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.48x48x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.72x72x32.png" />
+    <Resource Include="Resources\Icons\Office15\ContactPhoto.96x96x32.png" />
+    <Resource Include="Resources\Icons\Office15\Copy.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Copy.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\copyaslink.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\copyaslink.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\DesktopMonitor.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DesktopMonitor1.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DesktopMonitor2.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DesktopMonitorAll.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DocInfoAddDocument.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DocInfoAddDocument.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\Duplicate.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Duplicate.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\DuplicateSlide.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\EditDocumentTemplate.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\EditDocumentTemplate.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\EditSearchBox.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\EditSearchBox.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotAudioVideoSettings.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotAudioVideoSettings.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotAudioVideoSettings.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotInsertAudioRecordingShort.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotInsertAudioRecordingShort.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotInsertAudioRecordingShort.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotScreenCapture.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\JotScreenCapture.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\LevelingOptions.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\LevelingOptions.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\LevelingOptions.48x48x32.png" />
+    <Resource Include="Resources\Icons\Office15\LevelingOptions.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\LevelingOptions.96x96x32.png" />
+    <Resource Include="Resources\Icons\Office15\MagnifyingGlass.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\MagnifyingGlass.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\MathNormalText.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\MaximizeWindowGlyph.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\MinimizeWindow.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\MultipleReadRepliedMail.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\MultipleReadRepliedMail.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\mwac_Gop.24x24x8.png" />
+    <Resource Include="Resources\Icons\Office15\mwac_Gop.36x36x8.png" />
+    <Resource Include="Resources\Icons\Office15\NewSmartFolder.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\NewSmartFolder.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\NewTaskGleam.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\NewTaskGleam.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\NextMessage.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\NumStyleDefault.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OfficeAssistant.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OfficeAssistant.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OfficeAssistant.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLForwardedMail.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLForwardedMail.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLGotoSearchFolder.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLGotoSearchFolder.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLRepliedMail.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLRepliedMail.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLTask.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLTask.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OptionsCategorySendToOneNote.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OptionsCategorySendToOneNote.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OSCOpenSiteClient.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OSCOpenSiteClient.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OSCOpenSiteClient.48x48x32.png" />
+    <Resource Include="Resources\Icons\Office15\OSCOpenSiteClient.72x72x32.png" />
+    <Resource Include="Resources\Icons\Office15\OutlookSearchOptions.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\OutlookSearchOptions.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\PageNumber.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\PageNumber.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\Paste.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Paste.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\Paste.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\PersonaMenuSendIM.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\PersonaMenuSendIM.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\PreviousMessage.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ProductUpdates.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ProductUpdates.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\ProductUpdates.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\ProductUpdates.96x96x32.png" />
+    <Resource Include="Resources\Icons\Office15\RefreshMeetingDetailsRunning.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\RefreshMeetingDetailsRunning.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\RefreshMeetingDetailsRunning.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\ReplyAll.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ReplyAll.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\ReplyWithMeeting.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ReplyWithMeeting.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\ResolveRevertOption.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ResolveRevertOption.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\RestoreWindowGlyph.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Save.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Save.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAll.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAll.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAndClose.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAndClose.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass.20x18x32.png" />
+    <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass.20x20x32.png" />
+    <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass.30x27x32.png" />
+    <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\Send2.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Send2.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SendAFrown.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SendASmile.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SendIM.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SendIM.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\ShowClipboard.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SourceSafeAddObjects.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SourceSafeAddObjects.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SpeechMic.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SpeechMic.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\Update.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Update.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\Update.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\WebInsertHyperlink.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\WebInsertHyperlink.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\WebRefresh.32x32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\OfficeBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TeamMate_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CloseGlyph.png" />
+    <Resource Include="Resources\Icons\MinimizeGlyph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ZuneLeftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\ContactPhoto_Large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\TeamMate_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Other\ContactPhoto_Large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\AddLocation.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\AddLocation_Modified.png" />
+    <Resource Include="Resources\Icons\Office15\DavConstraints.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\DavConstraints.24x24x32.png" />
+    <Resource Include="Resources\Icons\Office15\DavConstraints.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\GetStartedOfficeOnline.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\LinkTasks.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\LinkTasks.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\MoveLinkDown.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\MoveLinkUp.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\NewSketchpadTool.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\NewTaskGleam.48x48x32.png" />
+    <Resource Include="Resources\Icons\Office15\OfficeOnline.64x64x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\Open.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\Open.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OutspaceSystemInformation.64x64x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAll.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAs.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAs.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAttachments.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveAttachments.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveToolAsTemplate.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SaveToolAsTemplate.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass_Modified.png" />
+    <Resource Include="Resources\Icons\Office15\SelectAll.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\SelectAll.32x32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\TabVideoSelect.16x16x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Other\3235649-final.png" />
+    <Resource Include="Resources\Icons\Other\3235649-metaphor.png" />
+    <Resource Include="Resources\Icons\Other\Bug.png" />
+    <Resource Include="Resources\Icons\Other\CloseGlyph.png" />
+    <Resource Include="Resources\Icons\Other\MinimizeGlyph.png" />
+    <Resource Include="Resources\Icons\Other\Other.png" />
+    <Resource Include="Resources\Icons\Other\Requirement.png" />
+    <Resource Include="Resources\Icons\Other\Task.png" />
+    <Resource Include="Resources\Icons\Other\TestCase.png" />
+    <Resource Include="Resources\Icons\Other\ZuneLeftArrow.png" />
+    <Resource Include="Resources\Icons\Other\ZuneNewWindow.png" />
+    <Resource Include="Resources\Icons\Other\ZuneOpenDialog.png" />
+    <Resource Include="Resources\Icons\Other\ZuneSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Tfs\Bug.png" />
+    <Resource Include="Resources\Icons\Tfs\ChangesetsChannel.png" />
+    <Resource Include="Resources\Icons\Tfs\Requirement.png" />
+    <Resource Include="Resources\Icons\Tfs\Task.png" />
+    <Resource Include="Resources\Icons\Tfs\WorkItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\More\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\MarkImportant.32x32x32.png" />
+    <Resource Include="Resources\Icons\Office15\OLJournalConversation_modified_32x32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\AcceptInvitation.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\AcceptInvitation.32x32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\CodeFlow\codeflow_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\VS\VS2012.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Other\17_16_N.16x16x32_modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\OLSendTrack.16x16x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Office15\17_16_N.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\ClosePaneGlyph.16x16x32.png" />
+    <Resource Include="Resources\Icons\Office15\CommentDefault.16x16x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Other\ErrorExclamation_12x12x32_Modified.png" />
+  </ItemGroup>
+  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Target Name="BeforeBuild">
+    <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
+  </Target>
+</Project>

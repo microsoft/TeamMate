@@ -1,0 +1,255 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.VideoPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows"
+             mc:Ignorable="d" 
+             x:Name="self"
+             Background="Black" 
+             d:DesignHeight="341" d:DesignWidth="655">
+    <UserControl.Resources>
+        <fw:ThicknessValueConverter x:Key="ThicknessConverter"/>
+
+        <Style x:Key="LargeMetroButtonStyle" TargetType="ButtonBase">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="11"/>
+            <Setter Property="Width" Value="131"/>
+            <Setter Property="Height" Value="131"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="TextElement.FontSize" Value="75"/>
+            <Setter Property="TextElement.FontFamily" Value="Segoe UI Symbol"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ButtonBase">
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse Name="ellipse" Width="{TemplateBinding Width}" Height="{TemplateBinding Width}" Stroke="{TemplateBinding Background}" 
+                                         StrokeThickness="{TemplateBinding BorderThickness, Converter={StaticResource ThicknessConverter}}" />
+                            <TextBlock Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Content}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ellipse" Property="Fill" Value="#33FFFFFF" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ellipse" Property="Fill" Value="White" />
+                                <Setter Property="TextElement.Foreground" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MetroButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource LargeMetroButtonStyle}">
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="TextElement.FontSize" Value="30"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <Style x:Key="VideoSliderRepeatButtonStyle" TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Grid Background="Transparent">
+                            <Rectangle Fill="{TemplateBinding Background}" Height="2" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VideoSliderThumbStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="Width" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid>
+                            <Grid>
+                                <Grid.RenderTransform>
+                                    <TranslateTransform X="-34" Y="-44" x:Name="TTT"/>
+                                </Grid.RenderTransform>
+
+                                <Canvas SnapsToDevicePixels="true" Width="42" Height="42">
+                                    <Canvas.RenderTransform>
+                                        <RotateTransform x:Name="RTT" CenterX="42" CenterY="42"/>
+                                    </Canvas.RenderTransform>
+                                    <Ellipse Height="42" Stroke="White" Width="42" StrokeThickness="3" Name="Ellipse" Fill="Transparent"/>
+                                    <Path Data="M52.09375,52.5 L56.99975,54.15625 57.249748,49.061981" Fill="White" Height="6.094" Stretch="Fill" Stroke="White" Width="6.156" Canvas.Left="28.25" Canvas.Top="36.157"/>
+                                </Canvas>
+                            </Grid>
+                            <Canvas Name="RemainingTimeCanvas" Opacity="0">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="-14" Y="-20" />
+                                </Canvas.RenderTransform>
+                                <ContentPresenter Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Slider}, Path=(fw:UI.SliderThumbContent)}"/>
+                            </Canvas>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDragging" Value="true">
+                                <Setter Property="Fill" TargetName="Ellipse" Value="White"/>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="TTT" Storyboard.TargetProperty="X" To="-46" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="TTT" Storyboard.TargetProperty="Y" To="-34" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="RTT" Storyboard.TargetProperty="Angle" To="-110" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="RemainingTimeCanvas" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.25"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="TTT" Storyboard.TargetProperty="X" To="-34" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="TTT" Storyboard.TargetProperty="Y" To="-48" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="RTT" Storyboard.TargetProperty="Angle" To="0" Duration="0:0:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="RemainingTimeCanvas" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.25"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VideoSliderStyle" TargetType="{x:Type Slider}">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Slider}">
+                        <Grid SnapsToDevicePixels="true" MinHeight="70">
+                            <Track x:Name="PART_Track" VerticalAlignment="Bottom">
+                                <Track.RenderTransform>
+                                    <TranslateTransform x:Name="trackTransform"/>
+                                </Track.RenderTransform>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource VideoSliderRepeatButtonStyle}" Background="White"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource VideoSliderRepeatButtonStyle}" Background="#D3D4D3"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb" Style="{StaticResource VideoSliderThumbStyle}"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsDragging" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="trackTransform" Storyboard.TargetProperty="Y" To="-58" Duration="0:0:0.25"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="trackTransform" Storyboard.TargetProperty="Y" To="0" Duration="0:0:0.25"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Background="Black" Name="dettachableRoot">
+        <MediaElement Name="mediaElement" Source="{Binding ElementName=self, Path=Source}" LoadedBehavior="Manual" Volume="1.0"/>
+
+        <Grid Name="playbackControls" Opacity="0" TextElement.Foreground="White">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=self, Path=IsControlPaneVisible}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <Grid.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                    <GradientStop Color="#33000000" Offset="0" />
+                    <GradientStop Color="#66000000" Offset="1" />
+                </RadialGradientBrush>
+            </Grid.Background>
+
+            <ToggleButton VerticalAlignment="Top" HorizontalAlignment="Right" 
+                          Name="fullScreenButton" IsChecked="{Binding ElementName=self, Path=IsFullScreen}"
+                          Style="{StaticResource MetroButtonStyle}" Padding="0,-6,0,0" Margin="0,20,60,0"
+                          Content="" fw:UI.ToggledContent="" />
+
+            <ToggleButton Name="playPauseButton" 
+                          Margin="0,0,0,50"
+                          Style="{StaticResource LargeMetroButtonStyle}"
+                          Content="" fw:UI.ToggledContent="" 
+                          Command="MediaCommands.TogglePlayPause" />
+
+            <StackPanel VerticalAlignment="Bottom" Margin="60,0,60,20">
+                <Slider Name="positionSlider" Style="{StaticResource VideoSliderStyle}">
+                    <fw:UI.SliderThumbContent>
+                        <TextBlock Foreground="White" Name="positionTextBlock" />
+                    </fw:UI.SliderThumbContent>
+                </Slider>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Name="statusTextBlock"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Name="durationTextBlock"/>
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=self, Path=IsDraggingThumb}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

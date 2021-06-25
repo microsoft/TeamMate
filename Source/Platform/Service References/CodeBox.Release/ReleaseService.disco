@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://codebox/services/ReleaseService.asmx?wsdl" docRef="http://codebox/services/ReleaseService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://codebox/services/ReleaseService.asmx" xmlns:q1="http://CodeBox/services/ReleaseService/v1.0" binding="q1:ReleaseServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://codebox/services/ReleaseService.asmx" xmlns:q2="http://CodeBox/services/ReleaseService/v1.0" binding="q2:ReleaseServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

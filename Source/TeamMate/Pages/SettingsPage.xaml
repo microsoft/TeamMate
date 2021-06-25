@@ -1,0 +1,150 @@
+﻿<UserControl
+    x:Class="Microsoft.Internal.Tools.TeamMate.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+    xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tmc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+    xmlns:tmm="clr-namespace:Microsoft.Internal.Tools.TeamMate.Model"
+    xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="SettingsGroupHeaderTextStyle" BasedOn="{StaticResource BodyTextBlockStyle}">
+            <Setter Property="TextBlock.FontSize" Value="24" />
+            <Setter Property="TextBlock.Margin" Value="0,0,0,4" />
+        </Style>
+
+        <Style BasedOn="{StaticResource WindowsToggleCheckBoxStyle}" TargetType="CheckBox" />
+        <Style BasedOn="{StaticResource WindowsUniversalSliderStyle}" TargetType="Slider" />
+
+        <Style BasedOn="{StaticResource BodyTextBlockStyle}" TargetType="TextBlock" />
+    </UserControl.Resources>
+    <TabControl Style="{StaticResource WindowsUniversalTabControlStyle}">
+        <TabItem Header="General">
+            <ScrollViewer DataContext="{Binding Settings}" Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Startup</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding LaunchOnStartup}">Launch TeamMate on startup</CheckBox>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding ShowSplashScreen}">Show splash screen</CheckBox>
+
+                    <TextBlock Margin="0,16,0,6" Style="{StaticResource SettingsGroupHeaderTextStyle}">Display Work Item Counts</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding ShowItemCountInOverviewWindow}">In an overview window on the desktop</CheckBox>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding ShowItemCountInNotificationArea}">In the Windows notification area</CheckBox>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding ShowItemCountInTaskBar}">In the Windows task bar</CheckBox>
+
+                    <TextBlock Margin="0,16,0,6" Style="{StaticResource SettingsGroupHeaderTextStyle}">Search</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding SearchIdsAutomatically}">Skip search dialog when clipboard contains work item ids</CheckBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Feedback Program">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Feedback Program</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding Settings.SendAnonymousUsageData}">I want to help make TeamMate even better by sending anonymous usage data.</CheckBox>
+                    <TextBlock Margin="0,12,0,0">
+                        <Hyperlink Command="{Binding ViewPrivacyStatementCommand}">Read the privacy statement online</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Notifications">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <StackPanel.Resources>
+                        <Style BasedOn="{StaticResource WindowsButtonStyle}" TargetType="Button" />
+                    </StackPanel.Resources>
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Notifications</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding Settings.PlayNotificationSound}">Play a sound when a work item or code review changes</CheckBox>
+
+                    <TextBlock Margin="0,16,0,6" Style="{StaticResource SettingsGroupHeaderTextStyle}">Refresh</TextBlock>
+                    <StackPanel Margin="0,12,0,0" Orientation="Horizontal">
+                        <Slider
+                            Width="200"
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"
+                            IsSnapToTickEnabled="True"
+                            Maximum="{Binding RefreshIntervalMaximum}"
+                            Minimum="0"
+                            SmallChange="1"
+                            Value="{Binding RefreshIntervalTick,
+                                            Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding RefreshIntervalDescription}" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Office">
+            <ScrollViewer DataContext="{Binding Settings}" Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Outlook</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding EnableOfficeAddIns}">Enable Outlook integration</CheckBox>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding SearchAllInOutlook}">Search entire Mailbox by default</CheckBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Advanced">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Diagnostics</TextBlock>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding Settings.IsTracingEnabled}">Log tracing information to a file</CheckBox>
+
+                    <TextBlock Margin="0,12,0,0">
+                        Log files will be written to
+                        <Hyperlink Command="{Binding OpenLogsFolderCommand}">
+                            <Run Text="{Binding LogsFolder, Mode=OneWay}" />
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock Margin="0,16,0,6" Style="{StaticResource SettingsGroupHeaderTextStyle}">Software Updates</TextBlock>
+                    <Button
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Left"
+                        Command="{Binding CheckForUpdatesCommand}"
+                        Style="{StaticResource WindowsButtonStyle}">
+                        Check for Updates
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="About">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}" Text="{x:Static tmm:TeamMateApplicationInfo.ApplicationName}" />
+                    <TextBlock Margin="0,12,0,0">
+                        <Run Text="© 2014 Microsoft Corporation. All rights reserved." />
+                        <LineBreak />
+                        <Run Text="For Microsoft Internal Use Only." />
+                        <LineBreak />
+                        <LineBreak /><Run Text="Version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
+                    </TextBlock>
+                    <TextBlock Margin="0,24,0,12" Style="{StaticResource SettingsGroupHeaderTextStyle}">Our Team</TextBlock>
+                    <ListBox Style="{StaticResource SimpleWrappingListBoxStyle}">
+                        <ListBox.Items>
+                            <tmc:TeamMemberView
+                                Margin="0,0,24,24"
+                                DisplayName="Ben"
+                                ImageSource="/Resources/Images/Team/Ben.jpg"
+                                LaunchUrl="http://who/is/bamodio" />
+                            <tmc:TeamMemberView
+                                Margin="0,0,24,24"
+                                DisplayName="Justin"
+                                ImageSource="/Resources/Images/Team/Justin.jpg"
+                                LaunchUrl="http://who/is/julam" />
+                            <tmc:TeamMemberView
+                                Margin="0,0,24,24"
+                                DisplayName="Vanya"
+                                ImageSource="/Resources/Images/Team/ivanv.jpg"
+                                LaunchUrl="http://who/is/ivanv" />
+                        </ListBox.Items>
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
+</UserControl>
