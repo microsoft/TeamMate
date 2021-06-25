@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Kudos.WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Kudos.WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="KudosTeamHistoryReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FromPerson" nillable="true" type="tns:PersonInfo" />
+      <xs:element minOccurs="0" name="IsInternalToManager" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSentByTeam" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KudosId" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToPerson" nillable="true" type="tns:PersonInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KudosTeamHistoryReport" nillable="true" type="tns:KudosTeamHistoryReport" />
+  <xs:complexType name="PersonInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasActiveDirectoryValidData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonInfo" nillable="true" type="tns:PersonInfo" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="HasOptedOut" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NestedSetLeft" type="xs:int" />
+      <xs:element minOccurs="0" name="NestedSetRight" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="Picture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="MD5Hash" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Picture" nillable="true" type="tns:Picture" />
+  <xs:complexType name="KudosSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccrualStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Available" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ManagerAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextAccrualDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NextAccrualMax" type="xs:int" />
+      <xs:element minOccurs="0" name="RecievedAllTime" type="xs:int" />
+      <xs:element minOccurs="0" name="RecievedThisMonth" type="xs:int" />
+      <xs:element minOccurs="0" name="SentAllTime" type="xs:int" />
+      <xs:element minOccurs="0" name="SentThisMonth" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KudosSummary" nillable="true" type="tns:KudosSummary" />
+  <xs:complexType name="KudosHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasActiveDirectoryValidData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KudosId" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KudosHistory" nillable="true" type="tns:KudosHistory" />
+  <xs:complexType name="KudosWeeklyUsageHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KudosSent" type="xs:int" />
+      <xs:element minOccurs="0" name="UniqueReceivers" type="xs:int" />
+      <xs:element minOccurs="0" name="UniqueSenders" type="xs:int" />
+      <xs:element minOccurs="0" name="WeekStart" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KudosWeeklyUsageHistory" nillable="true" type="tns:KudosWeeklyUsageHistory" />
+  <xs:complexType name="KudosInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FromEmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToEmployeeId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KudosInstance" nillable="true" type="tns:KudosInstance" />
+  <xs:complexType name="MailObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailObject" nillable="true" type="tns:MailObject" />
+  <xs:complexType name="ArrayOfKudosTeamHistoryReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KudosTeamHistoryReport" nillable="true" type="tns:KudosTeamHistoryReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKudosTeamHistoryReport" nillable="true" type="tns:ArrayOfKudosTeamHistoryReport" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+  <xs:complexType name="ArrayOfKudosHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KudosHistory" nillable="true" type="tns:KudosHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKudosHistory" nillable="true" type="tns:ArrayOfKudosHistory" />
+  <xs:complexType name="ArrayOfPicture">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Picture" nillable="true" type="tns:Picture" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPicture" nillable="true" type="tns:ArrayOfPicture" />
+  <xs:complexType name="ArrayOfKudosWeeklyUsageHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KudosWeeklyUsageHistory" nillable="true" type="tns:KudosWeeklyUsageHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKudosWeeklyUsageHistory" nillable="true" type="tns:ArrayOfKudosWeeklyUsageHistory" />
+  <xs:complexType name="ArrayOfKudosInstance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KudosInstance" nillable="true" type="tns:KudosInstance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKudosInstance" nillable="true" type="tns:ArrayOfKudosInstance" />
+</xs:schema>

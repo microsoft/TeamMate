@@ -1,0 +1,81 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="ApplicationIcon">/Resources/Logo/TeamMate.ico</ImageSource>
+    <ImageSource x:Key="SpashScreenApplicationIcon">/Resources/Logo/TeamMate_NoBorder_48.png</ImageSource>
+    <ImageSource x:Key="ToastIcon">/Resources/Logo/TeamMate_NoBorder_32.png</ImageSource>
+    <ImageSource x:Key="TrayIcon">/Resources/Logo/TeamMate_16.png</ImageSource>
+
+    <ImageSource x:Key="RecordingTrayIcon">/Resources/Icons/Office15/StartRecording.16x16x32.png</ImageSource>
+
+    <ImageSource x:Key="TemplateSmallIcon">/Resources/Icons/Office15/SaveToolAsTemplate.16x16x32.png</ImageSource>
+    <ImageSource x:Key="TemplateLargeIcon">/Resources/Icons/Office15/SaveToolAsTemplate.32x32x32.png</ImageSource>
+
+    <ImageSource x:Key="FlagSmallIcon">/Resources/Icons/Office15/89_16_N.16x16x32.png</ImageSource>
+    <ImageSource x:Key="FlagSmallHoverIcon">/Resources/Icons/Office15/OLFlagHover.16x16x32.png</ImageSource>
+    <ImageSource x:Key="FlagSmallPlaceholderIcon">/Resources/Icons/Office15/OLFlagPlaceHolder.16x16x32.png</ImageSource>
+    <ImageSource x:Key="DeleteSmallIcon">/Resources/Icons/Other/RedDelete_16.png</ImageSource>
+
+    <ImageSource x:Key="OfficeBackground">/Resources/Images/OfficeBackground.png</ImageSource>
+
+    <ImageSource x:Key="WorkItemSmallIcon">/Resources/Icons/Office15/OLTask.16x16x32.png</ImageSource>
+    <ImageSource x:Key="LinkSmallIcon">/Resources/Icons/Office15/LinkTasks.16x16x32.png</ImageSource>
+    <ImageSource x:Key="HyperlinkSmallIcon">/Resources/Icons/Office15/WebInsertHyperlink.16x16x32.png</ImageSource>
+    <ImageSource x:Key="ChangesetSmallIcon">/Resources/Icons/Tfs/ChangesetsChannel.png</ImageSource>
+    <ImageSource x:Key="StoryboardSmallIcon">/Resources/Icons/Office15/NewSketchpadTool.16x16x32.png</ImageSource>
+    <ImageSource x:Key="WorkItemLinkSmallIcon">/Resources/Icons/Tfs/WorkItem.png</ImageSource>
+
+    <ImageSource x:Key="MinimizeGlyphIcon">/Resources/Icons/Other/MinimizeGlyph.png</ImageSource>
+
+    <ImageSource x:Key="ScreenRecorderIcon">/Resources/Icons/Office15/JotInsertVideoRecordingShort.32x32x32.png</ImageSource>
+
+
+    <ImageSource x:Key="WhiteCloseGlyphIcon">/Resources/Icons/Other/CloseGlyph.png</ImageSource>
+    <ImageSource x:Key="CloseGlyphIcon">/Resources/Icons/Office15/ClosePaneGlyph.16x16x32.png</ImageSource>
+
+    <ImageSource x:Key="ContactPhotoLargeIcon">/Resources/Icons/Other/ContactPhoto_Large.png</ImageSource>
+
+    <ImageSource x:Key="SendASmileIcon">/Resources/Icons/Office15/SendASmile.16x16x32.png</ImageSource>
+
+    <ImageSource x:Key="AttachmentSmallIcon">/Resources/Icons/Office15/Attachment.16x16x32.png</ImageSource>
+    <ImageSource x:Key="HighPrioritySmallIcon">/Resources/Icons/Office15/MarkImportant.16x16x32.png</ImageSource>
+
+    <ImageSource x:Key="WhiteErrorIcon">/Resources/Icons/Other/ErrorGlyph.24x24x32_modified.png</ImageSource>
+    <ImageSource x:Key="MiniErrorIcon">/Resources/Icons/Other/ErrorExclamation_12x12x32_Modified.png</ImageSource>
+
+    <ImageSource x:Key="FilterIcon">/Resources/Icons/Office15/Filter.16x16x32.png</ImageSource>
+
+    <ImageSource x:Key="ErrorOverlayIcon">/Resources/Icons/Other/SyncOverlayDisconnected.14x14x32_Modified.png</ImageSource>
+
+    <ImageSource x:Key="CopySmallIcon">/Resources/Icons/Office15/Copy.16x16x32.png</ImageSource>
+
+    <!--  Work Item Type Backgrounds  -->
+    <ImageSource x:Key="BugIcon">/Resources/Icons/Other/WorkItemTypes/Bug.png</ImageSource>
+    <ImageSource x:Key="TaskIcon">/Resources/Icons/Other/WorkItemTypes/Task.png</ImageSource>
+    <ImageSource x:Key="TestCaseIcon">/Resources/Icons/Other/WorkItemTypes/TestCase.png</ImageSource>
+    <ImageSource x:Key="RequirementIcon">/Resources/Icons/Other/WorkItemTypes/Requirement.png</ImageSource>
+    <ImageSource x:Key="OtherIcon">/Resources/Icons/Other/WorkItemTypes/Other.png</ImageSource>
+
+    <!--  Code Review Icons  -->
+    <ImageSource x:Key="SmallSignedOffIcon">/Resources/Icons/Office15/AcceptInvitation.16x16x32.png</ImageSource>
+    <ImageSource x:Key="SmallWaitingIcon">/Resources/Icons/Office15/MarkImportant.16x16x32.png</ImageSource>
+    <ImageSource x:Key="SmallReviewingIcon">/Resources/Icons/Office15/CommentDefault.16x16x32.png</ImageSource>
+    <ImageSource x:Key="SmallDeclinedIcon">/Resources/Icons/Office15/ClosePaneGlyph.16x16x32.png</ImageSource>
+    <ImageSource x:Key="SmallPendingIcon">/Resources/Icons/Office15/OLJournalConversation.16x16x32.png</ImageSource>
+
+    <!--  Status Icons  -->
+    <ImageSource x:Key="UnknownStateIcon">/Resources/Icons/Office15/PersonaStatusOffline.10x10x32.png</ImageSource>
+    <ImageSource x:Key="ActiveStateIcon">/Resources/Icons/Office15/PersonaStatusBusy.10x10x32.png</ImageSource>
+    <ImageSource x:Key="ResolvedStateIcon">/Resources/Icons/Office15/PersonaStatusAway.10x10x32.png</ImageSource>
+    <ImageSource x:Key="ClosedStateIcon">/Resources/Icons/Office15/PersonaStatusOnline.10x10x32.png</ImageSource>
+    
+    <!-- Query Picker -->
+    <ImageSource x:Key="ErrorIcon">/Resources/Icons/QueryPicker/AlertError.16x16x32.png</ImageSource>
+    <ImageSource x:Key="FolderIcon">/Resources/Icons/QueryPicker/FolderClosed_16.png</ImageSource>
+    <ImageSource x:Key="OpenFolderIcon">/Resources/Icons/QueryPicker/FolderOpen_16.png</ImageSource>
+
+    <!--  TODO: Get the right invalid query icon  -->
+    <ImageSource x:Key="InvalidQueryIcon">/Resources/Icons/QueryPicker/FlatQuery_16.png</ImageSource>
+    <ImageSource x:Key="FlatQueryIcon">/Resources/Icons/QueryPicker/FlatQuery_16.png</ImageSource>
+    <ImageSource x:Key="LinkQueryIcon">/Resources/Icons/QueryPicker/LinkQuery_16.png</ImageSource>
+    <ImageSource x:Key="TreeQueryIcon">/Resources/Icons/QueryPicker/TreeQuery_16.png</ImageSource>
+</ResourceDictionary>

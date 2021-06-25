@@ -1,0 +1,223 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+        xmlns:tmc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+        xmlns:tmcv="clr-namespace:Microsoft.Internal.Tools.TeamMate.Converters"
+        xmlns:tmm="clr-namespace:Microsoft.Internal.Tools.TeamMate.Model"
+        xmlns:tmp="clr-namespace:Microsoft.Internal.Tools.TeamMate.Pages"
+        xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+        x:Name="self"
+        Title="{x:Static tmm:TeamMateApplicationInfo.ApplicationName}"
+        MinWidth="800"
+        MinHeight="600"
+        Icon="{StaticResource ApplicationIcon}"
+        d:DataContext="{x:Static tmr:SampleData.MainWindowViewModel}"
+        d:DesignHeight="600"
+        d:DesignWidth="1200"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <Style BasedOn="{StaticResource LeanContextMenuStyle}" TargetType="ContextMenu" />
+
+        <Style x:Key="SplitViewNavigationButtonStyle" TargetType="fwc:SplitViewButton">
+            <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=Command.TextAndShortcut}" />
+            <Setter Property="Icon" Value="{Binding RelativeSource={RelativeSource Self}, Path=Command.SymbolIcon, Converter={x:Static tmcv:TeamMateConverters.CreateSymbolIcon}}" />
+            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" />
+        </Style>
+
+        <Style x:Key="HamburgerSplitViewNavigationButtonStyle"
+               BasedOn="{StaticResource SplitViewNavigationButtonStyle}"
+               TargetType="fwc:SplitViewButton">
+            <Setter Property="TextElement.FontSize" Value="20" />
+            <Setter Property="Background" Value="#0063B1" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1972B9" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#3281C0" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="UpdatesAvailableSplitViewNavigationButtonStyle"
+               BasedOn="{StaticResource SplitViewNavigationButtonStyle}"
+               TargetType="fwc:SplitViewButton">
+            <Setter Property="Icon">
+                <Setter.Value>
+                    <Grid>
+                        <fwc:SymbolIcon HorizontalAlignment="Center"
+                                        Foreground="#D00E0D"
+                                        Symbol="FlagFill"
+                                        TextOptions.TextFormattingMode="Display" />
+
+                        <fwc:SymbolIcon HorizontalAlignment="Center" Symbol="FlagOutline" />
+                    </Grid>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Visibility" Value="Visible">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:1"
+                                                 From="0.0"
+                                                 Storyboard.TargetProperty="Opacity"
+                                                 To="1.0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo />
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Name="toolbar"
+              Grid.RowSpan="2"
+              Width="48"
+              Background="#2B2B2B">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.Hamburger}" Style="{StaticResource HamburgerSplitViewNavigationButtonStyle}" />
+            </StackPanel>
+            <StackPanel Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToHomePage}" Style="{StaticResource SplitViewNavigationButtonStyle}" />
+                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToNewWorkItemPage}" Style="{StaticResource SplitViewNavigationButtonStyle}" />
+                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToProjectsPage}" Style="{StaticResource SplitViewNavigationButtonStyle}">
+                    <fwc:SplitViewButton.Icon>
+                        <tmc:BowtieIcon Symbol="ProjectCollection"/>
+                    </fwc:SplitViewButton.Icon>
+                </fwc:SplitViewButton>
+                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToNewsPage}" Style="{StaticResource SplitViewNavigationButtonStyle}">
+                    <fwc:SplitViewButton.Icon>
+                        <tmc:MsnIcon Symbol="News"/>
+                    </fwc:SplitViewButton.Icon>
+                </fwc:SplitViewButton>
+                <fwc:SplitViewButton x:Name="feedbackButton"
+                                     Command="{x:Static tmr:TeamMateCommands.SendFeedbackToolBar}"
+                                     Style="{StaticResource SplitViewNavigationButtonStyle}" />
+            </StackPanel>
+            <Border Grid.Row="2"
+                    BorderBrush="#535353"
+                    BorderThickness="0,1,0,0">
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical">
+                    <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToDeveloperOptionsPage}"
+                                         Style="{StaticResource SplitViewNavigationButtonStyle}"
+                                         Visibility="{Binding IsDeveloperOptionsButtonVisible,
+                                                              Converter={x:Static fw:Converters.Visibility}}" />
+                    <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToSettingsPage}" Style="{StaticResource SplitViewNavigationButtonStyle}" />
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1"
+              Height="48"
+              VerticalAlignment="Top"
+              Background="{StaticResource ChromeLowBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="48"
+                        Command="{x:Static tmr:TeamMateCommands.BrowseBack}"
+                        Style="{StaticResource CommandAppBarButtonStyle}"
+                        Visibility="{Binding Path=Navigation.CanGoBack,
+                                             Converter={x:Static fw:Converters.Visibility}}" />
+                <Border Name="spacer"
+                        Width="6"
+                        Visibility="{Binding Path=Navigation.CanGoBack,
+                                             Converter={x:Static fw:Converters.InverseVisibility}}" />
+                <TextBlock Margin="6"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Style="{StaticResource BaseTextBlockStyle}"
+                           Text="{Binding Navigation.Page.Title}" />
+            </StackPanel>
+            <tmc:GlobalCommandBar Grid.Column="2" Type="{Binding Navigation.Page.CommandBarType}" />
+            <tmc:SearchBox x:Name="searchControl"
+                           Grid.Column="3"
+                           Margin="3"
+                           VerticalAlignment="Center"
+                           IsEnabled="{Binding Session.ProjectContext,
+                                               Converter={x:Static fw:Converters.Boolean}}"
+                           SearchText="{Binding SearchText,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Name="PageContainer"
+              Grid.Row="1"
+              Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <Border Name="updateBanner"
+                        Background="#DEEBF9" Height="48" Padding="6" 
+                            Visibility="{Binding IsUpdateAvailable, Converter={x:Static fw:Converters.Visibility}}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <tmc:BowtieIcon Margin="6" Symbol="StatusInfoOutline" FontSize="16" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" TextTrimming="CharacterEllipsis">
+                            <Run FontWeight="Bold">Update Installed: </Run>
+                            <Run>Restart TeamMate to enjoy the latest features and bug fixes.</Run>
+                            </TextBlock>
+                            <Button Margin="6, 0, 0, 0" Grid.Column="3" Style="{StaticResource WindowsColoredButtonStyle}" Foreground="White" Command="{x:Static tmr:TeamMateCommands.Restart}">Restart Now</Button>
+                        </Grid>
+                    </Border>
+                    <Border Name="deprecationBanner"
+                        Background="#DEEBF9" Height="48" Padding="6"
+                            Visibility="{Binding VolatileSettings.DisplayLegacyTfsSupportDroppedBanner, Converter={x:Static fw:Converters.Visibility}}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <tmc:BowtieIcon Margin="6" Symbol="StatusInfoOutline" FontSize="16" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" TextTrimming="CharacterEllipsis">
+                                <Run FontWeight="Bold">Important: </Run>
+                                <Run>TeamMate is now optimized for VSTS and no longer supports older versions of TFS.</Run>
+                                <Hyperlink Command="{Binding DisplayLegacyTfsSupportDroppedBannerCommand}" Style="{StaticResource WindowsHyperlinkStyle}">Learn more</Hyperlink>
+                            </TextBlock>
+                            <StackPanel Grid.Column="3" Orientation="Horizontal">
+                                <Button Margin="6, 0, 0, 0" Style="{StaticResource WindowsColoredButtonStyle}" Foreground="White" Command="{Binding CloseLegacyTfsSupportDroppedBannerCommand}">Close</Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+                <tmc:NavigationFrame Grid.Row="1" x:Name="navigationFrame" DataContext="{Binding Navigation}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

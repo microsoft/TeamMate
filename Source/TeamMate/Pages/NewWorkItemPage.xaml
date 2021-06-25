@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Pages.NewWorkItemPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Pages"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+             xmlns:tmcv="clr-namespace:Microsoft.Internal.Tools.TeamMate.Converters"
+             xmlns:controls="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+             d:DataContext="{x:Static tmr:SampleData.NewWorkItemViewModel}"
+             d:DesignHeight="600"
+             d:DesignWidth="900"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="TileStyle" TargetType="Control">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Control">
+                        <Border Style="{StaticResource TileBorderStyle}">
+                            <Border Name="border"
+                                    Width="{StaticResource TileWidth}"
+                                    Height="{StaticResource TileHeight}"
+                                    Background="White"
+                                    BorderBrush="#ACACAD"
+                                    BorderThickness="1"
+                                    ToolTip="{Binding Description}">
+                                <Grid ClipToBounds="True">
+                                    <Grid Name="image"
+                                           MaxWidth="256"
+                                           Margin="0,-30,-60,0"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Top"
+                                           Opacity=".2">
+                                        <Grid.RenderTransform>
+                                            <RotateTransform Angle="45" />
+                                        </Grid.RenderTransform>
+                                        <controls:BowtieIcon FontSize="140"
+                                                             Symbol="{Binding Name, Converter={x:Static tmcv:TeamMateConverters.WorkItemTypeToIcon}}"
+                                                             Foreground="{Binding Name, Converter={x:Static tmcv:TeamMateConverters.WorkItemTypeToColor}}"
+                                                             />
+                                    </Grid>
+                                    <TextBlock Margin="12"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Bottom"
+                                               FontSize="13"
+                                               FontWeight="SemiBold"
+                                               Text="{Binding Name,
+                                                              Converter={x:Static fw:Converters.ToUpper}}"
+                                               TextTrimming="CharacterEllipsis" />
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="image" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="WorkItemTemplate">
+            <Control MouseLeftButtonUp="HandleTypeOrTemplateClicked" Style="{StaticResource TileStyle}">
+                <Control.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Click="HandleSetDefaultClick" Header="Set as Default Item" />
+                    </ContextMenu>
+                </Control.ContextMenu>
+            </Control>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer Style="{StaticResource ScrollViewerStyle}" Visibility="{Binding Session.ConnectionInfo.IsConnected, Converter={x:Static fw:Converters.Visibility}}">
+            <Grid Margin="{StaticResource PageContainerMargin}" Focusable="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Margin="0,0,0,12"
+                           Style="{StaticResource SubheaderTextBlockStyle}">
+                    Work Items
+                </TextBlock>
+                <ListBox Name="workItemTypesListBox"
+                         Grid.Row="1"
+                         ItemTemplate="{StaticResource WorkItemTemplate}"
+                         ItemsSource="{Binding WorkItemTypes}"
+                         Style="{StaticResource TileListBoxStyle}" />
+            </Grid>
+        </ScrollViewer>
+        <local:ConnectionStatusPage DataContext="{Binding Session.ConnectionInfo}" />
+    </Grid>
+</UserControl>

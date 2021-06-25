@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.TransitionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="self"
+             ClipToBounds="True"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <Grid>
+        <ContentControl Name="content1Container"
+                        Content="{Binding ElementName=self,
+                                          Path=Content1}"
+                        ContentTemplate="{Binding ElementName=self,
+                                                  Path=MyContentTemplate}" />
+        <ContentControl Name="content2Container"
+                        Content="{Binding ElementName=self,
+                                          Path=Content2}"
+                        ContentTemplate="{Binding ElementName=self,
+                                                  Path=MyContentTemplate}" />
+    </Grid>
+</UserControl>

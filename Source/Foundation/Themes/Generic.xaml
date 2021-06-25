@@ -1,0 +1,430 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows"
+                    xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls"
+                    xmlns:fwcd="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data"
+                    xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework">
+
+    <Style TargetType="fwc:FontIcon">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwc:FontIcon">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Background="{TemplateBinding Background}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               FontSize="{TemplateBinding FontSize}"
+                               Padding="{TemplateBinding Padding}"
+                               Text="{TemplateBinding Glyph}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="fwc:SymbolIcon">
+        <Setter Property="FontFamily" Value="{x:Static fwc:ControlResources.SegoeMdl2AssetsFontFamily}"/>
+
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwc:FontIcon">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Background="{TemplateBinding Background}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               FontSize="{TemplateBinding FontSize}"
+                               Padding="{TemplateBinding Padding}"
+                               Text="{TemplateBinding Glyph}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="fwc:DialogPanel">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel Background="{TemplateBinding Panel.Background}" KeyboardNavigation.TabNavigation="Local">
+                        <ContentPresenter Margin="{TemplateBinding fwc:DialogPanel.ButtonPanelMargin}"
+                                          Content="{TemplateBinding fwc:DialogPanel.ButtonPanel}"
+                                          DockPanel.Dock="{TemplateBinding fwc:DialogPanel.ButtonPanelDock}"
+                                          KeyboardNavigation.TabIndex="1" />
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
+                                          ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                          ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                          KeyboardNavigation.TabIndex="0" />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style x:Key="RibbonWindowTitleBarButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="46" />
+        <Setter Property="Height" Value="31" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Focusable="False" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#CDE6F7" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="#92C0E0" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CloseRibbonWindowTitleBarButtonStyle"
+           BasedOn="{StaticResource RibbonWindowTitleBarButtonStyle}"
+           TargetType="Button">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#E81123" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" Value="#F1707A" />
+                <Setter Property="Foreground" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="fwc:RibbonWindow">
+        <Setter Property="BorderBrush" Value="#0072C6" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="shell:WindowChrome.WindowChrome">
+            <Setter.Value>
+                <shell:WindowChrome CaptionHeight="31"
+                                    GlassFrameThickness="0,0,0,1"
+                                    ResizeBorderThickness="5"
+                                    UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwc:RibbonWindow">
+                    <Border x:Name="outerBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1">
+                        <Grid>
+                            <Image HorizontalAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   Source="{TemplateBinding BackgroundImage}"
+                                   Stretch="None"
+                                   Visibility="{Binding RelativeSource={RelativeSource Self},
+                                                        Path=Source,
+                                                        Converter={x:Static fw:Converters.Visibility}}" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Name="PART_Header"
+                                      Height="31"
+                                      Background="Transparent"
+                                      SnapsToDevicePixels="True"
+                                      UseLayoutRounding="True"
+                                      shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter Grid.Column="0"
+                                                      Margin="4,0,0,0"
+                                                      Content="{TemplateBinding HeaderLeftContent}" />
+                                    <TextBlock Name="PART_WindowTitleTextBlock"
+                                               Grid.Column="1"
+                                               Margin="10,0,10,0"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Text="{TemplateBinding Title}"
+                                               TextTrimming="CharacterEllipsis" />
+                                    <StackPanel Name="windowButtonsPanel"
+                                                Grid.Column="2"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                TextElement.FontSize="10">
+                                        <Button Name="PART_MinimizeButton"
+                                                Style="{StaticResource RibbonWindowTitleBarButtonStyle}"
+                                                ToolTip="Minimize">
+                                            <fwc:SymbolIcon Symbol="Minimize" />
+                                        </Button>
+                                        <Button Name="PART_MaximizeButton"
+                                                Style="{StaticResource RibbonWindowTitleBarButtonStyle}"
+                                                ToolTip="Maximize">
+                                            <fwc:SymbolIcon Symbol="Maximize" />
+                                        </Button>
+                                        <Button Name="PART_RestoreButton"
+                                                Style="{StaticResource RibbonWindowTitleBarButtonStyle}"
+                                                ToolTip="Restore Down">
+                                            <fwc:SymbolIcon Symbol="Restore" />
+                                        </Button>
+                                        <Button Name="PART_CloseButton"
+                                                Style="{StaticResource CloseRibbonWindowTitleBarButtonStyle}"
+                                                ToolTip="Close">
+                                            <fwc:SymbolIcon Symbol="Close" />
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                                <AdornerDecorator Grid.Row="1">
+                                    <ContentPresenter />
+                                </AdornerDecorator>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="PART_MaximizeButton" Property="Visibility" Value="Collapsed" />
+
+                            <!--  KLUDGE: using WindowChrome, for whatever reason, hides that extra 7 resize border pixels when maximized  -->
+                            <Setter TargetName="outerBorder" Property="Padding" Value="7" />
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Normal">
+                            <Setter TargetName="PART_RestoreButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter TargetName="outerBorder" Property="BorderBrush" Value="#AAAAAA" />
+                            <Setter TargetName="PART_WindowTitleTextBlock" Property="Foreground" Value="#999999" />
+                            <Setter TargetName="PART_MinimizeButton" Property="TextElement.Foreground" Value="#999999" />
+                            <Setter TargetName="PART_MaximizeButton" Property="TextElement.Foreground" Value="#999999" />
+                            <Setter TargetName="PART_RestoreButton" Property="TextElement.Foreground" Value="#999999" />
+                            <Setter TargetName="PART_CloseButton" Property="TextElement.Foreground" Value="#999999" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="fwc:Callout">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="Padding" Value="12" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwc:Callout">
+                    <Grid Name="PART_Container"
+                          MinWidth="20"
+                          MinHeight="20"
+                          Margin="5"
+                          UseLayoutRounding="True">
+                        <Border Name="PART_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter ContentSource="Content" />
+                        </Border>
+                        <Grid Name="PART_LeftCalloutTip"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Visibility="Collapsed">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <TranslateTransform Y="{Binding TipOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Rectangle Width="1"
+                                       Height="18"
+                                       HorizontalAlignment="Right"
+                                       Stroke="{TemplateBinding Background}" />
+                            <Path Width="11"
+                                  Height="20"
+                                  Data="M336.45833,113.625 L327.50034,122.5 336.45868,131.375"
+                                  Fill="{TemplateBinding Background}"
+                                  Stretch="Fill"
+                                  Stroke="{TemplateBinding BorderBrush}"
+                                  StrokeThickness="0.75" />
+                        </Grid>
+                        <Grid Name="PART_RightCalloutTip"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Top"
+                              Visibility="Collapsed">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1" ScaleY="1" />
+                                    <TranslateTransform X="11" Y="{Binding TipOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Rectangle Width="1"
+                                       Height="18"
+                                       HorizontalAlignment="Right"
+                                       Stroke="{TemplateBinding Background}" />
+                            <Path Width="11"
+                                  Height="20"
+                                  Data="M336.45833,113.625 L327.50034,122.5 336.45868,131.375"
+                                  Fill="{TemplateBinding Background}"
+                                  Stretch="Fill"
+                                  Stroke="{TemplateBinding BorderBrush}"
+                                  StrokeThickness="0.75" />
+                        </Grid>
+                        <Grid Name="PART_TopCalloutTip"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Visibility="Collapsed">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90" CenterX="10" CenterY="10" />
+                                    <TranslateTransform X="{Binding TipOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Rectangle Width="1"
+                                       Height="18"
+                                       HorizontalAlignment="Right"
+                                       Stroke="{TemplateBinding Background}" />
+                            <Path Width="11"
+                                  Height="20"
+                                  Data="M336.45833,113.625 L327.50034,122.5 336.45868,131.375"
+                                  Fill="{TemplateBinding Background}"
+                                  Stretch="Fill"
+                                  Stroke="{TemplateBinding BorderBrush}"
+                                  StrokeThickness="0.75" />
+                        </Grid>
+                        <Grid Name="PART_BottomCalloutTip"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Bottom"
+                              Visibility="Collapsed">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="-90" CenterX="10" CenterY="10" />
+                                    <TranslateTransform X="{Binding TipOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Rectangle Width="1"
+                                       Height="18"
+                                       HorizontalAlignment="Right"
+                                       Stroke="{TemplateBinding Background}" />
+                            <Path Width="11"
+                                  Height="20"
+                                  Data="M336.45833,113.625 L327.50034,122.5 336.45868,131.375"
+                                  Fill="{TemplateBinding Background}"
+                                  Stretch="Fill"
+                                  Stroke="{TemplateBinding BorderBrush}"
+                                  StrokeThickness="0.75" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasDropShadow" Value="True">
+                            <Setter TargetName="PART_Container" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="7"
+                                                      Direction="145"
+                                                      Opacity="0.3"
+                                                      ShadowDepth="0.5"
+                                                      Color="Black" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="Placement" Value="Right">
+                            <Setter TargetName="PART_LeftCalloutTip" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Border" Property="Margin" Value="10,0,0,0" />
+                        </Trigger>
+                        <Trigger Property="Placement" Value="Bottom">
+                            <Setter TargetName="PART_TopCalloutTip" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Border" Property="Margin" Value="0,10,0,0" />
+                        </Trigger>
+                        <Trigger Property="Placement" Value="Left">
+                            <Setter TargetName="PART_RightCalloutTip" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Border" Property="Margin" Value="0,0,10,0" />
+                        </Trigger>
+                        <Trigger Property="Placement" Value="Top">
+                            <Setter TargetName="PART_BottomCalloutTip" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_Border" Property="Margin" Value="0,0,0,10" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="HorizontalSlide" FillBehavior="Stop">
+                            <DoubleAnimation Duration="00:00:00.2"
+                                             From="-15"
+                                             Storyboard.TargetProperty="HorizontalOffset">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Key="VerticalSlide" FillBehavior="Stop">
+                            <DoubleAnimation Duration="00:00:00.2"
+                                             From="-15"
+                                             Storyboard.TargetProperty="VerticalOffset">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Key="AnimateCalloutOpacity">
+                            <DoubleAnimation Duration="00:00:00.25"
+                                             From="0"
+                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                             To="1">
+                                <DoubleAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="fwc:SplitViewButton">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="MinWidth" Value="48" />
+        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="TextElement.FontSize" Value="16" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="fwc:SplitViewButton">
+                    <StackPanel Name="panel"
+                                HorizontalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                Orientation="Horizontal"
+                                ToolTip="{TemplateBinding ToolTip}">
+                        <ContentPresenter Width="48"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          ContentSource="Icon" />
+                        <ContentPresenter Margin="11,0,0,0"
+                                          VerticalAlignment="Center"
+                                          Visibility="{TemplateBinding IsExpanded,
+                                                                       Converter={x:Static fw:Converters.Visibility}}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#3F3F3F" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="#545454" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

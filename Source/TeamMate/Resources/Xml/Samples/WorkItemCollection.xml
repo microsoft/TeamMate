@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorkItemCollection>
+  <Info>
+    <TeamProjectCollection>vstspioneer\VSTSDF</TeamProjectCollection>
+    <Query URL="http://vstspioneer:8080/tfs/web/qr.aspx?pguid=ae46f3af-f579-4f07-a141-b2cfa10e4fae&amp;qid=aee7624d-a03f-4756-8a9c-f5bd5e54693d">Product Backlog - Engineering</Query>
+  </Info>
+  <Fields>
+    <Field ReferenceName="System.Id">ID</Field>
+    <Field ReferenceName="System.Title">Title</Field>
+    <Field>Org Rank</Field>
+    <Field>Work Item Type</Field>
+    <Field>Assigned To</Field>
+    <Field>State</Field>
+    <Field>Area Path</Field>
+  </Fields>
+  <WorkItems>
+    <WorkItem URL="http://vstspioneer:8080/tfs/web/wi.aspx?pcguid=2e80e4ed-2a78-4655-86d9-026c3c253504&amp;id=730867">
+      <Value>730867</Value>
+      <Value>[ENGINEERING BACKLOG] Process Improvement / Code Cleanup / Debt</Value>
+      <Value>7400</Value>
+      <Value>User Story</Value>
+      <Value></Value>
+      <Value>Proposed</Value>
+      <Value>DevDiv\VS\TFS\Agile\Engineering</Value>
+    </WorkItem>
+    <WorkItem URL="http://vstspioneer:8080/tfs/web/wi.aspx?pcguid=2e80e4ed-2a78-4655-86d9-026c3c253504&amp;id=730867" Indentation="1">
+      <Value>730867</Value>
+      <Value>[ENGINEERING BACKLOG] Process Improvement / Code Cleanup / Debt</Value>
+      <Value>7400</Value>
+      <Value>User Story</Value>
+      <Value></Value>
+      <Value>Proposed</Value>
+      <Value>DevDiv\VS\TFS\Agile\Engineering</Value>
+    </WorkItem>
+    <WorkItem URL="http://vstspioneer:8080/tfs/web/wi.aspx?pcguid=2e80e4ed-2a78-4655-86d9-026c3c253504&amp;id=730867" Indentation="2">
+      <Value>730867</Value>
+      <Value>[ENGINEERING BACKLOG] Process Improvement / Code Cleanup / Debt</Value>
+      <Value>7400</Value>
+      <Value>User Story</Value>
+      <Value></Value>
+      <Value>Proposed</Value>
+      <Value>DevDiv\VS\TFS\Agile\Engineering</Value>
+    </WorkItem>
+    <WorkItem URL="http://vstspioneer:8080/tfs/web/wi.aspx?pcguid=2e80e4ed-2a78-4655-86d9-026c3c253504&amp;id=730867">
+      <Value>730867</Value>
+      <Value>[ENGINEERING BACKLOG] Process Improvement / Code Cleanup / Debt</Value>
+      <Value>7400</Value>
+      <Value>User Story</Value>
+      <Value></Value>
+      <Value>Proposed</Value>
+      <Value>DevDiv\VS\TFS\Agile\Engineering</Value>
+    </WorkItem>
+    <WorkItem URL="http://vstspioneer:8080/tfs/web/wi.aspx?pcguid=2e80e4ed-2a78-4655-86d9-026c3c253504&amp;id=730867">
+      <Value>730867</Value>
+      <Value>[ENGINEERING BACKLOG] Process Improvement / Code Cleanup / Debt</Value>
+      <Value>7400</Value>
+      <Value>User Story</Value>
+      <Value></Value>
+      <Value>Proposed</Value>
+      <Value>DevDiv\VS\TFS\Agile\Engineering</Value>
+    </WorkItem>
+  </WorkItems>
+</WorkItemCollection>

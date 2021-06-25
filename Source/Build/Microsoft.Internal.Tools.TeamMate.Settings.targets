@@ -1,0 +1,58 @@
+<!--
+***********************************************************************************************
+Microsoft.Internal.Tools.TeamMate.targets
+
+This file defines the custom variables and steps in the standard build process for TeamMate
+C# .NET projects.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <ErrorReport>prompt</ErrorReport>
+    <NoWarn>467;618</NoWarn>
+
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Publish)' == 'true' ">
+    <!-- Only sign assemblies if publishing to Toolbox -->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\TeamMate.pfx</AssemblyOriginatorKeyFile>
+
+    <!-- For safety purposes, never assign the InstallUrl unless Publish was explicitly set -->
+    <InstallUrl Condition=" $(Local) != 'true' ">\\tkfiltoolbox\tools\teammate\releases\production\</InstallUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildScripts>$(MSBuildThisFileDirectory)</BuildScripts>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <ExternalPath>$(MSBuildThisFileDirectory)\..\External</ExternalPath>
+    <OfficeExternalPath>$(ExternalPath)\Office\14.0</OfficeExternalPath>
+  </PropertyGroup>
+
+  <UsingTask TaskName="MSBuildTasks.KillTask" AssemblyFile="$(BuildScripts)\Libraries\MSBuildTasks.dll" />
+
+</Project>

@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://CodeBox/services/ReleaseService/v1.0" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://CodeBox/services/ReleaseService/v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://CodeBox/services/ReleaseService/v1.0">
+      <s:element name="CreateRelease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qualityName" type="tns:ReleaseQualityName" />
+            <s:element minOccurs="0" maxOccurs="1" name="releaseVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="releaseDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="releaseDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showOnHomePage" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isDefaultRelease" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ReleaseQualityName">
+        <s:restriction base="s:string">
+          <s:enumeration value="Alpha" />
+          <s:enumeration value="Beta" />
+          <s:enumeration value="Production" />
+          <s:enumeration value="Draft" />
+          <s:enumeration value="Final" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateReleaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReleaseResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadReleaseFilesById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="files" type="tns:ArrayOfReleaseFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReleaseFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReleaseFile" nillable="true" type="tns:ReleaseFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReleaseFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FriendlyLabel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileData" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UploadReleaseFilesByIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UploadReleaseFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="releaseVersion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qualityName" type="tns:ReleaseQualityName" />
+            <s:element minOccurs="0" maxOccurs="1" name="files" type="tns:ArrayOfReleaseFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadReleaseFilesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateFileShareForRelease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entryName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileNameToOpen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFileShareForReleaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateFileShareForReleaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomInstallLocationForRelease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entryName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="installLocation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomInstallLocationForReleaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReleasesByProjectName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReleasesByProjectNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReleasesByProjectNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReleaseFilesById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReleaseFilesByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReleaseFilesByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReleases">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qualityName" type="tns:ReleaseQualityName" />
+            <s:element minOccurs="1" maxOccurs="1" name="keepLastXReleases" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReleasesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteRelease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReleaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteReleaseFilesById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="projectName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="releaseId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileNames" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteReleaseFilesByIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateReleaseSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateRelease" />
+  </wsdl:message>
+  <wsdl:message name="CreateReleaseSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadReleaseFilesByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadReleaseFilesById" />
+  </wsdl:message>
+  <wsdl:message name="UploadReleaseFilesByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadReleaseFilesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadReleaseFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadReleaseFiles" />
+  </wsdl:message>
+  <wsdl:message name="UploadReleaseFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadReleaseFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileShareForReleaseSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateFileShareForRelease" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileShareForReleaseSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateFileShareForReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomInstallLocationForReleaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomInstallLocationForRelease" />
+  </wsdl:message>
+  <wsdl:message name="SetCustomInstallLocationForReleaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomInstallLocationForReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReleasesByProjectNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReleasesByProjectName" />
+  </wsdl:message>
+  <wsdl:message name="GetReleasesByProjectNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReleasesByProjectNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReleaseFilesByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReleaseFilesById" />
+  </wsdl:message>
+  <wsdl:message name="GetReleaseFilesByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReleaseFilesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleasesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReleases" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleasesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteReleasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleaseSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRelease" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleaseSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleaseFilesByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReleaseFilesById" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReleaseFilesByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteReleaseFilesByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReleaseServiceSoap">
+    <wsdl:operation name="CreateRelease">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new release in the specified project. This method 
+        requires that the web service client be running under an identity that has the 
+        the correct role in the given project. The showOnHomePage parameter is not used.</wsdl:documentation>
+      <wsdl:input message="tns:CreateReleaseSoapIn" />
+      <wsdl:output message="tns:CreateReleaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFilesById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds one or more files to an existing release by specifying the project name and unique release ID.</wsdl:documentation>
+      <wsdl:input message="tns:UploadReleaseFilesByIdSoapIn" />
+      <wsdl:output message="tns:UploadReleaseFilesByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds one or more files to an existing release by specifying the unique version name and quality.</wsdl:documentation>
+      <wsdl:input message="tns:UploadReleaseFilesSoapIn" />
+      <wsdl:output message="tns:UploadReleaseFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileShareForRelease">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a file share hosted within the network share managed by ToolBox/CodeBox 
+        for an existing release of a project or tool. If the file share already was created before for this release, 
+        it will just update the file name to open with the string provided.</wsdl:documentation>
+      <wsdl:input message="tns:CreateFileShareForReleaseSoapIn" />
+      <wsdl:output message="tns:CreateFileShareForReleaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomInstallLocationForRelease">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets a custom install location for an existing release of a project or tool. This 
+        install location is not managed by the ToolBox/CodeBox infrastructure and is the responsibility of the 
+        project or tool coordinators to ensure its availability</wsdl:documentation>
+      <wsdl:input message="tns:SetCustomInstallLocationForReleaseSoapIn" />
+      <wsdl:output message="tns:SetCustomInstallLocationForReleaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleasesByProjectName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all the release data for a given project name.</wsdl:documentation>
+      <wsdl:input message="tns:GetReleasesByProjectNameSoapIn" />
+      <wsdl:output message="tns:GetReleasesByProjectNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseFilesById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of all the release files for a given release.</wsdl:documentation>
+      <wsdl:input message="tns:GetReleaseFilesByIdSoapIn" />
+      <wsdl:output message="tns:GetReleaseFilesByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleases">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes all releases from the specified project that match the quality name, but keep the last
+        n number of releases defined.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteReleasesSoapIn" />
+      <wsdl:output message="tns:DeleteReleasesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRelease">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an existing release by specifying the project name and releaseId.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteReleaseSoapIn" />
+      <wsdl:output message="tns:DeleteReleaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleaseFilesById">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the files specificed by the array of fileNames from the release.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteReleaseFilesByIdSoapIn" />
+      <wsdl:output message="tns:DeleteReleaseFilesByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns true as a simple verfication that your client can do 
+        the following: connect, negotiate authentication protocols, able to use windows 
+        integrated authentication, and be authorized by the current NTFS permissions on the site.
+        Make sure that your .NET based clients set the Credentials property on the service 
+        wrapper to System.Net.CredentialCache.DefaultNetworkCredentials otherwise you will 
+        get 401.2 errors.</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReleaseServiceSoap" type="tns:ReleaseServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateRelease">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/CreateRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFilesById">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFiles">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileShareForRelease">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/CreateFileShareForRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomInstallLocationForRelease">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/SetCustomInstallLocationForRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleasesByProjectName">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/GetReleasesByProjectName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseFilesById">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/GetReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleases">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteReleases" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRelease">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleaseFilesById">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReleaseServiceSoap12" type="tns:ReleaseServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateRelease">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/CreateRelease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFilesById">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadReleaseFiles">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileShareForRelease">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/CreateFileShareForRelease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomInstallLocationForRelease">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/SetCustomInstallLocationForRelease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleasesByProjectName">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/GetReleasesByProjectName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReleaseFilesById">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/GetReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleases">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteReleases" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRelease">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteRelease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReleaseFilesById">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/DeleteReleaseFilesById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://CodeBox/services/ReleaseService/v1.0/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReleaseService">
+    <wsdl:port name="ReleaseServiceSoap" binding="tns:ReleaseServiceSoap">
+      <soap:address location="http://codebox/services/ReleaseService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReleaseServiceSoap12" binding="tns:ReleaseServiceSoap12">
+      <soap12:address location="http://codebox/services/ReleaseService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

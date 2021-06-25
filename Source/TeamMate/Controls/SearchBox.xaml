@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Controls.SearchBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="self"
+             Width="330"
+             MinHeight="40"
+             Background="Transparent"
+             d:DesignHeight="24"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="SearchButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="36" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="16pt" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1871B8" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#3281C0" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <AdornerDecorator>
+        <Border x:Name="border" Padding="2">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="{StaticResource ChromeMediumMidBrush}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#DADADA" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Name="textBox"
+                         Grid.Column="0"
+                         Margin="3,0,8,0"
+                         VerticalAlignment="Center"
+                         Background="Transparent"
+                         BorderBrush="{x:Null}"
+                         BorderThickness="0"
+                         Style="{StaticResource BodyTextBlockStyle}"
+                         Text="{Binding ElementName=self,
+                                        Path=SearchText,
+                                        Mode=TwoWay,
+                                        UpdateSourceTrigger=PropertyChanged}"
+                         fw:UI.HintText="{Binding ElementName=self,
+                                                  Path=HintText}" />
+
+                <Button Name="clearButton"
+                        Grid.Column="1"
+                        Focusable="False"
+                        Style="{StaticResource SearchButtonStyle}"
+                        Visibility="{Binding ElementName=self,
+                                             Path=HasSearchText,
+                                             Converter={x:Static fw:Converters.Visibility}}">
+                    <fwc:SymbolIcon Symbol="Cancel" />
+                </Button>
+                <Button Name="searchButton"
+                        Grid.Column="2"
+                        Focusable="False">
+                    <Button.Style>
+                        <Style BasedOn="{StaticResource SearchButtonStyle}" TargetType="Button">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <fwc:SymbolIcon Symbol="Find" />
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=self, Path=Mode}" Value="Filter">
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <fwc:SymbolIcon Symbol="Filter" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName=self, Path=SupportsFiltering}" Value="True">
+                                    <Setter Property="ToolTip" Value="Click here to toggle between search/filter modes" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Border>
+    </AdornerDecorator>
+</UserControl>

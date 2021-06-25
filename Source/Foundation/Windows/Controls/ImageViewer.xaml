@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.ImageViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows"
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="self"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <ScrollViewer Name="scrollViewer"
+                  HorizontalScrollBarVisibility="Auto"
+                  PanningMode="Both"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid Name="container"
+              Background="Transparent"
+              fw:UI.ZoomWithWheel="True">
+            <Image Name="image"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   SnapsToDevicePixels="True"
+                   Source="{Binding ElementName=self,
+                                    Path=Source}"
+                   Stretch="None">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="ApplicationCommands.Copy"
+                                  CommandTarget="{Binding Path=PlacementTarget,
+                                                          RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                                  Header="_Copy" />
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1967369E-0368-4888-B743-B16ABAE28B1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Foundation</RootNamespace>
+    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Foundation</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbsoluteUriComparer.cs" />
+    <Compile Include="Chaos\ChaosException.cs" />
+    <Compile Include="Chaos\ChaosMonkey.cs" />
+    <Compile Include="Chaos\ChaosScenario.cs" />
+    <Compile Include="Collections\CollectionExtensions.cs" />
+    <Compile Include="Collections\CollectionUtilities.cs" />
+    <Compile Include="CommandLine\CommandBase.cs" />
+    <Compile Include="CommandLine\CommandLineArgumentException.cs" />
+    <Compile Include="CommandLine\CommandLineArgumentParser.cs" />
+    <Compile Include="CommandLine\CommandLineTool.cs" />
+    <Compile Include="CommandLine\ICommand.cs" />
+    <Compile Include="ComponentModel\ComponentModelExtensions.cs" />
+    <Compile Include="ComponentModel\ObservableObjectBase.cs" />
+    <Compile Include="ConsoleUtilities.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DeferredAction.cs" />
+    <Compile Include="DelegateDisposable.cs" />
+    <Compile Include="Diagnostics\Assert.cs" />
+    <Compile Include="Diagnostics\CommandLineBuilder.cs" />
+    <Compile Include="Diagnostics\Log.cs" />
+    <Compile Include="Diagnostics\EventInfo.cs" />
+    <Compile Include="Diagnostics\ProcessExtensions.cs" />
+    <Compile Include="Diagnostics\SystemInfo.cs" />
+    <Compile Include="Diagnostics\DiagnosticsSerializer.cs" />
+    <Compile Include="Diagnostics\Telemetry.cs" />
+    <Compile Include="Diagnostics\TelemetryEventProperties.cs" />
+    <Compile Include="Diagnostics\TelemetryListener.cs" />
+    <Compile Include="Diagnostics\TraceLogFile.cs" />
+    <Compile Include="DirectoryServices\DirectoryBrowser.cs" />
+    <Compile Include="DirectoryServices\DirectoryUtilities.cs" />
+    <Compile Include="DirectoryServices\UserEntry.cs" />
+    <Compile Include="ConvertUtilities.cs" />
+    <Compile Include="Diagnostics\Reports\Attachment.cs" />
+    <Compile Include="Diagnostics\Reports\ErrorReport.cs" />
+    <Compile Include="Diagnostics\ExceptionInfo.cs" />
+    <Compile Include="Diagnostics\Reports\FeedbackReport.cs" />
+    <Compile Include="Diagnostics\Reports\ReportSerializer.cs" />
+    <Compile Include="Diagnostics\Reports\UserReportBase.cs" />
+    <Compile Include="FormatUtilities.cs" />
+    <Compile Include="IO\IOExtensions.cs" />
+    <Compile Include="IO\Packaging\PackageExtensions.cs" />
+    <Compile Include="IO\PathUtilities.cs" />
+    <Compile Include="IO\TempDirectory.cs" />
+    <Compile Include="IO\TempFile.cs" />
+    <Compile Include="LazyWeakReference.cs" />
+    <Compile Include="Native\ComCtl32.cs" />
+    <Compile Include="Native\ComImports.cs" />
+    <Compile Include="Native\Clr.cs" />
+    <Compile Include="Native\DwmApi.cs" />
+    <Compile Include="Native\Enums.cs" />
+    <Compile Include="Native\Gdi32.cs" />
+    <Compile Include="Native\Kernel32.cs" />
+    <Compile Include="Native\Ole32.cs" />
+    <Compile Include="Native\OleAut32.cs" />
+    <Compile Include="Native\PropertyKey.cs" />
+    <Compile Include="Native\Propsys.cs" />
+    <Compile Include="Native\PropVariant.cs" />
+    <Compile Include="Native\Shell32.cs" />
+    <Compile Include="Native\ComStreamAdapter.cs" />
+    <Compile Include="Native\StreamAdapter.cs" />
+    <Compile Include="Native\Structs.cs" />
+    <Compile Include="Native\User32.cs" />
+    <Compile Include="Native\WtsApi32.cs" />
+    <Compile Include="Net\Mime\MimeTypes.cs" />
+    <Compile Include="ObjectUtilities.cs" />
+    <Compile Include="PredicateUtilities.cs" />
+    <Compile Include="Reflection\ReflectionExtensions.cs" />
+    <Compile Include="Reflection\ReflectionUtilities.cs" />
+    <Compile Include="Resources\ResourceStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\FoundationResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoundationResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\InteropUtilities.cs" />
+    <Compile Include="Runtime\InteropServices\RetryMessageFilterScope.cs" />
+    <Compile Include="Runtime\InteropServices\RetryMesssageFillter.cs" />
+    <Compile Include="Runtime\Serialization\SerializationUtilities.cs" />
+    <Compile Include="ServiceModel\WcfClientProxy.cs" />
+    <Compile Include="Shell\ApplicationRegistrationServices.cs" />
+    <Compile Include="Shell\ExternalWebBrowser.cs" />
+    <Compile Include="Shell\SessionNotificationHelper.cs" />
+    <Compile Include="Shell\ShortcutUtilities.cs" />
+    <Compile Include="Shell\WndProcHelper.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="StringUtilities.cs" />
+    <Compile Include="SystemExtensions.cs" />
+    <Compile Include="Text\CsvReader.cs" />
+    <Compile Include="Text\CsvWriter.cs" />
+    <Compile Include="Text\RtfUtilities.cs" />
+    <Compile Include="Threading\ITaskContext.cs" />
+    <Compile Include="Threading\LinearRegression.cs" />
+    <Compile Include="Threading\SingleTaskRunner.cs" />
+    <Compile Include="Threading\TaskContext.cs" />
+    <Compile Include="Threading\TaskUtilities.cs" />
+    <Compile Include="TimeSpanExtensions.cs" />
+    <Compile Include="UriUtilities.cs" />
+    <Compile Include="Validation\DefaultValidations.cs" />
+    <Compile Include="Validation\FluentUtilities.cs" />
+    <Compile Include="Validation\IValidationRule.cs" />
+    <Compile Include="Validation\PropertyValidator.cs" />
+    <Compile Include="Validation\PropertyValidatorContext.cs" />
+    <Compile Include="Validation\ValidationRule.cs" />
+    <Compile Include="Windows\ClipboardUtilities.cs" />
+    <Compile Include="Windows\Controls\Data\CompoundFilter.cs" />
+    <Compile Include="Windows\Controls\Data\GroupNameConverter.cs" />
+    <Compile Include="Windows\Controls\Data\ISelectableItem.cs" />
+    <Compile Include="Windows\Controls\Data\ListFieldInfo.cs" />
+    <Compile Include="Windows\Controls\Data\ListViewFilter.cs" />
+    <Compile Include="Windows\Controls\FontIcon.cs" />
+    <Compile Include="Windows\Controls\ImageViewer.xaml.cs">
+      <DependentUpon>ImageViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Preview\IFilePreviewPlugin.cs" />
+    <Compile Include="Windows\Controls\SplitViewButton.cs" />
+    <Compile Include="Windows\Controls\Symbol.cs" />
+    <Compile Include="Windows\Controls\SymbolIcon.cs" />
+    <Compile Include="Windows\Controls\TreeItemViewModelBase.cs" />
+    <Compile Include="Windows\Converters\BrushLuminosityConverter.cs" />
+    <Compile Include="Windows\Converters\EnumDisplayStringConverter.cs" />
+    <Compile Include="Windows\Converters\RemainingTimeConverter.cs" />
+    <Compile Include="Windows\Converters\StaticMapConverter.cs" />
+    <Compile Include="Windows\DelegateFactory.cs" />
+    <Compile Include="Windows\HslColor.cs" />
+    <Compile Include="Windows\Input\CommandDictionary.cs" />
+    <Compile Include="Windows\Media\Effects\GrayscaleEffect.cs" />
+    <Compile Include="Windows\MVVM\IGlobalCommandProvider.cs" />
+    <Compile Include="Windows\MVVM\ValidatableViewModelBase.cs" />
+    <Compile Include="Validation\ValidationContext.cs" />
+    <Compile Include="Validation\ValidationFailure.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\PropertyValidationRule.cs" />
+    <Compile Include="Validation\PropertyValidationRuleBuilder.cs" />
+    <Compile Include="Validation\Validator.cs" />
+    <Compile Include="Web\HttpUtility.cs" />
+    <Compile Include="Win32\FileTypeInfo.cs" />
+    <Compile Include="Win32\FileTypeRegistry.cs" />
+    <Compile Include="Win32\ProtocolUtilities.cs" />
+    <Compile Include="Win32\RegistryViewUtilities.cs" />
+    <Compile Include="Win32\UnsafeFileExtensions.cs" />
+    <Compile Include="Windows\Controls\BusySpinner.xaml.cs">
+      <DependentUpon>BusySpinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ButtonPanel.cs" />
+    <Compile Include="Windows\Controls\Callout.cs" />
+    <Compile Include="Windows\Controls\ControlResources.cs" />
+    <Compile Include="Windows\Controls\Data\GroupingViewUtilities.cs" />
+    <Compile Include="Windows\Controls\Data\ListView.cs" />
+    <Compile Include="Windows\Controls\Data\ListViewModel.cs" />
+    <Compile Include="Windows\Controls\DialogPanel.cs" />
+    <Compile Include="Windows\Controls\ExceptionDialog.xaml.cs">
+      <DependentUpon>ExceptionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\FileBrowser.xaml.cs">
+      <DependentUpon>FileBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\HintTextAdorner.cs" />
+    <Compile Include="Windows\Controls\MetroAnimations.cs" />
+    <Compile Include="Windows\Controls\RibbonWindow.cs" />
+    <Compile Include="Windows\Controls\Preview\FilePreviewControl.xaml.cs">
+      <DependentUpon>FilePreviewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Preview\IFilePreviewControl.cs" />
+    <Compile Include="Windows\Controls\Preview\ImagePreviewControl.xaml.cs">
+      <DependentUpon>ImagePreviewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Preview\LoadEventArgs.cs" />
+    <Compile Include="Windows\Controls\Preview\NativePreviewControl.xaml.cs">
+      <DependentUpon>NativePreviewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Preview\VideoPreviewControl.xaml.cs">
+      <DependentUpon>VideoPreviewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Preview\WebPreviewControl.xaml.cs">
+      <DependentUpon>WebPreviewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ProgressIndicator.xaml.cs">
+      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\ProgressRing.xaml.cs">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\Transition.cs" />
+    <Compile Include="Windows\Controls\TransitionControl.xaml.cs">
+      <DependentUpon>TransitionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Controls\VideoPlayer.xaml.cs">
+      <DependentUpon>VideoPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Converters\BooleanConverter.cs" />
+    <Compile Include="Windows\Converters\Converters.cs" />
+    <Compile Include="Windows\Converters\DateGroupingConverter.cs" />
+    <Compile Include="Windows\Converters\PercentageConverter.cs" />
+    <Compile Include="Windows\Converters\OneWayConverterBase.cs" />
+    <Compile Include="Windows\Converters\StringConverter.cs" />
+    <Compile Include="Windows\Converters\ThicknessValueConverter.cs" />
+    <Compile Include="Windows\Converters\VisibilityConverter.cs" />
+    <Compile Include="Windows\Documents\Highlighter.cs" />
+    <Compile Include="Windows\Documents\TextFragment.cs" />
+    <Compile Include="Windows\Documents\TextUtilities.cs" />
+    <Compile Include="Windows\DragAndDrop\ItemsControlDragDropService.cs" />
+    <Compile Include="Windows\DragAndDrop\DragDropHelper.cs" />
+    <Compile Include="Windows\DragAndDrop\DraggedAdorner.cs" />
+    <Compile Include="Windows\DragAndDrop\DragMoveWithinBoundsHelper.cs" />
+    <Compile Include="Windows\DragAndDrop\InsertionAdorner.cs" />
+    <Compile Include="Windows\DragAndDrop\DragDropUtilities.cs" />
+    <Compile Include="Windows\ExtendedSystemParameters.cs" />
+    <Compile Include="Windows\Input\KeyGestureUtilities.cs" />
+    <Compile Include="Windows\Media\Animation\AnimationHelper.cs" />
+    <Compile Include="Windows\MVVM\ICommandProvider.cs" />
+    <Compile Include="Windows\MVVM\ValidationUtilities.cs" />
+    <Compile Include="Windows\MVVM\ViewAttribute.cs" />
+    <Compile Include="Windows\MVVM\ViewCatalog.cs" />
+    <Compile Include="Windows\Transfer\FileGroupDataObject.cs" />
+    <Compile Include="Windows\Forms\NativePreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\NativePreviewControl.designer.cs">
+      <DependentUpon>NativePreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Forms\TemporaryGlobalCursor.cs" />
+    <Compile Include="Windows\Input\RelayCommand.cs" />
+    <Compile Include="Windows\Input\RoutedCommandBase.cs" />
+    <Compile Include="Windows\Input\UICommand.cs" />
+    <Compile Include="Windows\InteropExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\Interop\ApplicationHotKeys.cs" />
+    <Compile Include="Windows\Interop\InteropUtilities.cs" />
+    <Compile Include="Windows\LogicalTreeUtilities.cs" />
+    <Compile Include="Windows\Media\Capture\BoundsSelectionWindow.cs" />
+    <Compile Include="Windows\Media\Capture\ScreenCapture.cs" />
+    <Compile Include="Windows\Media\Imaging\BitmapUtilities.cs" />
+    <Compile Include="Windows\Media\VisualTreeUtilities.cs" />
+    <Compile Include="Windows\MVVM\View.cs" />
+    <Compile Include="Windows\MVVM\ViewModelBase.cs" />
+    <Compile Include="Windows\Shell\ApplicationInstance.cs" />
+    <Compile Include="Windows\Shell\ShellFileInfo.cs" />
+    <Compile Include="Windows\Shell\ShellFileInfoCache.cs" />
+    <Compile Include="Windows\Shell\ShellUtilities.cs" />
+    <Compile Include="Windows\Shell\SystemImageCache.cs" />
+    <Compile Include="Windows\Shell\SystemImageInfo.cs" />
+    <Compile Include="Windows\Shell\SystemImageList.cs" />
+    <Compile Include="Windows\Shell\WindowInfo.cs" />
+    <Compile Include="Windows\SystemIcons.cs" />
+    <Compile Include="Windows\TemporaryCursorManager.cs" />
+    <Compile Include="Windows\Transfer\DataObjectExtensions.cs" />
+    <Compile Include="Windows\Transfer\FileGroup.cs" />
+    <Compile Include="Windows\Transfer\CustomDataFormats.cs" />
+    <Compile Include="Windows\Transfer\HtmlDataFactory.cs" />
+    <Compile Include="Windows\UI.cs" />
+    <Compile Include="Windows\UserFeedback.cs" />
+    <Compile Include="Windows\WindowStateInfo.cs" />
+    <Compile Include="Windows\WindowUtilities.cs" />
+    <Compile Include="Windows\WpfExtensions.cs" />
+    <Compile Include="Xml\XmlExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\FoundationResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FoundationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Forms\NativePreviewControl.resx">
+      <DependentUpon>NativePreviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ResourceStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="Windows\Media\Effects\GrayscaleEffect.ps" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Controls\Resources\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Office.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\BusySpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\ExceptionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\FileBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\ImageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\Preview\FilePreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\Preview\ImagePreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\Preview\NativePreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\Preview\VideoPreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\Preview\WebPreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Controls\ProgressDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\ProgressIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\Controls\ProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Windows\Controls\Resources\Animations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Windows\Controls\TransitionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Windows\Controls\Resources\Transitions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Include="Windows\Controls\VideoPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Cursors\ClosedHand.cur" />
+    <Content Include="Resources\Cursors\OpenHand.cur" />
+    <Resource Include="Resources\Icons\Empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\segmdl2.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+</Project>

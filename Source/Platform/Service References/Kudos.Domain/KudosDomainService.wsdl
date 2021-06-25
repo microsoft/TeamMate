@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="KudosDomainService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_KudosDomainServicesoap_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpBinding_KudosDomainServicesoap1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc?xsd=xsd3" namespace="DomainServices" />
+      <xsd:import schemaLocation="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Kudos.WCFService" />
+      <xsd:import schemaLocation="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="KudosDomainServicesoap_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_Ping_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q1="DomainServices" name="detail" element="q1:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_PingLogging_InputMessage">
+    <wsdl:part name="parameters" element="tns:PingLogging" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_PingLogging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingLoggingResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_PingLogging_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q2="DomainServices" name="detail" element="q2:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamHistoryForManager" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamHistoryForManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManager_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q3="DomainServices" name="detail" element="q3:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamHistoryForManagerDirectsOnly" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamHistoryForManagerDirectsOnlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q4="DomainServices" name="detail" element="q4:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SearchEmployeesByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEmployeesByName" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SearchEmployeesByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchEmployeesByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SearchEmployeesByName_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q5="DomainServices" name="detail" element="q5:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetEmployeeByAlias_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByAlias" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetEmployeeByAlias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeByAliasResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetEmployeeByAlias_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q6="DomainServices" name="detail" element="q6:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_TrackMetric_InputMessage">
+    <wsdl:part name="parameters" element="tns:TrackMetric" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_TrackMetric_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TrackMetricResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_TrackMetric_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q7="DomainServices" name="detail" element="q7:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForCurrentUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummaryForCurrentUser" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForCurrentUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummaryForCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForCurrentUser_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q8="DomainServices" name="detail" element="q8:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForEmployeeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummaryForEmployeeId" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForEmployeeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummaryForEmployeeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummaryForEmployeeId_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q9="DomainServices" name="detail" element="q9:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummary" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSummary_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q10="DomainServices" name="detail" element="q10:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosReceived_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosReceived" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosReceived_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosReceivedResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosReceived_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q11="DomainServices" name="detail" element="q11:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSent" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosSentResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudosSent_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q12="DomainServices" name="detail" element="q12:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q13="DomainServices" name="detail" element="q13:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPicture_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPicture" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPicture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPicture_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q14="DomainServices" name="detail" element="q14:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_UpdateKudosMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKudosMessage" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_UpdateKudosMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKudosMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_UpdateKudosMessage_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q15="DomainServices" name="detail" element="q15:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_DeleteKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_DeleteKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_DeleteKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q16="DomainServices" name="detail" element="q16:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetWeeklyUsageHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeeklyUsageHistory" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetWeeklyUsageHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeeklyUsageHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetWeeklyUsageHistory_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q17="DomainServices" name="detail" element="q17:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTotalKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTotalKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetTotalKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q18="DomainServices" name="detail" element="q18:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPersonInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonInfo" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPersonInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetPersonInfo_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q19="DomainServices" name="detail" element="q19:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_GetKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q20="DomainServices" name="detail" element="q20:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SendMail_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q21="DomainServices" name="detail" element="q21:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_ResendKudosEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResendKudosEmail" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_ResendKudosEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResendKudosEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_ResendKudosEmail_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q22="DomainServices" name="detail" element="q22:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SaveKudosAndSendEmailMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveKudosAndSendEmailMessage" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SaveKudosAndSendEmailMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveKudosAndSendEmailMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_SaveKudosAndSendEmailMessage_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q23="DomainServices" name="detail" element="q23:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_HasEmployeeOptedOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasEmployeeOptedOut" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_HasEmployeeOptedOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasEmployeeOptedOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_HasEmployeeOptedOut_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q24="DomainServices" name="detail" element="q24:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptOutFromKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:OptOutFromKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptOutFromKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OptOutFromKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptOutFromKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q25="DomainServices" name="detail" element="q25:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptInIntoKudos_InputMessage">
+    <wsdl:part name="parameters" element="tns:OptInIntoKudos" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptInIntoKudos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OptInIntoKudosResponse" />
+  </wsdl:message>
+  <wsdl:message name="KudosDomainServicesoap_OptInIntoKudos_DomainServiceFault_FaultMessage">
+    <wsdl:part xmlns:q26="DomainServices" name="detail" element="q26:DomainServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="KudosDomainServicesoap">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/Ping" message="tns:KudosDomainServicesoap_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/PingResponse" message="tns:KudosDomainServicesoap_Ping_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/PingDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_Ping_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PingLogging">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/PingLogging" message="tns:KudosDomainServicesoap_PingLogging_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/PingLoggingResponse" message="tns:KudosDomainServicesoap_PingLogging_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/PingLoggingDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_PingLogging_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManager" message="tns:KudosDomainServicesoap_GetTeamHistoryForManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerResponse" message="tns:KudosDomainServicesoap_GetTeamHistoryForManager_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetTeamHistoryForManager_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManagerDirectsOnly">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnly" message="tns:KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyResponse" message="tns:KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetTeamHistoryForManagerDirectsOnly_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployeesByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByName" message="tns:KudosDomainServicesoap_SearchEmployeesByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameResponse" message="tns:KudosDomainServicesoap_SearchEmployeesByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_SearchEmployeesByName_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByAlias">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAlias" message="tns:KudosDomainServicesoap_GetEmployeeByAlias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasResponse" message="tns:KudosDomainServicesoap_GetEmployeeByAlias_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetEmployeeByAlias_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TrackMetric">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/TrackMetric" message="tns:KudosDomainServicesoap_TrackMetric_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/TrackMetricResponse" message="tns:KudosDomainServicesoap_TrackMetric_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/TrackMetricDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_TrackMetric_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForCurrentUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUser" message="tns:KudosDomainServicesoap_GetKudosSummaryForCurrentUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserResponse" message="tns:KudosDomainServicesoap_GetKudosSummaryForCurrentUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudosSummaryForCurrentUser_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForEmployeeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeId" message="tns:KudosDomainServicesoap_GetKudosSummaryForEmployeeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdResponse" message="tns:KudosDomainServicesoap_GetKudosSummaryForEmployeeId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudosSummaryForEmployeeId_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummary" message="tns:KudosDomainServicesoap_GetKudosSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryResponse" message="tns:KudosDomainServicesoap_GetKudosSummary_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudosSummary_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosReceived">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceived" message="tns:KudosDomainServicesoap_GetKudosReceived_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedResponse" message="tns:KudosDomainServicesoap_GetKudosReceived_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudosReceived_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSent">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSent" message="tns:KudosDomainServicesoap_GetKudosSent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSentResponse" message="tns:KudosDomainServicesoap_GetKudosSent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSentDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudosSent_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendKudos" message="tns:KudosDomainServicesoap_SendKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendKudosResponse" message="tns:KudosDomainServicesoap_SendKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_SendKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPicture">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPicture" message="tns:KudosDomainServicesoap_GetPicture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPictureResponse" message="tns:KudosDomainServicesoap_GetPicture_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPictureDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetPicture_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKudosMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessage" message="tns:KudosDomainServicesoap_UpdateKudosMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageResponse" message="tns:KudosDomainServicesoap_UpdateKudosMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_UpdateKudosMessage_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudos" message="tns:KudosDomainServicesoap_DeleteKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudosResponse" message="tns:KudosDomainServicesoap_DeleteKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_DeleteKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyUsageHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistory" message="tns:KudosDomainServicesoap_GetWeeklyUsageHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryResponse" message="tns:KudosDomainServicesoap_GetWeeklyUsageHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetWeeklyUsageHistory_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudos" message="tns:KudosDomainServicesoap_GetTotalKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosResponse" message="tns:KudosDomainServicesoap_GetTotalKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetTotalKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfo" message="tns:KudosDomainServicesoap_GetPersonInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoResponse" message="tns:KudosDomainServicesoap_GetPersonInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetPersonInfo_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudos" message="tns:KudosDomainServicesoap_GetKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosResponse" message="tns:KudosDomainServicesoap_GetKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/GetKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_GetKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendMail" message="tns:KudosDomainServicesoap_SendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendMailResponse" message="tns:KudosDomainServicesoap_SendMail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SendMailDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_SendMail_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendKudosEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmail" message="tns:KudosDomainServicesoap_ResendKudosEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailResponse" message="tns:KudosDomainServicesoap_ResendKudosEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_ResendKudosEmail_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveKudosAndSendEmailMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessage" message="tns:KudosDomainServicesoap_SaveKudosAndSendEmailMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessageResponse" message="tns:KudosDomainServicesoap_SaveKudosAndSendEmailMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessageDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_SaveKudosAndSendEmailMessage_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasEmployeeOptedOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOut" message="tns:KudosDomainServicesoap_HasEmployeeOptedOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutResponse" message="tns:KudosDomainServicesoap_HasEmployeeOptedOut_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_HasEmployeeOptedOut_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OptOutFromKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudos" message="tns:KudosDomainServicesoap_OptOutFromKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosResponse" message="tns:KudosDomainServicesoap_OptOutFromKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_OptOutFromKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OptInIntoKudos">
+      <wsdl:input wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudos" message="tns:KudosDomainServicesoap_OptInIntoKudos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosResponse" message="tns:KudosDomainServicesoap_OptInIntoKudos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosDomainServiceFault" name="DomainServiceFault" message="tns:KudosDomainServicesoap_OptInIntoKudos_DomainServiceFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_KudosDomainServicesoap" type="tns:KudosDomainServicesoap">
+    <wsp:PolicyReference URI="#BasicHttpBinding_KudosDomainServicesoap_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PingLogging">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/PingLogging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManager">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManagerDirectsOnly">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployeesByName">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByAlias">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAlias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TrackMetric">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/TrackMetric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForCurrentUser">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForEmployeeId">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummary">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosReceived">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosReceived" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSent">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SendKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicture">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetPicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKudosMessage">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/DeleteKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyUsageHistory">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTotalKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfo">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetPersonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResendKudosEmail">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveKudosAndSendEmailMessage">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HasEmployeeOptedOut">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OptOutFromKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OptInIntoKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_KudosDomainServicesoap1" type="tns:KudosDomainServicesoap">
+    <wsp:PolicyReference URI="#BasicHttpBinding_KudosDomainServicesoap1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PingLogging">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/PingLogging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManager">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamHistoryForManagerDirectsOnly">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmployeesByName">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByAlias">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAlias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TrackMetric">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/TrackMetric" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForCurrentUser">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummaryForEmployeeId">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSummary">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosReceived">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosReceived" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudosSent">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SendKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicture">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetPicture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKudosMessage">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/DeleteKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeeklyUsageHistory">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetTotalKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonInfo">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetPersonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/GetKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResendKudosEmail">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveKudosAndSendEmailMessage">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HasEmployeeOptedOut">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OptOutFromKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OptInIntoKudos">
+      <soap:operation soapAction="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainServiceFault">
+        <soap:fault use="literal" name="DomainServiceFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KudosDomainService">
+    <wsdl:port name="BasicHttpBinding_KudosDomainServicesoap" binding="tns:BasicHttpBinding_KudosDomainServicesoap">
+      <soap:address location="http://kudos/Services/Kudos-WCFService-KudosDomainService.svc/soap" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_KudosDomainServicesoap1" binding="tns:BasicHttpBinding_KudosDomainServicesoap1">
+      <soap:address location="https://eelabs-iis-vm1.redmond.corp.microsoft.com/Services/Kudos-WCFService-KudosDomainService.svc/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

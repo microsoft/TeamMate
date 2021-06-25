@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fae96faf-0f9c-494f-8f3f-630a0050a1c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://codeflow/Services/ProjectService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProjectService.xsd" MetadataType="Schema" ID="6078b972-529d-4410-8d46-3c836a94f3cd" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProjectService1.xsd" MetadataType="Schema" ID="27fa1f76-2b94-4fb4-bd36-6ba8bf416c32" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProjectService.disco" MetadataType="Disco" ID="67bc4c37-e221-4820-94cc-88d0b980ca43" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?disco" />
+    <MetadataFile FileName="ProjectService2.xsd" MetadataType="Schema" ID="ac0694cb-5d66-42cd-beef-ae1f99069737" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProjectService3.xsd" MetadataType="Schema" ID="822e2bc7-f5a7-4135-88a2-faaa3642db11" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProjectService.wsdl" MetadataType="Wsdl" ID="8dc66dea-d332-403a-ba58-f20b105bf163" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?wsdl" />
+    <MetadataFile FileName="ProjectService4.xsd" MetadataType="Schema" ID="a0059f1f-7d30-4e80-ac35-026396032001" SourceId="1" SourceUrl="http://codeflow/Services/ProjectService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

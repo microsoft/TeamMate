@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Pages.ProjectsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Pages"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+             x:Name="self"
+             d:DataContext="{x:Static tmr:SampleData.ProjectsPage}"
+             d:DesignHeight="500"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <Border MouseLeftButtonUp="HandleProjectClicked" Style="{StaticResource TileBorderStyle}">
+                <Border.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Click="HandleRemoveClicked" Header="Remove" />
+                    </ContextMenu>
+                </Border.ContextMenu>
+                <Border Width="{StaticResource TileWidth}"
+                        Height="{StaticResource TileHeight}"
+                        Background="White"
+                        BorderBrush="#ACACAD"
+                        BorderThickness="1"
+                        ToolTip="{Binding ProjectCollectionUri}">
+                    <TextBlock Margin="12"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                               Text="{Binding DisplayName,
+                                              Converter={x:Static fw:Converters.ToUpper}}"
+                               TextTrimming="CharacterEllipsis" />
+                </Border>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer Style="{StaticResource ScrollViewerStyle}" Visibility="{Binding Projects.Count, Converter={x:Static fw:Converters.VisibilityHidden}}">
+            <Grid Margin="{StaticResource PageContainerMargin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Margin="0,0,0,12"
+                           Style="{StaticResource SubheaderTextBlockStyle}"
+                           Text="Projects" />
+                <ListBox Grid.Row="1"
+                         ItemTemplate="{StaticResource ItemTemplate}"
+                         ItemsSource="{Binding Projects}"
+                         Style="{StaticResource TileListBoxStyle}" />
+            </Grid>
+        </ScrollViewer>
+        <local:FirstRunExperiencePage Visibility="{Binding Projects.Count, Converter={x:Static fw:Converters.InverseVisibilityHidden}}" />
+    </Grid>
+</UserControl>

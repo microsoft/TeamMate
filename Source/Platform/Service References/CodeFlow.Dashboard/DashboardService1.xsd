@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://tk5cdflwiis02/DashboardService/DashboardService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://tk5cdflwiis02/DashboardService/DashboardService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CodeReviewQuery">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Authors" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="CreatedAfterDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBeforeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MaxResults" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Projects" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ReviewStatuses" nillable="true" type="tns:ArrayOfCodeReviewStatus" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Reviewers" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element name="UserAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdatedAfterDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUpdatedBeforeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeReviewQuery" nillable="true" type="tns:CodeReviewQuery" />
+  <xs:complexType name="ArrayOfCodeReviewStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeReviewStatus" type="tns:CodeReviewStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeReviewStatus" nillable="true" type="tns:ArrayOfCodeReviewStatus" />
+  <xs:simpleType name="CodeReviewStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Aborted" />
+      <xs:enumeration value="Expired" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodeReviewStatus" nillable="true" type="tns:CodeReviewStatus" />
+  <xs:complexType name="CodeReviewQueryResult">
+    <xs:sequence>
+      <xs:element name="QueryDuration" type="ser:duration" />
+      <xs:element name="Reviews" nillable="true" type="tns:ArrayOfCodeReviewSummary" />
+      <xs:element name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeReviewQueryResult" nillable="true" type="tns:CodeReviewQueryResult" />
+  <xs:complexType name="ArrayOfCodeReviewSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeReviewSummary" nillable="true" type="tns:CodeReviewSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeReviewSummary" nillable="true" type="tns:ArrayOfCodeReviewSummary" />
+  <xs:complexType name="CodeReviewSummary">
+    <xs:sequence>
+      <xs:element name="AuthorLogin" nillable="true" type="xs:string" />
+      <xs:element name="Key" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="ProjectShortName" nillable="true" type="xs:string" />
+      <xs:element name="Revision" type="xs:int" />
+      <xs:element name="Status" type="tns:CodeReviewStatus" />
+      <xs:element minOccurs="0" name="Author" nillable="true" type="tns:Author" />
+      <xs:element minOccurs="0" name="CompletedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedOn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IterationCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Reviewers" nillable="true" type="tns:ArrayOfReviewer" />
+      <xs:element minOccurs="0" name="WorkItems" nillable="true" type="tns:ArrayOfWorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeReviewSummary" nillable="true" type="tns:CodeReviewSummary" />
+  <xs:complexType name="Author">
+    <xs:sequence>
+      <xs:element name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Status" type="tns:AuthorStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Author" nillable="true" type="tns:Author" />
+  <xs:simpleType name="AuthorStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Preparing" />
+      <xs:enumeration value="Waiting" />
+      <xs:enumeration value="Working" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorStatus" nillable="true" type="tns:AuthorStatus" />
+  <xs:complexType name="ArrayOfReviewer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reviewer" nillable="true" type="tns:Reviewer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReviewer" nillable="true" type="tns:ArrayOfReviewer" />
+  <xs:complexType name="Reviewer">
+    <xs:sequence>
+      <xs:element name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element name="LastUpdatedOn" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Required" type="xs:boolean" />
+      <xs:element name="Status" type="tns:ReviewerStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reviewer" nillable="true" type="tns:Reviewer" />
+  <xs:simpleType name="ReviewerStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotStarted" />
+      <xs:enumeration value="Started" />
+      <xs:enumeration value="Reviewing" />
+      <xs:enumeration value="Waiting" />
+      <xs:enumeration value="SignedOff" />
+      <xs:enumeration value="InviteOnly" />
+      <xs:enumeration value="Declined" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReviewerStatus" nillable="true" type="tns:ReviewerStatus" />
+  <xs:complexType name="ArrayOfWorkItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkItem" nillable="true" type="tns:WorkItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkItem" nillable="true" type="tns:ArrayOfWorkItem" />
+  <xs:complexType name="WorkItem">
+    <xs:sequence>
+      <xs:element name="id" nillable="true" type="xs:string" />
+      <xs:element name="title" nillable="true" type="xs:string" />
+      <xs:element name="type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uri" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WorkItem" nillable="true" type="tns:WorkItem" />
+  <xs:complexType name="QueryReviewSummariesResult">
+    <xs:sequence>
+      <xs:element name="QueryDuration" type="ser:duration" />
+      <xs:element name="Reviews" nillable="true" type="tns:ArrayOfCodeReviewSummary" />
+      <xs:element name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryReviewSummariesResult" nillable="true" type="tns:QueryReviewSummariesResult" />
+  <xs:complexType name="ServiceFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceFault" nillable="true" type="tns:ServiceFault" />
+  <xs:complexType name="QueryReviewIdsResult">
+    <xs:sequence>
+      <xs:element name="QueryDuration" type="ser:duration" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Reviews" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element name="TotalResults" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryReviewIdsResult" nillable="true" type="tns:QueryReviewIdsResult" />
+</xs:schema>

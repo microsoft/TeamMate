@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation">
+    <Storyboard x:Key="SlideRightStoryboard" FillBehavior="Stop">
+        <!--  Hide the element immediately  -->
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+            <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+        </DoubleAnimationUsingKeyFrames>
+
+        <!--  Start the fade in and slide. BeginTime of this sub-timeline will be controlled programatically to introduce delays as needed.  -->
+        <ParallelTimeline>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="00:00:00.700" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-15" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.700" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </ParallelTimeline>
+    </Storyboard>
+
+    <Storyboard x:Key="SlideUpStoryboard" FillBehavior="Stop">
+        <!--  Hide the element immediately  -->
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+            <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+        </DoubleAnimationUsingKeyFrames>
+
+        <!--  Start the fade in and slide. BeginTime of this sub-timeline will be controlled programatically to introduce delays as needed.  -->
+        <ParallelTimeline>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="00:00:00.700" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="15" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.700" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </ParallelTimeline>
+    </Storyboard>
+
+</ResourceDictionary>

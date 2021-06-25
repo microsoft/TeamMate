@@ -1,0 +1,114 @@
+﻿<UserControl
+    x:Class="Microsoft.Internal.Tools.TeamMate.Pages.DeveloperOptionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="800"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+
+        <Style BasedOn="{StaticResource BodyTextBlockStyle}" TargetType="TextBlock" />
+
+        <Style BasedOn="{StaticResource WindowsButtonStyle}" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style BasedOn="{StaticResource WindowsToggleCheckBoxStyle}" TargetType="CheckBox" />
+
+        <Style BasedOn="{StaticResource WindowsUniversalSliderStyle}" TargetType="Slider" />
+
+    </UserControl.Resources>
+    <TabControl Style="{StaticResource WindowsUniversalTabControlStyle}">
+        <TabItem Header="General">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24">
+                    <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="Actions" />
+                    <Button Margin="0,12,0,0" Command="{Binding ShowWelcomeDialogCommand}">Show Welcome Dialog</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding RequestRatingCommand}">Request Rating</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding RequestFeedbackCommand}">Request Feedback</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding RunInstallUpgradeConfigurationStepCommand}">Run Install/Upgrade Configuration Step</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding TriggerApplicationUpdateCommand}">Trigger Application Update</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding ThrowUnhandledExceptionCommand}">Throw Unhandled Exception</Button>
+                    <Button Margin="0,12,0,0" Command="{Binding CrashApplicationCommand}">Crash Application</Button>
+
+                    <TextBlock
+                        Margin="0,24,0,0"
+                        Style="{StaticResource SubheaderTextBlockStyle}"
+                        Text="Options" />
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding DeveloperSettings.DebugAllNotifications}">Debug All Notifications</CheckBox>
+                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding DeveloperSettings.ForceLegacyNotifications}">Force Legacy Notification</CheckBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Chaos Monkey">
+            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                <StackPanel Margin="24" DataContext="{Binding ChaosMonkey}">
+                    <CheckBox IsChecked="{Binding IsEnabled}">Enable Chaos Monkey</CheckBox>
+                    <TextBlock
+                        Margin="0,24,0,0"
+                        Style="{StaticResource SubheaderTextBlockStyle}"
+                        Text="Chaos Scenarios" />
+                    <ItemsControl
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Left"
+                        AlternationCount="2"
+                        Grid.IsSharedSizeScope="True"
+                        ItemsSource="{Binding Scenarios}"
+                        VirtualizingPanel.IsVirtualizing="True">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border x:Name="container" Height="48">
+                                    <Grid Margin="0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition SharedSizeGroup="Col1" />
+                                            <ColumnDefinition SharedSizeGroup="Col2" />
+                                            <ColumnDefinition SharedSizeGroup="Col3" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Margin="32,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Style="{StaticResource BodyTextBlockStyle}"
+                                            Text="{Binding Name}" />
+                                        <Slider
+                                            Grid.Column="1"
+                                            Width="100"
+                                            Margin="100,0,50,0"
+                                            VerticalAlignment="Center"
+                                            IsSnapToTickEnabled="True"
+                                            Maximum="1"
+                                            Minimum="0"
+                                            TickFrequency="0.25"
+                                            ToolTip="Failure Rate (from 0 to 100%)"
+                                            Value="{Binding FailureRate}" />
+                                        <Slider
+                                            Grid.Column="2"
+                                            Width="100"
+                                            Margin="0,0,32,0"
+                                            VerticalAlignment="Center"
+                                            LargeChange="5000"
+                                            Maximum="10000"
+                                            Minimum="0"
+                                            SmallChange="1000"
+                                            ToolTip="Delay (from 0 to 10 seconds)"
+                                            Value="{Binding Delay}" />
+                                    </Grid>
+                                </Border>
+                                <DataTemplate.Triggers>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                        <Setter TargetName="container" Property="Background" Value="#F2F2F2" />
+                                    </Trigger>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                        <Setter TargetName="container" Property="Background" Value="White" />
+                                    </Trigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
+</UserControl>

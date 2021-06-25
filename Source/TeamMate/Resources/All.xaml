@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:fwcd="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+                    xmlns:tmc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Controls"
+                    xmlns:tmcv="clr-namespace:Microsoft.Internal.Tools.TeamMate.Converters">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="Images.xaml" />
+        <ResourceDictionary Source="Brushes.xaml" />
+        <ResourceDictionary Source="TeamMateCommands.xaml" />
+
+        <ResourceDictionary Source="/Microsoft.Internal.Tools.TeamMate.Foundation;component/Themes/Office.xaml" />
+        <ResourceDictionary Source="Styles\Office.xaml" />
+        <ResourceDictionary Source="Styles\Other.xaml" />
+        <ResourceDictionary Source="Styles\WindowsUniversal.xaml" />
+
+        <ResourceDictionary Source="Shared.xaml" />
+
+        <ResourceDictionary>
+
+            <Style TargetType="tmc:MsnIcon">
+                <Setter Property="FontFamily" Value="/Resources/Fonts/#MSN MDL2 Assets" />
+            </Style>
+
+            <Style TargetType="tmc:BowtieIcon">
+                <Setter Property="FontFamily" Value="/Resources/Fonts/#Bowtie" />
+            </Style>
+
+            <Style TargetType="Window">
+                <!--  Globally use layout rounding for all windows, removes blurryness across the board  -->
+                <Setter Property="UseLayoutRounding" Value="True" />
+            </Style>
+
+            <Style TargetType="Hyperlink">
+                <Setter Property="TextDecorations" Value="None" />
+                <Setter Property="Foreground" Value="#0066CC" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="#0066CC" />
+                        <Setter Property="TextDecorations" Value="Underline" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="fwc:Callout">
+                <Setter Property="BorderBrush" Value="{StaticResource ApplicationColorBrush}" />
+            </Style>
+
+            <Style BasedOn="{StaticResource WindowsUniversalListView}" TargetType="fwcd:ListView" />
+
+            <tmcv:CodeFlowReviewStatusConverter x:Key="ReviewerStatusConverter" Mode="ReviewerStatus" />
+            <tmcv:CodeFlowReviewStatusConverter x:Key="StatusImageConverter" Mode="StatusImage" />
+            <tmcv:CodeFlowReviewStatusConverter x:Key="StatusTextConverter" Mode="StatusText" />
+            <tmcv:CodeFlowReviewStatusConverter x:Key="IterationCountConverter" Mode="IterationCount" />
+        </ResourceDictionary>
+
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

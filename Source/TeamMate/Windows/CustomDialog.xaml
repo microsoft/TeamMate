@@ -1,0 +1,50 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Windows.CustomDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tmr="clr-namespace:Microsoft.Internal.Tools.TeamMate.Resources"
+        MinWidth="600"
+        MinHeight="300"
+        MaxWidth="800"
+        MaxHeight="800"
+        SizeToContent="WidthAndHeight"
+        Style="{StaticResource LyncDialogStyle}"
+        d:DataContext="{x:Static tmr:SampleData.CustomDialogViewModel}"
+        mc:Ignorable="d">
+    <fwc:DialogPanel Margin="{StaticResource LyncDialogPanelMargin}">
+        <StackPanel Margin="0,0,0,12">
+            <TextBlock Style="{StaticResource LyncDialogTitleStyle}" Text="{Binding Title}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Name="icon"
+                       Grid.Column="0"
+                       Margin="0,0,12,0"
+                       VerticalAlignment="Top"
+                       Source="{Binding Icon}"
+                       Stretch="None"
+                       Visibility="{Binding RelativeSource={RelativeSource Self},
+                                            Path=Source,
+                                            Converter={x:Static fw:Converters.Visibility}}" />
+                <TextBlock Name="messageTextBlock"
+                           Grid.Column="1"
+                           Text="{Binding Message}"
+                           TextWrapping="Wrap" />
+            </Grid>
+            <CheckBox Name="checkbox"
+                      Margin="0,24,0,0"
+                      Content="{Binding CheckBoxText}"
+                      IsChecked="{Binding IsCheckBoxChecked}"
+                      Visibility="{Binding CheckBoxText,
+                                           Converter={x:Static fw:Converters.Visibility}}" />
+        </StackPanel>
+        <fwc:DialogPanel.ButtonPanel>
+            <fwc:ButtonPanel x:Name="buttonPanel" />
+        </fwc:DialogPanel.ButtonPanel>
+    </fwc:DialogPanel>
+</Window>

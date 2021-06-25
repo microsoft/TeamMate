@@ -1,0 +1,68 @@
+﻿<Window x:Class="Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board.BoardViewTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf"
+        xmlns:board="clr-namespace:Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        UseLayoutRounding="True"
+        WindowState="Maximized"
+        Title="BoardViewTestWindow" Height="513" Width="952">
+    
+    <Window.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <Border BorderThickness="6,0,0,0" BorderBrush="#95B3D7" Background="#C6DBF7" Width="133" Height="83" CornerRadius="0,16,0,0">
+                <TextBlock Text="{Binding}" Margin="3"/>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RedItemTemplate">
+            <Border BorderThickness="6,0,0,0" BorderBrush="#F23C3C" Background="#F0DFD0" Width="133" Height="83" CornerRadius="0,16,0,0">
+                <TextBlock Text="{Binding}" Margin="3"/>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <board:BoardView x:Name="board" DataContext="{x:Static local:SandboxSampleData.Board}" ItemTemplate="{StaticResource ItemTemplate}">
+
+            <!--
+        <board:BoardView.DragDropItemTemplate>
+            <DataTemplate>
+                <Border BorderThickness="1" BorderBrush="DarkRed">
+                    <Grid Width="50" Height="20" Background="Red">
+                        <TextBlock Text="{Binding}" Margin="3"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </board:BoardView.DragDropItemTemplate>
+        -->
+            <!--
+
+            <board:BoardView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="6,0,0,0" BorderBrush="#95B3D7" Background="#C6DBF7" Width="133" Height="83">
+                        <TextBlock Text="{Binding}" Margin="3"/>
+                    </Border>
+                </DataTemplate>
+            </board:BoardView.ItemTemplate>
+            <board:BoardView.ColumnHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="3,0,3,0" Text="{Binding}" Foreground="#404040" FontSize="10pt"/>
+                </DataTemplate>
+            </board:BoardView.ColumnHeaderTemplate>
+            <board:BoardView.RowHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="3,0,20,0" Text="{Binding}" Foreground="#404040" FontSize="11pt"/>
+                </DataTemplate>
+            </board:BoardView.RowHeaderTemplate>
+            <board:BoardView.ItemContainerHotStyle>
+                <Style TargetType="Control">
+                    <Setter Property="Background" Value="#EBF1DE"/>
+                </Style>
+            </board:BoardView.ItemContainerHotStyle>
+            
+            -->
+        </board:BoardView>
+            
+    </Grid>
+</Window>

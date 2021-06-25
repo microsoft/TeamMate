@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.MetroTile4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf"
+        xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             d:DataContext="{x:Static local:SandboxSampleData.Tile}"
+             xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             x:Name="self"
+             SnapsToDevicePixels="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="248">
+    <Grid>
+        <Grid Background="White" TextBlock.Foreground="#666666">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <fwc:TransitionControl ItemSource="{Binding Items}" Duration="0:0:1" TransitionInterval="0:0:5" x:Name="transition">
+                <fwc:TransitionControl.Transition>
+                    <fwc:SlideTransition Direction="RandomVertical"/>
+                </fwc:TransitionControl.Transition>
+
+                <fwc:TransitionControl.MyContentTemplate>
+                    <DataTemplate>
+                        <Grid Margin="11,5,11,6" TextBlock.FontSize="13" SnapsToDevicePixels="True">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontWeight="SemiBold"><Run Text="BUG "/><Run Text="{Binding Id}"/></TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="SemiBold"><Run Text="PRI "/><Run Text="{Binding Priority}"/></TextBlock>
+                            <TextBlock Grid.Row="1" FontSize="12" Grid.ColumnSpan="2" Margin="0,6,0,0" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Text="{Binding Title}"/>
+                        </Grid>
+                    </DataTemplate>
+                </fwc:TransitionControl.MyContentTemplate>
+            </fwc:TransitionControl>
+
+            <Border Grid.Row="1"  Background="#0072C6" Padding="11,5,11,5">
+                <Grid TextBlock.FontSize="18" TextBlock.Foreground="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" TextTrimming="CharacterEllipsis" Text="{Binding Title, Converter={x:Static fw:Converters.ToLower}}" />
+                    <TextBlock Grid.Column="1" Text="{Binding Count}" />
+                </Grid>
+            </Border>
+        </Grid>
+        <Border BorderThickness="1" BorderBrush="#4399F1"/>
+    </Grid>
+</UserControl>
