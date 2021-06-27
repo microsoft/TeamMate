@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.Serialization;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Runtime.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
 {
     public static class ReviewDashboardServiceExtensions
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Win32
+namespace Microsoft.Tools.TeamMate.Foundation.Win32
 {
     /// <summary>
     /// Provides utility methods for manipulating the registry in 32 and 64-bit environments.

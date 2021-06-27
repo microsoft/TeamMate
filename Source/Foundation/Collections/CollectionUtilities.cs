@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Collections
+namespace Microsoft.Tools.TeamMate.Foundation.Collections
 {
     /// <summary>
     /// Provides utility methods for collections.

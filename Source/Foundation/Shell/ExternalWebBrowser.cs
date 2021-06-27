@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Diagnostics;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Shell
 {
     /// <summary>
     /// Helper class for manipulating the system's web browser.

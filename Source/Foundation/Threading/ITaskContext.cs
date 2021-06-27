@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Threading
+namespace Microsoft.Tools.TeamMate.Foundation.Threading
 {
     /// <summary>
     /// Defines the interface for the context in which a task is running, allowing support for

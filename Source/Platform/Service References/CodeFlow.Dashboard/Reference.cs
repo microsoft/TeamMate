@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
 {
 
 
@@ -37,7 +37,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         private string[] ProjectsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus[] ReviewStatusesField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus[] ReviewStatusesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] ReviewersField;
@@ -129,7 +129,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus[] ReviewStatuses {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus[] ReviewStatuses {
             get {
                 return this.ReviewStatusesField;
             }
@@ -247,7 +247,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         
         private System.TimeSpan QueryDurationField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
         
         private int TotalResultsField;
         
@@ -275,7 +275,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
             get {
                 return this.ReviewsField;
             }
@@ -331,10 +331,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         
         private int RevisionField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.Author AuthorField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.Author AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CompletedOnField;
@@ -346,10 +346,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         private int IterationCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.Reviewer[] ReviewersField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.Reviewer[] ReviewersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.WorkItem[] WorkItemsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.WorkItem[] WorkItemsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -440,7 +440,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewStatus Status {
             get {
                 return this.StatusField;
             }
@@ -453,7 +453,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.Author Author {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.Author Author {
             get {
                 return this.AuthorField;
             }
@@ -505,7 +505,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.Reviewer[] Reviewers {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.Reviewer[] Reviewers {
             get {
                 return this.ReviewersField;
             }
@@ -518,7 +518,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.WorkItem[] WorkItems {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.WorkItem[] WorkItems {
             get {
                 return this.WorkItemsField;
             }
@@ -557,7 +557,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         
         private string NameField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.AuthorStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.AuthorStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -622,7 +622,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.AuthorStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.AuthorStatus Status {
             get {
                 return this.StatusField;
             }
@@ -663,7 +663,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         
         private bool RequiredField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.ReviewerStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.ReviewerStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -741,7 +741,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.ReviewerStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.ReviewerStatus Status {
             get {
                 return this.StatusField;
             }
@@ -907,7 +907,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         
         private System.TimeSpan QueryDurationField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
         
         private int TotalResultsField;
         
@@ -935,7 +935,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
             get {
                 return this.ReviewsField;
             }
@@ -1110,33 +1110,33 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
     public interface IReviewDashboardService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/Query", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryResponse")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult Query([System.ServiceModel.MessageParameterAttribute(Name="query")] Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query1);
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult Query([System.ServiceModel.MessageParameterAttribute(Name="query")] Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/Query", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult> QueryAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult> QueryAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/QueryReviewSummaries", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryReviewSummariesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.ServiceFault), Action="http://tempuri.org/IReviewDashboardService/QueryReviewSummariesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult QueryReviewSummaries(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.ServiceFault), Action="http://tempuri.org/IReviewDashboardService/QueryReviewSummariesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult QueryReviewSummaries(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/QueryReviewSummaries", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryReviewSummariesResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult> QueryReviewSummariesAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult> QueryReviewSummariesAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/QueryReviewIds", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryReviewIdsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.ServiceFault), Action="http://tempuri.org/IReviewDashboardService/QueryReviewIdsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult QueryReviewIds(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.ServiceFault), Action="http://tempuri.org/IReviewDashboardService/QueryReviewIdsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult QueryReviewIds(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewDashboardService/QueryReviewIds", ReplyAction="http://tempuri.org/IReviewDashboardService/QueryReviewIdsResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult> QueryReviewIdsAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult> QueryReviewIdsAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IReviewDashboardServiceChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService, System.ServiceModel.IClientChannel {
+    public interface IReviewDashboardServiceChannel : Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReviewDashboardServiceClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService>, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService {
+    public partial class ReviewDashboardServiceClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService>, Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.IReviewDashboardService {
         
         public ReviewDashboardServiceClient() {
         }
@@ -1157,27 +1157,27 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
                 base(binding, remoteAddress) {
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult Query(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query1) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult Query(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query1) {
             return base.Channel.Query(query1);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult> QueryAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult> QueryAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
             return base.Channel.QueryAsync(query);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult QueryReviewSummaries(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult QueryReviewSummaries(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
             return base.Channel.QueryReviewSummaries(query);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult> QueryReviewSummariesAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult> QueryReviewSummariesAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
             return base.Channel.QueryReviewSummariesAsync(query);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult QueryReviewIds(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult QueryReviewIds(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
             return base.Channel.QueryReviewIds(query);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult> QueryReviewIdsAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult> QueryReviewIdsAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQuery query) {
             return base.Channel.QueryReviewIdsAsync(query);
         }
     }

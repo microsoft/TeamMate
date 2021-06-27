@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Board
 {
     public class BoardViewModel
     {

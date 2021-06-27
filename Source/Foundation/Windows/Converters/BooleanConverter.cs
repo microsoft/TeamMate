@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// A converter that converts objects to boolean values.

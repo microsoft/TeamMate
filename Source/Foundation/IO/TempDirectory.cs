@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.IO
+namespace Microsoft.Tools.TeamMate.Foundation.IO
 {
     /// <summary>
     /// A class to manage the creation and disposal of temporary directories.

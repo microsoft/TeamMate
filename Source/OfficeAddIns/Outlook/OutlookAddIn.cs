@@ -1,9 +1,9 @@
 ﻿using Extensibility;
-using Microsoft.Internal.Tools.TeamMate.Client;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Office.AddIns.Resources;
+using Microsoft.Tools.TeamMate.Client;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.IO;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Office.AddIns.Resources;
 using Microsoft.Office.Core;
 using Microsoft.Office.Interop.Outlook;
 using System;
@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using Application = Microsoft.Office.Interop.Outlook.Application;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns.Outlook
+namespace Microsoft.Tools.TeamMate.Office.AddIns.Outlook
 {
     [Guid("488182BC-A0F0-454B-8D29-0B452D93D6A8"), ProgId("TeamMate.OutlookAddIn"), ComVisible(true)]
     [OfficeAddInInfo("Outlook", "TeamMate Outlook Add-in", "This add-in integrates Outlook with TeamMate and Team Foundation Server")]

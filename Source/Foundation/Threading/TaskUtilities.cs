@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Threading
+namespace Microsoft.Tools.TeamMate.Foundation.Threading
 {
     /// <summary>
     /// Provides utility methods for working with tasks.

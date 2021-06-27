@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     public class WorkItemIdentity
     {

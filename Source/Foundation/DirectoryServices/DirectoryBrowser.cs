@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices
+namespace Microsoft.Tools.TeamMate.Foundation.DirectoryServices
 {
     /// <summary>
     /// Provides utility methods for reading user information from Active Directory.

@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+﻿using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class WorkItemQueryFactory
     {

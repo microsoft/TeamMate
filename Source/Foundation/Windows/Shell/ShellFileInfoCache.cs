@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
     public class ShellFileInfoCache
     {

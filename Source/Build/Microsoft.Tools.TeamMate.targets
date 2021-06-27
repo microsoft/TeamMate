@@ -1,6 +1,6 @@
 <!--
 ***********************************************************************************************
-Microsoft.Internal.Tools.TeamMate.targets
+Microsoft.Tools.TeamMate.targets
 
 This file defines the custom variables and steps in the standard build process for TeamMate
 C# .NET projects.
@@ -26,7 +26,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <PublishDir Condition="'$(BuildingInsideVisualStudio)' != 'true'">$(PublishUrl)</PublishDir>
   </PropertyGroup>
 
-  <Import Project="Microsoft.Internal.Tools.TeamMate.Version.targets" />
+  <Import Project="Microsoft.Tools.TeamMate.Version.targets" />
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   

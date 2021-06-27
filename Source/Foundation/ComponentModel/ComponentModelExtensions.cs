@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel
+namespace Microsoft.Tools.TeamMate.Foundation.ComponentModel
 {
     /// <summary>
     /// Provides extension methods for types in the ComponentModel namespace.

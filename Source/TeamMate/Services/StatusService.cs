@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class StatusService
     {
         public IDisposable BusyIndicator()
         {
-            return new Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Forms.TemporaryGlobalCursor();
+            return new Microsoft.Tools.TeamMate.Foundation.Windows.Forms.TemporaryGlobalCursor();
         }
     }
 }

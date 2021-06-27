@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices;
 using Microsoft.Office.Interop.Outlook;
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.Outlook
+namespace Microsoft.Tools.TeamMate.Office.Outlook
 {
     public static class OutlookService
     {

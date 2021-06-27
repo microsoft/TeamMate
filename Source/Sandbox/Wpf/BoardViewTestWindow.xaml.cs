@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Board
 {
     /// <summary>
     /// Interaction logic for BoardViewTestWindow.xaml

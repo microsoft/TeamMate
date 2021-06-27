@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for NavigationFrame.xaml

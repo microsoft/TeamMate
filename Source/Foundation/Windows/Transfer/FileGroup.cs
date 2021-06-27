@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.IO;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
     public class FileGroup
     {

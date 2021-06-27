@@ -3,7 +3,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Native
+namespace Microsoft.Tools.TeamMate.Foundation.Native
 {
     /// <summary>
     /// Defines a unique key for a Shell Property

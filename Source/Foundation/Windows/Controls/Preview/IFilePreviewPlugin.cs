@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// A plugin interface that can help install previewer pre-requisites on demand.

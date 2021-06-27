@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Shell;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for TeamMemberView.xaml

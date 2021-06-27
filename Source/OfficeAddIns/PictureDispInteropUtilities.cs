@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns
+namespace Microsoft.Tools.TeamMate.Office.AddIns
 {
     internal class PictureDispInteropUtilities : AxHost
     {

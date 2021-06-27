@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class ViewService
     {

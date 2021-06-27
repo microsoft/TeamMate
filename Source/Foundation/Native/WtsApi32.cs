@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Native
+namespace Microsoft.Tools.TeamMate.Foundation.Native
 {
     /// <summary>
     /// Exposes PInvoke method wrappers for functions in wtsapi32.dll.

@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.MVVM
 {
     public abstract class ViewModelBase : ObservableObjectBase
     {

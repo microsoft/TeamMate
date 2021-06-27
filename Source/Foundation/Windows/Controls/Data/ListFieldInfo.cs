@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 using System.ComponentModel;
 using System.Windows.Data;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// Represents a field displayed in a list view.

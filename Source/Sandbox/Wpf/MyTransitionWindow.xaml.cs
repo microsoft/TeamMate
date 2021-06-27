@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     /// <summary>
     /// Interaction logic for MyTransitionWindow.xaml

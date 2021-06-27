@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Win32;
 using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices
+namespace Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices
 {
     /// <summary>
     /// Provides utility methods for runtime interop.

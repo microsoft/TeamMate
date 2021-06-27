@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Forms;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
     public class WindowInfo
     {

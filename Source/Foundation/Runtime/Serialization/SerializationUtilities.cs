@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.Serialization
+namespace Microsoft.Tools.TeamMate.Foundation.Runtime.Serialization
 {
     /// <summary>
     /// Provides serialization utility methods.

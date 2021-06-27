@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.Office.AddIns;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.Office.AddIns;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class ConfigurationService
     {

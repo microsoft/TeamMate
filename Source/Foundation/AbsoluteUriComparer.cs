@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation
+namespace Microsoft.Tools.TeamMate.Foundation
 {
     /// <summary>
     /// A comparer that compares absolute URIs.

@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
     public static class CustomDataFormats
     {

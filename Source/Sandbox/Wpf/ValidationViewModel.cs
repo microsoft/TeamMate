@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Validation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
+﻿using Microsoft.Tools.TeamMate.Foundation.Validation;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     public class ValidatingFormViewModel : ValidatableViewModelBase
     {

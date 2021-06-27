@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Native
+namespace Microsoft.Tools.TeamMate.Foundation.Native
 {
     /// <summary>
     /// Exposes PInvoke method wrappers for functions in user32.dll.

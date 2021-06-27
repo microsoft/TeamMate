@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Resources.Native
+namespace Microsoft.Tools.TeamMate.Resources.Native
 {
     internal static class NativeResources
     {

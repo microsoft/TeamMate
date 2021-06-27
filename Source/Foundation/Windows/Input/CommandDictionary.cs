@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Input
 {
     public class CommandDictionary
     {

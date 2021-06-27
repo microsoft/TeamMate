@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.IO;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.IO
+namespace Microsoft.Tools.TeamMate.Foundation.IO
 {
     /// <summary>
     /// Manages the creation and deletion of temporary files.

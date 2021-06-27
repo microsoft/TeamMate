@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles
 {
     public class TileCollectionView : Control
     {

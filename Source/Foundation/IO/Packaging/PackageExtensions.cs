@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.IO.Packaging
+namespace Microsoft.Tools.TeamMate.Foundation.IO.Packaging
 {
     /// <summary>
     /// Provides extension methods to the System.IO.Packaing.Package type

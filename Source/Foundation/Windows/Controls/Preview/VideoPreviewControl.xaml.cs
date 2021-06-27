@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
+﻿using Microsoft.Tools.TeamMate.Foundation.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// Interaction logic for VideoPreviewControl.xaml

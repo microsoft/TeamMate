@@ -1,6 +1,6 @@
 ﻿<!--
 ***********************************************************************************************
-Microsoft.Internal.Tools.TeamMate.targets
+Microsoft.Tools.TeamMate.targets
 
 This file defines the custom variables and steps in the standard build process for TeamMate
 C# .NET projects.

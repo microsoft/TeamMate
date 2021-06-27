@@ -6,7 +6,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public static class ContainerConfiguration
     {
@@ -37,7 +37,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Model
 
             var serviceTypes =
                 from type in assembly.GetExportedTypes()
-                where type.Namespace == "Microsoft.Internal.Tools.TeamMate.Services"
+                where type.Namespace == "Microsoft.Tools.TeamMate.Services"
                    && type.Name.EndsWith("Service")
                 select type;
             return serviceTypes;

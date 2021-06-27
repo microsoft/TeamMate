@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
+﻿using Microsoft.Tools.TeamMate.Foundation.Win32;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     public static class CodeFlowUriBuilder
     {

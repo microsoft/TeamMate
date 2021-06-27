@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+﻿namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// Represents an item that can be selected from a list.

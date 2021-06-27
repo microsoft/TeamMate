@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Diagnostics;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices
+namespace Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices
 {
     /// <summary>
     /// A COM message filter implementation used to retry rejected COM calls to a COM

@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Effects
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media.Effects
 {
     public class GrayscaleEffect : ShaderEffect
     {

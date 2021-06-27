@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     public static class WorkItemConstants
     {

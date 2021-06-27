@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Threading
+namespace Microsoft.Tools.TeamMate.Foundation.Threading
 {
     /// <summary>
     /// Implements a simple linear regression algorithm to extrapolate

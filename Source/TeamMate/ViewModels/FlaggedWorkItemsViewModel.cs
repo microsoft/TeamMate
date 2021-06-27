@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+﻿using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class FlaggedWorkItemsViewModel : WorkItemQueryViewModel
     {

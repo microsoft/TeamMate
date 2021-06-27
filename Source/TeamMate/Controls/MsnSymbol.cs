@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Controls
+﻿namespace Microsoft.Tools.TeamMate.Controls
 {
     public enum MsnSymbol
     {

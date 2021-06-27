@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for LegacyToastWindow.xaml

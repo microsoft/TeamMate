@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class ApplicationHistory : ObservableObjectBase
     {

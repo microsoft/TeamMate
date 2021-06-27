@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review;
+﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Project;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Review;
 using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     /// <summary>
     /// A Facade over all of CodeFlows service clients.

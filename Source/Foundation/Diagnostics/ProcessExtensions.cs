@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Management;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// Provides extension methods for the Process class.

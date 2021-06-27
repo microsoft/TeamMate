@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
+﻿using Microsoft.Tools.TeamMate.Foundation.IO;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class TempFileService : IDisposable
     {

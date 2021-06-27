@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Project
 {
 
 
@@ -800,91 +800,91 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project
     public interface IProjectService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsContainingString", ReplyAction="http://tempuri.org/IProjectService/GetProjectsContainingStringResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsContainingStringServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsContainingString(string text);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsContainingStringServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsContainingString(string text);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsContainingString", ReplyAction="http://tempuri.org/IProjectService/GetProjectsContainingStringResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsContainingStringAsync(string text);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsContainingStringAsync(string text);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/QueryProjects", ReplyAction="http://tempuri.org/IProjectService/QueryProjectsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/QueryProjectsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] QueryProjects(string userAgent, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/QueryProjectsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] QueryProjects(string userAgent, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/QueryProjects", ReplyAction="http://tempuri.org/IProjectService/QueryProjectsResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> QueryProjectsAsync(string userAgent, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> QueryProjectsAsync(string userAgent, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsStartingWith", ReplyAction="http://tempuri.org/IProjectService/GetProjectsStartingWithResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsStartingWithServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsStartingWith(string text);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsStartingWithServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsStartingWith(string text);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsStartingWith", ReplyAction="http://tempuri.org/IProjectService/GetProjectsStartingWithResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsStartingWithAsync(string text);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsStartingWithAsync(string text);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectByShortName", ReplyAction="http://tempuri.org/IProjectService/GetProjectByShortNameResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectByShortNameServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project GetProjectByShortName(string shortName);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectByShortNameServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project GetProjectByShortName(string shortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectByShortName", ReplyAction="http://tempuri.org/IProjectService/GetProjectByShortNameResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project> GetProjectByShortNameAsync(string shortName);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project> GetProjectByShortNameAsync(string shortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsByShortNames", ReplyAction="http://tempuri.org/IProjectService/GetProjectsByShortNamesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsByShortNamesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project[] GetProjectsByShortNames(string[] shortNames);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetProjectsByShortNamesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project[] GetProjectsByShortNames(string[] shortNames);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetProjectsByShortNames", ReplyAction="http://tempuri.org/IProjectService/GetProjectsByShortNamesResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project[]> GetProjectsByShortNamesAsync(string[] shortNames);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project[]> GetProjectsByShortNamesAsync(string[] shortNames);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/AddProject", ReplyAction="http://tempuri.org/IProjectService/AddProjectResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/AddProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void AddProject(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/AddProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void AddProject(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/AddProject", ReplyAction="http://tempuri.org/IProjectService/AddProjectResponse")]
-        System.Threading.Tasks.Task AddProjectAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
+        System.Threading.Tasks.Task AddProjectAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/UpdateProject", ReplyAction="http://tempuri.org/IProjectService/UpdateProjectResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/UpdateProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateProject(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/UpdateProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateProject(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/UpdateProject", ReplyAction="http://tempuri.org/IProjectService/UpdateProjectResponse")]
-        System.Threading.Tasks.Task UpdateProjectAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
+        System.Threading.Tasks.Task UpdateProjectAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/RemoveProject", ReplyAction="http://tempuri.org/IProjectService/RemoveProjectResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/RemoveProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/RemoveProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void RemoveProject(string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/RemoveProject", ReplyAction="http://tempuri.org/IProjectService/RemoveProjectResponse")]
         System.Threading.Tasks.Task RemoveProjectAsync(string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetUser", ReplyAction="http://tempuri.org/IProjectService/GetUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User GetUser(string username);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/GetUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User GetUser(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/GetUser", ReplyAction="http://tempuri.org/IProjectService/GetUserResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> GetUserAsync(string username);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> GetUserAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/AddUser", ReplyAction="http://tempuri.org/IProjectService/AddUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/AddUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User AddUser(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/AddUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User AddUser(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/AddUser", ReplyAction="http://tempuri.org/IProjectService/AddUserResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> AddUserAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> AddUserAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/SetUserData", ReplyAction="http://tempuri.org/IProjectService/SetUserDataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/SetUserDataServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User SetUserData(string username, System.Collections.Generic.Dictionary<string, string> data);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/SetUserDataServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User SetUserData(string username, System.Collections.Generic.Dictionary<string, string> data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/SetUserData", ReplyAction="http://tempuri.org/IProjectService/SetUserDataResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> SetUserDataAsync(string username, System.Collections.Generic.Dictionary<string, string> data);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> SetUserDataAsync(string username, System.Collections.Generic.Dictionary<string, string> data);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/UpdateUser", ReplyAction="http://tempuri.org/IProjectService/UpdateUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/UpdateUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User UpdateUser(string username, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/UpdateUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User UpdateUser(string username, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/UpdateUser", ReplyAction="http://tempuri.org/IProjectService/UpdateUserResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> UpdateUserAsync(string username, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> UpdateUserAsync(string username, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/DeleteUser", ReplyAction="http://tempuri.org/IProjectService/DeleteUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/DeleteUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ServiceFault), Action="http://tempuri.org/IProjectService/DeleteUserServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void DeleteUser(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProjectService/DeleteUser", ReplyAction="http://tempuri.org/IProjectService/DeleteUserResponse")]
@@ -892,12 +892,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProjectServiceChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService, System.ServiceModel.IClientChannel {
+    public interface IProjectServiceChannel : Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProjectServiceClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService>, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService {
+    public partial class ProjectServiceClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService>, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.IProjectService {
         
         public ProjectServiceClient() {
         }
@@ -918,59 +918,59 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project
                 base(binding, remoteAddress) {
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsContainingString(string text) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsContainingString(string text) {
             return base.Channel.GetProjectsContainingString(text);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsContainingStringAsync(string text) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsContainingStringAsync(string text) {
             return base.Channel.GetProjectsContainingStringAsync(text);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] QueryProjects(string userAgent, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] QueryProjects(string userAgent, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query) {
             return base.Channel.QueryProjects(userAgent, query);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> QueryProjectsAsync(string userAgent, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> QueryProjectsAsync(string userAgent, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectQuery query) {
             return base.Channel.QueryProjectsAsync(userAgent, query);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsStartingWith(string text) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[] GetProjectsStartingWith(string text) {
             return base.Channel.GetProjectsStartingWith(text);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsStartingWithAsync(string text) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo[]> GetProjectsStartingWithAsync(string text) {
             return base.Channel.GetProjectsStartingWithAsync(text);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project GetProjectByShortName(string shortName) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project GetProjectByShortName(string shortName) {
             return base.Channel.GetProjectByShortName(shortName);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project> GetProjectByShortNameAsync(string shortName) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project> GetProjectByShortNameAsync(string shortName) {
             return base.Channel.GetProjectByShortNameAsync(shortName);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project[] GetProjectsByShortNames(string[] shortNames) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project[] GetProjectsByShortNames(string[] shortNames) {
             return base.Channel.GetProjectsByShortNames(shortNames);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project[]> GetProjectsByShortNamesAsync(string[] shortNames) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project[]> GetProjectsByShortNamesAsync(string[] shortNames) {
             return base.Channel.GetProjectsByShortNamesAsync(shortNames);
         }
         
-        public void AddProject(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
+        public void AddProject(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
             base.Channel.AddProject(project);
         }
         
-        public System.Threading.Tasks.Task AddProjectAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
+        public System.Threading.Tasks.Task AddProjectAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
             return base.Channel.AddProjectAsync(project);
         }
         
-        public void UpdateProject(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
+        public void UpdateProject(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
             base.Channel.UpdateProject(project);
         }
         
-        public System.Threading.Tasks.Task UpdateProjectAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
+        public System.Threading.Tasks.Task UpdateProjectAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project project) {
             return base.Channel.UpdateProjectAsync(project);
         }
         
@@ -982,35 +982,35 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project
             return base.Channel.RemoveProjectAsync(projectShortName);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User GetUser(string username) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User GetUser(string username) {
             return base.Channel.GetUser(username);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> GetUserAsync(string username) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> GetUserAsync(string username) {
             return base.Channel.GetUserAsync(username);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User AddUser(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User AddUser(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
             return base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> AddUserAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> AddUserAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
             return base.Channel.AddUserAsync(user);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User SetUserData(string username, System.Collections.Generic.Dictionary<string, string> data) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User SetUserData(string username, System.Collections.Generic.Dictionary<string, string> data) {
             return base.Channel.SetUserData(username, data);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> SetUserDataAsync(string username, System.Collections.Generic.Dictionary<string, string> data) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> SetUserDataAsync(string username, System.Collections.Generic.Dictionary<string, string> data) {
             return base.Channel.SetUserDataAsync(username, data);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User UpdateUser(string username, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User UpdateUser(string username, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
             return base.Channel.UpdateUser(username, user);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User> UpdateUserAsync(string username, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User> UpdateUserAsync(string username, Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User user) {
             return base.Channel.UpdateUserAsync(username, user);
         }
         

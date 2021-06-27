@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.ViewModels;
 using SimpleInjector;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class Application
     {

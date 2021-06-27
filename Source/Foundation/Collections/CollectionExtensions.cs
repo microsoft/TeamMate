@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Collections
+namespace Microsoft.Tools.TeamMate.Foundation.Collections
 {
     /// <summary>
     /// Defines extension methods for collection types.

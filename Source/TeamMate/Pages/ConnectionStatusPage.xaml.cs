@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Pages
+namespace Microsoft.Tools.TeamMate.Pages
 {
     /// <summary>
     /// Interaction logic for ConnectionStatusPage.xaml

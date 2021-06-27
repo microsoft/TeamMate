@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// A custom control that implements advanced list box scenarios including list grouping,

@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles
 {
     public class TileGroup : ObservableObjectBase
     {

@@ -25,7 +25,7 @@
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <ClickOncePublish>True</ClickOncePublish>
     <CustomManifestFile>$(MSBuildThisFileDirectory)\Properties\app_themes.manifest</CustomManifestFile>
@@ -34,7 +34,7 @@
     <ProjectGuid>{01FCF244-D4B2-43DD-BB77-9D4946868299}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate</RootNamespace>
+    <RootNamespace>Microsoft.Tools.TeamMate</RootNamespace>
     <AssemblyName>TeamMate</AssemblyName>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Win32Resource>Resources\Native\TeamMateExe.res</Win32Resource>
@@ -468,29 +468,29 @@
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+    <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+      <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OfficeAddIns\Microsoft.Internal.Tools.TeamMate.Office.AddIns.csproj">
+    <ProjectReference Include="..\OfficeAddIns\Microsoft.Tools.TeamMate.Office.AddIns.csproj">
       <Project>{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Office.AddIns</Name>
+      <Name>Microsoft.Tools.TeamMate.Office.AddIns</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Office\Microsoft.Internal.Tools.TeamMate.Office.csproj">
+    <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Office</Name>
+      <Name>Microsoft.Tools.TeamMate.Office</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Platform\Microsoft.Internal.Tools.TeamMate.Platform.csproj">
+    <ProjectReference Include="..\Platform\Microsoft.Tools.TeamMate.Platform.csproj">
       <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Platform</Name>
+      <Name>Microsoft.Tools.TeamMate.Platform</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.csproj">
+    <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi</Name>
+      <Name>Microsoft.Tools.TeamMate.TeamFoundation.WebApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WindowsRuntime\Microsoft.Internal.Tools.TeamMate.WindowsRuntime.csproj">
+    <ProjectReference Include="..\WindowsRuntime\Microsoft.Tools.TeamMate.WindowsRuntime.csproj">
       <Project>{5bb3a276-4460-4c5f-b842-42e4618dd034}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.WindowsRuntime</Name>
+      <Name>Microsoft.Tools.TeamMate.WindowsRuntime</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -1147,7 +1147,7 @@
     <Resource Include="Resources\Icons\Other\Yammer.16x16x32.png" />
     <Resource Include="Resources\Icons\Other\Yammer.32x32x32.png" />
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
   <Target Name="BeforeBuild">
     <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
   </Target>

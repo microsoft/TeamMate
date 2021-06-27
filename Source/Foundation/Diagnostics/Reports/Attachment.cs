@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports
 {
     /// <summary>
     /// An item attached to a diagnostics report.

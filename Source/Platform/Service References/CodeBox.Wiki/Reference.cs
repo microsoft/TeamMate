@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Wiki
+namespace Microsoft.Tools.TeamMate.Platform.CodeBox.Wiki
 {
 
 
@@ -60,12 +60,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Wiki
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WikiServiceSoapChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap, System.ServiceModel.IClientChannel {
+    public interface WikiServiceSoapChannel : Microsoft.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WikiServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap>, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap {
+    public partial class WikiServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap>, Microsoft.Tools.TeamMate.Platform.CodeBox.Wiki.WikiServiceSoap {
         
         public WikiServiceSoapClient() {
         }

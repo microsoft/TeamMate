@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Text
+namespace Microsoft.Tools.TeamMate.Foundation.Text
 {
     /// <summary>
     /// Provides utility methods for dealing with text in RTF (Rich Text Format).

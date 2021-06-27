@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using System;
 using System.Windows;
 using System.Windows.Media;
 using LegacySystemIcons = System.Drawing.SystemIcons;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public static class SystemIcons
     {

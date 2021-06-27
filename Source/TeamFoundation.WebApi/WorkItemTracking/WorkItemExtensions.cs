@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Services.Common;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     public static class WorkItemExtensions
     {

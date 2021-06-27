@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.IO
+namespace Microsoft.Tools.TeamMate.Foundation.IO
 {
     /// <summary>
     /// Provides utility methods for manipulating file system paths.

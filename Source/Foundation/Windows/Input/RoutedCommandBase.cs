@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Input
 {
     public abstract class RoutedCommandBase : RoutedCommand, INotifyPropertyChanged
     {

@@ -1,14 +1,14 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Shell;
 using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Capture
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media.Capture
 {
     public static class ScreenCapture
     {

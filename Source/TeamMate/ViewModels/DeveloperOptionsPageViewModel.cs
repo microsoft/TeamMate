@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Exceptions;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.Services;
+﻿using Microsoft.Tools.TeamMate.Exceptions;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.Services;
 using System;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class DeveloperOptionsPageViewModel : PageViewModelBase
     {

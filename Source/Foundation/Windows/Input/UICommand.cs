@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Input
 {
     public class UICommand : RoutedCommandBase
     {

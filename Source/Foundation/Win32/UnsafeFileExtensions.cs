@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Win32
+namespace Microsoft.Tools.TeamMate.Foundation.Win32
 {
     /// <summary>
     /// Provides information about unsafe file extensions.

@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Reflection
+namespace Microsoft.Tools.TeamMate.Foundation.Reflection
 {
     /// <summary>
     /// Provides extension methods for the Reflection namespace.

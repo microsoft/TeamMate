@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
+﻿using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
 using System;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox
+namespace Microsoft.Tools.TeamMate.Sandbox
 {
     class Program
     {

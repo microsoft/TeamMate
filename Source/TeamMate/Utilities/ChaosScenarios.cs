@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
+﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class ChaosScenarios
     {

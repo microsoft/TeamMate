@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{1805B498
 		Build\Build.ps1 = Build\Build.ps1
 		Build\BuildInfo.cs = Build\BuildInfo.cs
 		Build\InstallKey.bat = Build\InstallKey.bat
-		Build\Microsoft.Internal.Tools.TeamMate.Settings.targets = Build\Microsoft.Internal.Tools.TeamMate.Settings.targets
-		Build\Microsoft.Internal.Tools.TeamMate.targets = Build\Microsoft.Internal.Tools.TeamMate.targets
-		Build\Microsoft.Internal.Tools.TeamMate.Version.targets = Build\Microsoft.Internal.Tools.TeamMate.Version.targets
+		Build\Microsoft.Tools.TeamMate.Settings.targets = Build\Microsoft.Tools.TeamMate.Settings.targets
+		Build\Microsoft.Tools.TeamMate.targets = Build\Microsoft.Tools.TeamMate.targets
+		Build\Microsoft.Tools.TeamMate.Version.targets = Build\Microsoft.Tools.TeamMate.Version.targets
 		Build\TeamMate.pfx = Build\TeamMate.pfx
 		Build\UpdateClickOnce.ps1 = Build\UpdateClickOnce.ps1
 		Build\version.txt = Build\version.txt
@@ -27,19 +27,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Sandbox\Console\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf", "Sandbox\Wpf\Wpf.csproj", "{DC68AD31-2756-45EE-9F89-E8E6791803F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Foundation", "Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj", "{1967369E-0368-4888-B743-B16ABAE28B1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Foundation", "Foundation\Microsoft.Tools.TeamMate.Foundation.csproj", "{1967369E-0368-4888-B743-B16ABAE28B1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Platform", "Platform\Microsoft.Internal.Tools.TeamMate.Platform.csproj", "{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Platform", "Platform\Microsoft.Tools.TeamMate.Platform.csproj", "{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Office.AddIns", "OfficeAddIns\Microsoft.Internal.Tools.TeamMate.Office.AddIns.csproj", "{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Office.AddIns", "OfficeAddIns\Microsoft.Tools.TeamMate.Office.AddIns.csproj", "{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Office", "Office\Microsoft.Internal.Tools.TeamMate.Office.csproj", "{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Office", "Office\Microsoft.Tools.TeamMate.Office.csproj", "{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.Client", "Client\Microsoft.Internal.Tools.TeamMate.Client.csproj", "{9AC62340-334D-489B-8C36-5EC5F4C56C8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Client", "Client\Microsoft.Tools.TeamMate.Client.csproj", "{9AC62340-334D-489B-8C36-5EC5F4C56C8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.WindowsRuntime", "WindowsRuntime\Microsoft.Internal.Tools.TeamMate.WindowsRuntime.csproj", "{5BB3A276-4460-4C5F-B842-42E4618DD034}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.WindowsRuntime", "WindowsRuntime\Microsoft.Tools.TeamMate.WindowsRuntime.csproj", "{5BB3A276-4460-4C5F-B842-42E4618DD034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi", "TeamFoundation.WebApi\Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.csproj", "{888E7687-95F8-4049-94DF-9DD3398B5592}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.TeamFoundation.WebApi", "TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj", "{888E7687-95F8-4049-94DF-9DD3398B5592}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Reflection;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using System;
 using System.ComponentModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class TileInfo : ObservableObjectBase
     {

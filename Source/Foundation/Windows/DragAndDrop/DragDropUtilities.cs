@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop
 {
     /// <summary>
     /// Provides Drag and Drop Utility Methods.

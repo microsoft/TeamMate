@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// Implements a basic telemetry listener.

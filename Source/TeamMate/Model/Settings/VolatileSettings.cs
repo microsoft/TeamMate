@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Settings
+namespace Microsoft.Tools.TeamMate.Model.Settings
 {
     public class VolatileSettings : SettingsBase
     {

@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Services
+﻿namespace Microsoft.Tools.TeamMate.Services
 {
     internal interface IColection<T>
     {

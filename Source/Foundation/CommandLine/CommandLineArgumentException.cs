@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.CommandLine
+namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
 {
     /// <summary>
     /// An exception class that indicates an error condition when parsing command line arguments.

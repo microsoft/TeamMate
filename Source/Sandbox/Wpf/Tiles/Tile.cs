@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles
 {
     public class Tile : ObservableObjectBase
     {

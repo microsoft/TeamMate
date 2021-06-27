@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Microsoft.Internal.Tools.TeamMate.Client
+namespace Microsoft.Tools.TeamMate.Client
 {
     /// <summary>
     /// Provides utility methods for manipulating file system paths.

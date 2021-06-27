@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.CommandLine
+namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
 {
     public class CommandLineTool
     {

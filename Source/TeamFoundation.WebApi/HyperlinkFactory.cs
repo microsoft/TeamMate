@@ -1,7 +1,7 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
 {
     public abstract class HyperlinkFactory
     {

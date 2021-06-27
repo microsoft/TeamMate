@@ -2,7 +2,7 @@
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop
 {
     /// <summary>
     /// An adorner used to indicate the insertion point of an item.

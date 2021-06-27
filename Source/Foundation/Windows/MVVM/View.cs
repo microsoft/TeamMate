@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.MVVM
 {
     public static class View
     {

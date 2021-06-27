@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="CodeReviewQueryResult" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Microsoft.Internal.Tools.TeamMate.Platform.Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Services.CodeReviewQueryResult</TypeInfo>
+   <TypeInfo>Microsoft.Tools.TeamMate.Platform.Microsoft.Tools.TeamMate.Platform.CodeFlow.Services.CodeReviewQueryResult</TypeInfo>
 </GenericObjectDataSource>

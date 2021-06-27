@@ -1,23 +1,23 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board;
-using Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Sandbox.Wpf.Board;
+using Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     public static class SandboxSampleData
     {
         private static ObservableCollection<Message> messages;
-        private static Microsoft.Internal.Tools.TeamMate.ViewModels.ToastViewModel notification;
+        private static Microsoft.Tools.TeamMate.ViewModels.ToastViewModel notification;
 
         private static TileModel tile;
 
@@ -83,13 +83,13 @@ namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
             }
         }
 
-        public static Microsoft.Internal.Tools.TeamMate.ViewModels.ToastViewModel Notification
+        public static Microsoft.Tools.TeamMate.ViewModels.ToastViewModel Notification
         {
             get
             {
                 if (notification == null)
                 {
-                    notification = new Microsoft.Internal.Tools.TeamMate.ViewModels.ToastViewModel();
+                    notification = new Microsoft.Tools.TeamMate.ViewModels.ToastViewModel();
                     notification.Title = "Peter Bright";
                     notification.Description = "Another Test";
                     notification.Icon = (ImageSource)App.Current.FindResource("ApplicationIcon");

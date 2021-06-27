@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Validation;
+﻿using Microsoft.Tools.TeamMate.Foundation.Validation;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.MVVM
 {
     public abstract class ValidatableViewModelBase : ViewModelBase, INotifyDataErrorInfo
     {

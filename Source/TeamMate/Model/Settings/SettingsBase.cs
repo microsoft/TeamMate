@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Settings
+namespace Microsoft.Tools.TeamMate.Model.Settings
 {
     public abstract class SettingsBase : ObservableObjectBase
     {

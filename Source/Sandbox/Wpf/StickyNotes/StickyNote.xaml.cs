@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.StickyNotes
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.StickyNotes
 {
     /// <summary>
     /// Interaction logic for StickyNote.xaml

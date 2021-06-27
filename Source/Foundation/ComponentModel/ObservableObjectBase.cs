@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel
+namespace Microsoft.Tools.TeamMate.Foundation.ComponentModel
 {
     /// <summary>
     /// A base class for observable objects that fire property notification changes.

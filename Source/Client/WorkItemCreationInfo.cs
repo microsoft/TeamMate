@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Client
+namespace Microsoft.Tools.TeamMate.Client
 {
     public class WorkItemCreationInfo
     {

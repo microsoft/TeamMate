@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     /// <summary>
     /// Interaction logic for KeyGestureInputControl.xaml

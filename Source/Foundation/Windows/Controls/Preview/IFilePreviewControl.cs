@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// Defines the contract for a file preview control that can previwe a given file type.

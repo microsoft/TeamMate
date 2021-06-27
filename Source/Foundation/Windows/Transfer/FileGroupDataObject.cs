@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.IO;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Security.Permissions;
 using System.Windows.Forms;
 using IDataObject = System.Runtime.InteropServices.ComTypes.IDataObject;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
     public class FileGroupDataObject : DataObject, IDataObject
     {

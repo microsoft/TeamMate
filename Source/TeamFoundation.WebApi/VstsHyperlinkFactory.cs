@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
 {
     internal class VstsHyperlinkFactory : HyperlinkFactory
     {

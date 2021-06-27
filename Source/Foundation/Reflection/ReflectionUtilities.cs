@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Reflection
+namespace Microsoft.Tools.TeamMate.Foundation.Reflection
 {
     /// <summary>
     /// Provides utility methods for reflection.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.DataViews
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.DataViews
 {
     /// <summary>
     /// Interaction logic for ListViewWindow.xaml

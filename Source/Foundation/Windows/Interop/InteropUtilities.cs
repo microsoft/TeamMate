@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using Point = System.Windows.Point;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Interop
 {
     public static class InteropUtilities
     {

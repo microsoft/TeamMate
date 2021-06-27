@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Model;
+﻿using Microsoft.Tools.TeamMate.Model;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class WorkItemStateService
     {

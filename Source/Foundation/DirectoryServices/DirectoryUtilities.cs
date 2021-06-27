@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
 using System.Security.Principal;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices
+namespace Microsoft.Tools.TeamMate.Foundation.DirectoryServices
 {
     /// <summary>
     /// Provides utility methods for Active Directory.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Input
 {
     public static class KeyGestureUtilities
     {

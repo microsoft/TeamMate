@@ -1,13 +1,13 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.IO.Packaging;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Net.Mime;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.IO.Packaging;
+using Microsoft.Tools.TeamMate.Foundation.Net.Mime;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.IO;
 using System.IO.Packaging;
 using System.Net.Mime;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports
 {
     /// <summary>
     /// Serializes and deserializes user reports from files.

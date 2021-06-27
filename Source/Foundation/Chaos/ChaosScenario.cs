@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Chaos
+namespace Microsoft.Tools.TeamMate.Foundation.Chaos
 {
     /// <summary>
     /// Defines a chaos scenario and its metadata for use by the Chaos moneky.

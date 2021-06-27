@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
+﻿using Microsoft.Tools.TeamMate.Foundation.Win32;
 using Microsoft.Win32;
 using System;
 using System.Globalization;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns
+namespace Microsoft.Tools.TeamMate.Office.AddIns
 {
     public class AddInRegistrationServices
     {

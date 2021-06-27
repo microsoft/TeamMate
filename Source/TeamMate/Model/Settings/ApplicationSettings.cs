@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Resources;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Resources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Settings
+namespace Microsoft.Tools.TeamMate.Model.Settings
 {
     public class ApplicationSettings : SettingsBase
     {

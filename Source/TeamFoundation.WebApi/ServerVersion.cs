@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
 {
     public enum ServerVersion
     {

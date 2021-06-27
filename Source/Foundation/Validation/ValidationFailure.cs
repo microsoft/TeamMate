@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Validation
+namespace Microsoft.Tools.TeamMate.Foundation.Validation
 {
     public class ValidationFailure
     {

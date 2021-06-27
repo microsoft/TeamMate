@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Pages
+namespace Microsoft.Tools.TeamMate.Pages
 {
     /// <summary>
     /// Interaction logic for SettingsPage.xaml

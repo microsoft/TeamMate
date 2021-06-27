@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Actions
+namespace Microsoft.Tools.TeamMate.Model.Actions
 {
     public class ActionSerializer
     {

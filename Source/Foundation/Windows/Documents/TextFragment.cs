@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Documents
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Documents
 {
     /// <summary>
     /// Represents a fragment of text in a text.

@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     public class BowtieIcon : FontIcon
     {

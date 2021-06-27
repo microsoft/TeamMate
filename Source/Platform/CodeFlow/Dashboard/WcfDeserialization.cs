@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
 {
     internal static class WcfUtilities
     {

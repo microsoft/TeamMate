@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System;
 using System.Windows;
-using TeamMateApplication = Microsoft.Internal.Tools.TeamMate.Model.Application;
+using TeamMateApplication = Microsoft.Tools.TeamMate.Model.Application;
 
-namespace Microsoft.Internal.Tools.TeamMate
+namespace Microsoft.Tools.TeamMate
 {
     /// <summary>
     /// Interaction logic for App.xaml

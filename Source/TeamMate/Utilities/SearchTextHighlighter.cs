@@ -1,14 +1,14 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Documents;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Documents;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using ListView = Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data.ListView;
+using ListView = Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data.ListView;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class SearchTextHighlighter
     {

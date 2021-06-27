@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Caching
+namespace Microsoft.Tools.TeamMate.Sandbox.Caching
 {
     public interface ICache : IDisposable
     {

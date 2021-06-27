@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Security;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Win32
+namespace Microsoft.Tools.TeamMate.Foundation.Win32
 {
     /// <summary>
     /// Identifies whether a protocol (like http: or ftp:) has a handler installed on the system 

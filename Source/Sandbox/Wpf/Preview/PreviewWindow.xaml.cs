@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Preview
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Preview
 {
     /// <summary>
     /// Interaction logic for PreviewWindow.xaml

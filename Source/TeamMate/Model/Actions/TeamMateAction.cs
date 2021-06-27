@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Model.Actions
+namespace Microsoft.Tools.TeamMate.Model.Actions
 {
     public abstract class TeamMateAction
     {
