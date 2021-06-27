@@ -2,7 +2,7 @@ name: MSBuild
 on:
   push:
     branches:
-      - marcusm/test
+      - marcusm/*
 jobs:
   build:
     name: MSBuild
@@ -17,8 +17,6 @@ jobs:
       uses: microsoft/Setup-MSBuild@v1.0.2
 
     - name: MSBuild
-      run: |
-        cd Sources
-        cd TeamMate
-        msbuild TeamMate.csproj
+      run: msbuild TeamMate.csproj
+      working-directory: ./Sources/TeamMate
       shell: cmd
