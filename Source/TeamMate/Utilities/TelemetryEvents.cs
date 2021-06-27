@@ -17,7 +17,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         public const string WorkItemSendMail = "WorkItemSendMail";
         public const string WorkItemReplyWithMail = "WorkItemReplyWithMail";
-        public const string WorkItemSearchInOutlook = "WorkItemSearchInOutlook";
         public const string WorkItemCollectionReplyAllWithMail = "WorkItemCollectionReplyAllWithMail";
         public const string WorkItemCollectionSendMail = "WorkItemCollectionSendMail";
         public const string WorkItemReplyAllWithMail = "WorkItemReplyAllWithMail";

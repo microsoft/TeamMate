@@ -458,10 +458,6 @@
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
       <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OfficeAddIns\Microsoft.Tools.TeamMate.Office.AddIns.csproj">
-      <Project>{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}</Project>
-      <Name>Microsoft.Tools.TeamMate.Office.AddIns</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
       <Name>Microsoft.Tools.TeamMate.Office</Name>
@@ -1133,8 +1129,8 @@
   <Target Name="BeforeBuild">
     <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
   </Target>
-  <Target Name="AfterPublish"/>
-  <Target Name="Upload"/>
+  <Target Name="AfterPublish" />
+  <Target Name="Upload" />
   <PropertyGroup>
     <CleanDependsOn>
       $(CleanDependsOn);

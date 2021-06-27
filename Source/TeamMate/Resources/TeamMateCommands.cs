@@ -47,7 +47,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand ReplyAllWithIM { get { return commands.FindResource(); } }
         public static ICommand CreateMeeting { get { return commands.FindResource(); } }
         public static ICommand Flag { get { return commands.FindResource(); } }
-        public static ICommand FindInOutlook { get { return commands.FindResource(); } }
         public static ICommand CaptureTemplate { get { return commands.FindResource(); } }
         public static ICommand ModifyTemplateContextMenu { get { return commands.FindResource(); } }
         public static ICommand RemoveTemplateContextMenu { get { return commands.FindResource(); } }

@@ -64,7 +64,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.CopyTitle, CopyTitle, HasSingleSelection);
             commands.Add(ApplicationCommands.Copy, CopyHyperlink, HasSingleSelection);
             commands.Add(TeamMateCommands.Flag, ToggleSelectionFlag, HasSelection);
-            commands.Add(TeamMateCommands.FindInOutlook, SearchInOutlook, HasSelection);
             commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
 
             // Code Reviews
@@ -121,15 +120,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private void SearchInOutlook()
-        {
-            WorkItemRowViewModel workItem = GetSelectedItem<WorkItemRowViewModel>();
-            this.CollaborationService.SearchInOutlook(workItem.WorkItem);
-        }
-
         [Import]
         public CollaborationService CollaborationService { get; set; }
-
 
         private void ToggleSelectionFlag()
         {
