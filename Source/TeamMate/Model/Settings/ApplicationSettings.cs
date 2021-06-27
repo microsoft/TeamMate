@@ -16,7 +16,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         private KeyGesture quickCreateWithOptionsGesture;
         private KeyGesture toggleMainWindowGesture;
         private DefaultWorkItemInfo defaultWorkItemInfo;
-        private bool launchAnnotationToolAfterScreenCapture;
         private bool isTracingEnabled;
         private bool launchOnStartup;
         private bool showSplashScreen;
@@ -39,7 +38,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
 
             // Default values
             this.ShowCountdown = true;
-            this.LaunchAnnotationToolAfterScreenCapture = true;
             this.LaunchOnStartup = true;
             this.ShowSplashScreen = true;
             this.PlayNotificationSound = true;
@@ -104,12 +102,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         {
             get { return this.defaultWorkItemInfo; }
             set { SetProperty(ref this.defaultWorkItemInfo, value); }
-        }
-
-        public bool LaunchAnnotationToolAfterScreenCapture
-        {
-            get { return this.launchAnnotationToolAfterScreenCapture; }
-            set { SetProperty(ref this.launchAnnotationToolAfterScreenCapture, value); }
         }
 
         public bool IsTracingEnabled

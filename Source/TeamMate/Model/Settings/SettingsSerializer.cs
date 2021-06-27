@@ -48,7 +48,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             // All of these simple values have good defaults in the input settings. Only override the default value if something
             // actually existed in XML.
             settingsElement.ReadElementValue<bool>(Schema.IsTracingEnabled, (value) => settings.IsTracingEnabled = value);
-            settingsElement.ReadElementValue<bool>(Schema.LaunchAnnotationToolAfterScreenCapture, (value) => settings.LaunchAnnotationToolAfterScreenCapture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateGesture, (value) => settings.QuickCreateGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateWithOptionsGesture, (value) => settings.QuickCreateWithOptionsGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickSearchGesture, (value) => settings.QuickSearchGesture = value);
@@ -135,7 +134,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             }
 
             e.SetElementValue<bool>(Schema.IsTracingEnabled, settings.IsTracingEnabled);
-            e.SetElementValue<bool>(Schema.LaunchAnnotationToolAfterScreenCapture, settings.LaunchAnnotationToolAfterScreenCapture);
             e.SetElementValue<bool>(Schema.LaunchOnStartup, settings.LaunchOnStartup);
             e.SetElementValue<bool>(Schema.ShowSplashScreen, settings.ShowSplashScreen);
             e.SetElementValue<bool>(Schema.PlayNotificationSound, settings.PlayNotificationSound);
@@ -274,7 +272,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             public static readonly string Bounds = "Bounds";
 
             public static readonly XName IsTracingEnabled = "IsTracingEnabled";
-            public static readonly XName LaunchAnnotationToolAfterScreenCapture = "LaunchAnnotationToolAfterScreenCapture";
             public static readonly XName LaunchOnStartup = "LaunchOnStartup";
             public static readonly XName ShowSplashScreen = "ShowSplashScreen";
             public static readonly XName PlayNotificationSound = "PlayNotificationSound";
