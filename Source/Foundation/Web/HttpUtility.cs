@@ -1,16 +1,4 @@
-﻿//*************************************************************************************************
-// HttpUtility.cs
-//
-// This partial class of HttpUtility contains functionality forked from System.Web.HttpUtility.
-// Only our server assemblies can take a dependency on System.Web because it is not part of the
-// .NET Framework "Client Profile". Client and common code that needs to use helper functions
-// such as UrlEncode and UrlDecode from System.Web.HttpUtility must call the methods on this class
-// instead to avoid a dependency on System.Web.
-//
-// Copyright (c) Microsoft Corporation.  All rights reserved.
-//*************************************************************************************************
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
