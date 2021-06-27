@@ -129,7 +129,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
 
         public void UpdateUninstallIcon()
         {
-            // Updating uninstall icon for ClickOnce applications...
             // http://social.msdn.microsoft.com/Forums/en-US/winformssetup/thread/db1d57ee-7743-4409-8072-f0e84ab5330a
 
             string iconPath = TeamMateApplicationInfo.ApplicationIconPath;

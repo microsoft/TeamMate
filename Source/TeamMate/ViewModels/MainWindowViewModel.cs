@@ -26,7 +26,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
             this.ProjectsPage = ViewModelFactory.Create<ProjectsPageViewModel>();
             this.DeveloperOptionsPage = ViewModelFactory.Create<DeveloperOptionsPageViewModel>();
             this.SettingsPage = ViewModelFactory.Create<SettingsPageViewModel>();
-            this.UpdatesAvailablePage = ViewModelFactory.Create<UpdatesAvailablePageViewModel>();
 
             this.Navigation = ViewModelFactory.Create<NavigationViewModel>();
             this.Navigation.PropertyChanged += HandleNavigationPropertyChanged;
@@ -45,9 +44,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
 
         [Import]
         public UIService UIService { get; set; }
-
-        [Import]
-        public RestartService RestartService { get; set; }
 
         [Import]
         public VstsConnectionService VstsConnectionService { get; set; }
@@ -76,7 +72,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
 
             bindings.Add(TeamMateCommands.ConnectToProject, ConnectToProject);
             bindings.Add(TeamMateCommands.RetryConnectToTfs, RetryConnectToTfs);
-            bindings.Add(TeamMateCommands.Restart, Restart);
         }
 
         public NavigationViewModel Navigation { get; set; }
@@ -90,8 +85,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
         public SettingsPageViewModel SettingsPage { get; private set; }
 
         public DeveloperOptionsPageViewModel DeveloperOptionsPage { get; private set; }
-
-        public UpdatesAvailablePageViewModel UpdatesAvailablePage { get; private set; }
 
         public bool IsSettingsVisible
         {
@@ -316,11 +309,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
         public void QuickCreateDefault()
         {
             this.GlobalCommandService.QuickCreateDefault();
-        }
-
-        public void Restart()
-        {
-            this.RestartService.Restart();
         }
 
         private void LaunchNewsPage()

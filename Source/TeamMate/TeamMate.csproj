@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <!-- Force building to x86 at all times due to dependencies on x86 assemblies (TFS ClickOnce, Expression) -->
+    <!-- Force building to x86 at all times due to dependencies on x86 assemblies (Expression) -->
     <PlatformTarget>x86</PlatformTarget>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <PublishUrl>publish\Debug\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -20,14 +20,13 @@
     <PublisherName>Ben Amodio</PublisherName>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.1.20808.0</ApplicationVersion>
+    <ApplicationVersion>2.1.21106.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
-    <ClickOncePublish>True</ClickOncePublish>
     <CustomManifestFile>$(MSBuildThisFileDirectory)\Properties\app_themes.manifest</CustomManifestFile>
   </PropertyGroup>
   <PropertyGroup>
@@ -40,16 +39,7 @@
     <Win32Resource>Resources\Native\TeamMateExe.res</Win32Resource>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetZone>LocalIntranet</TargetZone>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Publish)' == 'true' ">
-    <!-- Only sign ClickOnce if publishing to Toolbox -->
-    <SignManifests>true</SignManifests>
-    <ManifestCertificateThumbprint>43498F8B38D9EA4605E00F851965F623EF412893</ManifestCertificateThumbprint>
-    <ManifestKeyFile>$(BuildScripts)\TeamMate.pfx</ManifestKeyFile>
-    <!-- Workaround for ClickOnce publishing, build using a special native resource file without a manifest (which otherwise makes ClickOnce choke) -->
-    <Win32Resource>Resources\Native\TeamMateExe_NoManifest.res</Win32Resource>
-    <Resign Condition=" '$(Resign)' == '' ">true</Resign>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
     <_DeploymentManifestIconFile Include="Resources\Logo\TeamMate.ico">
@@ -146,6 +136,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -166,6 +157,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -270,9 +262,6 @@
     <Compile Include="Pages\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\UpdatesAvailablePage.xaml.cs">
-      <DependentUpon>UpdatesAvailablePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Resources\EmailResources.Designer.cs">
       <DependentUpon>EmailResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -324,7 +313,6 @@
     <Compile Include="ViewModels\TileCollectionViewModel.cs" />
     <Compile Include="ViewModels\TileViewModel.cs" />
     <Compile Include="ViewModels\TrackableViewModelBase.cs" />
-    <Compile Include="ViewModels\UpdatesAvailablePageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelFactory.cs" />
     <Compile Include="ViewModels\WorkItemAddTagsDialogViewModel.cs" />
     <Compile Include="ViewModels\WorkItemRowViewModel.cs" />
@@ -373,9 +361,7 @@
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Native\NativeResources.cs" />
-    <Compile Include="Services\RestartService.cs" />
     <Compile Include="Resources\SampleData.cs" />
-    <Compile Include="Services\DownloadAndUpdateService.cs" />
     <Compile Include="Services\CommandLineService.cs" />
     <Compile Include="Services\FileDialogService.cs" />
     <Compile Include="Services\CollaborationService.cs" />
@@ -587,10 +573,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\UpdatesAvailablePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
