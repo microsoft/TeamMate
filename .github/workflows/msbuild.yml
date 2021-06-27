@@ -1,0 +1,21 @@
+name: MSBuild
+on:
+  push:
+    branches:
+      - marcusm/test
+jobs:
+  build:
+    name: MSBuild
+    # runs-on: self-hosted
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+
+    - name: MSBuild
+      run: msbuild .\Sources\TeamMate\TeamMate.csproj -p:OutDir="out/"
+      shell: cmd
