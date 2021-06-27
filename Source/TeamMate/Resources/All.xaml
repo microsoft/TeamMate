@@ -1,4 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<!--
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT License.
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:fwc="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows.Controls;assembly=Microsoft.Tools.TeamMate.Foundation"
                     xmlns:fwcd="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;assembly=Microsoft.Tools.TeamMate.Foundation"

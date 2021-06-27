@@ -1,4 +1,9 @@
-﻿<Window x:Class="Microsoft.Tools.TeamMate.Windows.CodeFlowPingDialog"
+<!--
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT License.
+-->
+
+<Window x:Class="Microsoft.Tools.TeamMate.Windows.CodeFlowPingDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:fw="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Tools.TeamMate.Foundation"
