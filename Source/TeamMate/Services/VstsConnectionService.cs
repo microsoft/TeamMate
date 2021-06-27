@@ -97,11 +97,6 @@ namespace Microsoft.Tools.TeamMate.Services
                 this.ConnectionInfo.ConnectionState = ConnectionState.Connected;
                 this.Session.ProjectContext = projectContext;
                 this.VolatileSettings.LastUsedProject = projectContext.ProjectInfo;
-
-                // Whenever we connect to a project, we take the opportunity to periodically request feedback too.
-                // Seems like an OK, non intrusive time to do this. Note that the call will rarely result in
-                // an actual prompt to the user
-                this.WindowService.PeriodicallyRequestFeedback();
             }
         }
 

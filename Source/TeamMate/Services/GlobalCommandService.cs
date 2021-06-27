@@ -35,15 +35,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         public void RegisterBindings(CommandBindingCollection bindings)
         {
-            bindings.Add(TeamMateCommands.VoteOnFeatures, () => this.ExternalWebBrowserService.VoteOnFeatures());
-            bindings.Add(TeamMateCommands.SuggestFeature, () => this.ExternalWebBrowserService.SuggestFeature());
-            bindings.Add(TeamMateCommands.ReportBug, () => this.ExternalWebBrowserService.ReportBug());
-
-            bindings.Add(TeamMateCommands.ContactUs, ContactUs);
-            bindings.Add(TeamMateCommands.YammerUs, () => this.ExternalWebBrowserService.GoToYammer());
-            bindings.Add(TeamMateCommands.BecomeAContributor, BecomeAContributor);
         }
-
 
         public void QuickCreateDefault()
         {
@@ -117,26 +109,6 @@ namespace Microsoft.Tools.TeamMate.Services
         public void ShowSettingsPage()
         {
             this.WindowService.ShowSettingsPage();
-        }
-
-        public void ContactUs()
-        {
-            string subject = String.Format("What I have to say about {0}", TeamMateApplicationInfo.ApplicationName);
-            string body = String.Format("(I'm using version {0})", TeamMateApplicationInfo.Version);
-
-            MailMessage message = new MailMessage();
-            message.To.Add(TeamMateApplicationInfo.FeedbackEmail);
-            message.Subject = subject;
-            message.HtmlBody = MailMessage.WrapHtmlInDefaultFont(body);
-            this.CollaborationService.SendMail(message);
-        }
-
-        public void BecomeAContributor()
-        {
-            MailMessage message = new MailMessage();
-            message.To.Add(TeamMateApplicationInfo.FeedbackEmail);
-            message.Subject = "I'd like to contribute";
-            this.CollaborationService.SendMail(message);
         }
 
         public bool EnsureProjectsHaveBeenConfigured()

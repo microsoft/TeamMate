@@ -114,7 +114,6 @@ namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
             // window = new PeopleSummaryWindow();
 
             // window = new AppPreviewWindow();
-            // window = new SendFeedbackWindow();
             // window = new TestWindow();
             // window = new MyTransitionWindow();
             // window = new TransitionWindow();
@@ -125,18 +124,6 @@ namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
             // window.WindowState = WindowState.Maximized;
 
             window.Show();
-
-            /*
-            if (window.ShowDialog() == true)
-            {
-                var fi = ((SendFeedbackWindow)window).FeedbackItem;
-
-                string filename = Environment.ExpandEnvironmentVariables(@"%TEMP%\Feedback.fdbx.zip");
-                fi.Save(filename);
-
-                var fi2 = FeedbackItem.FromFile(filename);
-            }
-             */
 
             /*
             ToastViewManager toastViewManager = new ToastViewManager();

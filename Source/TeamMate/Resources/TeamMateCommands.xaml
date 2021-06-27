@@ -30,14 +30,6 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <fwi:UICommand x:Key="SendFeedbackToolBarCommand"
-                   SymbolIcon="Emoji2"
-                   Text="Send Feedback">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Alt+5</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
     <fwi:UICommand x:Key="NavigateToDeveloperOptionsPageCommand"
                    SymbolIcon="Developer"
                    Text="Developer Options" />
@@ -408,24 +400,6 @@
     <c:RoutedUICommand x:Key="RestartCommand" Text="_Restart" />
 
     <!--  Global Commands  -->
-
-    <fwi:UICommand x:Key="VoteOnFeaturesCommand" Text="Vote on Features" />
-
-    <fwi:UICommand x:Key="SuggestFeatureCommand" Text="Suggest a Feature" />
-
-    <fwi:UICommand x:Key="ReportBugCommand" Text="Report a Bug" />
-
-    <fwi:UICommand x:Key="ContactUsCommand"
-                   Icon="/Resources/Icons/Office15/Send2.16x16x32.png"
-                   Text="Contact Us" />
-
-    <fwi:UICommand x:Key="YammerUsCommand"
-                   Icon="/Resources/Icons/Other/Yammer.16x16x32.png"
-                   Text="Find us in Yammer" />
-
-    <fwi:UICommand x:Key="BecomeAContributorCommand" Text="Become a Contributor" />
-
-    <c:RoutedUICommand x:Key="HelpCommand" Text="Help" />
 
     <c:RoutedUICommand x:Key="ConnectToProjectCommand" Text="Connect to Project" />
 

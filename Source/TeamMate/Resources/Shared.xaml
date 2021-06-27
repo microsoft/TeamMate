@@ -3,16 +3,6 @@
                     xmlns:tmr="clr-namespace:Microsoft.Tools.TeamMate.Resources">
 
     <!--  Unfortunately we need a regular flavor and a RadContextMenu flavor of the same menu, keep these in sync  -->
-    <ContextMenu x:Key="FeedbackMenu">
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.VoteOnFeatures}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.SuggestFeature}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.ReportBug}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.BecomeAContributor}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <Separator />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.YammerUs}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.ContactUs}" Style="{DynamicResource CommandMenuItemStyle}" />
-    </ContextMenu>
-
     <ContextMenu x:Key="WorkItemContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
         <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"
                   Header="Copy Hyperlink"

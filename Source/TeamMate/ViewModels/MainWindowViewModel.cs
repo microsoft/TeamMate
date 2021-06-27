@@ -298,31 +298,5 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.GlobalCommandService.QuickCreateDefault();
         }
 
-        private ICommand displayLegacyTfsSupportDroppedBannerCommand;
-
-        public ICommand DisplayLegacyTfsSupportDroppedBannerCommand
-        {
-            get
-            {
-                return displayLegacyTfsSupportDroppedBannerCommand ?? (displayLegacyTfsSupportDroppedBannerCommand = new RelayCommand(() =>
-                {
-                    this.ExternalWebBrowserService.LaunchLegacyTfsSupportDropped();
-                }));
-            }
-        }
-
-
-        private ICommand closeLegacyTfsSupportDroppedBannerCommand;
-
-        public ICommand CloseLegacyTfsSupportDroppedBannerCommand
-        {
-            get
-            {
-                return closeLegacyTfsSupportDroppedBannerCommand ?? (closeLegacyTfsSupportDroppedBannerCommand = new RelayCommand(() =>
-                {
-                    this.VolatileSettings.DisplayLegacyTfsSupportDroppedBanner = false;
-                }));
-            }
-        }
     }
 }

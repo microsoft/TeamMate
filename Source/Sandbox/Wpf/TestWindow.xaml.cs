@@ -23,14 +23,7 @@ namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
             /*
             var dd2 = DragDropHelper2.Create(tb);
             dd2.DragRequested += dd2_DragRequested;
-            this.GiveFeedback += TestWindow_GiveFeedback;
              */
-        }
-
-        void TestWindow_GiveFeedback(object sender, GiveFeedbackEventArgs e)
-        {
-            e.UseDefaultCursors = false;
-            e.Handled = true;
         }
 
         void dd2_DragRequested(object sender, EventArgs e)
