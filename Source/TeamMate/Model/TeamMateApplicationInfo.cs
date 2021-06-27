@@ -4,7 +4,6 @@ using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
 using Microsoft.Internal.Tools.TeamMate.Foundation.Reflection;
 using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
 using System;
-using System.Deployment.Application;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -21,7 +20,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Model
         public const string TeamMateFileExtension = ".tmx";
         public const string TeamMateFileDescription = "TeamMate File";
 
-        private static Lazy<bool> isNetworkDeployed = new Lazy<bool>(() => ApplicationDeployment.IsNetworkDeployed);
         private static Version version;
 
         private static bool historyLoaded;
@@ -193,14 +191,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Model
             }
         }
 
-        public static Uri ActivationUri
-        {
-            get
-            {
-                return (IsNetworkDeployed) ? CurrentDeployment.ActivationUri : null;
-            }
-        }
-
         public static string FullVersion
         {
             get
@@ -264,24 +254,16 @@ namespace Microsoft.Internal.Tools.TeamMate.Model
                 {
                     try
                     {
-                        if (IsNetworkDeployed)
+                        // Otherwise return the Assembly File Version
+                        Assembly assembly = typeof(TeamMateApplicationInfo).Assembly;
+                        Version fileVersion = assembly.GetFileVersion();
+                        if (fileVersion == null)
                         {
-                            // If it is a ClickOnce application, return that version
-                            version = CurrentDeployment.CurrentVersion;
+                            // Worst case scenario, return assembly version
+                            fileVersion = assembly.GetVersion();
                         }
-                        else
-                        {
-                            // Otherwise return the Assembly File Version
-                            Assembly assembly = typeof(TeamMateApplicationInfo).Assembly;
-                            Version fileVersion = assembly.GetFileVersion();
-                            if (fileVersion == null)
-                            {
-                                // Worst case scenario, return assembly version
-                                fileVersion = assembly.GetVersion();
-                            }
 
-                            version = fileVersion;
-                        }
+                        version = fileVersion;
                     }
                     catch
                     {
@@ -321,35 +303,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Model
 
         public static string TelemetryFileShare { get; private set; }
 
-        public static ApplicationDeployment CurrentDeployment
-        {
-            get
-            {
-                return (IsNetworkDeployed) ? ApplicationDeployment.CurrentDeployment : null;
-            }
-        }
-
-        public static bool IsNetworkDeployed
-        {
-            get
-            {
-                bool result = isNetworkDeployed.Value;
-                return result;
-            }
-        }
-
         public static string DataDirectory
         {
             get
             {
-                /*
-                 * We settled on always using the LocalApplicationData folder, even if installing from ClickOnce
-                if (IsNetworkDeployed)
-                {
-                    return CurrentDeployment.DataDirectory;
-                }
-                 */
-
                 string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 return Path.Combine(localAppData, ApplicationName);
             }

@@ -12,12 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{1805B498
 		Build\Build.bat = Build\Build.bat
 		Build\Build.ps1 = Build\Build.ps1
 		Build\BuildInfo.cs = Build\BuildInfo.cs
-		Build\InstallKey.bat = Build\InstallKey.bat
 		Build\Microsoft.Internal.Tools.TeamMate.Settings.targets = Build\Microsoft.Internal.Tools.TeamMate.Settings.targets
 		Build\Microsoft.Internal.Tools.TeamMate.targets = Build\Microsoft.Internal.Tools.TeamMate.targets
 		Build\Microsoft.Internal.Tools.TeamMate.Version.targets = Build\Microsoft.Internal.Tools.TeamMate.Version.targets
-		Build\TeamMate.pfx = Build\TeamMate.pfx
-		Build\UpdateClickOnce.ps1 = Build\UpdateClickOnce.ps1
 		Build\version.txt = Build\version.txt
 	EndProjectSection
 EndProject

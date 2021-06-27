@@ -15,7 +15,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
             this.Title = "Developer Options";
             this.ChaosMonkey = new ChaosMonkeyViewModel();
 
-            this.TriggerApplicationUpdateCommand = new RelayCommand(TriggerApplicationUpdate);
             this.RequestFeedbackCommand = new RelayCommand(RequestFeedback);
             this.RequestRatingCommand = new RelayCommand(RequestRating);
             this.RunInstallUpgradeConfigurationStepCommand = new RelayCommand(RunInstallUpgradeConfigurationStep);
@@ -41,15 +40,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
         {
             throw new ForceCrashException("Force crashed application!");
         }
-
-        public void TriggerApplicationUpdate()
-        {
-            this.DownloadAndUpdateService.TriggerBackgroundUpdateOccurred();
-        }
-
-        [Import]
-        public DownloadAndUpdateService DownloadAndUpdateService { get; set; }
-
 
         public ICommand RequestRatingCommand { get; private set; }
 

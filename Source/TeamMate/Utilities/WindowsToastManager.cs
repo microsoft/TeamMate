@@ -22,8 +22,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Utilities
                 toastNotificationManager.ToastOccurred += ToastManager_ToastOccurred;
 
                 this.toastNotificationManager = toastNotificationManager;
-
-                this.CreateDesktopShortcutIfNeeded();
             }
             catch (Exception ex)
             {
@@ -76,23 +74,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Utilities
             if (e.EventType == ToastNotificationEventType.Activated && e.ActivatedArguments != null)
             {
                 this.ToastActivated?.Invoke(this, new ToastActivatedEventArgs(e.ActivatedArguments));
-            }
-        }
-
-        private void CreateDesktopShortcutIfNeeded()
-        {
-            // A shortcut on the start menu, with the appropriate AppUserModel id is required for desktop apps to
-            // use the Windows Notification system in WinRT.
-            // ClickOnce installs registers a shortcut and manages the AppUserModel id, but developer builds/xcopies do not, so create one on demand
-            // See https://msdn.microsoft.com/en-us/library/windows/desktop/hh802762(v=vs.85).aspx
-            // And https://code.msdn.microsoft.com/windowsdesktop/Sending-toast-notifications-71e230a2
-            if (!TeamMateApplicationInfo.IsNetworkDeployed)
-            {
-                string shortcut = ShortcutUtilities.GetPathToShortcut(TeamMateApplicationInfo.ApplicationName);
-                if (!File.Exists(shortcut))
-                {
-                    ShortcutUtilities.CreateShortcutWithAppUserModelId(shortcut, TeamMateApplicationInfo.ExePath, TeamMateApplicationInfo.AppUserModelId);
-                }
             }
         }
     }

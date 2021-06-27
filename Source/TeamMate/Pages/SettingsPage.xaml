@@ -100,15 +100,6 @@
                             <Run Text="{Binding LogsFolder, Mode=OneWay}" />
                         </Hyperlink>
                     </TextBlock>
-
-                    <TextBlock Margin="0,16,0,6" Style="{StaticResource SettingsGroupHeaderTextStyle}">Software Updates</TextBlock>
-                    <Button
-                        Margin="0,12,0,0"
-                        HorizontalAlignment="Left"
-                        Command="{Binding CheckForUpdatesCommand}"
-                        Style="{StaticResource WindowsButtonStyle}">
-                        Check for Updates
-                    </Button>
                 </StackPanel>
             </ScrollViewer>
         </TabItem>

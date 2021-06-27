@@ -23,7 +23,7 @@ using ToolStripMenuItem = System.Windows.Forms.ToolStripMenuItem;
 
 namespace Microsoft.Internal.Tools.TeamMate.Services
 {
-    public class UIService : IDisposable
+	public class UIService : IDisposable
     {
         private const int MaxJumpListItems = 5;
         private static readonly int TrayIconBallonTimeout = (int)TimeSpan.FromSeconds(15).TotalMilliseconds;
@@ -45,8 +45,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
 
         private OverviewWindow overviewWindow;
 
-        private bool showingRestartBalloonTip;
-
         private System.Windows.Application application;
 
         private string applicationPath;
@@ -57,16 +55,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
         public SettingsService SettingsService { get; set; }
 
         [Import]
-        public RestartService RestartService { get; set; }
-
-        [Import]
         public GlobalCommandService GlobalCommandService { get; set; }
 
         [Import]
         public WindowService WindowService { get; set; }
-
-        [Import]
-        public DownloadAndUpdateService DownloadAndUpdateService { get; set; }
 
         [Import]
         public SessionService SessionService { get; set; }
@@ -87,8 +79,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
             this.ItemCountSummary.GlobalCounter.Changed += HandleGlobalCounterChanged;
 
             this.SettingsService.Settings.PropertyChanged += HandleSettingsPropertyChanged;
-
-            this.DownloadAndUpdateService.BackgroundUpdateOccurred += HandleBackgroundUpdateOccurred;
 
             // For interop when hosting WinForms controls (e.g. the work item form subcontrols)
             System.Windows.Forms.Application.EnableVisualStyles();
@@ -326,9 +316,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
             this.trayIcon.Icon = defaultTrayIcon;
             this.trayIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
 
-            this.trayIcon.BalloonTipClicked += HandleBalloonTipClicked;
-            this.trayIcon.BalloonTipClosed += HandleBalloonTipClosed;
-
             this.createDefaultMenuItem = AddMenuItemToTrayIcon(this.trayIcon, TeamMateCommands.QuickCreate, this.GlobalCommandService.QuickCreateDefault);
             this.createMenuItem = AddMenuItemToTrayIcon(this.trayIcon, TeamMateCommands.QuickCreateWithOptions, this.GlobalCommandService.QuickCreate);
             this.queryMenuItem = AddMenuItemToTrayIcon(this.trayIcon, TeamMateCommands.QuickSearch, this.GlobalCommandService.QuickSearch);
@@ -527,43 +514,6 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
         private void HandleDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             e.Handled = HandleUnhandledException(e.Exception);
-        }
-
-        private void HandleBackgroundUpdateOccurred(object sender, EventArgs e)
-        {
-            this.WindowService.MainWindowViewModel.IsUpdateAvailable = true;
-            ShowApplicationUpdateTrayIcon();
-        }
-
-        private void ShowApplicationUpdateTrayIcon()
-        {
-            this.trayIcon.ContextMenuStrip.Items.Add(new System.Windows.Forms.ToolStripSeparator());
-            AddMenuItemToTrayIcon(this.trayIcon, TeamMateCommands.Restart, Restart);
-
-            var title = String.Format("{0} updates have been installed", TeamMateApplicationInfo.ApplicationName);
-            var text = "Click here to restart the application and load the updated version.";
-            var icon = System.Windows.Forms.ToolTipIcon.Info;
-
-            this.showingRestartBalloonTip = true;
-            this.trayIcon.ShowBalloonTip(TrayIconBallonTimeout, title, text, icon);
-        }
-
-        private void HandleBalloonTipClicked(object sender, EventArgs e)
-        {
-            if (this.showingRestartBalloonTip)
-            {
-                Restart();
-            }
-        }
-
-        private void HandleBalloonTipClosed(object sender, EventArgs e)
-        {
-            this.showingRestartBalloonTip = false;
-        }
-
-        private void Restart()
-        {
-            this.RestartService.Restart();
         }
 
         private void ShowHomePage()

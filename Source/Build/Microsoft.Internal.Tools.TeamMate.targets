@@ -19,13 +19,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <OutputPath>$(BaseBinOutputPath)$(Configuration)\</OutputPath>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(ClickOncePublish)' == 'True'">
-    <PublishUrl>$(BasePublishOutputPath)$(Configuration)\</PublishUrl>
-
-    <!-- KLUDGE: Required when doing msbuild /t:publish on the command-line -->
-    <PublishDir Condition="'$(BuildingInsideVisualStudio)' != 'true'">$(PublishUrl)</PublishDir>
-  </PropertyGroup>
-
   <Import Project="Microsoft.Internal.Tools.TeamMate.Version.targets" />
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

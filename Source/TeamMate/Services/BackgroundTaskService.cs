@@ -19,15 +19,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
         public SettingsService SettingsService { get; set; }
 
         [Import]
-        public DownloadAndUpdateService DownloadAndUpdateService { get; set; }
-
-        [Import]
         public WindowService WindowService { get; set; }
 
         public void Initialize()
         {
             this.scheduledActions.AddRange(new ScheduledAction[] {
-                this.DownloadAndUpdateService.CheckForUpdatesAction,
                 this.WindowService.RefreshTilesAction
             });
 

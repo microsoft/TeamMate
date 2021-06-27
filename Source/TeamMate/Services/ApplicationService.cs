@@ -155,18 +155,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
 
         private static string[] GetLaunchArgs()
         {
-            string[] launchArgs;
-            Uri activationUri = TeamMateApplicationInfo.ActivationUri;
-            if (activationUri != null && !String.IsNullOrEmpty(activationUri.Query))
-            {
-                // Process parameter inputs in activation URI, if there were any, prefer those to console args...
-                Log.Info("ActivationUri: {0}", activationUri);
-                launchArgs = CommandLineService.GetArgListForUri(activationUri);
-            }
-            else
-            {
-                launchArgs = TeamMateApplicationInfo.CommandLineArgs;
-            }
+            string[] launchArgs = TeamMateApplicationInfo.CommandLineArgs;
             return launchArgs;
         }
 

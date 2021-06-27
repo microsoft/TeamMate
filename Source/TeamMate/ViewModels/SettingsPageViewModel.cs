@@ -30,7 +30,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
         public SettingsPageViewModel()
         {
             this.Title = "Settings";
-            this.CheckForUpdatesCommand = new RelayCommand(CheckForUpdates);
             this.ViewPrivacyStatementCommand = new RelayCommand(ViewPrivacyStatemenet);
             this.OpenLogsFolderCommand = new RelayCommand(OpenLogsFolder);
         }
@@ -63,15 +62,6 @@ namespace Microsoft.Internal.Tools.TeamMate.ViewModels
         public ICommand OpenLogsFolderCommand { get; private set; }
 
         public ICommand ViewPrivacyStatementCommand { get; private set; }
-
-
-        private void CheckForUpdates()
-        {
-            this.DownloadAndUpdateService.CheckForUpdates();
-        }
-
-        [Import]
-        public DownloadAndUpdateService DownloadAndUpdateService { get; set; }
 
         public ICommand CheckForUpdatesCommand { get; private set; }
 

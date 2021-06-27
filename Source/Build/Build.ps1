@@ -3,8 +3,7 @@
  A script for building and publishing TeamMate to Toolbox.
 
  .DESCRIPTION
- This scripts takes care of versioning TeamMate, performing a clean build, and generating
- ClickOnce files. It can also publish the ClickOnce files to the Toolbox file share.
+ This scripts takes care of versioning TeamMate, performing a clean build.
 
  .PARAMETER debug
  Builds the Debug flavor as opposed to the (default) Relase flavor.
@@ -13,16 +12,8 @@
  If true, generates a new version and updates source files with that value
 
  .PARAMETER build
- If true, performs a build (default value is true unless upload is specified).
+ If true, performs a build.
 
- .PARAMETER upload
- If true, uploads the previous build to Toolbox. This must be invoked after having performed a build.
-
- .PARAMETER noresign
- If specified, avoids re-signing the ClickOnce manifest with the custom patched manifest.
-
- .PARAMETER local
- If specified, generates a published build targetted for local testing only, NOT FOR UPLOADING TO TOOLBOX.
 #>
 
 param([switch]$debug, [switch] $updateVersion, [switch] $build, [switch] $upload, [switch]$noresign, [switch]$local)
@@ -153,11 +144,10 @@ $versionFile = "$scriptFolder\version.txt";
 $buildInfoFile = "$scriptFolder\BuildInfo.cs";
 $versionTargetsFile = "$scriptFolder\Microsoft.Internal.Tools.TeamMate.Version.targets";
 $project = "$scriptFolder\..\TeamMate\TeamMate.csproj";
-$resign = (-not $noresign);
 
-if(-not ($updateVersion -or $build -or $upload))
+if(-not ($updateVersion -or $build))
 {
-    Write-Error "Please specify one or more of: -updateVersion, -build, -upload";
+    Write-Error "Please specify one or more of: -updateVersion, -build";
     exit 1
 }
 
@@ -196,39 +186,12 @@ if($build)
     foreach($config in $configs)
     {
         Write-Info "Building $config...";
-        . "$msbuild" "$project" "/p:Configuration=$config" "/p:Publish=true" "/p:Local=$local" /nologo /v:m /t:rebuild 
+        . "$msbuild" "$project" "/p:Configuration=$config" /nologo /v:m /t:rebuild 
 
         if($LastExitCode -ne 0 )
         {
           Write-Error "MSBuild failed. Exiting early!";
           exit 1
-        }
-    }
-
-    foreach($config in $configs)
-    {
-        Write-Info "Publishing ClickOnce files for $config...";
-        . "$msbuild" "$project" "/p:Configuration=$config" "/p:Publish=true" "/p:Resign=$resign" "/p:Local=$local" /nologo /v:m /t:publish
-
-        if($LastExitCode -ne 0 )
-        {
-          Write-Error "Publishing failed!";
-          exit 1;
-        }
-    }
-}
-
-if($upload)
-{
-    foreach($config in $configs)
-    {
-        Write-Info "Uploading ClickOnce files for $config...";
-        . "$msbuild" "$project" "/p:Configuration=$config" "/p:Publish=true" /nologo /v:m /t:upload
-
-        if($LastExitCode -ne 0 )
-        {
-          Write-Error "Uploading failed!";
-          exit 1;
         }
     }
 }
