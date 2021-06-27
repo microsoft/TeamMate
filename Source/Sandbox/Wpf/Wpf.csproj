@@ -189,9 +189,6 @@
     <Compile Include="NotificationToast.xaml.cs">
       <DependentUpon>NotificationToast.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Preview\PreviewWindow.xaml.cs">
-      <DependentUpon>PreviewWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ProfileImageView.xaml.cs">
       <DependentUpon>ProfileImageView.xaml</DependentUpon>
     </Compile>
@@ -310,10 +307,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NotificationToast.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Preview\PreviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
