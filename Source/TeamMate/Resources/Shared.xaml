@@ -27,7 +27,6 @@
                   Header="Copy Title"
                   Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.FindInOutlook}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.ReplyWithEmail}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.Flag}" Style="{DynamicResource CommandMenuItemStyle}" />

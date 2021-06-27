@@ -121,7 +121,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
             commands.Add(ApplicationCommands.Copy, CopyHyperlink, HasSingleSelection);
             commands.Add(TeamMateCommands.Flag, ToggleSelectionFlag, HasSelection);
-            commands.Add(TeamMateCommands.FindInOutlook, SearchInOutlook, HasSelection);
             commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
             commands.Add(TeamMateCommands.MarkAsRead, MarkAsRead, HasSelection);
             commands.Add(TeamMateCommands.MarkAsUnread, MarkAsUnread, HasSelection);
@@ -316,13 +315,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.MessageBoxService.ShowError(e);
             }
         }
-
-        private void SearchInOutlook()
-        {
-            WorkItemRowViewModel workItem = GetSelectedItem();
-            this.CollaborationService.SearchInOutlook(workItem.WorkItem);
-        }
-
         private void CopyHyperlink()
         {
             WorkItemRowViewModel workItem = GetSelectedItem();
