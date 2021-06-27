@@ -23,6 +23,9 @@
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <CustomManifestFile>$(MSBuildThisFileDirectory)\Properties\app_themes.manifest</CustomManifestFile>
@@ -46,12 +49,6 @@
     </_DeploymentManifestIconFile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.HockeyApp.Core45">
-      <HintPath>..\External\Unofficial.HockeySDK.WPF\Microsoft.HockeyApp.Core45.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.HockeyApp.Kit">
-      <HintPath>..\External\Unofficial.HockeySDK.WPF\Microsoft.HockeyApp.Kit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.13.9.1126, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.9\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
     </Reference>
@@ -196,7 +193,6 @@
     <Compile Include="Controls\TileCollectionView.xaml.cs">
       <DependentUpon>TileCollectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Diagnostics\HockeyAppTelemetryListener.cs" />
     <Compile Include="Exceptions\ForceCrashException.cs" />
     <Compile Include="Model\Actions\ActionSerializer.cs" />
     <Compile Include="Model\Actions\CreateWorkItemAction.cs" />
@@ -274,7 +270,6 @@
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\SessionService.cs" />
-    <Compile Include="Services\TelemetryService.cs" />
     <Compile Include="Services\UpgradeService.cs" />
     <Compile Include="Services\WorkItemStateService.cs" />
     <Compile Include="Model\Settings\ProjectSettings.cs" />
@@ -287,7 +282,6 @@
     <Compile Include="Utilities\WinFormsUtilities.cs" />
     <Compile Include="Utilities\SearchExpression.cs" />
     <Compile Include="Utilities\SearchTextHighlighter.cs" />
-    <Compile Include="Utilities\TelemetryEvents.cs" />
     <Compile Include="Utilities\TextMatcher.cs" />
     <Compile Include="Utilities\WorkItemHtmlFormatter.cs" />
     <Compile Include="Utilities\WorkItemMailGenerator.cs" />
@@ -350,7 +344,6 @@
       <DependentUpon>WorkItemsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\ConfigurationService.cs" />
-    <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Model\DefaultWorkItemInfo.cs" />
     <Compile Include="ViewModels\WorkItemQueryViewModel.cs" />
     <Compile Include="Model\Session.cs" />
@@ -429,9 +422,6 @@
       <DependentUpon>QuickSearchWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\ClipboardFileExporter.cs" />
-    <Compile Include="Windows\SendFeedbackDialog.xaml.cs">
-      <DependentUpon>SendFeedbackDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
@@ -455,10 +445,6 @@
     <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
       <Name>Microsoft.Tools.TeamMate.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OfficeAddIns\Microsoft.Tools.TeamMate.Office.AddIns.csproj">
-      <Project>{0CF20E6F-9E16-4B91-9BCA-FD7359821FCC}</Project>
-      <Name>Microsoft.Tools.TeamMate.Office.AddIns</Name>
     </ProjectReference>
     <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
@@ -658,10 +644,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SendFeedbackDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\SplashScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -855,8 +837,6 @@
     <Resource Include="Resources\Icons\Office15\SearchMagnifyingGlass.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\Send2.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\Send2.32x32x32.png" />
-    <Resource Include="Resources\Icons\Office15\SendAFrown.16x16x32.png" />
-    <Resource Include="Resources\Icons\Office15\SendASmile.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\SendIM.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\SendIM.24x24x32.png" />
     <Resource Include="Resources\Icons\Office15\ShowClipboard.16x16x32.png" />

@@ -73,8 +73,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
             MailMessage message = await CreateMessageAsync(workItem, false, false);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemSendMail);
         }
 
         public async Task ReplyWithMailAsync(WorkItem workItem)
@@ -83,8 +81,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
             MailMessage message = await CreateMessageAsync(workItem, true, false);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemReplyWithMail);
         }
 
         public async Task ReplyAllWithMailAsync(WorkItem workItem)
@@ -93,56 +89,24 @@ namespace Microsoft.Tools.TeamMate.Services
 
             MailMessage message = await CreateMessageAsync(workItem, false, true);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemReplyAllWithMail);
         }
 
         public void SendMail(WorkItemQueryExpandedResult workItems)
         {
             MailMessage message = CreateMessage(workItems.WorkItems, false);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemCollectionSendMail);
         }
 
         public void ReplyAllWithMail(ICollection<WorkItem> workItems)
         {
             MailMessage message = CreateMessage(workItems, true);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemCollectionReplyAllWithMail);
         }
 
         public void ReplyAllWithMail(WorkItemQueryExpandedResult workItems)
         {
             MailMessage message = CreateMessage(workItems, true);
             SendMail(message);
-
-            Telemetry.Event(TelemetryEvents.WorkItemCollectionReplyAllWithMail);
-        }
-
-        public void SearchInOutlook(WorkItem workItem)
-        {
-            Assert.ParamIsNotNull(workItem, "workItem");
-
-            string searchText = workItem.Id.ToString();
-            string cleanTitle = workItem.Title().Replace("\"", "").Trim();
-            if (!String.IsNullOrEmpty(cleanTitle))
-            {
-                searchText += " OR \"" + cleanTitle + "\"";
-            }
-
-            bool searchAllItems = this.SettingsService.Settings.SearchAllInOutlook;
-
-            try
-            {
-                OutlookService.SearchOutlookInbox(searchText, searchAllItems);
-                Telemetry.Event(TelemetryEvents.WorkItemSearchInOutlook);
-            }
-            catch (OutlookException e)
-            {
-                this.MessageBoxService.ShowError(e);
-            }
         }
 
         public void Dispose()

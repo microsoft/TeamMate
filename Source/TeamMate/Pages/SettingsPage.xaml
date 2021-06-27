@@ -41,17 +41,6 @@
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
-        <TabItem Header="Feedback Program">
-            <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
-                <StackPanel Margin="24">
-                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Feedback Program</TextBlock>
-                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding Settings.SendAnonymousUsageData}">I want to help make TeamMate even better by sending anonymous usage data.</CheckBox>
-                    <TextBlock Margin="0,12,0,0">
-                        <Hyperlink Command="{Binding ViewPrivacyStatementCommand}">Read the privacy statement online</Hyperlink>
-                    </TextBlock>
-                </StackPanel>
-            </ScrollViewer>
-        </TabItem>
         <TabItem Header="Notifications">
             <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
                 <StackPanel Margin="24">
@@ -76,15 +65,6 @@
                                             UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="{Binding RefreshIntervalDescription}" />
                     </StackPanel>
-                </StackPanel>
-            </ScrollViewer>
-        </TabItem>
-        <TabItem Header="Office">
-            <ScrollViewer DataContext="{Binding Settings}" Style="{StaticResource ScrollViewerStyle}">
-                <StackPanel Margin="24">
-                    <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}">Outlook</TextBlock>
-                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding EnableOfficeAddIns}">Enable Outlook integration</CheckBox>
-                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding SearchAllInOutlook}">Search entire Mailbox by default</CheckBox>
                 </StackPanel>
             </ScrollViewer>
         </TabItem>

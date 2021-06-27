@@ -47,21 +47,16 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             
             // All of these simple values have good defaults in the input settings. Only override the default value if something
             // actually existed in XML.
-            settingsElement.ReadElementValue<bool>(Schema.RecordMicrophone, (value) => settings.RecordMicrophone = value);
             settingsElement.ReadElementValue<bool>(Schema.IsTracingEnabled, (value) => settings.IsTracingEnabled = value);
-            settingsElement.ReadElementValue<bool>(Schema.LaunchAnnotationToolAfterScreenCapture, (value) => settings.LaunchAnnotationToolAfterScreenCapture = value);
-            settingsElement.ReadElementValue<bool>(Schema.SearchAllInOutlook, (value) => settings.SearchAllInOutlook = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateGesture, (value) => settings.QuickCreateGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateWithOptionsGesture, (value) => settings.QuickCreateWithOptionsGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickSearchGesture, (value) => settings.QuickSearchGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.ToggleMainWindowGesture, (value) => settings.ToggleMainWindowGesture = value);
             settingsElement.ReadElementValue<bool>(Schema.LaunchOnStartup, (value) => settings.LaunchOnStartup = value);
-            settingsElement.ReadElementValue<bool>(Schema.EnableOfficeAddIns, (value) => settings.EnableOfficeAddIns = value);
             settingsElement.ReadElementValue<bool>(Schema.ShowSplashScreen, (value) => settings.ShowSplashScreen = value);
             settingsElement.ReadElementValue<bool>(Schema.PlayNotificationSound, (value) => settings.PlayNotificationSound = value);
             settingsElement.ReadElementValue<TimeSpan>(Schema.RefreshInterval, (value) => settings.RefreshInterval = value < ApplicationSettings.MinimumRefreshInterval ? ApplicationSettings.MinimumRefreshInterval : value);
             settingsElement.ReadElementValue<bool>(Schema.SearchIdsAutomatically, (value) => settings.SearchIdsAutomatically = value);
-            settingsElement.ReadElementValue<bool>(Schema.SendAnonymousUsageData, (value) => settings.SendAnonymousUsageData = value);
             settingsElement.ReadElementValue<bool>(Schema.ShowCountdown, (value) => settings.ShowCountdown = value);
 
             settingsElement.ReadElementValue<bool>(Schema.ShowItemCountInNotificationArea, (value) => settings.ShowItemCountInNotificationArea = value);
@@ -137,12 +132,8 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
                 e.SetElementChild(Schema.DefaultWorkItemInfo, WriteWorkItemType(settings.DefaultWorkItemInfo.WorkItemType));
             }
 
-            e.SetElementValue<bool>(Schema.RecordMicrophone, settings.RecordMicrophone);
             e.SetElementValue<bool>(Schema.IsTracingEnabled, settings.IsTracingEnabled);
-            e.SetElementValue<bool>(Schema.LaunchAnnotationToolAfterScreenCapture, settings.LaunchAnnotationToolAfterScreenCapture);
-            e.SetElementValue<bool>(Schema.SearchAllInOutlook, settings.SearchAllInOutlook);
             e.SetElementValue<bool>(Schema.LaunchOnStartup, settings.LaunchOnStartup);
-            e.SetElementValue<bool>(Schema.EnableOfficeAddIns, settings.EnableOfficeAddIns);
             e.SetElementValue<bool>(Schema.ShowSplashScreen, settings.ShowSplashScreen);
             e.SetElementValue<bool>(Schema.PlayNotificationSound, settings.PlayNotificationSound);
             e.SetElementValue<TimeSpan>(Schema.RefreshInterval, settings.RefreshInterval);
@@ -151,7 +142,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             e.SetElementValue<KeyGesture>(Schema.QuickSearchGesture, settings.QuickSearchGesture);
             e.SetElementValue<KeyGesture>(Schema.ToggleMainWindowGesture, settings.ToggleMainWindowGesture);
             e.SetElementValue<bool>(Schema.SearchIdsAutomatically, settings.SearchIdsAutomatically);
-            e.SetElementValue<bool>(Schema.SendAnonymousUsageData, settings.SendAnonymousUsageData);
             e.SetElementValue<bool>(Schema.ShowCountdown, settings.ShowCountdown);
 
             e.SetElementValue<bool>(Schema.ShowItemCountInNotificationArea, settings.ShowItemCountInNotificationArea);
@@ -279,10 +269,7 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             public static readonly string State = "State";
             public static readonly string Bounds = "Bounds";
 
-            public static readonly XName RecordMicrophone = "RecordMicrophone";
             public static readonly XName IsTracingEnabled = "IsTracingEnabled";
-            public static readonly XName LaunchAnnotationToolAfterScreenCapture = "LaunchAnnotationToolAfterScreenCapture";
-            public static readonly XName EnableOfficeAddIns = "EnableOfficeAddIns";
             public static readonly XName LaunchOnStartup = "LaunchOnStartup";
             public static readonly XName ShowSplashScreen = "ShowSplashScreen";
             public static readonly XName PlayNotificationSound = "PlayNotificationSound";
@@ -293,11 +280,8 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             public static readonly XName QuickSearchGesture = "QuickSearchGesture";
             public static readonly XName ToggleMainWindowGesture = "ToggleMainWindowGesture";
 
-            public static readonly XName SearchAllInOutlook = "SearchAllInOutlook";
-
             public static readonly XName RefreshInterval = "RefreshInterval";
             public static readonly XName SearchIdsAutomatically = "SearchIdsAutomatically";
-            public static readonly XName SendAnonymousUsageData = "SendAnonymousUsageData";
 
             public static readonly XName VolatileSettings = "VolatileSettings";
             public static readonly XName Windows = "Windows";

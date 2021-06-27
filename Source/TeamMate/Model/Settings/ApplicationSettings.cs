@@ -16,10 +16,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         private KeyGesture quickCreateWithOptionsGesture;
         private KeyGesture toggleMainWindowGesture;
         private DefaultWorkItemInfo defaultWorkItemInfo;
-        private bool enableOfficeAddIns;
-        private bool launchAnnotationToolAfterScreenCapture;
-        private bool recordMicrophone;
-        private bool searchAllInOutlook;
         private bool isTracingEnabled;
         private bool launchOnStartup;
         private bool showSplashScreen;
@@ -29,8 +25,7 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         private ObservableCollection<ProjectInfo> projects = new ObservableCollection<ProjectInfo>();
 
         public event EventHandler IsTracingEnabledChanged;
-        public event EventHandler SendAnonymousUsageDataChanged;
-        public event EventHandler EnableOfficeAddInsChanged;
+
         public event EventHandler LaunchOnStartupChanged;
         public event EventHandler<ProjectsRemovedEventArgs> ProjectsRemoved;
 
@@ -42,10 +37,7 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             this.projects.CollectionChanged += HandleProjectsChanged;
 
             // Default values
-            this.EnableOfficeAddIns = true;
-            this.RecordMicrophone = true;
             this.ShowCountdown = true;
-            this.LaunchAnnotationToolAfterScreenCapture = true;
             this.LaunchOnStartup = true;
             this.ShowSplashScreen = true;
             this.PlayNotificationSound = true;
@@ -62,19 +54,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             this.RefreshInterval = ApplicationSettings.DefaultRefreshInterval;
 
             this.SearchIdsAutomatically = true;
-            this.SendAnonymousUsageData = true;
-        }
-
-        public bool EnableOfficeAddIns
-        {
-            get { return this.enableOfficeAddIns; }
-            set
-            {
-                if (SetProperty(ref this.enableOfficeAddIns, value))
-                {
-                    EnableOfficeAddInsChanged?.Invoke(this, EventArgs.Empty);
-                }
-            }
         }
 
         public bool LaunchOnStartup
@@ -124,24 +103,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             set { SetProperty(ref this.defaultWorkItemInfo, value); }
         }
 
-        public bool LaunchAnnotationToolAfterScreenCapture
-        {
-            get { return this.launchAnnotationToolAfterScreenCapture; }
-            set { SetProperty(ref this.launchAnnotationToolAfterScreenCapture, value); }
-        }
-
-        public bool RecordMicrophone
-        {
-            get { return this.recordMicrophone; }
-            set { SetProperty(ref this.recordMicrophone, value); }
-        }
-
-        public bool SearchAllInOutlook
-        {
-            get { return this.searchAllInOutlook; }
-            set { SetProperty(ref this.searchAllInOutlook, value); }
-        }
-
         public bool IsTracingEnabled
         {
             get { return this.isTracingEnabled; }
@@ -153,7 +114,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
                 }
             }
         }
-
         public bool ShowSplashScreen
         {
             get { return this.showSplashScreen; }
@@ -178,20 +138,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         {
             get { return this.searchIdsAutomatically; }
             set { SetProperty(ref this.searchIdsAutomatically, value); }
-        }
-
-        private bool sendAnonymousUsageData;
-
-        public bool SendAnonymousUsageData
-        {
-            get { return this.sendAnonymousUsageData; }
-            set
-            {
-                if (SetProperty(ref this.sendAnonymousUsageData, value))
-                {
-                    SendAnonymousUsageDataChanged?.Invoke(this, EventArgs.Empty);
-                }
-            }
         }
 
         private bool showCountdown;

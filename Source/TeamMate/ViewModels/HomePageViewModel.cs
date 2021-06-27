@@ -4,7 +4,6 @@ using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.Services;
-using Microsoft.Tools.TeamMate.Utilities;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
@@ -99,8 +98,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 tileInfo.Name = queryInfo.Name;
                 tileInfo.CodeFlowQueryInfo = queryInfo;
                 this.tileCollection.AddAndRefreshTileViewModel(tileInfo);
-
-                Telemetry.Event(TelemetryEvents.CodeFlowTileAdded);
             }
         }
 

@@ -296,7 +296,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
                 try
                 {
-                    Telemetry.Exception(e);
                     UserFeedback.UnhandledException(e);
                     return true;
                 }
@@ -518,32 +517,21 @@ namespace Microsoft.Tools.TeamMate.Services
 
         private void ShowHomePage()
         {
-            LogTelemetryHotKeyEvent("ShowHomePage");
             this.GlobalCommandService.ShowHomePage();
-        }
-
-        private static void LogTelemetryHotKeyEvent(string hotKey)
-        {
-            Telemetry.Event(TelemetryEvents.HotKeyUsed, new TelemetryEventProperties() {
-                { TelemetryEvents.Properties.HotKey, hotKey }
-            });
         }
 
         private void QuickSearch()
         {
-            LogTelemetryHotKeyEvent("QuickSearch");
             this.GlobalCommandService.AutoQuickSearch();
         }
 
         private void QuickCreate()
         {
-            LogTelemetryHotKeyEvent("QuickCreate");
             this.GlobalCommandService.QuickCreate();
         }
 
         private void QuickCreateDefault()
         {
-            LogTelemetryHotKeyEvent("QuickCreateDefault");
             this.GlobalCommandService.QuickCreateDefault();
         }
 
