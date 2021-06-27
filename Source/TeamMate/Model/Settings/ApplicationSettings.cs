@@ -17,7 +17,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         private KeyGesture toggleMainWindowGesture;
         private DefaultWorkItemInfo defaultWorkItemInfo;
         private bool launchAnnotationToolAfterScreenCapture;
-        private bool recordMicrophone;
         private bool isTracingEnabled;
         private bool launchOnStartup;
         private bool showSplashScreen;
@@ -39,7 +38,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             this.projects.CollectionChanged += HandleProjectsChanged;
 
             // Default values
-            this.RecordMicrophone = true;
             this.ShowCountdown = true;
             this.LaunchAnnotationToolAfterScreenCapture = true;
             this.LaunchOnStartup = true;
@@ -114,11 +112,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             set { SetProperty(ref this.launchAnnotationToolAfterScreenCapture, value); }
         }
 
-        public bool RecordMicrophone
-        {
-            get { return this.recordMicrophone; }
-            set { SetProperty(ref this.recordMicrophone, value); }
-        }
         public bool IsTracingEnabled
         {
             get { return this.isTracingEnabled; }
