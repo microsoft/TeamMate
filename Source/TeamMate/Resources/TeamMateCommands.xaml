@@ -186,29 +186,6 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-
-    <fwi:UICommand x:Key="AttachScreenshotCommand"
-                   Description="Attach a picture of part of the screen, or any program that is not minimized to the taskbar."
-                   LargeImage="/Resources/Icons/Office15/JotScreenCapture.32x32x32.png"
-                   ScreenTipTitle="Attach Screenshot"
-                   SmallImage="/Resources/Icons/Office15/JotScreenCapture.16x16x32.png"
-                   Text="Screenshot">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F6</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
-    <fwi:UICommand x:Key="AttachScreenRecordingCommand"
-                   Description="Attach an interactive video recording of part of the screen, or any program that is not minimized to the taskbar."
-                   LargeImage="/Resources/Icons/Office15/JotInsertVideoRecordingShort.32x32x32.png"
-                   ScreenTipTitle="Attach Screen Recording"
-                   SmallImage="/Resources/Icons/Office15/JotInsertVideoRecordingShort.16x16x32.png"
-                   Text="Screen Recording">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F7</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
     <fwi:UICommand x:Key="AddLinkCommand"
                    Description="Add a link to the work item."
                    LargeImage="/Resources/Icons/Office15/LinkTasks.32x32x32.png"

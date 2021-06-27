@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <!-- Force building to x86 at all times due to dependencies on x86 assemblies (TeamMate.exe, Expression) -->
-    <PlatformTarget>x86</PlatformTarget>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -191,9 +189,6 @@
     <Compile Include="NotificationToast.xaml.cs">
       <DependentUpon>NotificationToast.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Preview\PreviewWindow.xaml.cs">
-      <DependentUpon>PreviewWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ProfileImageView.xaml.cs">
       <DependentUpon>ProfileImageView.xaml</DependentUpon>
     </Compile>
@@ -312,10 +307,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NotificationToast.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Preview\PreviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -622,8 +613,6 @@
     <Resource Include="Resources\Icons\Office15\JotInsertAudioRecordingShort.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.32x32x32.png" />
-    <Resource Include="Resources\Icons\Office15\JotScreenCapture.16x16x32.png" />
-    <Resource Include="Resources\Icons\Office15\JotScreenCapture.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.48x48x32.png" />
@@ -822,7 +811,4 @@
     <Resource Include="Resources\Icons\Other\ErrorExclamation_12x12x32_Modified.png" />
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
-  <Target Name="BeforeBuild">
-    <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
-  </Target>
 </Project>

@@ -78,7 +78,6 @@
     <Compile Include="Native\PropertyKey.cs" />
     <Compile Include="Native\Propsys.cs" />
     <Compile Include="Native\PropVariant.cs" />
-    <Compile Include="Native\Shell32.cs" />
     <Compile Include="Native\ComStreamAdapter.cs" />
     <Compile Include="Native\StreamAdapter.cs" />
     <Compile Include="Native\Structs.cs" />
@@ -138,7 +137,6 @@
     <Compile Include="Windows\Controls\ImageViewer.xaml.cs">
       <DependentUpon>ImageViewer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Controls\Preview\IFilePreviewPlugin.cs" />
     <Compile Include="Windows\Controls\SplitViewButton.cs" />
     <Compile Include="Windows\Controls\Symbol.cs" />
     <Compile Include="Windows\Controls\SymbolIcon.cs" />
@@ -160,8 +158,6 @@
     <Compile Include="Validation\PropertyValidationRuleBuilder.cs" />
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="Web\HttpUtility.cs" />
-    <Compile Include="Win32\FileTypeInfo.cs" />
-    <Compile Include="Win32\FileTypeRegistry.cs" />
     <Compile Include="Win32\ProtocolUtilities.cs" />
     <Compile Include="Win32\RegistryViewUtilities.cs" />
     <Compile Include="Win32\UnsafeFileExtensions.cs" />
@@ -184,23 +180,6 @@
     <Compile Include="Windows\Controls\HintTextAdorner.cs" />
     <Compile Include="Windows\Controls\MetroAnimations.cs" />
     <Compile Include="Windows\Controls\RibbonWindow.cs" />
-    <Compile Include="Windows\Controls\Preview\FilePreviewControl.xaml.cs">
-      <DependentUpon>FilePreviewControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Controls\Preview\IFilePreviewControl.cs" />
-    <Compile Include="Windows\Controls\Preview\ImagePreviewControl.xaml.cs">
-      <DependentUpon>ImagePreviewControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Controls\Preview\LoadEventArgs.cs" />
-    <Compile Include="Windows\Controls\Preview\NativePreviewControl.xaml.cs">
-      <DependentUpon>NativePreviewControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Controls\Preview\VideoPreviewControl.xaml.cs">
-      <DependentUpon>VideoPreviewControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Controls\Preview\WebPreviewControl.xaml.cs">
-      <DependentUpon>WebPreviewControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Controls\ProgressDialog.xaml.cs">
       <DependentUpon>ProgressDialog.xaml</DependentUpon>
     </Compile>
@@ -242,12 +221,6 @@
     <Compile Include="Windows\MVVM\ViewAttribute.cs" />
     <Compile Include="Windows\MVVM\ViewCatalog.cs" />
     <Compile Include="Windows\Transfer\FileGroupDataObject.cs" />
-    <Compile Include="Windows\Forms\NativePreviewControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Windows\Forms\NativePreviewControl.designer.cs">
-      <DependentUpon>NativePreviewControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Forms\TemporaryGlobalCursor.cs" />
     <Compile Include="Windows\Input\RelayCommand.cs" />
     <Compile Include="Windows\Input\RoutedCommandBase.cs" />
@@ -257,19 +230,11 @@
     <Compile Include="Windows\Interop\ApplicationHotKeys.cs" />
     <Compile Include="Windows\Interop\InteropUtilities.cs" />
     <Compile Include="Windows\LogicalTreeUtilities.cs" />
-    <Compile Include="Windows\Media\Capture\BoundsSelectionWindow.cs" />
-    <Compile Include="Windows\Media\Capture\ScreenCapture.cs" />
     <Compile Include="Windows\Media\Imaging\BitmapUtilities.cs" />
     <Compile Include="Windows\Media\VisualTreeUtilities.cs" />
     <Compile Include="Windows\MVVM\View.cs" />
     <Compile Include="Windows\MVVM\ViewModelBase.cs" />
     <Compile Include="Windows\Shell\ApplicationInstance.cs" />
-    <Compile Include="Windows\Shell\ShellFileInfo.cs" />
-    <Compile Include="Windows\Shell\ShellFileInfoCache.cs" />
-    <Compile Include="Windows\Shell\ShellUtilities.cs" />
-    <Compile Include="Windows\Shell\SystemImageCache.cs" />
-    <Compile Include="Windows\Shell\SystemImageInfo.cs" />
-    <Compile Include="Windows\Shell\SystemImageList.cs" />
     <Compile Include="Windows\Shell\WindowInfo.cs" />
     <Compile Include="Windows\SystemIcons.cs" />
     <Compile Include="Windows\TemporaryCursorManager.cs" />
@@ -288,9 +253,6 @@
     <EmbeddedResource Include="Resources\FoundationResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FoundationResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Forms\NativePreviewControl.resx">
-      <DependentUpon>NativePreviewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourceStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -330,26 +292,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Controls\Preview\FilePreviewControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Controls\Preview\ImagePreviewControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Controls\Preview\NativePreviewControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Controls\Preview\VideoPreviewControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Controls\Preview\WebPreviewControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\Controls\ProgressDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -383,17 +325,6 @@
     <Content Include="Resources\Cursors\ClosedHand.cur" />
     <Content Include="Resources\Cursors\OpenHand.cur" />
     <Resource Include="Resources\Icons\Empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="Shell32">
-      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Fonts\segmdl2.ttf">

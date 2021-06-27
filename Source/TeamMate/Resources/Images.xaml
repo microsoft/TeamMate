@@ -26,9 +26,6 @@
 
     <ImageSource x:Key="MinimizeGlyphIcon">/Resources/Icons/Other/MinimizeGlyph.png</ImageSource>
 
-    <ImageSource x:Key="ScreenRecorderIcon">/Resources/Icons/Office15/JotInsertVideoRecordingShort.32x32x32.png</ImageSource>
-
-
     <ImageSource x:Key="WhiteCloseGlyphIcon">/Resources/Icons/Other/CloseGlyph.png</ImageSource>
     <ImageSource x:Key="CloseGlyphIcon">/Resources/Icons/Office15/ClosePaneGlyph.16x16x32.png</ImageSource>
 
