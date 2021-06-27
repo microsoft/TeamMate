@@ -92,8 +92,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand NavigateToProjectsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToSettingsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToDeveloperOptionsPage { get { return commands.FindResource(); } }
-        public static ICommand NavigateToUpdatesAvailablePage { get { return commands.FindResource(); } }
-        public static ICommand NavigateToNewsPage { get { return commands.FindResource(); } }
         public static ICommand SendFeedbackToolBar { get { return commands.FindResource(); } }
 
         public static ICommand MarkAsRead { get { return commands.FindResource(); } }

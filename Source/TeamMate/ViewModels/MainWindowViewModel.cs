@@ -66,7 +66,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             bindings.Add(TeamMateCommands.NavigateToProjectsPage, () => this.NavigateToProjectsPage());
             bindings.Add(TeamMateCommands.NavigateToDeveloperOptionsPage, () => this.NavigateTo(this.DeveloperOptionsPage));
             bindings.Add(TeamMateCommands.NavigateToSettingsPage, NavigateToSettingsPage);
-            bindings.Add(TeamMateCommands.NavigateToNewsPage, this.LaunchNewsPage);
 
             bindings.Add(TeamMateCommands.ConnectToProject, ConnectToProject);
             bindings.Add(TeamMateCommands.RetryConnectToTfs, RetryConnectToTfs);
@@ -297,11 +296,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public void QuickCreateDefault()
         {
             this.GlobalCommandService.QuickCreateDefault();
-        }
-
-        private void LaunchNewsPage()
-        {
-            this.ExternalWebBrowserService.LaunchNewsPage();
         }
 
         private ICommand displayLegacyTfsSupportDroppedBannerCommand;

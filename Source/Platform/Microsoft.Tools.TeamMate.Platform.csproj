@@ -22,8 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeBox\DataSetUtilities.cs" />
-    <Compile Include="CodeBox\Release\ReleaseExtensions.cs" />
-    <Compile Include="CodeBox\Release\ReleaseInfo.cs" />
     <Compile Include="CodeFlow\CodeFlowConstants.cs" />
     <Compile Include="CodeFlow\CodeFlowContext.cs" />
     <Compile Include="CodeFlow\CodeFlowMailGenerator.cs" />

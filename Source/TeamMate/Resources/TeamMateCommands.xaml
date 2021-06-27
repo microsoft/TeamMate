@@ -30,12 +30,6 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <fwi:UICommand x:Key="NavigateToNewsPageCommand" Text="News">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Alt+4</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
     <fwi:UICommand x:Key="SendFeedbackToolBarCommand"
                    SymbolIcon="Emoji2"
                    Text="Send Feedback">
@@ -43,8 +37,6 @@
             <KeyGesture>Alt+5</KeyGesture>
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
-
-    <fwi:UICommand x:Key="NavigateToUpdatesAvailablePageCommand" Text="Updates Available" />
 
     <fwi:UICommand x:Key="NavigateToDeveloperOptionsPageCommand"
                    SymbolIcon="Developer"
