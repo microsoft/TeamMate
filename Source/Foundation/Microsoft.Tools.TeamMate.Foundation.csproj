@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProductVersion>9.0.30729</ProductVersion>
@@ -8,8 +8,8 @@
     <ProjectGuid>{1967369E-0368-4888-B743-B16ABAE28B1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Foundation</RootNamespace>
-    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Foundation</AssemblyName>
+    <RootNamespace>Microsoft.Tools.TeamMate.Foundation</RootNamespace>
+    <AssemblyName>Microsoft.Tools.TeamMate.Foundation</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -414,5 +414,5 @@
     </Resource>
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>

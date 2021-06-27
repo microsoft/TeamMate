@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class FileUtilities
     {

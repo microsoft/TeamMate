@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
 using System.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices;
+using Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Console.Windows.Media
+namespace Microsoft.Tools.TeamMate.Sandbox.Console.Windows.Media
 {
     public static class EncoderConstants
     {

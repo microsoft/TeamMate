@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Review
 {
 
 
@@ -33,10 +33,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private int RevisionField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author AuthorField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CompletedOnField;
@@ -48,10 +48,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         private int IterationCountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] ReviewersField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] ReviewersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] WorkItemsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] WorkItemsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -142,7 +142,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus Status {
             get {
                 return this.StatusField;
             }
@@ -155,7 +155,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author Author {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author Author {
             get {
                 return this.AuthorField;
             }
@@ -207,7 +207,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] Reviewers {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] Reviewers {
             get {
                 return this.ReviewersField;
             }
@@ -220,7 +220,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] WorkItems {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] WorkItems {
             get {
                 return this.WorkItemsField;
             }
@@ -259,7 +259,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private string NameField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -324,7 +324,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus Status {
             get {
                 return this.StatusField;
             }
@@ -385,7 +385,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private bool RequiredField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -463,7 +463,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus Status {
             get {
                 return this.StatusField;
             }
@@ -688,7 +688,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author AuthorField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author AuthorField;
         
         private string KeyField;
         
@@ -696,18 +696,18 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private string ProjectShortNameField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus StatusField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeFlowVersion VersionField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeFlowVersion VersionField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage[] codePackagesField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage[] codePackagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] relatedWorkItemsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] relatedWorkItemsField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewersField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewersField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] threadsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] threadsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CreatedByField;
@@ -716,7 +716,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         private System.Collections.Generic.Dictionary<string, string> CustomDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuditLog AuditLogField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuditLog AuditLogField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CompletionMessageField;
@@ -732,7 +732,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author Author {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author Author {
             get {
                 return this.AuthorField;
             }
@@ -784,7 +784,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewStatus Status {
             get {
                 return this.StatusField;
             }
@@ -797,7 +797,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeFlowVersion Version {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeFlowVersion Version {
             get {
                 return this.VersionField;
             }
@@ -810,7 +810,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage[] codePackages {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage[] codePackages {
             get {
                 return this.codePackagesField;
             }
@@ -823,7 +823,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] relatedWorkItems {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] relatedWorkItems {
             get {
                 return this.relatedWorkItemsField;
             }
@@ -836,7 +836,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers {
             get {
                 return this.reviewersField;
             }
@@ -849,7 +849,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] threads {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] threads {
             get {
                 return this.threadsField;
             }
@@ -888,7 +888,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuditLog AuditLog {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuditLog AuditLog {
             get {
                 return this.AuditLogField;
             }
@@ -1085,7 +1085,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private string DescriptionField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageFormat FormatField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageFormat FormatField;
         
         private System.Uri LocationField;
         
@@ -1093,15 +1093,15 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private int RevisionField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus StatusField;
         
         private System.DateTime SubmittedOnField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.FileChange[] FileChangesField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.FileChange[] FileChangesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageSourceInfo SourceInfoField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageSourceInfo SourceInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserAgentField;
@@ -1146,7 +1146,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageFormat Format {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageFormat Format {
             get {
                 return this.FormatField;
             }
@@ -1198,7 +1198,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus Status {
             get {
                 return this.StatusField;
             }
@@ -1224,7 +1224,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.FileChange[] FileChanges {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.FileChange[] FileChanges {
             get {
                 return this.FileChangesField;
             }
@@ -1237,7 +1237,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageSourceInfo SourceInfo {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageSourceInfo SourceInfo {
             get {
                 return this.SourceInfoField;
             }
@@ -1294,7 +1294,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.DiffContext ContextField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.DiffContext ContextField;
         
         private int IdField;
         
@@ -1302,13 +1302,13 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private System.DateTime LastUpdatedOnField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentScope LevelField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentScope LevelField;
         
         private int ParentThreadIdField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment RootField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment RootField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus StatusField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus StatusField;
         
         private string SubjectField;
         
@@ -1326,7 +1326,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.DiffContext Context {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.DiffContext Context {
             get {
                 return this.ContextField;
             }
@@ -1378,7 +1378,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentScope Level {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentScope Level {
             get {
                 return this.LevelField;
             }
@@ -1404,7 +1404,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment Root {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment Root {
             get {
                 return this.RootField;
             }
@@ -1417,7 +1417,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus Status {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus Status {
             get {
                 return this.StatusField;
             }
@@ -1648,11 +1648,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private string LeftCodePackageNameField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.FileRegion RegionField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.FileRegion RegionField;
         
         private string RightCodePackageNameField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentViewContext ViewField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentViewContext ViewField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1691,7 +1691,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.FileRegion Region {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.FileRegion Region {
             get {
                 return this.RegionField;
             }
@@ -1717,7 +1717,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentViewContext View {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentViewContext View {
             get {
                 return this.ViewField;
             }
@@ -1760,7 +1760,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         
         private int ThreadIdField;
         
-        private Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment[] childrenField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment[] childrenField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool WithdrawnField;
@@ -1854,7 +1854,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment[] children {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment[] children {
             get {
                 return this.childrenField;
             }
@@ -2057,217 +2057,217 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
     public interface IReviewService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForReviewer", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForReviewerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForReviewerServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForReviewer(string reviewerLogin);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForReviewerServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForReviewer(string reviewerLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForReviewer", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForReviewerResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForReviewerAsync(string reviewerLogin);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForReviewerAsync(string reviewerLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForProject", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForProjectResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForProject(string projectShortName);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForProjectServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForProject(string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForProject", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForProjectResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForProjectAsync(string projectShortName);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForProjectAsync(string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForAuthor", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForAuthorResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForAuthorServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForAuthor(string authorLogin);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetActiveReviewsForAuthorServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForAuthor(string authorLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetActiveReviewsForAuthor", ReplyAction="http://tempuri.org/IReviewService/GetActiveReviewsForAuthorResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForAuthorAsync(string authorLogin);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForAuthorAsync(string authorLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CreateReview", ReplyAction="http://tempuri.org/IReviewService/CreateReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CreateReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CreateReview(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CreateReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CreateReview(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CreateReview", ReplyAction="http://tempuri.org/IReviewService/CreateReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CreateReviewAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CreateReviewAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetTitle", ReplyAction="http://tempuri.org/IReviewService/SetTitleResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetTitleServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetTitleServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void SetTitle(string codeReviewKey, string title);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetTitle", ReplyAction="http://tempuri.org/IReviewService/SetTitleResponse")]
         System.Threading.Tasks.Task SetTitleAsync(string codeReviewKey, string title);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/PublishReview", ReplyAction="http://tempuri.org/IReviewService/PublishReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/PublishReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview PublishReview(string codeReviewKey, string messageFromAuthor);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/PublishReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview PublishReview(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/PublishReview", ReplyAction="http://tempuri.org/IReviewService/PublishReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> PublishReviewAsync(string codeReviewKey, string messageFromAuthor);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> PublishReviewAsync(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CompleteReview", ReplyAction="http://tempuri.org/IReviewService/CompleteReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CompleteReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CompleteReview(string codeReviewKey, string messageFromAuthor);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CompleteReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CompleteReview(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CompleteReview", ReplyAction="http://tempuri.org/IReviewService/CompleteReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CompleteReviewAsync(string codeReviewKey, string messageFromAuthor);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CompleteReviewAsync(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/ExpireReview", ReplyAction="http://tempuri.org/IReviewService/ExpireReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/ExpireReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview ExpireReview(string codeReviewKey);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/ExpireReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview ExpireReview(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/ExpireReview", ReplyAction="http://tempuri.org/IReviewService/ExpireReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> ExpireReviewAsync(string codeReviewKey);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> ExpireReviewAsync(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawReview", ReplyAction="http://tempuri.org/IReviewService/WithdrawReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview WithdrawReview(string codeReviewKey, string messageFromAuthor);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview WithdrawReview(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawReview", ReplyAction="http://tempuri.org/IReviewService/WithdrawReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> WithdrawReviewAsync(string codeReviewKey, string messageFromAuthor);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> WithdrawReviewAsync(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/ReactivateReview", ReplyAction="http://tempuri.org/IReviewService/ReactivateReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/ReactivateReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/ReactivateReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void ReactivateReview(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/ReactivateReview", ReplyAction="http://tempuri.org/IReviewService/ReactivateReviewResponse")]
         System.Threading.Tasks.Task ReactivateReviewAsync(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/DeleteReview", ReplyAction="http://tempuri.org/IReviewService/DeleteReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/DeleteReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/DeleteReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void DeleteReview(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/DeleteReview", ReplyAction="http://tempuri.org/IReviewService/DeleteReviewResponse")]
         System.Threading.Tasks.Task DeleteReviewAsync(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddAuditLogEvent", ReplyAction="http://tempuri.org/IReviewService/AddAuditLogEventResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddAuditLogEventServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddAuditLogEventServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void AddAuditLogEvent(string codeReviewKey, string user, string eventName, string message, System.Collections.Generic.Dictionary<string, string> arguments);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddAuditLogEvent", ReplyAction="http://tempuri.org/IReviewService/AddAuditLogEventResponse")]
         System.Threading.Tasks.Task AddAuditLogEventAsync(string codeReviewKey, string user, string eventName, string message, System.Collections.Generic.Dictionary<string, string> arguments);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetCustomData", ReplyAction="http://tempuri.org/IReviewService/SetCustomDataResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetCustomDataServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetCustomDataServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void SetCustomData(string codeReviewKey, System.Collections.Generic.Dictionary<string, string> customDataToSet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetCustomData", ReplyAction="http://tempuri.org/IReviewService/SetCustomDataResponse")]
         System.Threading.Tasks.Task SetCustomDataAsync(string codeReviewKey, System.Collections.Generic.Dictionary<string, string> customDataToSet);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetWorkItems", ReplyAction="http://tempuri.org/IReviewService/SetWorkItemsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetWorkItemsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void SetWorkItems(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/SetWorkItemsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void SetWorkItems(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/SetWorkItems", ReplyAction="http://tempuri.org/IReviewService/SetWorkItemsResponse")]
-        System.Threading.Tasks.Task SetWorkItemsAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems);
+        System.Threading.Tasks.Task SetWorkItemsAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetReview", ReplyAction="http://tempuri.org/IReviewService/GetReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview GetReview(string codeReviewKey);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview GetReview(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetReview", ReplyAction="http://tempuri.org/IReviewService/GetReviewResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> GetReviewAsync(string codeReviewKey);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> GetReviewAsync(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CheckUpdates", ReplyAction="http://tempuri.org/IReviewService/CheckUpdatesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CheckUpdatesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode CheckUpdates(string codeReviewKey, int currRevision);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/CheckUpdatesServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode CheckUpdates(string codeReviewKey, int currRevision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/CheckUpdates", ReplyAction="http://tempuri.org/IReviewService/CheckUpdatesResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode> CheckUpdatesAsync(string codeReviewKey, int currRevision);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode> CheckUpdatesAsync(string codeReviewKey, int currRevision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/PokeReview", ReplyAction="http://tempuri.org/IReviewService/PokeReviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/PokeReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/PokeReviewServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void PokeReview(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/PokeReview", ReplyAction="http://tempuri.org/IReviewService/PokeReviewResponse")]
         System.Threading.Tasks.Task PokeReviewAsync(string codeReviewKey);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddCodePackage", ReplyAction="http://tempuri.org/IReviewService/AddCodePackageResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddCodePackageServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage AddCodePackage(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddCodePackageServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage AddCodePackage(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddCodePackage", ReplyAction="http://tempuri.org/IReviewService/AddCodePackageResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage> AddCodePackageAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage> AddCodePackageAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCodePackage", ReplyAction="http://tempuri.org/IReviewService/UpdateCodePackageResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCodePackageServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateCodePackage(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCodePackageServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateCodePackage(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCodePackage", ReplyAction="http://tempuri.org/IReviewService/UpdateCodePackageResponse")]
-        System.Threading.Tasks.Task UpdateCodePackageAsync(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
+        System.Threading.Tasks.Task UpdateCodePackageAsync(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCodePackageStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateCodePackageStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCodePackageStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateCodePackageStatus(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCodePackageStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateCodePackageStatus(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCodePackageStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateCodePackageStatusResponse")]
-        System.Threading.Tasks.Task UpdateCodePackageStatusAsync(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status);
+        System.Threading.Tasks.Task UpdateCodePackageStatusAsync(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddComment", ReplyAction="http://tempuri.org/IReviewService/AddCommentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddCommentServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment AddComment(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddCommentServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment AddComment(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddComment", ReplyAction="http://tempuri.org/IReviewService/AddCommentResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment> AddCommentAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment> AddCommentAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/StartCommentThread", ReplyAction="http://tempuri.org/IReviewService/StartCommentThreadResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/StartCommentThreadServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread StartCommentThread(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/StartCommentThreadServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread StartCommentThread(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/StartCommentThread", ReplyAction="http://tempuri.org/IReviewService/StartCommentThreadResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread> StartCommentThreadAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread> StartCommentThreadAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawCommentThread", ReplyAction="http://tempuri.org/IReviewService/WithdrawCommentThreadResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawCommentThreadServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawCommentThreadServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void WithdrawCommentThread(string codeReviewKey, int threadId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawCommentThread", ReplyAction="http://tempuri.org/IReviewService/WithdrawCommentThreadResponse")]
         System.Threading.Tasks.Task WithdrawCommentThreadAsync(string codeReviewKey, int threadId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawComment", ReplyAction="http://tempuri.org/IReviewService/WithdrawCommentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawCommentServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/WithdrawCommentServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void WithdrawComment(string codeReviewKey, int commentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/WithdrawComment", ReplyAction="http://tempuri.org/IReviewService/WithdrawCommentResponse")]
         System.Threading.Tasks.Task WithdrawCommentAsync(string codeReviewKey, int commentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCommentThreadStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateCommentThreadStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCommentThreadStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateCommentThreadStatus(string codeReviewKey, int threadId, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateCommentThreadStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateCommentThreadStatus(string codeReviewKey, int threadId, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateCommentThreadStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateCommentThreadStatusResponse")]
-        System.Threading.Tasks.Task UpdateCommentThreadStatusAsync(string codeReviewKey, int threadId, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status);
+        System.Threading.Tasks.Task UpdateCommentThreadStatusAsync(string codeReviewKey, int threadId, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetReviewComments", ReplyAction="http://tempuri.org/IReviewService/GetReviewCommentsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetReviewCommentsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] GetReviewComments(string codeReviewKey, int currRevision);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/GetReviewCommentsServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] GetReviewComments(string codeReviewKey, int currRevision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/GetReviewComments", ReplyAction="http://tempuri.org/IReviewService/GetReviewCommentsResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[]> GetReviewCommentsAsync(string codeReviewKey, int currRevision);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[]> GetReviewCommentsAsync(string codeReviewKey, int currRevision);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddReviewers", ReplyAction="http://tempuri.org/IReviewService/AddReviewersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddReviewersServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void AddReviewers(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AddReviewersServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void AddReviewers(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AddReviewers", ReplyAction="http://tempuri.org/IReviewService/AddReviewersResponse")]
-        System.Threading.Tasks.Task AddReviewersAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers);
+        System.Threading.Tasks.Task AddReviewersAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/RemoveReviewers", ReplyAction="http://tempuri.org/IReviewService/RemoveReviewersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/RemoveReviewersServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/RemoveReviewersServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void RemoveReviewers(string codeReviewKey, string[] reviewerNames);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/RemoveReviewers", ReplyAction="http://tempuri.org/IReviewService/RemoveReviewersResponse")]
         System.Threading.Tasks.Task RemoveReviewersAsync(string codeReviewKey, string[] reviewerNames);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateReviewerStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateReviewerStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateReviewerStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateReviewerStatus(string codeReviewKey, string reviewerName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateReviewerStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateReviewerStatus(string codeReviewKey, string reviewerName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateReviewerStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateReviewerStatusResponse")]
-        System.Threading.Tasks.Task UpdateReviewerStatusAsync(string codeReviewKey, string reviewerName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status);
+        System.Threading.Tasks.Task UpdateReviewerStatusAsync(string codeReviewKey, string reviewerName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateAuthorStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateAuthorStatusResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateAuthorStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        void UpdateAuthorStatus(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/UpdateAuthorStatusServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        void UpdateAuthorStatus(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/UpdateAuthorStatus", ReplyAction="http://tempuri.org/IReviewService/UpdateAuthorStatusResponse")]
-        System.Threading.Tasks.Task UpdateAuthorStatusAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status);
+        System.Threading.Tasks.Task UpdateAuthorStatusAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AuthorPing", ReplyAction="http://tempuri.org/IReviewService/AuthorPingResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AuthorPingServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ServiceFault), Action="http://tempuri.org/IReviewService/AuthorPingServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
         void AuthorPing(string codeReviewKey, string messageFromAuthor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReviewService/AuthorPing", ReplyAction="http://tempuri.org/IReviewService/AuthorPingResponse")]
@@ -2275,12 +2275,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IReviewServiceChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService, System.ServiceModel.IClientChannel {
+    public interface IReviewServiceChannel : Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReviewServiceClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService>, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService {
+    public partial class ReviewServiceClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService>, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.IReviewService {
         
         public ReviewServiceClient() {
         }
@@ -2301,35 +2301,35 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
                 base(binding, remoteAddress) {
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForReviewer(string reviewerLogin) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForReviewer(string reviewerLogin) {
             return base.Channel.GetActiveReviewsForReviewer(reviewerLogin);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForReviewerAsync(string reviewerLogin) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForReviewerAsync(string reviewerLogin) {
             return base.Channel.GetActiveReviewsForReviewerAsync(reviewerLogin);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForProject(string projectShortName) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForProject(string projectShortName) {
             return base.Channel.GetActiveReviewsForProject(projectShortName);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForProjectAsync(string projectShortName) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForProjectAsync(string projectShortName) {
             return base.Channel.GetActiveReviewsForProjectAsync(projectShortName);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForAuthor(string authorLogin) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[] GetActiveReviewsForAuthor(string authorLogin) {
             return base.Channel.GetActiveReviewsForAuthor(authorLogin);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForAuthorAsync(string authorLogin) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary[]> GetActiveReviewsForAuthorAsync(string authorLogin) {
             return base.Channel.GetActiveReviewsForAuthorAsync(authorLogin);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CreateReview(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CreateReview(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName) {
             return base.Channel.CreateReview(author, reviewName, projectShortName);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CreateReviewAsync(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CreateReviewAsync(Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Author author, string reviewName, string projectShortName) {
             return base.Channel.CreateReviewAsync(author, reviewName, projectShortName);
         }
         
@@ -2341,35 +2341,35 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
             return base.Channel.SetTitleAsync(codeReviewKey, title);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview PublishReview(string codeReviewKey, string messageFromAuthor) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview PublishReview(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.PublishReview(codeReviewKey, messageFromAuthor);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> PublishReviewAsync(string codeReviewKey, string messageFromAuthor) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> PublishReviewAsync(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.PublishReviewAsync(codeReviewKey, messageFromAuthor);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CompleteReview(string codeReviewKey, string messageFromAuthor) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview CompleteReview(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.CompleteReview(codeReviewKey, messageFromAuthor);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CompleteReviewAsync(string codeReviewKey, string messageFromAuthor) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> CompleteReviewAsync(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.CompleteReviewAsync(codeReviewKey, messageFromAuthor);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview ExpireReview(string codeReviewKey) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview ExpireReview(string codeReviewKey) {
             return base.Channel.ExpireReview(codeReviewKey);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> ExpireReviewAsync(string codeReviewKey) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> ExpireReviewAsync(string codeReviewKey) {
             return base.Channel.ExpireReviewAsync(codeReviewKey);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview WithdrawReview(string codeReviewKey, string messageFromAuthor) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview WithdrawReview(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.WithdrawReview(codeReviewKey, messageFromAuthor);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> WithdrawReviewAsync(string codeReviewKey, string messageFromAuthor) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> WithdrawReviewAsync(string codeReviewKey, string messageFromAuthor) {
             return base.Channel.WithdrawReviewAsync(codeReviewKey, messageFromAuthor);
         }
         
@@ -2405,27 +2405,27 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
             return base.Channel.SetCustomDataAsync(codeReviewKey, customDataToSet);
         }
         
-        public void SetWorkItems(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems) {
+        public void SetWorkItems(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems) {
             base.Channel.SetWorkItems(codeReviewKey, workItems);
         }
         
-        public System.Threading.Tasks.Task SetWorkItemsAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems) {
+        public System.Threading.Tasks.Task SetWorkItemsAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.WorkItem[] workItems) {
             return base.Channel.SetWorkItemsAsync(codeReviewKey, workItems);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview GetReview(string codeReviewKey) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview GetReview(string codeReviewKey) {
             return base.Channel.GetReview(codeReviewKey);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> GetReviewAsync(string codeReviewKey) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview> GetReviewAsync(string codeReviewKey) {
             return base.Channel.GetReviewAsync(codeReviewKey);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode CheckUpdates(string codeReviewKey, int currRevision) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode CheckUpdates(string codeReviewKey, int currRevision) {
             return base.Channel.CheckUpdates(codeReviewKey, currRevision);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode> CheckUpdatesAsync(string codeReviewKey, int currRevision) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode> CheckUpdatesAsync(string codeReviewKey, int currRevision) {
             return base.Channel.CheckUpdatesAsync(codeReviewKey, currRevision);
         }
         
@@ -2437,43 +2437,43 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
             return base.Channel.PokeReviewAsync(codeReviewKey);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage AddCodePackage(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage AddCodePackage(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
             return base.Channel.AddCodePackage(codeReviewKey, codePackage);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage> AddCodePackageAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage> AddCodePackageAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
             return base.Channel.AddCodePackageAsync(codeReviewKey, codePackage);
         }
         
-        public void UpdateCodePackage(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
+        public void UpdateCodePackage(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
             base.Channel.UpdateCodePackage(codeReviewKey, codePackageName, codePackage);
         }
         
-        public System.Threading.Tasks.Task UpdateCodePackageAsync(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
+        public System.Threading.Tasks.Task UpdateCodePackageAsync(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage codePackage) {
             return base.Channel.UpdateCodePackageAsync(codeReviewKey, codePackageName, codePackage);
         }
         
-        public void UpdateCodePackageStatus(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status) {
+        public void UpdateCodePackageStatus(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status) {
             base.Channel.UpdateCodePackageStatus(codeReviewKey, codePackageName, status);
         }
         
-        public System.Threading.Tasks.Task UpdateCodePackageStatusAsync(string codeReviewKey, string codePackageName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status) {
+        public System.Threading.Tasks.Task UpdateCodePackageStatusAsync(string codeReviewKey, string codePackageName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackageStatus status) {
             return base.Channel.UpdateCodePackageStatusAsync(codeReviewKey, codePackageName, status);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment AddComment(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment AddComment(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment) {
             return base.Channel.AddComment(codeReviewKey, comment);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment> AddCommentAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment> AddCommentAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment comment) {
             return base.Channel.AddCommentAsync(codeReviewKey, comment);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread StartCommentThread(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread StartCommentThread(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread) {
             return base.Channel.StartCommentThread(codeReviewKey, thread);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread> StartCommentThreadAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread> StartCommentThreadAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread thread) {
             return base.Channel.StartCommentThreadAsync(codeReviewKey, thread);
         }
         
@@ -2493,27 +2493,27 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
             return base.Channel.WithdrawCommentAsync(codeReviewKey, commentId);
         }
         
-        public void UpdateCommentThreadStatus(string codeReviewKey, int threadId, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status) {
+        public void UpdateCommentThreadStatus(string codeReviewKey, int threadId, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status) {
             base.Channel.UpdateCommentThreadStatus(codeReviewKey, threadId, status);
         }
         
-        public System.Threading.Tasks.Task UpdateCommentThreadStatusAsync(string codeReviewKey, int threadId, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status) {
+        public System.Threading.Tasks.Task UpdateCommentThreadStatusAsync(string codeReviewKey, int threadId, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThreadStatus status) {
             return base.Channel.UpdateCommentThreadStatusAsync(codeReviewKey, threadId, status);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] GetReviewComments(string codeReviewKey, int currRevision) {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[] GetReviewComments(string codeReviewKey, int currRevision) {
             return base.Channel.GetReviewComments(codeReviewKey, currRevision);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[]> GetReviewCommentsAsync(string codeReviewKey, int currRevision) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread[]> GetReviewCommentsAsync(string codeReviewKey, int currRevision) {
             return base.Channel.GetReviewCommentsAsync(codeReviewKey, currRevision);
         }
         
-        public void AddReviewers(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers) {
+        public void AddReviewers(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers) {
             base.Channel.AddReviewers(codeReviewKey, reviewers);
         }
         
-        public System.Threading.Tasks.Task AddReviewersAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers) {
+        public System.Threading.Tasks.Task AddReviewersAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Reviewer[] reviewers) {
             return base.Channel.AddReviewersAsync(codeReviewKey, reviewers);
         }
         
@@ -2525,19 +2525,19 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review
             return base.Channel.RemoveReviewersAsync(codeReviewKey, reviewerNames);
         }
         
-        public void UpdateReviewerStatus(string codeReviewKey, string reviewerName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status) {
+        public void UpdateReviewerStatus(string codeReviewKey, string reviewerName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status) {
             base.Channel.UpdateReviewerStatus(codeReviewKey, reviewerName, status);
         }
         
-        public System.Threading.Tasks.Task UpdateReviewerStatusAsync(string codeReviewKey, string reviewerName, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status) {
+        public System.Threading.Tasks.Task UpdateReviewerStatusAsync(string codeReviewKey, string reviewerName, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewerStatus status) {
             return base.Channel.UpdateReviewerStatusAsync(codeReviewKey, reviewerName, status);
         }
         
-        public void UpdateAuthorStatus(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status) {
+        public void UpdateAuthorStatus(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status) {
             base.Channel.UpdateAuthorStatus(codeReviewKey, status);
         }
         
-        public System.Threading.Tasks.Task UpdateAuthorStatusAsync(string codeReviewKey, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status) {
+        public System.Threading.Tasks.Task UpdateAuthorStatusAsync(string codeReviewKey, Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.AuthorStatus status) {
             return base.Channel.UpdateAuthorStatusAsync(codeReviewKey, status);
         }
         

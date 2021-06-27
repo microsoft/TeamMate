@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Validation
+namespace Microsoft.Tools.TeamMate.Foundation.Validation
 {
     public class PropertyValidationRule<T> : IPropertyValidationRule, IPropertyValidatorContext
     {

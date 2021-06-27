@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Utilities;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class TracingService
     {

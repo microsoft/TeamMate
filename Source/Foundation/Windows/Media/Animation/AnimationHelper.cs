@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Animation
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media.Animation
 {
     public class AnimationHelper
     {

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public class BrushLuminosityConverter : OneWayConverterBase
     {

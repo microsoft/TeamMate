@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
+﻿using Microsoft.Tools.TeamMate.Foundation;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class Formatter
     {

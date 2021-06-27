@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles
 {
     /// <summary>
     /// Interaction logic for TileWindow.xaml

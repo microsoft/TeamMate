@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.TeamFoundation.Core.WebApi;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for ProjectPickerDialog.xaml

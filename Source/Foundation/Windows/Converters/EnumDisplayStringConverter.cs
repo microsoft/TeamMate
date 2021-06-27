@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Reflection;
+﻿using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using System;
 using System.Globalization;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// A converter that converts enum values to enum descriptions.

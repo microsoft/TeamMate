@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Model.Settings
+﻿namespace Microsoft.Tools.TeamMate.Model.Settings
 {
     public class DeveloperSettings : SettingsBase
     {

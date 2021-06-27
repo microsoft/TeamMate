@@ -1,18 +1,18 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase, ICommandProvider
     {

@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Threading;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
-using Microsoft.Internal.Tools.TeamMate.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Windows;
 using WindowsForms = System.Windows.Forms;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class WindowService
     {
@@ -477,7 +477,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Services
             window.Owner = View.GetWindow(ownerViewModel);
             window.FeedbackType = type;
 
-            var userInfo = Microsoft.Internal.Tools.TeamMate.Model.TeamMateApplicationInfo.UserInfo;
+            var userInfo = Microsoft.Tools.TeamMate.Model.TeamMateApplicationInfo.UserInfo;
             if (userInfo != null && !String.IsNullOrEmpty(userInfo.Mail))
             {
                 window.SetEmail(userInfo.Mail);

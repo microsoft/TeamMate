@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// Extracts the left component of a thickness value.

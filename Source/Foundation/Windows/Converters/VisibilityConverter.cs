@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// Converts an input value to a visibility value.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation
+namespace Microsoft.Tools.TeamMate.Foundation
 {
     public class LazyWeakReference<T> where T : class
     {

@@ -1,12 +1,12 @@
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Win32;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Forms
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Forms
 {
     /// <summary>
     /// A control that can display the preview for a given file.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class TextMatcher
     {

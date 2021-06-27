@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports
 {
     /// <summary>
     /// An error report that contains exception information.

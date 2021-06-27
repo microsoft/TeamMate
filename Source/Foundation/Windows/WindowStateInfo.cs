@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public class WindowStateInfo
     {

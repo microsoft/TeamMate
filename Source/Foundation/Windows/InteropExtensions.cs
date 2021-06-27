@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Interop;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public static class InteropExtensions
     {

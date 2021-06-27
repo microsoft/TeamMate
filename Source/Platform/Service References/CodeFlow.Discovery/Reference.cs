@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery
 {
 
 
@@ -154,20 +154,20 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery
     public interface IDiscoveryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiscoveryService/Discover", ReplyAction="http://tempuri.org/IDiscoveryService/DiscoverResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.ServiceFault), Action="http://tempuri.org/IDiscoveryService/DiscoverServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
-        Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery Discover();
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.ServiceFault), Action="http://tempuri.org/IDiscoveryService/DiscoverServiceFaultFault", Name="ServiceFault", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
+        Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery Discover();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDiscoveryService/Discover", ReplyAction="http://tempuri.org/IDiscoveryService/DiscoverResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery> DiscoverAsync();
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery> DiscoverAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDiscoveryServiceChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService, System.ServiceModel.IClientChannel {
+    public interface IDiscoveryServiceChannel : Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DiscoveryServiceClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService>, Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService {
+    public partial class DiscoveryServiceClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService>, Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.IDiscoveryService {
         
         public DiscoveryServiceClient() {
         }
@@ -188,11 +188,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery
                 base(binding, remoteAddress) {
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery Discover() {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery Discover() {
             return base.Channel.Discover();
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery> DiscoverAsync() {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery> DiscoverAsync() {
             return base.Channel.DiscoverAsync();
         }
     }

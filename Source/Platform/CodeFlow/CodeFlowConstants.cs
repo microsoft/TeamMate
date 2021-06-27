@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     public static class CodeFlowConstants
     {

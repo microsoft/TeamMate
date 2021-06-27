@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Pages
+namespace Microsoft.Tools.TeamMate.Pages
 {
     public interface IResultsContainer
     {

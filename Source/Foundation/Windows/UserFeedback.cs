@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System;
 using System.Media;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public static class UserFeedback
     {

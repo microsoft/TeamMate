@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Interop
 {
     /// <summary>
     /// 

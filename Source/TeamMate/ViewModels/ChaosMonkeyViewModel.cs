@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class ChaosMonkeyViewModel : ViewModelBase
     {

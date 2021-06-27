@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns.Resources
+namespace Microsoft.Tools.TeamMate.Office.AddIns.Resources
 {
 
 
@@ -39,7 +39,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns.Resources
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Internal.Tools.TeamMate.Office.AddIns.Resources.AddInResources", typeof(AddInResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Tools.TeamMate.Office.AddIns.Resources.AddInResources", typeof(AddInResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

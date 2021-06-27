@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Xsl;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public class WorkItemHtmlFormatter
     {

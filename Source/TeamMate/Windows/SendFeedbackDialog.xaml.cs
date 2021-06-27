@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Capture;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Capture;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
 using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for SendFeedbackDialog.xaml

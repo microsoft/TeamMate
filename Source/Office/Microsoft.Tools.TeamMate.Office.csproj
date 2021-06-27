@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <ProjectGuid>{AD2C7E6A-15C3-4F95-AD74-F4A75D04BC18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Office</RootNamespace>
-    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Office</AssemblyName>
+    <RootNamespace>Microsoft.Tools.TeamMate.Office</RootNamespace>
+    <AssemblyName>Microsoft.Tools.TeamMate.Office</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <ItemGroup>
@@ -36,10 +36,10 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>$(OfficeExternalPath)\Microsoft.Office.Interop.Outlook.dll</HintPath>
     </Reference>
-    <ProjectReference Include="..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+    <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369e-0368-4888-b743-b16abae28b1f}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+      <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>

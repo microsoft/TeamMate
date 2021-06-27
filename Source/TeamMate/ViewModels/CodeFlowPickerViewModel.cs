@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Validation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Validation;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class CodeFlowPickerViewModel : ValidatableViewModelBase
     {

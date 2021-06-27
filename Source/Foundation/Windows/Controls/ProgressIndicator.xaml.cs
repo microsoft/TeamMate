@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Animation;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Animation;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// A custom control to display a linear Metro-style indeterminate progress bar.

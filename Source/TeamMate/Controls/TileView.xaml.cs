@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for TileView.xaml

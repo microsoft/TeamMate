@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,14 +1,14 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class CodeFlowReviewViewModel : TrackableViewModelBase
     {

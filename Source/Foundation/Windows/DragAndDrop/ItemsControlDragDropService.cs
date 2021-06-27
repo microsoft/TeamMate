@@ -9,7 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop
 {
     /// <summary>
     /// A helper class to drag and drop items in an items control to support reordering.

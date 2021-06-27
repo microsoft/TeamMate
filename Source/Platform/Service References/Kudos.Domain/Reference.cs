@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
+namespace Microsoft.Tools.TeamMate.Platform.Kudos.Domain
 {
 
 
@@ -31,7 +31,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         private bool IsDomainExceptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[] OperationErrorsField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[] OperationErrorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StackTraceField;
@@ -86,7 +86,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[] OperationErrors {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[] OperationErrors {
             get {
                 return this.OperationErrorsField;
             }
@@ -218,9 +218,9 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QueryResult", Namespace="DomainServices")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
     public partial class QueryResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -266,36 +266,36 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QueryResultOfEmployee", Namespace="DomainServices")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
-    public partial class QueryResultOfEmployee : Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
+    public partial class QueryResultOfEmployee : Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object[] IncludedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee[] RootResultsField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee[] RootResultsField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public object[] IncludedResults {
@@ -311,7 +311,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee[] RootResults {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee[] RootResults {
             get {
                 return this.RootResultsField;
             }
@@ -328,36 +328,36 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QueryResultOfPicture", Namespace="DomainServices")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
-    public partial class QueryResultOfPicture : Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
+    public partial class QueryResultOfPicture : Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object[] IncludedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture[] RootResultsField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture[] RootResultsField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public object[] IncludedResults {
@@ -373,7 +373,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture[] RootResults {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture[] RootResults {
             get {
                 return this.RootResultsField;
             }
@@ -390,36 +390,36 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="QueryResultOfKudosTeamHistoryReport", Namespace="DomainServices")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Employee[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.Picture[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
-    public partial class QueryResultOfKudosTeamHistoryReport : Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.ValidationResultInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture))]
+    public partial class QueryResultOfKudosTeamHistoryReport : Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResult {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private object[] IncludedResultsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[] RootResultsField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[] RootResultsField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public object[] IncludedResults {
@@ -435,7 +435,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[] RootResults {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosTeamHistoryReport[] RootResults {
             get {
                 return this.RootResultsField;
             }
@@ -461,7 +461,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         private System.DateTime DateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo FromPersonField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo FromPersonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsInternalToManagerField;
@@ -476,7 +476,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         private string MessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo ToPersonField;
+        private Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo ToPersonField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -502,7 +502,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo FromPerson {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo FromPerson {
             get {
                 return this.FromPersonField;
             }
@@ -567,7 +567,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo ToPerson {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo ToPerson {
             get {
                 return this.ToPersonField;
             }
@@ -1658,169 +1658,169 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     public interface KudosDomainServicesoap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/Ping", ReplyAction="http://tempuri.org/KudosDomainServicesoap/PingResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/PingDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/PingDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool Ping();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/Ping", ReplyAction="http://tempuri.org/KudosDomainServicesoap/PingResponse")]
         System.Threading.Tasks.Task<bool> PingAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/PingLogging", ReplyAction="http://tempuri.org/KudosDomainServicesoap/PingLoggingResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/PingLoggingDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/PingLoggingDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool PingLogging();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/PingLogging", ReplyAction="http://tempuri.org/KudosDomainServicesoap/PingLoggingResponse")]
         System.Threading.Tasks.Task<bool> PingLoggingAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManager", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDomainServiceFa" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDomainServiceFa" +
             "ult", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManager(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManager(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManager", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnly", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyResp" +
             "onse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyDoma" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyDoma" +
             "inServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManagerDirectsOnly(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManagerDirectsOnly(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnly", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTeamHistoryForManagerDirectsOnlyResp" +
             "onse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerDirectsOnlyAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerDirectsOnlyAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByName", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameDomainServiceFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameDomainServiceFault" +
             "", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee SearchEmployeesByName(string nameSearchText);
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee SearchEmployeesByName(string nameSearchText);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByName", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SearchEmployeesByNameResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> SearchEmployeesByNameAsync(string nameSearchText);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> SearchEmployeesByNameAsync(string nameSearchText);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAlias", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee GetEmployeeByAlias(string alias);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee GetEmployeeByAlias(string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAlias", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetEmployeeByAliasResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> GetEmployeeByAliasAsync(string alias);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> GetEmployeeByAliasAsync(string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/TrackMetric", ReplyAction="http://tempuri.org/KudosDomainServicesoap/TrackMetricResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/TrackMetricDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/TrackMetricDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool TrackMetric(int metricTypeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/TrackMetric", ReplyAction="http://tempuri.org/KudosDomainServicesoap/TrackMetricResponse")]
         System.Threading.Tasks.Task<bool> TrackMetricAsync(int metricTypeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUser", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserDomainServ" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserDomainServ" +
             "iceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForCurrentUser();
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForCurrentUser();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUser", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForCurrentUserResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForCurrentUserAsync();
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForCurrentUserAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeId", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdDomainServi" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdDomainServi" +
             "ceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForEmployeeId(int employeeId);
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForEmployeeId(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeId", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryForEmployeeIdResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForEmployeeIdAsync(int employeeId);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForEmployeeIdAsync(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummary", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummary(System.Nullable<int> employeeId, string alias);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummary(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSummary", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSummaryResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryAsync(System.Nullable<int> employeeId, string alias);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryAsync(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceived", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosReceived(System.Nullable<int> employeeId, string alias);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosReceived(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosReceived", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosReceivedResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosReceivedAsync(System.Nullable<int> employeeId, string alias);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosReceivedAsync(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSent", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSentResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSentDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosSent(System.Nullable<int> employeeId, string alias);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSentDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosSent(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudosSent", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosSentResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosSentAsync(System.Nullable<int> employeeId, string alias);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosSentAsync(System.Nullable<int> employeeId, string alias);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SendKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SendKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SendKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SendKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool SendKudos(System.Nullable<int> employeeId, string alias, string message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SendKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SendKudosResponse")]
         System.Threading.Tasks.Task<bool> SendKudosAsync(System.Nullable<int> employeeId, string alias, string message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetPicture", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetPictureResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetPictureDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture GetPicture(int employeeId);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetPictureDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture GetPicture(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetPicture", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetPictureResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture> GetPictureAsync(int employeeId);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture> GetPictureAsync(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessage", ReplyAction="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool UpdateKudosMessage(int kudosId, string message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessage", ReplyAction="http://tempuri.org/KudosDomainServicesoap/UpdateKudosMessageResponse")]
         System.Threading.Tasks.Task<bool> UpdateKudosMessageAsync(int kudosId, string message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/DeleteKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool DeleteKudos(int kudosId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/DeleteKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/DeleteKudosResponse")]
         System.Threading.Tasks.Task<bool> DeleteKudosAsync(int kudosId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistory", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryDomainServiceFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryDomainServiceFault" +
             "", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[] GetWeeklyUsageHistory();
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[] GetWeeklyUsageHistory();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistory", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetWeeklyUsageHistoryResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]> GetWeeklyUsageHistoryAsync();
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]> GetWeeklyUsageHistoryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         int GetTotalKudos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetTotalKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetTotalKudosResponse")]
         System.Threading.Tasks.Task<int> GetTotalKudosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfo", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo GetPersonInfo(int employeeId);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo GetPersonInfo(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetPersonInfo", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetPersonInfoResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo> GetPersonInfoAsync(int employeeId);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo> GetPersonInfoAsync(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[] GetKudos(System.DateTime startDate, System.DateTime endDate);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/GetKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[] GetKudos(System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/GetKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/GetKudosResponse")]
-        System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]> GetKudosAsync(System.DateTime startDate, System.DateTime endDate);
+        System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]> GetKudosAsync(System.DateTime startDate, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SendMail", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SendMailResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SendMailDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
-        void SendMail(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject);
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SendMailDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        void SendMail(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SendMail", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SendMailResponse")]
-        System.Threading.Tasks.Task SendMailAsync(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject);
+        System.Threading.Tasks.Task SendMailAsync(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmail", ReplyAction="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         string ResendKudosEmail(int kudosId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmail", ReplyAction="http://tempuri.org/KudosDomainServicesoap/ResendKudosEmailResponse")]
         System.Threading.Tasks.Task<string> ResendKudosEmailAsync(int kudosId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessage", ReplyAction="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessageResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessageDomainServi" +
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/SaveKudosAndSendEmailMessageDomainServi" +
             "ceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         void SaveKudosAndSendEmailMessage(int fromEmployeeId, int toEmployeeId, string message, bool isPrivate);
         
@@ -1828,21 +1828,21 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
         System.Threading.Tasks.Task SaveKudosAndSendEmailMessageAsync(int fromEmployeeId, int toEmployeeId, string message, bool isPrivate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOut", ReplyAction="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         bool HasEmployeeOptedOut(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOut", ReplyAction="http://tempuri.org/KudosDomainServicesoap/HasEmployeeOptedOutResponse")]
         System.Threading.Tasks.Task<bool> HasEmployeeOptedOutAsync(int employeeId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         void OptOutFromKudos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/OptOutFromKudosResponse")]
         System.Threading.Tasks.Task OptOutFromKudosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.DomainServiceFault), Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
         void OptInIntoKudos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudos", ReplyAction="http://tempuri.org/KudosDomainServicesoap/OptInIntoKudosResponse")]
@@ -1850,12 +1850,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface KudosDomainServicesoapChannel : Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap, System.ServiceModel.IClientChannel {
+    public interface KudosDomainServicesoapChannel : Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class KudosDomainServicesoapClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap>, Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap {
+    public partial class KudosDomainServicesoapClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap>, Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosDomainServicesoap {
         
         public KudosDomainServicesoapClient() {
         }
@@ -1892,35 +1892,35 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
             return base.Channel.PingLoggingAsync();
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManager(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManager(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetTeamHistoryForManager(emplyeeId, alias, startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetTeamHistoryForManagerAsync(emplyeeId, alias, startDate, endDate);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManagerDirectsOnly(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport GetTeamHistoryForManagerDirectsOnly(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetTeamHistoryForManagerDirectsOnly(emplyeeId, alias, startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerDirectsOnlyAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport> GetTeamHistoryForManagerDirectsOnlyAsync(System.Nullable<int> emplyeeId, string alias, System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetTeamHistoryForManagerDirectsOnlyAsync(emplyeeId, alias, startDate, endDate);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee SearchEmployeesByName(string nameSearchText) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee SearchEmployeesByName(string nameSearchText) {
             return base.Channel.SearchEmployeesByName(nameSearchText);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> SearchEmployeesByNameAsync(string nameSearchText) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> SearchEmployeesByNameAsync(string nameSearchText) {
             return base.Channel.SearchEmployeesByNameAsync(nameSearchText);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee GetEmployeeByAlias(string alias) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee GetEmployeeByAlias(string alias) {
             return base.Channel.GetEmployeeByAlias(alias);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> GetEmployeeByAliasAsync(string alias) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee> GetEmployeeByAliasAsync(string alias) {
             return base.Channel.GetEmployeeByAliasAsync(alias);
         }
         
@@ -1932,43 +1932,43 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
             return base.Channel.TrackMetricAsync(metricTypeId);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForCurrentUser() {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForCurrentUser() {
             return base.Channel.GetKudosSummaryForCurrentUser();
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForCurrentUserAsync() {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForCurrentUserAsync() {
             return base.Channel.GetKudosSummaryForCurrentUserAsync();
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForEmployeeId(int employeeId) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummaryForEmployeeId(int employeeId) {
             return base.Channel.GetKudosSummaryForEmployeeId(employeeId);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForEmployeeIdAsync(int employeeId) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryForEmployeeIdAsync(int employeeId) {
             return base.Channel.GetKudosSummaryForEmployeeIdAsync(employeeId);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummary(System.Nullable<int> employeeId, string alias) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary GetKudosSummary(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosSummary(employeeId, alias);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryAsync(System.Nullable<int> employeeId, string alias) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary> GetKudosSummaryAsync(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosSummaryAsync(employeeId, alias);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosReceived(System.Nullable<int> employeeId, string alias) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosReceived(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosReceived(employeeId, alias);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosReceivedAsync(System.Nullable<int> employeeId, string alias) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosReceivedAsync(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosReceivedAsync(employeeId, alias);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosSent(System.Nullable<int> employeeId, string alias) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[] GetKudosSent(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosSent(employeeId, alias);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosSentAsync(System.Nullable<int> employeeId, string alias) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory[]> GetKudosSentAsync(System.Nullable<int> employeeId, string alias) {
             return base.Channel.GetKudosSentAsync(employeeId, alias);
         }
         
@@ -1980,11 +1980,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
             return base.Channel.SendKudosAsync(employeeId, alias, message);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture GetPicture(int employeeId) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture GetPicture(int employeeId) {
             return base.Channel.GetPicture(employeeId);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture> GetPictureAsync(int employeeId) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture> GetPictureAsync(int employeeId) {
             return base.Channel.GetPictureAsync(employeeId);
         }
         
@@ -2004,11 +2004,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
             return base.Channel.DeleteKudosAsync(kudosId);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[] GetWeeklyUsageHistory() {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[] GetWeeklyUsageHistory() {
             return base.Channel.GetWeeklyUsageHistory();
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]> GetWeeklyUsageHistoryAsync() {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory[]> GetWeeklyUsageHistoryAsync() {
             return base.Channel.GetWeeklyUsageHistoryAsync();
         }
         
@@ -2020,27 +2020,27 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain
             return base.Channel.GetTotalKudosAsync();
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo GetPersonInfo(int employeeId) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo GetPersonInfo(int employeeId) {
             return base.Channel.GetPersonInfo(employeeId);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo> GetPersonInfoAsync(int employeeId) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo> GetPersonInfoAsync(int employeeId) {
             return base.Channel.GetPersonInfoAsync(employeeId);
         }
         
-        public Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[] GetKudos(System.DateTime startDate, System.DateTime endDate) {
+        public Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[] GetKudos(System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetKudos(startDate, endDate);
         }
         
-        public System.Threading.Tasks.Task<Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]> GetKudosAsync(System.DateTime startDate, System.DateTime endDate) {
+        public System.Threading.Tasks.Task<Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance[]> GetKudosAsync(System.DateTime startDate, System.DateTime endDate) {
             return base.Channel.GetKudosAsync(startDate, endDate);
         }
         
-        public void SendMail(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject) {
+        public void SendMail(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject) {
             base.Channel.SendMail(mailObject);
         }
         
-        public System.Threading.Tasks.Task SendMailAsync(Microsoft.Internal.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject) {
+        public System.Threading.Tasks.Task SendMailAsync(Microsoft.Tools.TeamMate.Platform.Kudos.Domain.MailObject mailObject) {
             return base.Channel.SendMailAsync(mailObject);
         }
         

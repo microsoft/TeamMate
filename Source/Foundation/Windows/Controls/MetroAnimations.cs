@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// Provides utility methods and WPF attached properties for performing metro animations.

@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using System;
 using System.IO;
 using System.Windows;
@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Icon = System.Drawing.Icon;
 
-namespace Microsoft.Internal.Tools.TeamMate.Resources
+namespace Microsoft.Tools.TeamMate.Resources
 {
     public static class TeamMateResources
     {

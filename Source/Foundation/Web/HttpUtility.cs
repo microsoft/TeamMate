@@ -21,7 +21,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Web
+namespace Microsoft.Tools.TeamMate.Foundation.Web
 {
     /// <summary>
     /// Provides methods for encoding and decoding URLs.

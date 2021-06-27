@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Foundation.CommandLine
+﻿namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
 {
     public interface ICommand
     {

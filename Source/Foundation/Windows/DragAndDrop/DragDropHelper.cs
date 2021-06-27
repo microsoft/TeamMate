@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop
 {
     /// <summary>
     /// A helper class to initiate a Drag and Drop operation for a given element.

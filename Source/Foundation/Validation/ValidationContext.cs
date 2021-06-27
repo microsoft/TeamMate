@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Validation
+namespace Microsoft.Tools.TeamMate.Foundation.Validation
 {
     // Based on ideas from:
     // http://mvvmvalidation.codeplex.com/

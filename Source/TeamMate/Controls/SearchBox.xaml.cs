@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for SearchControl.xaml

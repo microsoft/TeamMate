@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
     internal static class HtmlDataFactory
     {

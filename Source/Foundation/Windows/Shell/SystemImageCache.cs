@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Win32;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Win32;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
     public class SystemImageCache
     {

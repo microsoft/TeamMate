@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Text
+namespace Microsoft.Tools.TeamMate.Foundation.Text
 {
     public class CsvReader : IDisposable
     {

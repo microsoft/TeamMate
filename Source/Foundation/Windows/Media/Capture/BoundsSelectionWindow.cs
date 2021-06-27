@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Shell;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Capture
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media.Capture
 {
     public class BoundsSelectionWindow : Window
     {

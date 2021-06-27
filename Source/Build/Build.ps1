@@ -142,7 +142,7 @@ $msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $scriptFolder = Get-ScriptDirectory;
 $versionFile = "$scriptFolder\version.txt";
 $buildInfoFile = "$scriptFolder\BuildInfo.cs";
-$versionTargetsFile = "$scriptFolder\Microsoft.Internal.Tools.TeamMate.Version.targets";
+$versionTargetsFile = "$scriptFolder\Microsoft.Tools.TeamMate.Version.targets";
 $project = "$scriptFolder\..\TeamMate\TeamMate.csproj";
 
 if(-not ($updateVersion -or $build))

@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
     public class ApplicationInstance : IDisposable
     {

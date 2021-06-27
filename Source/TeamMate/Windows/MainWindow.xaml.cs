@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Pages;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Pages;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +14,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

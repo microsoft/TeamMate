@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// A helper class to register and unregister the logging of Trace information to a log file.

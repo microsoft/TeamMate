@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Controls
+namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for ItemCountView.xaml

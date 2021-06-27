@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Threading;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class WorkItemQueryViewModel : QueryViewModelBase, ICommandProvider
     {

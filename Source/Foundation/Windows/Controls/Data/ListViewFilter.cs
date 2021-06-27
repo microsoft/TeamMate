@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.ComponentModel;
+﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// Represents a filter for a list view control.

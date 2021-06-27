@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Resources
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Resources
 {
 
 
@@ -39,7 +39,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Resources
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Resources.CodeFlowResources", typeof(CodeFlowResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Tools.TeamMate.Platform.CodeFlow.Resources.CodeFlowResources", typeof(CodeFlowResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

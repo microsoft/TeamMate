@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow;
+﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow;
 using System;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class CodeFlowService
     {

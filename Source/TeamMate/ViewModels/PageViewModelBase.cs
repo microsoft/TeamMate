@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class PageViewModelBase : ViewModelBase
     {

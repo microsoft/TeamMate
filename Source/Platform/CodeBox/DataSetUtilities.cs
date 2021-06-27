@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox
+namespace Microsoft.Tools.TeamMate.Platform.CodeBox
 {
     /// <summary>
     /// Provides utility methods for dealing with DataSet objects returned from CodeBox web services.

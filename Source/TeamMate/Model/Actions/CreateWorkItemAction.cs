@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Model.Actions
+namespace Microsoft.Tools.TeamMate.Model.Actions
 {
     class CreateWorkItemAction : TeamMateAction
     {

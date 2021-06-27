@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     [ResourceArea(WitConstants.WorkItemTrackingWebConstants.RestAreaId)]
     public class WorkItemTrackingBatchHttpClient : VssHttpClientBase

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Resources
+namespace Microsoft.Tools.TeamMate.Resources
 {
     public static class TeamMateGestures
     {

@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class WorkItemTypeInfo
     {

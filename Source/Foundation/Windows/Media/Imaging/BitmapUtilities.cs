@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging
 {
     public static class BitmapUtilities
     {

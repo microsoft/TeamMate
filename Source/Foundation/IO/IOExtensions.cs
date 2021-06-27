@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.IO
+namespace Microsoft.Tools.TeamMate.Foundation.IO
 {
     /// <summary>
     /// Provides extension methods for the IO package.

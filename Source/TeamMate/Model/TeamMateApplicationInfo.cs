@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Reflection;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
+using Microsoft.Tools.TeamMate.Foundation.IO;
+using Microsoft.Tools.TeamMate.Foundation.Reflection;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public static class TeamMateApplicationInfo
     {

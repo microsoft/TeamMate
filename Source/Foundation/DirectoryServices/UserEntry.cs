@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.DirectoryServices;
 using System.Security.Principal;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices
+namespace Microsoft.Tools.TeamMate.Foundation.DirectoryServices
 {
     /// <summary>
     /// Describes an entry for a user in Active Directory.

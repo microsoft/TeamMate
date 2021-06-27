@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview.VideoPreviewControl"
+﻿<UserControl x:Class="Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview.VideoPreviewControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls"
+             xmlns:fwc="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>

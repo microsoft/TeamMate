@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.IO.Packaging;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.IO.Packaging;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.IO.Packaging;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Caching
+namespace Microsoft.Tools.TeamMate.Sandbox.Caching
 {
     public class PackageCache : ICache
     {

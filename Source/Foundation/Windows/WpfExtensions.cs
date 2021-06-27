@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public static class WpfExtensions
     {

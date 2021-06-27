@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Reflection;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Xml
+namespace Microsoft.Tools.TeamMate.Foundation.Xml
 {
     /// <summary>
     /// Provides extension methods for manipulating XML using DOM.

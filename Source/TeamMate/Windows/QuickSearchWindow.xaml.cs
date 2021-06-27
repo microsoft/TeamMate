@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for QuickSearchWindow.xaml

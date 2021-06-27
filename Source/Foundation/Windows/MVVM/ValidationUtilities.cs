@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.MVVM
 {
     public static class ValidationUtilities
     {

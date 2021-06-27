@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Documents;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Documents
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Documents
 {
     /// <summary>
     /// Provides utility methods for manipulating text and text elements.

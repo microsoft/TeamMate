@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// Interaction logic for WebPreviewControl.xaml

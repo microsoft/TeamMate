@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Resources
+namespace Microsoft.Tools.TeamMate.Foundation.Resources
 {
 
 
@@ -39,7 +39,7 @@ namespace Microsoft.Internal.Tools.TeamMate.Foundation.Resources
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Internal.Tools.TeamMate.Foundation.Resources.FoundationResources", typeof(FoundationResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Tools.TeamMate.Foundation.Resources.FoundationResources", typeof(FoundationResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

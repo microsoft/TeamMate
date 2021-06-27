@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// The event arguments for a preview load event.

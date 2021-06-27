@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// Converts strings to lower and upper case variants.

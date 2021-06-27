@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
+namespace Microsoft.Tools.TeamMate.Platform.CodeBox.Release
 {
 
 
@@ -18,24 +18,24 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/CreateRelease", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        int CreateRelease(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease);
+        int CreateRelease(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/CreateRelease", ReplyAction="*")]
-        System.Threading.Tasks.Task<int> CreateReleaseAsync(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease);
+        System.Threading.Tasks.Task<int> CreateReleaseAsync(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFilesById", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UploadReleaseFilesById(string projectName, int releaseId, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
+        void UploadReleaseFilesById(string projectName, int releaseId, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFilesById", ReplyAction="*")]
-        System.Threading.Tasks.Task UploadReleaseFilesByIdAsync(string projectName, int releaseId, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
+        System.Threading.Tasks.Task UploadReleaseFilesByIdAsync(string projectName, int releaseId, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFiles", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UploadReleaseFiles(string projectName, string releaseVersion, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
+        void UploadReleaseFiles(string projectName, string releaseVersion, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/UploadReleaseFiles", ReplyAction="*")]
-        System.Threading.Tasks.Task UploadReleaseFilesAsync(string projectName, string releaseVersion, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
+        System.Threading.Tasks.Task UploadReleaseFilesAsync(string projectName, string releaseVersion, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/CreateFileShareForRelease", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -67,10 +67,10 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/DeleteReleases", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void DeleteReleases(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases);
+        void DeleteReleases(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/DeleteReleases", ReplyAction="*")]
-        System.Threading.Tasks.Task DeleteReleasesAsync(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases);
+        System.Threading.Tasks.Task DeleteReleasesAsync(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://CodeBox/services/ReleaseService/v1.0/DeleteRelease", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -191,12 +191,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ReleaseServiceSoapChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap, System.ServiceModel.IClientChannel {
+    public interface ReleaseServiceSoapChannel : Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReleaseServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap>, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap {
+    public partial class ReleaseServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap>, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseServiceSoap {
         
         public ReleaseServiceSoapClient() {
         }
@@ -217,27 +217,27 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
                 base(binding, remoteAddress) {
         }
         
-        public int CreateRelease(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease) {
+        public int CreateRelease(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease) {
             return base.Channel.CreateRelease(projectName, qualityName, releaseVersion, releaseDescription, releaseDate, showOnHomePage, isDefaultRelease);
         }
         
-        public System.Threading.Tasks.Task<int> CreateReleaseAsync(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease) {
+        public System.Threading.Tasks.Task<int> CreateReleaseAsync(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, string releaseVersion, string releaseDescription, string releaseDate, bool showOnHomePage, bool isDefaultRelease) {
             return base.Channel.CreateReleaseAsync(projectName, qualityName, releaseVersion, releaseDescription, releaseDate, showOnHomePage, isDefaultRelease);
         }
         
-        public void UploadReleaseFilesById(string projectName, int releaseId, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
+        public void UploadReleaseFilesById(string projectName, int releaseId, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
             base.Channel.UploadReleaseFilesById(projectName, releaseId, files);
         }
         
-        public System.Threading.Tasks.Task UploadReleaseFilesByIdAsync(string projectName, int releaseId, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
+        public System.Threading.Tasks.Task UploadReleaseFilesByIdAsync(string projectName, int releaseId, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
             return base.Channel.UploadReleaseFilesByIdAsync(projectName, releaseId, files);
         }
         
-        public void UploadReleaseFiles(string projectName, string releaseVersion, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
+        public void UploadReleaseFiles(string projectName, string releaseVersion, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
             base.Channel.UploadReleaseFiles(projectName, releaseVersion, qualityName, files);
         }
         
-        public System.Threading.Tasks.Task UploadReleaseFilesAsync(string projectName, string releaseVersion, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
+        public System.Threading.Tasks.Task UploadReleaseFilesAsync(string projectName, string releaseVersion, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseFile[] files) {
             return base.Channel.UploadReleaseFilesAsync(projectName, releaseVersion, qualityName, files);
         }
         
@@ -273,11 +273,11 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release
             return base.Channel.GetReleaseFilesByIdAsync(releaseId);
         }
         
-        public void DeleteReleases(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases) {
+        public void DeleteReleases(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases) {
             base.Channel.DeleteReleases(projectName, qualityName, keepLastXReleases);
         }
         
-        public System.Threading.Tasks.Task DeleteReleasesAsync(string projectName, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases) {
+        public System.Threading.Tasks.Task DeleteReleasesAsync(string projectName, Microsoft.Tools.TeamMate.Platform.CodeBox.Release.ReleaseQualityName qualityName, int keepLastXReleases) {
             return base.Channel.DeleteReleasesAsync(projectName, qualityName, keepLastXReleases);
         }
         

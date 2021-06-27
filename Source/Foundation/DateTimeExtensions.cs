@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Resources;
+﻿using Microsoft.Tools.TeamMate.Foundation.Resources;
 using System;
 using System.Globalization;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation
+namespace Microsoft.Tools.TeamMate.Foundation
 {
     /// <summary>
     /// Provides utility methods for working with date times.

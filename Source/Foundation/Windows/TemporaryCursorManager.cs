@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     internal class TemporaryCursorManager : IDisposable
     {

@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Shell
 {
     /// <summary>
     /// Provides access to interactive session events to indicate when a user has locked their console or unlocked it.

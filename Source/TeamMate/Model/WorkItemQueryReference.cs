@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class WorkItemQueryReference
     {

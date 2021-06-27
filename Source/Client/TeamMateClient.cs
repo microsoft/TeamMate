@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Client
+namespace Microsoft.Tools.TeamMate.Client
 {
     /// <summary>
     /// A client class to launch and interact with an installed TeamMateClient instace.

@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Text;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.IO;
+using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Text;
 using System;
 using System.IO;
 using System.Net;
@@ -12,7 +12,7 @@ using ComDataObject = System.Runtime.InteropServices.ComTypes.IDataObject;
 using IDataObject = System.Windows.IDataObject;
 using Marshal = System.Runtime.InteropServices.Marshal;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
     public static class DataObjectExtensions
     {

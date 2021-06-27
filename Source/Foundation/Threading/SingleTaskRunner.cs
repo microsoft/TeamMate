@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Threading
+namespace Microsoft.Tools.TeamMate.Foundation.Threading
 {
     /// <summary>
     /// A utility class to only execute a task if a previous instance of the same task

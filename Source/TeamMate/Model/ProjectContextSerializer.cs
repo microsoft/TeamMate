@@ -1,14 +1,14 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow;
+﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     class ProjectContextSerializer
     {

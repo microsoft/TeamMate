@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports
 {
     /// <summary>
     /// Base class for diagnostic reports from end users.

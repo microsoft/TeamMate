@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Services;
+﻿using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Services;
 using System;
 using System.ComponentModel.Composition;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class WorkItemQueryTileViewModel : TileViewModel
     {

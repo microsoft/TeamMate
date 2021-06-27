@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Animation;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Animation;
 using System;
 using System.Globalization;
 using System.Windows.Media.Animation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// Interaction logic for BusySpinner.xaml

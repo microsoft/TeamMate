@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Net.Mime
+namespace Microsoft.Tools.TeamMate.Foundation.Net.Mime
 {
     /// <summary>
     /// Provides a list of well-known mime types.

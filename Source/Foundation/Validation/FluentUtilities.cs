@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq.Expressions;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Validation
+namespace Microsoft.Tools.TeamMate.Foundation.Validation
 {
     public static class FluentUtilities
     {

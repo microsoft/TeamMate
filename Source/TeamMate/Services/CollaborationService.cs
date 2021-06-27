@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.IO;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Office.Outlook;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.IO;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Office.Outlook;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class CollaborationService : IDisposable
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     // TODO: Add support for link queries and mode (http://blogs.msdn.com/b/team_foundation/archive/2010/07/02/wiql-syntax-for-link-query.aspx)
     public class WorkItemQueryBuilder

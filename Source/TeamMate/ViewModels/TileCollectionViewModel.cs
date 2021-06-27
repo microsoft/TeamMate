@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Services;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +12,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class TileCollectionViewModel : ViewModelBase
     {

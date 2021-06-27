@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Forms
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Forms
 {
     public class TemporaryGlobalCursor : IDisposable
     {

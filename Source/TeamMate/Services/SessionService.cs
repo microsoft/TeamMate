@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Model;
+﻿using Microsoft.Tools.TeamMate.Model;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class SessionService
     {

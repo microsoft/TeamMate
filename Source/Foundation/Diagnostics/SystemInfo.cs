@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Management;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// Represents system information of where an application is running.

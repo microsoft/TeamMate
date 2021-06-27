@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Chaos
+namespace Microsoft.Tools.TeamMate.Foundation.Chaos
 {
     /// <summary>
     /// An exception thrown by the chaos monkey whenever it introduces chaos into our product.

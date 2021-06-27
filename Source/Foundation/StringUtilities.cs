@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation
+namespace Microsoft.Tools.TeamMate.Foundation
 {
     /// <summary>
     /// Provides utility methods for manipualting strings.

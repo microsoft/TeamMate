@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.UserEvent
+namespace Microsoft.Tools.TeamMate.Platform.CodeBox.UserEvent
 {
 
 
@@ -46,12 +46,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.UserEvent
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface UserEventServiceSoapChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap, System.ServiceModel.IClientChannel {
+    public interface UserEventServiceSoapChannel : Microsoft.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserEventServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap>, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap {
+    public partial class UserEventServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap>, Microsoft.Tools.TeamMate.Platform.CodeBox.UserEvent.UserEventServiceSoap {
         
         public UserEventServiceSoapClient() {
         }

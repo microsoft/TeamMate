@@ -1,13 +1,13 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public class SearchExpression
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.HockeyApp;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Diagnostics
+namespace Microsoft.Tools.TeamMate.Diagnostics
 {
     public class HockeyAppTelemetryListener : TelemetryListener
     {

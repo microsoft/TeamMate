@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     internal class CompoundFilter<T>
     {

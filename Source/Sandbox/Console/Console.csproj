@@ -6,14 +6,14 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <ProductVersion>10.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{12278B25-468D-4825-9594-830F895C0938}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Sandbox</RootNamespace>
+    <RootNamespace>Microsoft.Tools.TeamMate.Sandbox</RootNamespace>
     <AssemblyName>Console</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
@@ -118,21 +118,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Client\Microsoft.Internal.Tools.TeamMate.Client.csproj">
+    <ProjectReference Include="..\..\Client\Microsoft.Tools.TeamMate.Client.csproj">
       <Project>{9ac62340-334d-489b-8c36-5ec5f4c56c8e}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Client</Name>
+      <Name>Microsoft.Tools.TeamMate.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+    <ProjectReference Include="..\..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+      <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Platform\Microsoft.Internal.Tools.TeamMate.Platform.csproj">
+    <ProjectReference Include="..\..\Platform\Microsoft.Tools.TeamMate.Platform.csproj">
       <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Platform</Name>
+      <Name>Microsoft.Tools.TeamMate.Platform</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TeamFoundation.WebApi\Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.csproj">
+    <ProjectReference Include="..\..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888E7687-95F8-4049-94DF-9DD3398B5592}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi</Name>
+      <Name>Microsoft.Tools.TeamMate.TeamFoundation.WebApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TeamMate\TeamMate.csproj">
       <Project>{01fcf244-d4b2-43dd-bb77-9d4946868299}</Project>
@@ -143,5 +143,5 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>

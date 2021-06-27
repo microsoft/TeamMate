@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// Provides methods for tracing information.

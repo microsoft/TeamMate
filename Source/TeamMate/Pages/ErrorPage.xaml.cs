@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Pages
+namespace Microsoft.Tools.TeamMate.Pages
 {
     /// <summary>
     /// Interaction logic for ErrorPage.xaml

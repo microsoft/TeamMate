@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.Outlook
+namespace Microsoft.Tools.TeamMate.Office.Outlook
 {
     /// <summary>
     /// An exception class that indicates an error condition when Outlook cannot be launched.

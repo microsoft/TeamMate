@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices;
+﻿using Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public static class OfficeUtilities
     {

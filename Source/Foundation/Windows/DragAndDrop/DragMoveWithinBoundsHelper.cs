@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop
 {
     /// <summary>
     /// A helper class to support moving windows by clicking and dragging on a portion of the window,

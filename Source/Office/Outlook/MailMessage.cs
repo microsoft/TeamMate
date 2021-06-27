@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.Outlook
+namespace Microsoft.Tools.TeamMate.Office.Outlook
 {
     public class MailMessage
     {

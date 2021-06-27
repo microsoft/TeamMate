@@ -1,16 +1,16 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Converters
+namespace Microsoft.Tools.TeamMate.Converters
 {
     public static class TeamMateConverters
     {

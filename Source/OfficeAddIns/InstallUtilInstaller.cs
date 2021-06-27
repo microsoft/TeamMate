@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Configuration.Install;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns
+namespace Microsoft.Tools.TeamMate.Office.AddIns
 {
     [RunInstaller(true)]
     public class InstallUtilInstaller : Installer

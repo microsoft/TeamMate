@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Threading;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Data;
 
-namespace Microsoft.Internal.Tools.TeamMate.Resources
+namespace Microsoft.Tools.TeamMate.Resources
 {
     public static class SampleData
     {

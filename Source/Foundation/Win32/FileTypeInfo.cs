@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Win32;
 using System;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Win32
+namespace Microsoft.Tools.TeamMate.Foundation.Win32
 {
     /// <summary>
     /// Provides information that describes a file type, based on file extension, according to the

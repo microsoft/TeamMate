@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 
-using WinformsNativePreviewControl = Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Forms.NativePreviewControl;
+using WinformsNativePreviewControl = Microsoft.Tools.TeamMate.Foundation.Windows.Forms.NativePreviewControl;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// Interaction logic for NativePreviewControl.xaml

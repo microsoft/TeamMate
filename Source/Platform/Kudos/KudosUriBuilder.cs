@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.Kudos
+namespace Microsoft.Tools.TeamMate.Platform.Kudos
 {
     public static class KudosUriBuilder
     {

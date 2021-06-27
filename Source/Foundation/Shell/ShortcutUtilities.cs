@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Shell
 {
     /// <summary>
     /// Provides utility methods for dealing with shell shortcut links to programs and files.

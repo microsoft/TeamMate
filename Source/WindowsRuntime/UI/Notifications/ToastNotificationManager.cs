@@ -2,7 +2,7 @@ using System;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
 
-namespace Microsoft.Internal.Tools.TeamMate.WindowsRuntime.UI.Notifications
+namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
 {
     public class ToastNotificationManager
     {

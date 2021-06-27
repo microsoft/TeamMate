@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Xml;
+﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Settings
+namespace Microsoft.Tools.TeamMate.Model.Settings
 {
     class SettingsSerializer
     {

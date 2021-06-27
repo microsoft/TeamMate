@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// Interaction logic for ExceptionDialog.xaml

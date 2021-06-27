@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Preview
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {
     /// <summary>
     /// Interaction logic for ImagePreviewControl.xaml

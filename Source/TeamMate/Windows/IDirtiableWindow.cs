@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     public interface IDirtiableWindow
     {

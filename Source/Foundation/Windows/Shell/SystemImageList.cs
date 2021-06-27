@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
     internal class SystemImageList
     {

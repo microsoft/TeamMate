@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// A control to display floating callouts.

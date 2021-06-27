@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using Marshal = System.Runtime.InteropServices.Marshal;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Native
+namespace Microsoft.Tools.TeamMate.Foundation.Native
 {
     /// <summary>
     /// Adapts a COM IStream as a .NET Stream.

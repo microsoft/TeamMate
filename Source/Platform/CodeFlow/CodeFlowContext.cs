@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.DirectoryServices;
+﻿using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     // TODO: Try and deprecate this... Should be deprecated by the correct use of the CodeFlowService class
     // There's currently 2 IsMe() extension methods making use of this.

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for WelcomeDialog.xaml

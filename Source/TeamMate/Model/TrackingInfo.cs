@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using WorkItem = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItem;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class TrackingInfo
     {

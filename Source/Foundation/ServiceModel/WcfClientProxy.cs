@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.ServiceModel
+namespace Microsoft.Tools.TeamMate.Foundation.ServiceModel
 {
     /// <summary>
     /// Generic helper class for a WCF service proxy. The class simplifies the management of WCF proxy classes

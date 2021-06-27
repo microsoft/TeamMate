@@ -1,17 +1,17 @@
 ﻿using Microsoft.HockeyApp;
 using Microsoft.HockeyApp.Model;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using ApplicationInfo = Microsoft.Internal.Tools.TeamMate.Model.TeamMateApplicationInfo;
+using ApplicationInfo = Microsoft.Tools.TeamMate.Model.TeamMateApplicationInfo;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class FeedbackService
     {

@@ -1,16 +1,16 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Controls;
-using Microsoft.Internal.Tools.TeamMate.Exceptions;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Collections;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Resources.Native;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
-using Microsoft.Internal.Tools.TeamMate.Windows;
+﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Exceptions;
+using Microsoft.Tools.TeamMate.Foundation.Collections;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Resources.Native;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -21,7 +21,7 @@ using System.Windows.Threading;
 using NotifyIcon = System.Windows.Forms.NotifyIcon;
 using ToolStripMenuItem = System.Windows.Forms.ToolStripMenuItem;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
 	public class UIService : IDisposable
     {

@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Resources;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+﻿using Microsoft.Tools.TeamMate.Foundation.Resources;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
 using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     /// <summary>
     /// Provides access to static resources in this assembly.

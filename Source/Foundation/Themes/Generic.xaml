@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows"
-                    xmlns:fwc="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls"
-                    xmlns:fwcd="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data"
+                    xmlns:fw="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows"
+                    xmlns:fwc="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows.Controls"
+                    xmlns:fwcd="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data"
                     xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework">
 
     <Style TargetType="fwc:FontIcon">

@@ -1,18 +1,18 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Threading;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class CodeFlowQueryViewModel : QueryViewModelBase
     {

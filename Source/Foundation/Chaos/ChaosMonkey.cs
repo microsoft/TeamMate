@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Threading.Tasks;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Chaos
+namespace Microsoft.Tools.TeamMate.Foundation.Chaos
 {
     public static class ChaosMonkey
     {

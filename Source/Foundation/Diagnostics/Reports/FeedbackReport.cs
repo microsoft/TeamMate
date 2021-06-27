@@ -1,5 +1,5 @@
 ﻿
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics.Reports
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports
 {
     /// <summary>
     /// A "Send a Smile" feedback report from a user containing the type (smile or frown) and

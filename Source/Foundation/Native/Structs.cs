@@ -4,7 +4,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Native
+namespace Microsoft.Tools.TeamMate.Foundation.Native
 {
     // Defines struct mappings for PInvoke functions.
 

@@ -1,19 +1,19 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Model.Actions;
-using Microsoft.Internal.Tools.TeamMate.Office.Outlook;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model.Actions;
+using Microsoft.Tools.TeamMate.Office.Outlook;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class GlobalCommandService : ICommandProvider
     {

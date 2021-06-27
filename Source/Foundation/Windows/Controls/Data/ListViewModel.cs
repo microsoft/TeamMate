@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// The view model for the ListView control.

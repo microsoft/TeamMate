@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Media
 {
     public static class VisualTreeUtilities
     {

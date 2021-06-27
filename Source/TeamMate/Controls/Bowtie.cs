@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Controls
+﻿namespace Microsoft.Tools.TeamMate.Controls
 {
     // See https://github.com/jimlamb/Bowtie for source.
     // See https://codepen.io/jimlamb/full/epVOBK for a rendering of all font icons.

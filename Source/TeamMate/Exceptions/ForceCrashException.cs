@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Exceptions
+namespace Microsoft.Tools.TeamMate.Exceptions
 {
     /// <summary>
     /// An exception thrown when the application is forced to crash. Used for development purposes only.

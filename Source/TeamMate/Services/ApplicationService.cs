@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell;
-using Microsoft.Internal.Tools.TeamMate.Model;
+﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Shell;
+using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
-using SplashScreen = Microsoft.Internal.Tools.TeamMate.Windows.SplashScreen;
+using SplashScreen = Microsoft.Tools.TeamMate.Windows.SplashScreen;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class ApplicationService
     {

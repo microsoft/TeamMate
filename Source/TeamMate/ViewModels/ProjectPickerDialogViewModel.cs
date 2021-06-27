@@ -1,10 +1,10 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Threading;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Input;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
+﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
+using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.TeamFoundation.Core.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class ProjectPickerDialogViewModel : ViewModelBase
     {

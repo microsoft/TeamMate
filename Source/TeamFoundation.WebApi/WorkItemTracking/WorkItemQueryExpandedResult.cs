@@ -1,7 +1,7 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
+namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     public class WorkItemQueryExpandedResult
     {

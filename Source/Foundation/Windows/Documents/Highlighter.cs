@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Documents
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Documents
 {
     /// <summary>
     /// A helper class to highlight text in documents and text elements.

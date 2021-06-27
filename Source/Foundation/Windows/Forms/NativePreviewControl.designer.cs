@@ -1,4 +1,4 @@
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Forms
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Forms
 {
     partial class NativePreviewControl
     {

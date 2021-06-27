@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SystemValidation = System.Windows.Controls.Validation;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     public static class LogicalTreeUtilities
     {

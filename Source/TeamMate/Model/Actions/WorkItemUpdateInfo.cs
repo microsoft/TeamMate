@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model.Actions
+namespace Microsoft.Tools.TeamMate.Model.Actions
 {
     public class WorkItemUpdateInfo
     {

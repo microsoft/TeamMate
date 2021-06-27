@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Converters;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.Windows;
+﻿using Microsoft.Tools.TeamMate.Converters;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.Windows;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualStudio.Services.WebApi.Patch.Json;
 using System;
@@ -21,7 +21,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class WorkItemsPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Caching
+namespace Microsoft.Tools.TeamMate.Sandbox.Caching
 {
     public class InMemoryCache : ICache
     {

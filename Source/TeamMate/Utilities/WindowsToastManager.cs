@@ -1,12 +1,12 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Shell;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.WindowsRuntime.UI.Notifications;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications;
 using System;
 using System.IO;
 using System.Xml.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Utilities
+namespace Microsoft.Tools.TeamMate.Utilities
 {
     public class WindowsToastManager : IToastManager
     {

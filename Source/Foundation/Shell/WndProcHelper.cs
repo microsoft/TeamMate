@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Shell
+namespace Microsoft.Tools.TeamMate.Foundation.Shell
 {
     /// <summary>
     /// A helper class that allows to easily register for and process native WndProc events.

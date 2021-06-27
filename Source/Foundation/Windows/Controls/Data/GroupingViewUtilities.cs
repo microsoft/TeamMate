@@ -1,5 +1,5 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// Provides utility methods for managing grouped views (e.g. list view groups).

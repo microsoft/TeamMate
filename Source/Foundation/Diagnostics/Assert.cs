@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics
+namespace Microsoft.Tools.TeamMate.Foundation.Diagnostics
 {
     /// <summary>
     /// A helper static class used to assert common conditions.

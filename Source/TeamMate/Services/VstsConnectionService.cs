@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Chaos;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Model;
-using Microsoft.Internal.Tools.TeamMate.Model.Settings;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi;
-using Microsoft.Internal.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model.Settings;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
@@ -19,7 +19,7 @@ using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
 
-namespace Microsoft.Internal.Tools.TeamMate.Services
+namespace Microsoft.Tools.TeamMate.Services
 {
     public class VstsConnectionService
     {

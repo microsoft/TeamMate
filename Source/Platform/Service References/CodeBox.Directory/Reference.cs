@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Directory
+namespace Microsoft.Tools.TeamMate.Platform.CodeBox.Directory
 {
 
 
@@ -81,12 +81,12 @@ namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Directory
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DirectoryServiceSoapChannel : Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap, System.ServiceModel.IClientChannel {
+    public interface DirectoryServiceSoapChannel : Microsoft.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DirectoryServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap>, Microsoft.Internal.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap {
+    public partial class DirectoryServiceSoapClient : System.ServiceModel.ClientBase<Microsoft.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap>, Microsoft.Tools.TeamMate.Platform.CodeBox.Directory.DirectoryServiceSoap {
         
         public DirectoryServiceSoapClient() {
         }

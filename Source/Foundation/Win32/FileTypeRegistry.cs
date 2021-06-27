@@ -1,11 +1,11 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Win32
+namespace Microsoft.Tools.TeamMate.Foundation.Win32
 {
     /// <summary>
     /// A registry that provides and caches information about file types.

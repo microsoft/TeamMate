@@ -1,6 +1,6 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.DragAndDrop;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Media;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,7 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Board
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Board
 {
     /// <summary>
     /// Interaction logic for BoardView.xaml

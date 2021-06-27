@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation;
-using Microsoft.Internal.Tools.TeamMate.Office.Outlook;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Resources;
+﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Office.Outlook;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Resources;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Xsl;
 
-namespace Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow
+namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     public class CodeFlowMailGenerator
     {

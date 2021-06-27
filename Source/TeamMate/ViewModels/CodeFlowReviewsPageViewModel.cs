@@ -1,15 +1,15 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Controls.Data;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer;
-using Microsoft.Internal.Tools.TeamMate.Office.Outlook;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.Services;
-using Microsoft.Internal.Tools.TeamMate.Utilities;
-using Microsoft.Internal.Tools.TeamMate.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Transfer;
+using Microsoft.Tools.TeamMate.Office.Outlook;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.Utilities;
+using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Microsoft.Internal.Tools.TeamMate.ViewModels
+namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class CodeFlowReviewsPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {

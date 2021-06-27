@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Controls;
+﻿using Microsoft.Tools.TeamMate.Controls;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Windows
+namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for WorkItemQueryPickerDialog.xaml

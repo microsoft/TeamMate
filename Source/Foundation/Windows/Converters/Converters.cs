@@ -1,6 +1,6 @@
 ﻿using System.Windows.Data;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// Provides shared instances of global converters.

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.CommandLine
+namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
 {
     /// <summary>
     /// A helper class to parse command-lines.

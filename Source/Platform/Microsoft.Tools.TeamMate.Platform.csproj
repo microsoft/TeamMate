@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <ProjectGuid>{D00E5193-1B32-478E-8A11-8C3CE0D9D9B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Platform</RootNamespace>
-    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Platform</AssemblyName>
+    <RootNamespace>Microsoft.Tools.TeamMate.Platform</RootNamespace>
+    <AssemblyName>Microsoft.Tools.TeamMate.Platform</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -109,10 +109,10 @@
     <None Include="Service References\CodeFlow.Dashboard\DashboardService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Internal.Tools.TeamMate.Platform.Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Services.CodeReviewQueryResult.datasource">
+    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.Microsoft.Tools.TeamMate.Platform.CodeFlow.Services.CodeReviewQueryResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Internal.Tools.TeamMate.Platform.Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Services.QueryReviewIdsResult.datasource">
+    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.Microsoft.Tools.TeamMate.Platform.CodeFlow.Services.QueryReviewIdsResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CodeFlow.Discovery\DiscoveryService.wsdl" />
@@ -262,13 +262,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Foundation\Microsoft.Internal.Tools.TeamMate.Foundation.csproj">
+    <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369e-0368-4888-b743-b16abae28b1f}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Foundation</Name>
+      <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Office\Microsoft.Internal.Tools.TeamMate.Office.csproj">
+    <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
-      <Name>Microsoft.Internal.Tools.TeamMate.Office</Name>
+      <Name>Microsoft.Tools.TeamMate.Office</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -309,5 +309,5 @@
       <LastGenOutput>CodeFlowResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>

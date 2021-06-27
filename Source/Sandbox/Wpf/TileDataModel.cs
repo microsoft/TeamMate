@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+﻿namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     public class TileDataModel
     {

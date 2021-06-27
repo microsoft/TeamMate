@@ -1,4 +1,4 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Transfer;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Transfer;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     /// <summary>
     /// Interaction logic for DropTestWindow.xaml

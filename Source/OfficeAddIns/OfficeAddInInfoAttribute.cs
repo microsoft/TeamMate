@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns
+namespace Microsoft.Tools.TeamMate.Office.AddIns
 {
     public class OfficeAddInInfoAttribute : Attribute
     {

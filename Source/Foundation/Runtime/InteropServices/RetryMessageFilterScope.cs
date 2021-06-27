@@ -1,8 +1,8 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Runtime.InteropServices
+namespace Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices
 {
     /// <summary>
     /// A helper class to use to define the scope of COM interop, setting a value to rety calls

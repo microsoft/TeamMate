@@ -1,9 +1,9 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Microsoft.Internal.Tools.TeamMate.Model
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class CodeFlowQueryInfo
     {

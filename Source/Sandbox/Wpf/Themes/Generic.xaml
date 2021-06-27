@@ -1,9 +1,9 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:fw="clr-namespace:Microsoft.Internal.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Internal.Tools.TeamMate.Foundation"
-    xmlns:tiles="clr-namespace:Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf.Tiles"
-    xmlns:local="clr-namespace:Microsoft.Internal.Tools.TeamMate.Sandbox.Wpf">
+    xmlns:fw="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Tools.TeamMate.Foundation"
+    xmlns:tiles="clr-namespace:Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles"
+    xmlns:local="clr-namespace:Microsoft.Tools.TeamMate.Sandbox.Wpf">
 
     <Style x:Key="NoFocusStyle">
         <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />

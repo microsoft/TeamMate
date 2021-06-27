@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Office.AddIns.Outlook;
+﻿using Microsoft.Tools.TeamMate.Office.AddIns.Outlook;
 using System;
 
-namespace Microsoft.Internal.Tools.TeamMate.Office.AddIns
+namespace Microsoft.Tools.TeamMate.Office.AddIns
 {
     public class AddInInstaller
     {

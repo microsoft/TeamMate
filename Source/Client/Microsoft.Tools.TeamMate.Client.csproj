@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Internal.Tools.TeamMate.Settings.targets))\Build\Microsoft.Internal.Tools.TeamMate.Settings.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <ProjectGuid>{9AC62340-334D-489B-8C36-5EC5F4C56C8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Internal.Tools.TeamMate.Client</RootNamespace>
-    <AssemblyName>Microsoft.Internal.Tools.TeamMate.Client</AssemblyName>
+    <RootNamespace>Microsoft.Tools.TeamMate.Client</RootNamespace>
+    <AssemblyName>Microsoft.Tools.TeamMate.Client</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -24,5 +24,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamMateClient.cs" />
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Internal.Tools.TeamMate.targets" />
+  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>

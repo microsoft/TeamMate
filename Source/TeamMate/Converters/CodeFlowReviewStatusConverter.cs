@@ -1,7 +1,7 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Internal.Tools.TeamMate.Platform.CodeFlow.Dashboard;
-using Microsoft.Internal.Tools.TeamMate.Resources;
-using Microsoft.Internal.Tools.TeamMate.ViewModels;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Resources;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Microsoft.Internal.Tools.TeamMate.Converters
+namespace Microsoft.Tools.TeamMate.Converters
 {
     public class CodeFlowReviewStatusConverter : OneWayConverterBase
     {

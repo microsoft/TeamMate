@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// A converter that converts a time span to remaining time.

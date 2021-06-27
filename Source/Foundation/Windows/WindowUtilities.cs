@@ -1,13 +1,13 @@
-﻿using Microsoft.Internal.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Native;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Interop;
-using Microsoft.Internal.Tools.TeamMate.Foundation.Windows.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Shell;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 
-namespace Microsoft.Internal.Tools.TeamMate.Foundation.Windows
+namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
     /// <summary>
     /// Provides utility methods for manipulating windows.
