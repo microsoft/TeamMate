@@ -532,8 +532,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public void ApplyTextFilter(string filterText)
         {
-            bool wasFiltering = (this.workItems.SearchFilter != null);
-
             SearchExpression expression = SearchExpression.Parse(filterText);
             Predicate<object> searchFilter = (!expression.IsEmpty) ? expression.Matches : (Predicate<object>)null;
             this.workItems.SearchFilter = searchFilter;
@@ -541,11 +539,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             if (searchFilter != null)
             {
                 TextFilterApplied?.Invoke(this, expression);
-
-                if (!wasFiltering)
-                {
-                    Telemetry.Event(TelemetryEvents.FilterApplied);
-                }
             }
         }
 

@@ -417,14 +417,6 @@
 
     <!--  Global Commands  -->
 
-    <fwi:UICommand x:Key="SendASmileCommand"
-                   Icon="/Resources/Icons/Office15/SendASmile.16x16x32.png"
-                   Text="Send a Smile..." />
-
-    <fwi:UICommand x:Key="SendAFrownCommand"
-                   Icon="/Resources/Icons/Office15/SendAFrown.16x16x32.png"
-                   Text="Send a Frown..." />
-
     <fwi:UICommand x:Key="VoteOnFeaturesCommand" Text="Vote on Features" />
 
     <fwi:UICommand x:Key="SuggestFeatureCommand" Text="Suggest a Feature" />

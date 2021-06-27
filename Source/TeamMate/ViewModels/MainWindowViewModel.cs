@@ -59,8 +59,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             this.Navigation.RegisterBindings(bindings);
 
-            bindings.Add(TeamMateCommands.SendASmile, () => this.WindowService.ShowSendASmileDialog(this));
-            bindings.Add(TeamMateCommands.SendAFrown, () => this.WindowService.ShowSendAFrownDialog(this));
             this.GlobalCommandService.RegisterBindings(bindings);
 
             bindings.Add(TeamMateCommands.NavigateToHomePage, this.NavigateToHomePage);
@@ -238,21 +236,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             searchText = TextMatcher.NormalizeSearchText(searchText);
 
-            TelemetryEventProperties properties = null;
-            if (triggeredFromQuickSearch)
-            {
-                properties = new TelemetryEventProperties() {
-                    { TelemetryEvents.Properties.QuickSearch, true }
-                };
-            }
-
             if (!String.IsNullOrWhiteSpace(searchText))
             {
                 int workItemId;
                 if (WorkItemReference.TryParseId(searchText, out workItemId))
                 {
                     WorkItemReference reference = new WorkItemReference(this.SessionService.Session.ProjectContext.ProjectInfo.ProjectCollectionUri, workItemId);
-                    Telemetry.Event(TelemetryEvents.WorkItemOpenedUsingSearch, properties);
                     this.WindowService.ShowWorkItemWindow(reference);
                 }
                 else
@@ -268,7 +257,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                         // TODO: Request select all and focus search text?
                     }
 
-                    Telemetry.Event(TelemetryEvents.Search, properties);
                     NavigateToSearchPage(searchText);
                 }
             }

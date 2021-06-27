@@ -43,10 +43,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     if (this.trackingToken != null)
                     {
                         this.trackingToken.SetFlag(value, GetFlaggedItem());
-                        if (value)
-                        {
-                            Telemetry.Event(TelemetryEvents.FlaggedItem);
-                        }
                     }
                 }
             }
