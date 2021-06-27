@@ -106,8 +106,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows
 
         public static void ForceToForeground(Window window)
         {
-            IntPtr hWnd = window.GetHandle();
-            ShellUtilities.ForceToForeground(hWnd);
+			window.Activate();
         }
 
         public static int GetIndexOfScreenContaining(Window window)
