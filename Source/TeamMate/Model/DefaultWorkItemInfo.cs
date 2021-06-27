@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 
 namespace Microsoft.Tools.TeamMate.Model
 {

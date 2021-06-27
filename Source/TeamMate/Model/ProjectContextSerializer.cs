@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Collections;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
 using Microsoft.Tools.TeamMate.Model.Settings;

@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System;
 using System.Collections.Generic;

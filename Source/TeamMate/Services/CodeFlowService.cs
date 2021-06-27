@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Platform.CodeFlow;
 using System;
 using System.Threading.Tasks;
 

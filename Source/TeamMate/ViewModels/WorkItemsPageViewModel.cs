@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Converters;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Converters;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;

@@ -1,4 +1,7 @@
-﻿using System.Windows.Data;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Windows.Data;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {

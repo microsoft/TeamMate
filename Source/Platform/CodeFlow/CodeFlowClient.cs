@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Project;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Review;

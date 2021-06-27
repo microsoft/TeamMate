@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Shell;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Collections.Generic;

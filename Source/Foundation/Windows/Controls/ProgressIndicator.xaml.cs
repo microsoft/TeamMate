@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Animation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Animation;
 using System.Windows;
 using System.Windows.Media.Animation;
 

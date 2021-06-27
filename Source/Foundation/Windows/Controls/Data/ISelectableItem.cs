@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
 {
     /// <summary>
     /// Represents an item that can be selected from a list.

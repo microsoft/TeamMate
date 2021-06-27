@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 

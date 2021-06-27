@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 
 namespace Microsoft.Tools.TeamMate.Sandbox.Wpf.Tiles
 {

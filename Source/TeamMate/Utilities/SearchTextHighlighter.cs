@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Documents;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Windows.Documents;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;

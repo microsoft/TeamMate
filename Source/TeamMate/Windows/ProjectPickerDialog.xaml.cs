@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.TeamFoundation.Core.WebApi;
 using System.Linq;
 using System.Windows;

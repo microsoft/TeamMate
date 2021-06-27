@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Services;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.ViewModels;
 using SimpleInjector;
 using System.Threading.Tasks;

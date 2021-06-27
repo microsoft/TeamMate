@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Win32;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;

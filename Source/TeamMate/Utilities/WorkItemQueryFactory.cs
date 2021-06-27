@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System.Collections.Generic;
 
 namespace Microsoft.Tools.TeamMate.Utilities

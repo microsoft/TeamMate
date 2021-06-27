@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;

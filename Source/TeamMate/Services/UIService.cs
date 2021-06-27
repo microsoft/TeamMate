@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Controls;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Controls;
 using Microsoft.Tools.TeamMate.Exceptions;
 using Microsoft.Tools.TeamMate.Foundation.Collections;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;

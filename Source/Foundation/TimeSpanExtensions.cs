@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Resources;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Resources;
 using System;
 using System.Diagnostics;
 using System.Globalization;

@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.Tools.TeamMate.ViewModels;

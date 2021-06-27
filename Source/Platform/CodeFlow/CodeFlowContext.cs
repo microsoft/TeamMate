@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
 using System;
 
 namespace Microsoft.Tools.TeamMate.Platform.CodeFlow

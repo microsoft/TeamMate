@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Reflection;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using System;
 using System.Globalization;
 

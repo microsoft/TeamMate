@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {

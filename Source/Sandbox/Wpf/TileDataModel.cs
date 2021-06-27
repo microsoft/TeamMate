@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 {
     public class TileDataModel
     {

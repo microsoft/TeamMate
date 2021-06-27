@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.IO.Packaging;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.IO.Packaging;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Collections.Generic;

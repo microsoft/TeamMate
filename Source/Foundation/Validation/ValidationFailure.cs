@@ -1,4 +1,7 @@
-﻿
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+
 namespace Microsoft.Tools.TeamMate.Foundation.Validation
 {
     public class ValidationFailure

@@ -1,4 +1,7 @@
-﻿using Microsoft.TeamFoundation.Core.WebApi;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.TeamFoundation.Core.WebApi;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;

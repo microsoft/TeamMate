@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 

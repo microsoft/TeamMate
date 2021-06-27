@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
 {
     public enum Symbol
     {

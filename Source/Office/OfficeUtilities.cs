@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Runtime.InteropServices;
 using System;
 
 namespace Microsoft.Tools.TeamMate.Utilities

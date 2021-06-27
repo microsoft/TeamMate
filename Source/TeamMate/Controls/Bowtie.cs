@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Controls
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Controls
 {
     // See https://github.com/jimlamb/Bowtie for source.
     // See https://codepen.io/jimlamb/full/epVOBK for a rendering of all font icons.

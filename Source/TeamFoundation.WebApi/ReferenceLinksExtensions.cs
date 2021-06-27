@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.Services.WebApi;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.VisualStudio.Services.WebApi;
 
 namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
 {

@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Validation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Validation;
 using System;
 using System.Collections;
 using System.ComponentModel;

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 using System;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;

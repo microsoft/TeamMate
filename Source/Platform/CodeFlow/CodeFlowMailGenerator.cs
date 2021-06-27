@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Office.Outlook;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Resources;

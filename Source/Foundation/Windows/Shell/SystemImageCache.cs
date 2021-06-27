@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Native;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Tools.TeamMate.Foundation.Win32;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using System;

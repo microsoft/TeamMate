@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.Services.WebApi;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.VisualStudio.Services.WebApi;
 using Microsoft.VisualStudio.Services.WebApi.Location;
 using System;
 using System.Threading;

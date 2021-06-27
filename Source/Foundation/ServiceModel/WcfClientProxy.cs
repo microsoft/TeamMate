@@ -1,4 +1,7 @@
-﻿using System;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
 using System.ServiceModel;
 
 namespace Microsoft.Tools.TeamMate.Foundation.ServiceModel

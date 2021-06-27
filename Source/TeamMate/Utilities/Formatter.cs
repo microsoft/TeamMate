@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation;
 using System;
 
 namespace Microsoft.Tools.TeamMate.Utilities

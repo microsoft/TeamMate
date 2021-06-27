@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Threading.Tasks;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Preview
 {

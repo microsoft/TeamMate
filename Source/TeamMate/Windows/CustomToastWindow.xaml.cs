@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Input;

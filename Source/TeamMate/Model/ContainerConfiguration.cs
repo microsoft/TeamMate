@@ -1,4 +1,7 @@
-﻿using SimpleInjector;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using SimpleInjector;
 using SimpleInjector.Advanced;
 using System;
 using System.Collections.Generic;

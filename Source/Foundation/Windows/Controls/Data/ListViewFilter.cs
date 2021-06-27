@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data

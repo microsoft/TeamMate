@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Foundation.CommandLine
 {
     public interface ICommand
     {

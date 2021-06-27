@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Model;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Model;
 using System.Collections.Generic;
 
 namespace Microsoft.Tools.TeamMate.Services

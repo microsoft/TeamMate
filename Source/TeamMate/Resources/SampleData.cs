@@ -1,4 +1,7 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.ViewModels;

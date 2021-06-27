@@ -1,4 +1,7 @@
-﻿namespace Microsoft.Tools.TeamMate.Model
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.Tools.TeamMate.Model
 {
     public class WorkItemQuerySelection
     {
