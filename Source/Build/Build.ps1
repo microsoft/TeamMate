@@ -12,7 +12,7 @@
  If true, generates a new version and updates source files with that value
 
  .PARAMETER build
- If true, performs a build.
+ If true, performs a build. 
 
 #>
 
