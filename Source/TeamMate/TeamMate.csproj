@@ -1133,21 +1133,8 @@
   <Target Name="BeforeBuild">
     <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
   </Target>
-  <Target Name="AfterPublish">
-    <Exec Command="powershell.exe -NonInteractive -ExecutionPolicy Unrestricted $(BuildScripts)\UpdateClickOnce.ps1 $(PublishDir) $(CustomManifestFile) $(ManifestKeyFile)" Condition="'$(Publish)|$(Resign)' == 'true|true' " />
-  </Target>
-  <Target Name="Upload">
-    <ItemGroup>
-      <ApplicationFile Include="$(PublishDir)Application Files\**\*.*" />
-      <SetupFile Include="$(PublishDir)*.*" />
-    </ItemGroup>
-    <Error Condition="!Exists($(PublishDir))" Text="$(PublishDir) was not found, make sure the project and ClickOnce has been built." />
-    <Error Condition=" $(InstallUrl) == '' " Text="The InstallUrl property was not defined. Make sure that the project is being built with the right settings." />
-    <!-- First copy the application files and then update the setup files. Order matters! -->
-    <Message Importance="high" Text="Copying files from $(PublishDir) to $(InstallUrl)" />
-    <Copy SourceFiles="@(ApplicationFile)" DestinationFiles="@(ApplicationFile->'$(InstallUrl)\Application Files\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(SetupFile)" DestinationFolder="$(InstallUrl)" />
-  </Target>
+  <Target Name="AfterPublish"/>
+  <Target Name="Upload"/>
   <PropertyGroup>
     <CleanDependsOn>
       $(CleanDependsOn);
