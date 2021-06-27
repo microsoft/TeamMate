@@ -1,12 +1,6 @@
 <!--
-***********************************************************************************************
-Microsoft.Tools.TeamMate.targets
-
-This file defines the custom variables and steps in the standard build process for TeamMate
-C# .NET projects.
-
 Copyright (C) Microsoft Corporation. All rights reserved.
-***********************************************************************************************
+Licensed under the MIT License.
 -->
 
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
