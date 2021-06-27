@@ -4,9 +4,6 @@
 
     <!--  Unfortunately we need a regular flavor and a RadContextMenu flavor of the same menu, keep these in sync  -->
     <ContextMenu x:Key="FeedbackMenu">
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendASmile}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendAFrown}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.VoteOnFeatures}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.SuggestFeature}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.ReportBug}" Style="{DynamicResource CommandMenuItemStyle}" />

@@ -287,7 +287,6 @@ namespace Microsoft.Tools.TeamMate.Services
                 case ToastActivationAction.OpenCodeFlowReview:
                     // TODO: Would be cool to find the CodeFlowReviewViewModel and mark it as read here...
                     Process.Start(activationInfo.CodeFlowReview.LaunchClientUri.AbsoluteUri);
-                    Telemetry.Event(TelemetryEvents.CodeFlowReviewOpened);
                     break;
 
                 default:

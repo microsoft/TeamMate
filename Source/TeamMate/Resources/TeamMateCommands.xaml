@@ -30,12 +30,6 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <fwi:UICommand x:Key="NavigateToNewsPageCommand" Text="News">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Alt+4</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
     <fwi:UICommand x:Key="SendFeedbackToolBarCommand"
                    SymbolIcon="Emoji2"
                    Text="Send Feedback">
@@ -43,8 +37,6 @@
             <KeyGesture>Alt+5</KeyGesture>
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
-
-    <fwi:UICommand x:Key="NavigateToUpdatesAvailablePageCommand" Text="Updates Available" />
 
     <fwi:UICommand x:Key="NavigateToDeveloperOptionsPageCommand"
                    SymbolIcon="Developer"
@@ -416,14 +408,6 @@
     <c:RoutedUICommand x:Key="RestartCommand" Text="_Restart" />
 
     <!--  Global Commands  -->
-
-    <fwi:UICommand x:Key="SendASmileCommand"
-                   Icon="/Resources/Icons/Office15/SendASmile.16x16x32.png"
-                   Text="Send a Smile..." />
-
-    <fwi:UICommand x:Key="SendAFrownCommand"
-                   Icon="/Resources/Icons/Office15/SendAFrown.16x16x32.png"
-                   Text="Send a Frown..." />
 
     <fwi:UICommand x:Key="VoteOnFeaturesCommand" Text="Vote on Features" />
 

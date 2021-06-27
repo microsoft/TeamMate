@@ -30,7 +30,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public SettingsPageViewModel()
         {
             this.Title = "Settings";
-            this.ViewPrivacyStatementCommand = new RelayCommand(ViewPrivacyStatemenet);
             this.OpenLogsFolderCommand = new RelayCommand(OpenLogsFolder);
         }
 
@@ -53,17 +52,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public ExternalWebBrowserService ExternalWebBrowserService { get; set; }
 
-
-        public void ViewPrivacyStatemenet()
-        {
-            this.ExternalWebBrowserService.ViewPrivacyStatemenet();
-        }
-
         public ICommand OpenLogsFolderCommand { get; private set; }
-
-        public ICommand ViewPrivacyStatementCommand { get; private set; }
-
-        public ICommand CheckForUpdatesCommand { get; private set; }
 
         public string LogsFolder
         {

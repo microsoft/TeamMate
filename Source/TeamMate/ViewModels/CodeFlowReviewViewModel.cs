@@ -146,27 +146,17 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             Process.Start(GetLaunchClientUri().AbsoluteUri);
             this.IsRead = true;
-
-            Telemetry.Event(TelemetryEvents.CodeFlowReviewOpened);
         }
 
         public void OpenInVisualStudio()
         {
             Process.Start(GetLaunchVisualStudioUri().AbsoluteUri);
             this.IsRead = true;
-
-            Telemetry.Event(TelemetryEvents.CodeFlowReviewOpened, new TelemetryEventProperties() {
-                { TelemetryEvents.Properties.InVisualStudio, true }
-            });
         }
 
         public void OpenInWebBrowser()
         {
             ExternalWebBrowser.Launch(GetWebViewUri());
-
-            Telemetry.Event(TelemetryEvents.CodeFlowReviewOpened, new TelemetryEventProperties() {
-                { TelemetryEvents.Properties.InWebBrowser, true }
-            });
         }
 
         private static async Task<UserEntry> TryGetDomainUserEntry(string authorAccountName)

@@ -57,7 +57,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             settingsElement.ReadElementValue<bool>(Schema.PlayNotificationSound, (value) => settings.PlayNotificationSound = value);
             settingsElement.ReadElementValue<TimeSpan>(Schema.RefreshInterval, (value) => settings.RefreshInterval = value < ApplicationSettings.MinimumRefreshInterval ? ApplicationSettings.MinimumRefreshInterval : value);
             settingsElement.ReadElementValue<bool>(Schema.SearchIdsAutomatically, (value) => settings.SearchIdsAutomatically = value);
-            settingsElement.ReadElementValue<bool>(Schema.SendAnonymousUsageData, (value) => settings.SendAnonymousUsageData = value);
             settingsElement.ReadElementValue<bool>(Schema.ShowCountdown, (value) => settings.ShowCountdown = value);
 
             settingsElement.ReadElementValue<bool>(Schema.ShowItemCountInNotificationArea, (value) => settings.ShowItemCountInNotificationArea = value);
@@ -143,7 +142,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             e.SetElementValue<KeyGesture>(Schema.QuickSearchGesture, settings.QuickSearchGesture);
             e.SetElementValue<KeyGesture>(Schema.ToggleMainWindowGesture, settings.ToggleMainWindowGesture);
             e.SetElementValue<bool>(Schema.SearchIdsAutomatically, settings.SearchIdsAutomatically);
-            e.SetElementValue<bool>(Schema.SendAnonymousUsageData, settings.SendAnonymousUsageData);
             e.SetElementValue<bool>(Schema.ShowCountdown, settings.ShowCountdown);
 
             e.SetElementValue<bool>(Schema.ShowItemCountInNotificationArea, settings.ShowItemCountInNotificationArea);
@@ -284,7 +282,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
 
             public static readonly XName RefreshInterval = "RefreshInterval";
             public static readonly XName SearchIdsAutomatically = "SearchIdsAutomatically";
-            public static readonly XName SendAnonymousUsageData = "SendAnonymousUsageData";
 
             public static readonly XName VolatileSettings = "VolatileSettings";
             public static readonly XName Windows = "Windows";

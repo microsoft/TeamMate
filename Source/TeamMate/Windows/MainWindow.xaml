@@ -111,11 +111,6 @@
                         <tmc:BowtieIcon Symbol="ProjectCollection"/>
                     </fwc:SplitViewButton.Icon>
                 </fwc:SplitViewButton>
-                <fwc:SplitViewButton Command="{x:Static tmr:TeamMateCommands.NavigateToNewsPage}" Style="{StaticResource SplitViewNavigationButtonStyle}">
-                    <fwc:SplitViewButton.Icon>
-                        <tmc:MsnIcon Symbol="News"/>
-                    </fwc:SplitViewButton.Icon>
-                </fwc:SplitViewButton>
                 <fwc:SplitViewButton x:Name="feedbackButton"
                                      Command="{x:Static tmr:TeamMateCommands.SendFeedbackToolBar}"
                                      Style="{StaticResource SplitViewNavigationButtonStyle}" />

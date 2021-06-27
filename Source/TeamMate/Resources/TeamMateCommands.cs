@@ -63,8 +63,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand SendEmailForQuery { get { return commands.FindResource(); } }
         public static ICommand ReplyAllInQueryWithEmail { get { return commands.FindResource(); } }
 
-        public static ICommand SendASmile { get { return commands.FindResource(); } }
-        public static ICommand SendAFrown { get { return commands.FindResource(); } }
         public static ICommand ConnectToProject { get { return commands.FindResource(); } }
         public static ICommand VoteOnFeatures { get { return commands.FindResource(); } }
         public static ICommand SuggestFeature { get { return commands.FindResource(); } }
@@ -93,8 +91,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand NavigateToProjectsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToSettingsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToDeveloperOptionsPage { get { return commands.FindResource(); } }
-        public static ICommand NavigateToUpdatesAvailablePage { get { return commands.FindResource(); } }
-        public static ICommand NavigateToNewsPage { get { return commands.FindResource(); } }
         public static ICommand SendFeedbackToolBar { get { return commands.FindResource(); } }
 
         public static ICommand MarkAsRead { get { return commands.FindResource(); } }

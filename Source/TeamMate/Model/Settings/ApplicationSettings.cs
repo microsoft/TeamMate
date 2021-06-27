@@ -25,7 +25,7 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         private ObservableCollection<ProjectInfo> projects = new ObservableCollection<ProjectInfo>();
 
         public event EventHandler IsTracingEnabledChanged;
-        public event EventHandler SendAnonymousUsageDataChanged;
+
         public event EventHandler LaunchOnStartupChanged;
         public event EventHandler<ProjectsRemovedEventArgs> ProjectsRemoved;
 
@@ -54,7 +54,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             this.RefreshInterval = ApplicationSettings.DefaultRefreshInterval;
 
             this.SearchIdsAutomatically = true;
-            this.SendAnonymousUsageData = true;
         }
 
         public bool LaunchOnStartup
@@ -139,20 +138,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         {
             get { return this.searchIdsAutomatically; }
             set { SetProperty(ref this.searchIdsAutomatically, value); }
-        }
-
-        private bool sendAnonymousUsageData;
-
-        public bool SendAnonymousUsageData
-        {
-            get { return this.sendAnonymousUsageData; }
-            set
-            {
-                if (SetProperty(ref this.sendAnonymousUsageData, value))
-                {
-                    SendAnonymousUsageDataChanged?.Invoke(this, EventArgs.Empty);
-                }
-            }
         }
 
         private bool showCountdown;
