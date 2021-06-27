@@ -45,11 +45,6 @@ namespace Microsoft.Tools.TeamMate.Services
             ExternalWebBrowser.Launch(TeamMateApplicationInfo.RatingUrl);
         }
 
-        public void LaunchNewsPage()
-        {
-            ExternalWebBrowser.Launch(TeamMateApplicationInfo.BlogUrl);
-        }
-
         public void LaunchLegacyTfsSupportDropped()
         {
             ExternalWebBrowser.Launch(TeamMateApplicationInfo.LegacyTfsSupportDroppedUrl);
