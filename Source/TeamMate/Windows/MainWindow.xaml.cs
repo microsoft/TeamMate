@@ -58,14 +58,6 @@ namespace Microsoft.Tools.TeamMate.Windows
             }
         }
 
-        private void ShowSendFeedbackContextMenu()
-        {
-            ContextMenu contextMenu = this.FindResource<ContextMenu>("FeedbackMenu");
-            contextMenu.PlacementTarget = this.feedbackButton;
-            contextMenu.Placement = PlacementMode.Right;
-            contextMenu.IsOpen = true;
-        }
-
         private void HandleDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             var oldModel = e.OldValue as MainWindowViewModel;
@@ -182,7 +174,6 @@ namespace Microsoft.Tools.TeamMate.Windows
         private void RegisterBindings()
         {
             this.CommandBindings.Add(TeamMateCommands.Hamburger, this.ToggleToolBarWidth);
-            this.CommandBindings.Add(TeamMateCommands.SendFeedbackToolBar, ShowSendFeedbackContextMenu);
 
             RoutedUICommand newItemCommand = new RoutedUICommand();
             newItemCommand.InputGestures.Add(TeamMateGestures.New);

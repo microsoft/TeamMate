@@ -15,8 +15,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.Title = "Developer Options";
             this.ChaosMonkey = new ChaosMonkeyViewModel();
 
-            this.RequestFeedbackCommand = new RelayCommand(RequestFeedback);
-            this.RequestRatingCommand = new RelayCommand(RequestRating);
             this.RunInstallUpgradeConfigurationStepCommand = new RelayCommand(RunInstallUpgradeConfigurationStep);
             this.ShowWelcomeDialogCommand = new RelayCommand(ShowWelcomeDialog);
             this.CrashApplicationCommand = new RelayCommand(CrashApplication);
@@ -41,22 +39,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             throw new ForceCrashException("Force crashed application!");
         }
 
-        public ICommand RequestRatingCommand { get; private set; }
-
-        public void RequestRating()
-        {
-            this.WindowService.ShowRequestRatingDialog();
-        }
-
-        public ICommand RequestFeedbackCommand { get; private set; }
 
         [Import]
         public WindowService WindowService { get; set; }
-
-        public void RequestFeedback()
-        {
-            this.WindowService.ShowRequestFeedbackDialog();
-        }
 
         public ICommand RunInstallUpgradeConfigurationStepCommand { get; private set; }
 

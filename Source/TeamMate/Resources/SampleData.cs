@@ -23,35 +23,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         private static ToastViewModel toastViewModel;
         private static List<WorkItemRowViewModel> listOfWorkItems;
 
-        public static CustomDialogViewModel CustomDialogViewModel
-        {
-            get
-            {
-                CustomDialogViewModel dialogViewModel = new CustomDialogViewModel();
-                dialogViewModel.Title = "We would love to hear from you";
-                dialogViewModel.Message =
-                    "Looks like you've been using TeamMate quite a bit. We could use your feedback. " +
-                    "You can provide it in our Toolbox page by clicking on the Rating section (right-hand side).\n\n" +
-                    " Is this a good time to rate the app?";
-
-                var button = new ButtonInfo("Sure");
-                button.IsDefault = true;
-                dialogViewModel.Buttons.Add(button);
-
-                button = new ButtonInfo("No Thanks");
-                dialogViewModel.Buttons.Add(button);
-
-                button = new ButtonInfo("Maybe Later");
-                button.IsCancel = true;
-                dialogViewModel.Buttons.Add(button);
-
-                dialogViewModel.CheckBoxText = "Do not ask me again";
-                dialogViewModel.IsCheckBoxChecked = true;
-
-                return dialogViewModel;
-            }
-        }
-
         private static CodeFlowReviewViewModel codeFlowReview;
 
         public static CodeFlowReviewViewModel CodeFlowReview

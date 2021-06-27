@@ -378,76 +378,6 @@ namespace Microsoft.Tools.TeamMate.Services
             dialog.ShowDialog();
         }
 
-        public void ShowRequestRatingDialog()
-        {
-            CustomDialogViewModel dialogViewModel = new CustomDialogViewModel();
-            dialogViewModel.Title = "We love feedback";
-            dialogViewModel.Message =
-                "It looks like you've been using TeamMate quite a bit. We could really use your feedback. " +
-                "You can provide it in our Toolbox page, in the Rating section on the right-hand side.\n\n" +
-                "This should only take a couple of clicks. Is this a good time?";
-
-            var yesButton = dialogViewModel.AddDefaultButton("Sure");
-            var noButton = dialogViewModel.AddButton("No Thanks");
-            var laterButton = dialogViewModel.AddCancelButton("Not Now");
-
-            CustomDialog dialog = new CustomDialog();
-            dialog.DataContext = dialogViewModel;
-
-            if (MainWindow.IsVisible)
-            {
-                dialog.Owner = MainWindow;
-            }
-
-            if (dialog.ShowDialog() == true)
-            {
-                if (dialogViewModel.PressedButton == yesButton)
-                {
-                    this.HistoryService.History.LastRated = DateTime.Now;
-                    this.ExternalWebBrowserService.RateApplication();
-                }
-                else if (dialogViewModel.PressedButton == noButton)
-                {
-                    this.HistoryService.History.NotInterestedInRating = true;
-                }
-            }
-        }
-
-        public void ShowRequestFeedbackDialog()
-        {
-            this.HistoryService.History.LastFeedbackProvidedOrPrompted = DateTime.Now;
-
-            CustomDialogViewModel dialogViewModel = new CustomDialogViewModel();
-            dialogViewModel.Title = "We love feedback";
-            dialogViewModel.Message =
-                "Seriously, we use it to prioritize features and make our users happy. " +
-                "Looks like you've been using TeamMate quite a bit, so we would really value your opinion.\n\n" +
-                "Is this a good time?";
-
-            var voteButton = dialogViewModel.AddDefaultButton("Vote on Features");
-            var suggestButton = dialogViewModel.AddButton("Suggest a Feature");
-            var laterButton = dialogViewModel.AddCancelButton("Not Now");
-
-            CustomDialog dialog = new CustomDialog();
-            dialog.DataContext = dialogViewModel;
-
-            if (MainWindow.IsVisible)
-            {
-                dialog.Owner = MainWindow;
-            }
-
-            if (dialog.ShowDialog() == true)
-            {
-                if (dialogViewModel.PressedButton == voteButton)
-                {
-                    this.ExternalWebBrowserService.VoteOnFeatures();
-                }
-                else if (dialogViewModel.PressedButton == suggestButton)
-                {
-                    this.ExternalWebBrowserService.SuggestFeature();
-                }
-            }
-        }
 
         public void MonitorWithProgressDialog(TaskContext taskContext)
         {
@@ -479,43 +409,6 @@ namespace Microsoft.Tools.TeamMate.Services
             this.MainWindowViewModel.Search(e.SearchText, true, true);
         }
 
-
-        public void PeriodicallyRequestFeedback()
-        {
-            var history = this.HistoryService.History;
-
-            if (DateTime.Now > history.NextTimeToRequestFeedback)
-            {
-                history.NextTimeToRequestFeedback += ApplicationHistory.IntervalBetweenFeedbackChecks;
-
-                if (history.HasBeenUsedEnough)
-                {
-                    // Used it enough to rate it...
-                    if (ShouldPromptForRating(history))
-                    {
-                        this.ShowRequestRatingDialog();
-                    }
-                    else if (ShouldPromptForFeedback(history))
-                    {
-                        this.ShowRequestFeedbackDialog();
-                    }
-                }
-            }
-        }
-
-        private static bool ShouldPromptForFeedback(ApplicationHistory history)
-        {
-            // If feedback was never provided, or it was provided a long time ago, ask for it again
-            // TODO: Maybe consider version changes from last time feedback was provided?
-            return !history.NotInterestedInFeedback &&
-                (history.LastFeedbackProvidedOrPrompted == null
-                 || DateTime.Now > (history.LastFeedbackProvidedOrPrompted.Value + ApplicationHistory.IntervalBetweenFeedbackPrompts));
-        }
-
-        private static bool ShouldPromptForRating(ApplicationHistory history)
-        {
-            return !history.RatingEverProvided && !history.NotInterestedInRating;
-        }
 
         public bool RequestShutdown()
         {

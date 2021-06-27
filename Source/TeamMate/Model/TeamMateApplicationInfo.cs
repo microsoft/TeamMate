@@ -8,8 +8,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -28,10 +26,8 @@ namespace Microsoft.Tools.TeamMate.Model
         static TeamMateApplicationInfo()
         {
             ApplicationName = "TeamMate";
-            ApplicationDescription = "An internal tool for managing work items at Microsoft";
+            ApplicationDescription = "A tool for managing work items";
             VersionQualifier = null; // e.g. was "Preview"
-            Author = "Ben Amodio";
-            FeedbackEmail = "teammate@microsoft.com";
 
             // KLUDGE: An AppUserModelId is needed to display Toast Notifications from a Windows Desktop app
             // See https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
@@ -42,31 +38,6 @@ namespace Microsoft.Tools.TeamMate.Model
             //    we use is shown as the application name in the Action Center. Hence, choosing the application name
             //    as the default AppUserModelId no matter what. It works for both scenarios.
             AppUserModelId = ApplicationName;
-
-            // URLs
-            ToolboxHomeUrl = "http://toolbox/TeamMate";
-            RatingUrl = ToolboxHomeUrl;
-            IssueListUrl = "http://aka.ms/teammatevote";
-            ReportBugUrl = "http://aka.ms/teammatebug";
-            SuggestFeatureUrl = "http://aka.ms/teammatefeature";
-            YammerUrl = "https://aka.ms/teammateyammer";
-            BlogUrl = "http://aka.ms/teammateblog";
-
-            // TODO: Update Help Url
-            HelpUrl = ToolboxHomeUrl;
-            LegacyTfsSupportDroppedUrl = "http://aka.ms/teammateoptimizedforvsts";
-        }
-
-        private static void TryEnsureDirectoryExists(string baseFileShare)
-        {
-            try
-            {
-                PathUtilities.EnsureDirectoryExists(baseFileShare);
-            }
-            catch (Exception e)
-            {
-                Log.WarnAndBreak(e);
-            }
         }
 
         public static bool IsDataDirectoryAccessAllowed { get; set; }
@@ -120,8 +91,8 @@ namespace Microsoft.Tools.TeamMate.Model
             }
             else
             {
-                IsUpgrade = (LastVersion != null && LastVersion < Version);
-                IsDowngrade = (LastVersion != null && LastVersion > Version);
+                IsUpgrade = LastVersion != null && LastVersion < Version;
+                IsDowngrade = LastVersion != null && LastVersion > Version;
 
                 if (IsDowngrade)
                 {
@@ -209,7 +180,7 @@ namespace Microsoft.Tools.TeamMate.Model
 
             set
             {
-                if (!Object.Equals(LastVersion, value))
+                if (!Equals(LastVersion, value))
                 {
                     lastVersion = value;
                     if (lastVersion != null)
@@ -283,10 +254,6 @@ namespace Microsoft.Tools.TeamMate.Model
             }
         }
 
-        public static string FeedbackEmail { get; private set; }
-
-        public static string FeedbackFileShare { get; private set; }
-
         public static string DataDirectory
         {
             get
@@ -303,24 +270,6 @@ namespace Microsoft.Tools.TeamMate.Model
                 return Path.Combine(TeamMateApplicationInfo.DataDirectory, "Logs");
             }
         }
-
-        public static string HelpUrl { get; private set; }
-
-        public static string ToolboxHomeUrl { get; private set; }
-
-        public static string RatingUrl { get; private set; }
-
-        public static string IssueListUrl { get; private set; }
-
-        public static string ReportBugUrl { get; private set; }
-
-        public static string SuggestFeatureUrl { get; private set; }
-
-        public static string YammerUrl { get; private set; }
-
-        public static string BlogUrl { get; private set; }
-
-        public static string Author { get; private set; }
 
         public static string InstallPath
         {
@@ -345,7 +294,7 @@ namespace Microsoft.Tools.TeamMate.Model
             {
                 string entryExe = Path.GetFileName(Process.GetCurrentProcess().MainModule.FileName);
                 string teamMateExe = Path.GetFileName(ExePath);
-                return String.Equals(entryExe, teamMateExe, StringComparison.OrdinalIgnoreCase);
+                return string.Equals(entryExe, teamMateExe, StringComparison.OrdinalIgnoreCase);
             }
         }
 
@@ -390,6 +339,5 @@ namespace Microsoft.Tools.TeamMate.Model
             }
         }
 
-        public static string LegacyTfsSupportDroppedUrl { get; private set; }
     }
 }

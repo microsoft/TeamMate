@@ -111,9 +111,6 @@
                         <tmc:BowtieIcon Symbol="ProjectCollection"/>
                     </fwc:SplitViewButton.Icon>
                 </fwc:SplitViewButton>
-                <fwc:SplitViewButton x:Name="feedbackButton"
-                                     Command="{x:Static tmr:TeamMateCommands.SendFeedbackToolBar}"
-                                     Style="{StaticResource SplitViewNavigationButtonStyle}" />
             </StackPanel>
             <Border Grid.Row="2"
                     BorderBrush="#535353"
@@ -169,49 +166,9 @@
               Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Vertical">
-                    <Border Name="updateBanner"
-                        Background="#DEEBF9" Height="48" Padding="6" 
-                            Visibility="{Binding IsUpdateAvailable, Converter={x:Static fw:Converters.Visibility}}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <tmc:BowtieIcon Margin="6" Symbol="StatusInfoOutline" FontSize="16" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" TextTrimming="CharacterEllipsis">
-                            <Run FontWeight="Bold">Update Installed: </Run>
-                            <Run>Restart TeamMate to enjoy the latest features and bug fixes.</Run>
-                            </TextBlock>
-                            <Button Margin="6, 0, 0, 0" Grid.Column="3" Style="{StaticResource WindowsColoredButtonStyle}" Foreground="White" Command="{x:Static tmr:TeamMateCommands.Restart}">Restart Now</Button>
-                        </Grid>
-                    </Border>
-                    <Border Name="deprecationBanner"
-                        Background="#DEEBF9" Height="48" Padding="6"
-                            Visibility="{Binding VolatileSettings.DisplayLegacyTfsSupportDroppedBanner, Converter={x:Static fw:Converters.Visibility}}">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <tmc:BowtieIcon Margin="6" Symbol="StatusInfoOutline" FontSize="16" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource BaseTextBlockStyle}" TextTrimming="CharacterEllipsis">
-                                <Run FontWeight="Bold">Important: </Run>
-                                <Run>TeamMate is now optimized for VSTS and no longer supports older versions of TFS.</Run>
-                                <Hyperlink Command="{Binding DisplayLegacyTfsSupportDroppedBannerCommand}" Style="{StaticResource WindowsHyperlinkStyle}">Learn more</Hyperlink>
-                            </TextBlock>
-                            <StackPanel Grid.Column="3" Orientation="Horizontal">
-                                <Button Margin="6, 0, 0, 0" Style="{StaticResource WindowsColoredButtonStyle}" Foreground="White" Command="{Binding CloseLegacyTfsSupportDroppedBannerCommand}">Close</Button>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </StackPanel>
-                <tmc:NavigationFrame Grid.Row="1" x:Name="navigationFrame" DataContext="{Binding Navigation}" />
+                <tmc:NavigationFrame Grid.Row="0" x:Name="navigationFrame" DataContext="{Binding Navigation}" />
             </Grid>
         </Grid>
     </Grid>

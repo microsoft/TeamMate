@@ -18,11 +18,8 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand About { get { return commands.FindResource(); } }
         public static ICommand Help { get { return commands.FindResource(); } }
 
-        public static ICommand BecomeAContributor{ get { return commands.FindResource(); } }
-
         // Auto Update command
         public static ICommand Restart { get { return commands.FindResource(); } }
-
 
         // Ribbon Comands
         public static ICommand Save { get { return commands.FindResource(); } }
@@ -64,11 +61,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand ReplyAllInQueryWithEmail { get { return commands.FindResource(); } }
 
         public static ICommand ConnectToProject { get { return commands.FindResource(); } }
-        public static ICommand VoteOnFeatures { get { return commands.FindResource(); } }
-        public static ICommand SuggestFeature { get { return commands.FindResource(); } }
-        public static ICommand ReportBug { get { return commands.FindResource(); } }
-        public static ICommand ContactUs { get { return commands.FindResource(); } }
-        public static ICommand YammerUs { get { return commands.FindResource(); } }
 
         public static ICommand OpenAttachment { get { return commands.FindResource(); } }
         public static ICommand SaveAttachmentAs { get { return commands.FindResource(); } }
@@ -91,7 +83,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand NavigateToProjectsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToSettingsPage { get { return commands.FindResource(); } }
         public static ICommand NavigateToDeveloperOptionsPage { get { return commands.FindResource(); } }
-        public static ICommand SendFeedbackToolBar { get { return commands.FindResource(); } }
 
         public static ICommand MarkAsRead { get { return commands.FindResource(); } }
         public static ICommand MarkAsUnread { get { return commands.FindResource(); } }
