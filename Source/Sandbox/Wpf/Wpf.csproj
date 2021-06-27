@@ -822,7 +822,4 @@
     <Resource Include="Resources\Icons\Other\ErrorExclamation_12x12x32_Modified.png" />
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
-  <Target Name="BeforeBuild">
-    <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
-  </Target>
 </Project>

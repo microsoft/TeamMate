@@ -1130,9 +1130,7 @@
     <Resource Include="Resources\Icons\Other\Yammer.32x32x32.png" />
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
-  <Target Name="BeforeBuild">
-    <KillTask ProcessName="$(TargetName)" ContinueOnError="true" />
-  </Target>
+  <Target Name="BeforeBuild"/>
   <Target Name="AfterPublish"/>
   <Target Name="Upload"/>
   <PropertyGroup>

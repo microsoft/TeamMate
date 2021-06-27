@@ -44,6 +44,4 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <OfficeExternalPath>$(ExternalPath)\Office\14.0</OfficeExternalPath>
   </PropertyGroup>
 
-  <UsingTask TaskName="MSBuildTasks.KillTask" AssemblyFile="$(BuildScripts)\Libraries\MSBuildTasks.dll" />
-
 </Project>
