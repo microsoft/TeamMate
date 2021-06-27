@@ -64,8 +64,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand SendEmailForQuery { get { return commands.FindResource(); } }
         public static ICommand ReplyAllInQueryWithEmail { get { return commands.FindResource(); } }
 
-        public static ICommand SendASmile { get { return commands.FindResource(); } }
-        public static ICommand SendAFrown { get { return commands.FindResource(); } }
         public static ICommand ConnectToProject { get { return commands.FindResource(); } }
         public static ICommand VoteOnFeatures { get { return commands.FindResource(); } }
         public static ICommand SuggestFeature { get { return commands.FindResource(); } }

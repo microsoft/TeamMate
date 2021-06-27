@@ -22,9 +22,6 @@ namespace Microsoft.Tools.TeamMate.Services
         public WindowService WindowService { get; set; }
 
         [Import]
-        public TelemetryService TelemetryService { get; set; }
-
-        [Import]
         public UpgradeService UpgradeService { get; set; }
 
         [Import]
@@ -79,9 +76,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
                 // If we got to that point, this is where the serious initialization should begin, another instance was not reactivated
                 ChaosMonkey.IsEnabled = TeamMateApplicationInfo.IsDebugBuild;
-
-                // Initialize telemetry service too 
-                await this.TelemetryService.InitializeAsync();
 
                 // Important to do this as first thing
                 TeamMateApplicationInfo.Initialize();
@@ -216,10 +210,6 @@ namespace Microsoft.Tools.TeamMate.Services
             InvalidateIsTracingEnabled();
             this.SettingsService.Settings.IsTracingEnabledChanged += HandleIsTracingEnabledChanged;
 
-            // Telemetry
-            InvalidateIsTelemetryEnabled();
-            this.SettingsService.Settings.SendAnonymousUsageDataChanged += HandleSendAnonymousUsageDataChanged;
-
             // Services
             this.ConfigurationService.Initialize();
             this.ProjectDataService.Initialize();
@@ -278,16 +268,6 @@ namespace Microsoft.Tools.TeamMate.Services
         private void HandleIsTracingEnabledChanged(object sender, EventArgs e)
         {
             InvalidateIsTracingEnabled();
-        }
-
-        private void InvalidateIsTelemetryEnabled()
-        {
-            this.TelemetryService.IsTelemetryEnabled = this.SettingsService.Settings.SendAnonymousUsageData;
-        }
-
-        private void HandleSendAnonymousUsageDataChanged(object sender, EventArgs e)
-        {
-            InvalidateIsTelemetryEnabled();
         }
 
         private void AutoconnectToLastProject()

@@ -49,10 +49,5 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             ExternalWebBrowser.Launch(TeamMateApplicationInfo.LegacyTfsSupportDroppedUrl);
         }
-
-        public void ViewPrivacyStatemenet()
-        {
-            ExternalWebBrowser.Launch(TeamMateApplicationInfo.PrivacyStatementUrl);
-        }
     }
 }

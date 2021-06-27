@@ -1,6 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Tools.TeamMate.Foundation.Diagnostics.Reports;
-using Microsoft.Tools.TeamMate.Foundation.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
@@ -55,9 +53,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
         [Import]
         public MessageBoxService MessageBoxService { get; set; }
-
-        [Import]
-        public FeedbackService FeedbackService { get; set; }
 
         [Import]
         public TrackingService TrackingService { get; set; }
@@ -136,16 +131,6 @@ namespace Microsoft.Tools.TeamMate.Services
             }
         }
 
-        public void ShowSendASmileDialog(ViewModelBase ownerViewModel = null)
-        {
-            ShowFeedbackDialog(ownerViewModel, FeedbackType.Smile);
-        }
-
-        public void ShowSendAFrownDialog(ViewModelBase ownerViewModel = null)
-        {
-            ShowFeedbackDialog(ownerViewModel, FeedbackType.Frown);
-        }
-
         public bool PromptShouldOpen(ViewModelBase ownerViewModel, int itemCount)
         {
             bool shouldOpen = true;
@@ -198,7 +183,6 @@ namespace Microsoft.Tools.TeamMate.Services
             var url = factory.GetWorkItemUrl(reference.Id);
             ExternalWebBrowser.Launch(url);
 
-            Telemetry.Event(TelemetryEvents.WorkItemOpened);
             this.TrackingService.RecentlyViewed(reference);
             this.HistoryService.History.WorkItemViews++;
         }
@@ -216,7 +200,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
             var url = factory.GetNewWorkItemUrl(typeReference.Name);
             ExternalWebBrowser.Launch(url);
-            Telemetry.Event(TelemetryEvents.WorkItemCreated);
         }
 
         public void ShowNewWorkItemWindow(DefaultWorkItemInfo workItemInfo)
@@ -469,38 +452,6 @@ namespace Microsoft.Tools.TeamMate.Services
         public void MonitorWithProgressDialog(TaskContext taskContext)
         {
             ProgressDialog.Show(taskContext);
-        }
-
-        private async void ShowFeedbackDialog(ViewModelBase ownerViewModel, FeedbackType type)
-        {
-            SendFeedbackDialog window = new SendFeedbackDialog();
-            window.Owner = View.GetWindow(ownerViewModel);
-            window.FeedbackType = type;
-
-            var userInfo = Microsoft.Tools.TeamMate.Model.TeamMateApplicationInfo.UserInfo;
-            if (userInfo != null && !String.IsNullOrEmpty(userInfo.Mail))
-            {
-                window.SetEmail(userInfo.Mail);
-            }
-
-            if (window.ShowDialog() == true)
-            {
-                if (window.FeedbackReport.EmailAddress != null && userInfo != null && !String.IsNullOrEmpty(userInfo.DisplayName))
-                {
-                    // HACK, TODO: This should move somewhere more appropriate
-                    window.FeedbackReport.UserDisplayName = userInfo.DisplayName;
-                }
-
-                try
-                {
-                    await this.FeedbackService.SendFeedbackAsync(window.FeedbackReport);
-                }
-                catch (Exception ex)
-                {
-                    Log.Error(ex);
-                    this.MessageBoxService.ShowError("There was an error attempting to send your feedback.");
-                }
-            }
         }
 
         private T FindWindow<T>(Func<T, bool> predicate) where T : Window

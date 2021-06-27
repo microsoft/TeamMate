@@ -1,11 +1,9 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Tools.TeamMate.Foundation.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Actions;
 using Microsoft.Tools.TeamMate.Office.Outlook;
 using Microsoft.Tools.TeamMate.Resources;
-using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.ComponentModel.Composition;
@@ -101,10 +99,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
                         WorkItemReference reference = new WorkItemReference(projectContext.ProjectInfo.ProjectCollectionUri, workItemId);
                         this.WindowService.ShowWorkItemWindow(reference);
-
-                        Telemetry.Event(TelemetryEvents.WorkItemOpenedUsingSearch, new TelemetryEventProperties() {
-                            { TelemetryEvents.Properties.AutoQuickSearch, true }
-                        });
 
                         return;
                     }

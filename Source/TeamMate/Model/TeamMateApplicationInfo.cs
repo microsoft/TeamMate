@@ -24,9 +24,6 @@ namespace Microsoft.Tools.TeamMate.Model
 
         private static bool historyLoaded;
         private static ApplicationHistory history;
-        private static SystemInfo systemInfo;
-
-        public const string HockeyAppId = "5facbd5f1a6441ae87a28da827a9338f";
 
         static TeamMateApplicationInfo()
         {
@@ -57,7 +54,6 @@ namespace Microsoft.Tools.TeamMate.Model
 
             // TODO: Update Help Url
             HelpUrl = ToolboxHomeUrl;
-            PrivacyStatementUrl = "http://aka.ms/teammateprivacy";
             LegacyTfsSupportDroppedUrl = "http://aka.ms/teammateoptimizedforvsts";
         }
 
@@ -71,16 +67,6 @@ namespace Microsoft.Tools.TeamMate.Model
             {
                 Log.WarnAndBreak(e);
             }
-        }
-
-        public static async Task<SystemInfo> GetSystemInfoAsync()
-        {
-            if (systemInfo == null)
-            {
-                systemInfo = await Task.Run(() => SystemInfo.Capture());
-            }
-
-            return systemInfo;
         }
 
         public static bool IsDataDirectoryAccessAllowed { get; set; }
@@ -301,8 +287,6 @@ namespace Microsoft.Tools.TeamMate.Model
 
         public static string FeedbackFileShare { get; private set; }
 
-        public static string TelemetryFileShare { get; private set; }
-
         public static string DataDirectory
         {
             get
@@ -331,8 +315,6 @@ namespace Microsoft.Tools.TeamMate.Model
         public static string ReportBugUrl { get; private set; }
 
         public static string SuggestFeatureUrl { get; private set; }
-
-        public static string PrivacyStatementUrl { get; private set; }
 
         public static string YammerUrl { get; private set; }
 
@@ -409,17 +391,5 @@ namespace Microsoft.Tools.TeamMate.Model
         }
 
         public static string LegacyTfsSupportDroppedUrl { get; private set; }
-
-        private static Guid GetAnonymousUserId()
-        {
-            string username = String.Format("{0}\\{1}", Environment.UserDomainName, Environment.UserName);
-            username = username.ToLowerInvariant();
-            HashAlgorithm hashAlgorithm = new SHA256Managed();
-            byte[] hash = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(username));
-            byte[] first16 = new byte[16];
-            Array.Copy(hash, first16, first16.Length);
-            Guid guid = new Guid(first16);
-            return guid;
-        }
     }
 }

@@ -92,8 +92,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public void ApplyTextFilter(string filterText)
         {
-            bool wasFiltering = (this.reviews.SearchFilter != null);
-
             SearchExpression expression = SearchExpression.Parse(filterText);
             Predicate<object> searchFilter = (!expression.IsEmpty) ? expression.Matches : (Predicate<object>)null;
             this.reviews.SearchFilter = searchFilter;
@@ -101,11 +99,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             if (searchFilter != null)
             {
                 TextFilterApplied?.Invoke(this, expression);
-
-                if (!wasFiltering)
-                {
-                    Telemetry.Event(TelemetryEvents.FilterApplied);
-                }
             }
         }
 
@@ -286,10 +279,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             if (!result)
             {
                 this.MessageBoxService.Show(this, "There are no incomplete reviews to send a reminder for.");
-            }
-            else
-            {
-                Telemetry.Event(TelemetryEvents.CodeFlowSendReminderEmail);
             }
         }
 
