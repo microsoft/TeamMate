@@ -14,7 +14,7 @@ jobs:
         fetch-depth: 1
 
     - name: Setup MSBuild.exe
-      uses: warrenbuckley/Setup-MSBuild@v1
+      uses: microsoft/Setup-MSBuild@v1.0.2
 
     - name: MSBuild
       run: msbuild .\Sources\TeamMate\TeamMate.csproj -p:OutDir="out/"
