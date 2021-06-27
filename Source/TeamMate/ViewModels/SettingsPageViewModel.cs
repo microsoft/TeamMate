@@ -63,8 +63,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public ICommand ViewPrivacyStatementCommand { get; private set; }
 
-        public ICommand CheckForUpdatesCommand { get; private set; }
-
         public string LogsFolder
         {
             get
