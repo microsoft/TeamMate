@@ -121,30 +121,6 @@ namespace Microsoft.Tools.TeamMate.Services
             Telemetry.Event(TelemetryEvents.WorkItemCollectionReplyAllWithMail);
         }
 
-        public void SearchInOutlook(WorkItem workItem)
-        {
-            Assert.ParamIsNotNull(workItem, "workItem");
-
-            string searchText = workItem.Id.ToString();
-            string cleanTitle = workItem.Title().Replace("\"", "").Trim();
-            if (!String.IsNullOrEmpty(cleanTitle))
-            {
-                searchText += " OR \"" + cleanTitle + "\"";
-            }
-
-            bool searchAllItems = this.SettingsService.Settings.SearchAllInOutlook;
-
-            try
-            {
-                OutlookService.SearchOutlookInbox(searchText, searchAllItems);
-                Telemetry.Event(TelemetryEvents.WorkItemSearchInOutlook);
-            }
-            catch (OutlookException e)
-            {
-                this.MessageBoxService.ShowError(e);
-            }
-        }
-
         public void Dispose()
         {
             if (this.tempDirectory != null)

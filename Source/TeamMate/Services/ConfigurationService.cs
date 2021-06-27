@@ -2,7 +2,6 @@
 using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Settings;
-using Microsoft.Tools.TeamMate.Office.AddIns;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel.Composition;
@@ -16,7 +15,6 @@ namespace Microsoft.Tools.TeamMate.Services
         public void Initialize()
         {
             Settings.LaunchOnStartupChanged += HandleLaunchOnStartupChanged;
-            Settings.EnableOfficeAddInsChanged += HandleEnableOfficeAddInsChanged;
         }
 
         public void Configure(bool force = false)
@@ -67,19 +65,6 @@ namespace Microsoft.Tools.TeamMate.Services
             string commandLine = String.Format("\"{0}\" {1}", TeamMateApplicationInfo.ExePath, CommandLineService.GetArgsForAutostart());
             ApplicationRegistrationServices.SetRunOnStartup(TeamMateApplicationInfo.ApplicationName, commandLine, launchOnStartup);
         }
-
-        public void RegisterOfficeAddIns()
-        {
-            AddInInstaller installer = new AddInInstaller();
-            installer.InstallAddIns();
-        }
-
-        public void UnregisterOfficeAddIns()
-        {
-            AddInInstaller installer = new AddInInstaller();
-            installer.UninstallAddIns();
-        }
-
         public void Install()
         {
             try
@@ -98,18 +83,6 @@ namespace Microsoft.Tools.TeamMate.Services
                 if (settings.LaunchOnStartup)
                 {
                     SetLaunchOnStartup(settings.LaunchOnStartup);
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Error(e);
-            }
-
-            try
-            {
-                if (settings.EnableOfficeAddIns)
-                {
-                    RegisterOfficeAddIns();
                 }
             }
             catch (Exception e)
@@ -158,20 +131,7 @@ namespace Microsoft.Tools.TeamMate.Services
         public void Uninstall()
         {
             UnregisterApplication();
-            UnregisterOfficeAddIns();
             SetLaunchOnStartup(false);
-        }
-
-        private void HandleEnableOfficeAddInsChanged(object sender, EventArgs e)
-        {
-            if (Settings.EnableOfficeAddIns)
-            {
-                RegisterOfficeAddIns();
-            }
-            else
-            {
-                UnregisterOfficeAddIns();
-            }
         }
 
         private void HandleLaunchOnStartupChanged(object sender, EventArgs e)
