@@ -39,10 +39,6 @@ namespace Microsoft.Tools.TeamMate.Sandbox.Wpf
 
 
 
-            // Int32Rect bounds;
-            // ScreenCapture.SelectScreenBounds(out bounds);
-
-
             Window window;
             // window = new CodeFlowReviews();
 

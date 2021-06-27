@@ -620,8 +620,6 @@
     <Resource Include="Resources\Icons\Office15\JotInsertAudioRecordingShort.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\JotInsertVideoRecordingShort.32x32x32.png" />
-    <Resource Include="Resources\Icons\Office15\JotScreenCapture.16x16x32.png" />
-    <Resource Include="Resources\Icons\Office15\JotScreenCapture.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.32x32x32.png" />
     <Resource Include="Resources\Icons\Office15\LevelingOptions.48x48x32.png" />
