@@ -2,7 +2,7 @@ name: MSBuild
 on:
   push:
     branches:
-      - marcusm/*
+      - marcusm/test
 jobs:
   build:
     name: MSBuild
