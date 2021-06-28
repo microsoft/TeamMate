@@ -51,9 +51,6 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client">
       <Version>5.2.2</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.TeamFoundation.DistributedTask.Common">
-      <Version>15.112.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.TeamFoundationServer.Client">
       <Version>15.112.1</Version>
     </PackageReference>
