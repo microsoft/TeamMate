@@ -38,21 +38,6 @@
     </Compile>
     <Compile Include="Kudos\KudosUriBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\CodeBox.Directory\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\CodeBox.UserEvent\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\CodeBox.Wiki\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\CodeFlow.Dashboard\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,11 +63,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CodeBox.Release\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -92,9 +72,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\CodeBox.Directory\DirectoryService.wsdl" />
-    <None Include="Service References\CodeBox.UserEvent\UserEventService.wsdl" />
-    <None Include="Service References\CodeBox.Wiki\WikiService.wsdl" />
     <None Include="Service References\CodeFlow.Dashboard\Dashboard.wsdl" />
     <None Include="Service References\CodeFlow.Dashboard\DashboardService.xsd">
       <SubType>Designer</SubType>
@@ -211,18 +188,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Kudos.Domain\KudosDomainService.wsdl" />
-    <None Include="Service References\CodeBox.Release\ReleaseService.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CodeBox.Directory\" />
-    <WCFMetadataStorage Include="Service References\CodeBox.UserEvent\" />
-    <WCFMetadataStorage Include="Service References\CodeBox.Wiki\" />
     <WCFMetadataStorage Include="Service References\CodeFlow.Dashboard\" />
     <WCFMetadataStorage Include="Service References\CodeFlow.Discovery\" />
     <WCFMetadataStorage Include="Service References\CodeFlow.Project\" />
     <WCFMetadataStorage Include="Service References\CodeFlow.Review\" />
     <WCFMetadataStorage Include="Service References\Kudos.Domain\" />
-    <WCFMetadataStorage Include="Service References\CodeBox.Release\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CodeFlow.Dashboard\DashboardService.disco" />
@@ -336,34 +308,6 @@
   <ItemGroup>
     <Content Include="CodeFlow\Resources\ReviewsStylesheet.xslt" />
     <Content Include="CodeFlow\Resources\Samples\Reviews.xml" />
-    <None Include="Service References\CodeBox.UserEvent\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CodeBox.UserEvent\configuration.svcinfo" />
-    <None Include="Service References\CodeBox.UserEvent\configuration91.svcinfo" />
-    <None Include="Service References\CodeBox.UserEvent\UserEventService.disco" />
-    <None Include="Service References\CodeBox.Wiki\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CodeBox.Wiki\configuration.svcinfo" />
-    <None Include="Service References\CodeBox.Wiki\configuration91.svcinfo" />
-    <None Include="Service References\CodeBox.Wiki\WikiService.disco" />
-    <None Include="Service References\CodeBox.Directory\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CodeBox.Directory\configuration.svcinfo" />
-    <None Include="Service References\CodeBox.Directory\configuration91.svcinfo" />
-    <None Include="Service References\CodeBox.Directory\DirectoryService.disco" />
-    <None Include="Service References\CodeBox.Release\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CodeBox.Release\configuration.svcinfo" />
-    <None Include="Service References\CodeBox.Release\configuration91.svcinfo" />
-    <None Include="Service References\CodeBox.Release\ReleaseService.disco" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CodeFlow\Resources\CodeFlowResources.resx">
