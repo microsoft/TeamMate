@@ -34,7 +34,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CodeFlowResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Kudos\KudosUriBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\CodeBox.Directory\Reference.cs">
       <AutoGen>True</AutoGen>
