@@ -53,7 +53,7 @@ namespace Microsoft.Tools.TeamMate.Model
         public string DisplayName
         {
             get { return this.displayName; }
-            private set { SetProperty(ref this.displayName, value); }
+            set { SetProperty(ref this.displayName, value); }
         }
 
         private void InvalidateDisplayName()
