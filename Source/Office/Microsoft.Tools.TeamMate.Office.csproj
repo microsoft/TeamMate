@@ -8,6 +8,9 @@
     <RootNamespace>Microsoft.Tools.TeamMate.Office</RootNamespace>
     <AssemblyName>Microsoft.Tools.TeamMate.Office</AssemblyName>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <RuntimeIdentifier>win</RuntimeIdentifier>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />

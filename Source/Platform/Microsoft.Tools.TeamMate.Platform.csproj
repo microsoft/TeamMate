@@ -7,6 +7,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Tools.TeamMate.Platform</RootNamespace>
     <AssemblyName>Microsoft.Tools.TeamMate.Platform</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -106,6 +108,15 @@
     <None Include="Service References\CodeFlow.Dashboard\DashboardService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewQueryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewIdsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.QueryReviewSummariesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CodeFlow.Dashboard\Microsoft.Tools.TeamMate.Platform.Microsoft.Tools.TeamMate.Platform.CodeFlow.Services.CodeReviewQueryResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -125,6 +136,18 @@
     <None Include="Service References\CodeFlow.Discovery\DiscoveryService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CodeFlow.Discovery\Microsoft.Tools.TeamMate.Platform.CodeFlow.Discovery.Discovery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Project\Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Project\Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.ProjectInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Project\Microsoft.Tools.TeamMate.Platform.CodeFlow.Project.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CodeFlow.Project\ProjectService.wsdl" />
     <None Include="Service References\CodeFlow.Project\ProjectService.xsd">
       <SubType>Designer</SubType>
@@ -140,6 +163,24 @@
     </None>
     <None Include="Service References\CodeFlow.Project\ProjectService4.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodePackage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReview.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CodeReviewSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.Comment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.CommentThread.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CodeFlow.Review\Microsoft.Tools.TeamMate.Platform.CodeFlow.Review.ReviewUpdateCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\CodeFlow.Review\ReviewService.wsdl" />
     <None Include="Service References\CodeFlow.Review\ReviewService.xsd">
@@ -253,6 +294,30 @@
     <None Include="Service References\Kudos.Domain\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosInstance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.KudosWeeklyUsageHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.PersonInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfEmployee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfKudosTeamHistoryReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Kudos.Domain\Microsoft.Tools.TeamMate.Platform.Kudos.Domain.QueryResultOfPicture.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\Kudos.Domain\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
