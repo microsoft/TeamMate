@@ -31,15 +31,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Interop.Outlook">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>$(OfficeExternalPath)\Microsoft.Office.Interop.Outlook.dll</HintPath>
-    </Reference>
     <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369e-0368-4888-b743-b16abae28b1f}</Project>
       <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.Outlook">
+      <Version>15.0.4797.1003</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
 </Project>
