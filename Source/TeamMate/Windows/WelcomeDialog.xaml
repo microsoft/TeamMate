@@ -16,14 +16,8 @@
                 <LineBreak />
                 change them later if you want to.
             </TextBlock>
-            <TextBlock>
-                <Run>• Load existing team projects and settings from Visual Studio.</Run>
-                <LineBreak />
-                <Run>• Enable Outlook integration.</Run>
-                <LineBreak />
-                <Run>• Send anonymous software usage data to help us make TeamMate better.</Run>
-            </TextBlock>
-            <TextBlock Margin="0,24,0,0" FontSize="24">Magic keyboard shortcuts</TextBlock>
+			<TextBlock><Run Text="• Load existing team projects and settings from Visual Studio."/><LineBreak/><Run Text="• Enable Outlook integration."/></TextBlock>
+			<TextBlock Margin="0,24,0,0" FontSize="24">Magic keyboard shortcuts</TextBlock>
             <TextBlock Margin="0,12" Foreground="{StaticResource ApplicationColorBrush}">You might want to learn these, you'll use them all the time.</TextBlock>
             <TextBlock>
                 <Run>•</Run> <Run FontWeight="Bold">WIN + `</Run> <Run>(grave accent, above the Tab key), opens the quick search dialog.</Run>

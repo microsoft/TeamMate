@@ -590,7 +590,6 @@
     <Resource Include="Resources\Fonts\MSNMDL2.ttf" />
     <None Include="Resources\Native\compilerc.bat" />
     <None Include="Resources\Native\TeamMateExe.res" />
-    <None Include="Resources\Native\TeamMateExe_NoManifest.res" />
     <None Include="Resources\Xml\Samples\Settings.xml" />
   </ItemGroup>
   <ItemGroup>

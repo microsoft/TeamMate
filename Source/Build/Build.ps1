@@ -4,7 +4,7 @@
 
  .DESCRIPTION
  This scripts takes care of versioning TeamMate, performing a clean build.
-
+ 
  .PARAMETER debug
  Builds the Debug flavor as opposed to the (default) Relase flavor.
 
@@ -12,7 +12,7 @@
  If true, generates a new version and updates source files with that value
 
  .PARAMETER build
- If true, performs a build.
+ If true, performs a build. 
 
 #>
 
