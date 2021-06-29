@@ -17,6 +17,6 @@ jobs:
       uses: microsoft/Setup-MSBuild@v1.0.2
 
     - name: MSBuild
-      run: msbuild TeamMate.csproj
+      run: msbuild -restore:true TeamMate.csproj
       working-directory: ./Source/TeamMate
       shell: cmd
