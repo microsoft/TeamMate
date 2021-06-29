@@ -12,6 +12,10 @@ namespace Microsoft.Tools.TeamMate.Model
         private void InitializeContainer()
         {
             this.container = new Container();
+
+            // With SimpleInjector v5, the behavior changed to resolve unregistered concrete types is disallowed by default
+            // (See https://simpleinjector.org/ructd). For now, we will restore old behavior.
+            container.Options.ResolveUnregisteredConcreteTypes = true;
             ContainerConfiguration.Configure(this.container);
 
             ViewModelFactory.ViewModelCreator = (viewModelType) => this.container.GetInstance(viewModelType);

@@ -7,7 +7,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Tools.TeamMate.WindowsRuntime</RootNamespace>
     <AssemblyName>Microsoft.Tools.TeamMate.WindowsRuntime</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <!-- Specifying this to support import of WinRT -->
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
