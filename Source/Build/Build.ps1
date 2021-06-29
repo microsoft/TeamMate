@@ -138,7 +138,6 @@ function UpdateBuildVersion($currentVersion, $buildVersion)
 # Script
 ###############################################################################
 
-$msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $scriptFolder = Get-ScriptDirectory;
 $versionFile = "$scriptFolder\version.txt";
 $buildInfoFile = "$scriptFolder\BuildInfo.cs";
@@ -186,7 +185,7 @@ if($build)
     foreach($config in $configs)
     {
         Write-Info "Building $config...";
-        . "$msbuild" "$project" "/p:Configuration=$config" /nologo /v:m /t:rebuild 
+        . "msbuild" "$project" "/p:Configuration=$config" -restore:true /nologo /v:m /t:rebuild 
 
         if($LastExitCode -ne 0 )
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.Services.WebApi;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35,5 +36,5 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
         }
     }
 
-    public delegate Task<IEnumerable<T>> GetPageAsync<T>(int? top, int? skip);
+    public delegate Task<IPagedList<T>> GetPageAsync<T>(int? top, int? skip);
 }
