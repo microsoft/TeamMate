@@ -91,7 +91,6 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
             public const string State = "System.State";
             public const string Tags = "System.Tags";
             public const string TeamProject = "System.TeamProject";
-            public const string TFServer = "System.TFServer";
             public const string Title = "System.Title";
             public const string Watermark = "System.Watermark";
             public const string WorkItemForm = "System.WorkItemForm";
