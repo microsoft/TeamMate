@@ -54,6 +54,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public ICommand OpenLogsFolderCommand { get; private set; }
 
+        public ICommand OpenGitHubProjectUrlCommand => new RelayCommand(() =>
+        {
+            this.ExternalWebBrowserService.OpenGitHubProjectUrl();
+        });
+
         public string LogsFolder
         {
             get

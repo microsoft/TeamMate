@@ -980,14 +980,11 @@
     <Resource Include="Resources\Icons\Office15\Stop.16x16x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Team\Ben.jpg" />
     <Resource Include="Resources\Icons\Bugger\GrayGift.png" />
     <Resource Include="Resources\Icons\Bugger\GreenGift.png" />
     <Resource Include="Resources\Icons\Bugger\RedGift.png" />
     <Resource Include="Resources\Icons\Bugger\YellowGift.png" />
-    <Resource Include="Resources\Images\Team\Justin.jpg" />
     <Resource Include="Resources\Icons\Office15\CheckmarkCompleted.16x16x32.png" />
-    <Resource Include="Resources\Images\Team\ivanv.jpg" />
     <Resource Include="Resources\Icons\QueryPicker\AlertError.16x16x32.png" />
     <Resource Include="Resources\Icons\QueryPicker\FlatQuery_16.png" />
     <Resource Include="Resources\Icons\QueryPicker\FolderClosed_16.png" />

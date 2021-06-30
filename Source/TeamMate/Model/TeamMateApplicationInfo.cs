@@ -23,6 +23,8 @@ namespace Microsoft.Tools.TeamMate.Model
         private static bool historyLoaded;
         private static ApplicationHistory history;
 
+        public static string GitHubProjectUri => "https://github.com/microsoft/TeamMate";
+
         static TeamMateApplicationInfo()
         {
             ApplicationName = "TeamMate";
