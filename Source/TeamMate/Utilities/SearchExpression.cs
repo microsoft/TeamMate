@@ -132,7 +132,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         private Predicate<WorkItemRowViewModel> BuildWorkItemPredicate()
         {
-            // IMPORTANT: Keep in sync with ToTfsWiql
+            // IMPORTANT: Keep in sync with ToVstsWiql
             List<string> plainWords = new List<string>();
             List<Predicate<WorkItemRowViewModel>> predicates = new List<Predicate<WorkItemRowViewModel>>();
             foreach (var token in Tokens)
@@ -196,7 +196,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
             return sb.ToString();
         }
 
-        public string ToTfsWiql()
+        public string ToVstsWiql()
         {
             // IMPORTANT: Keep in sync with BuildWorkItemPredicate
             WorkItemQueryBuilder builder = new WorkItemQueryBuilder();

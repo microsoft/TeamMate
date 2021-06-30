@@ -118,7 +118,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
             try
             {
-                await ChaosMonkey.ChaosAsync(ChaosScenarios.ConnectToTfs);
+                await ChaosMonkey.ChaosAsync(ChaosScenarios.ConnectToVsts);
                 var connection = await this.ConnectAsync(projectInfo.ProjectCollectionUri, cancellationToken);
 
                 WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();

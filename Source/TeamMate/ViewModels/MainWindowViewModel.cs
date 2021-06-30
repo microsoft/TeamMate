@@ -68,7 +68,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             bindings.Add(TeamMateCommands.NavigateToSettingsPage, NavigateToSettingsPage);
 
             bindings.Add(TeamMateCommands.ConnectToProject, ConnectToProject);
-            bindings.Add(TeamMateCommands.RetryConnectToTfs, RetryConnectToTfs);
+            bindings.Add(TeamMateCommands.RetryConnectToVsts, RetryConnectToVsts);
         }
 
         public NavigationViewModel Navigation { get; set; }
@@ -288,7 +288,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             NavigateToProjectsPage(true);
         }
 
-        public async void RetryConnectToTfs()
+        public async void RetryConnectToVsts()
         {
             await this.VstsConnectionService.RetryConnectAsync();
         }

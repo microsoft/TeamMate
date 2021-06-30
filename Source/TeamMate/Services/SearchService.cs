@@ -14,9 +14,7 @@ namespace Microsoft.Tools.TeamMate.Services
 {
     public class SearchService
     {
-        private const int MaxItemsFromTfs = 25;
-
-        public const string TfsSource = "TFS";
+        private const int MaxItemsFromVsts = 25;
 
         [Import]
         public WindowService WindowService { get; set; }
@@ -68,23 +66,23 @@ namespace Microsoft.Tools.TeamMate.Services
             return this.WindowService.MainWindow.ViewModel.HomePage.TileCollection.Tiles.Select(t => t.Query).ToArray();
         }
 
-        public async Task<SearchResults> TfsSearch(SearchExpression searchExpression, CancellationToken cancellationToken)
+        public async Task<SearchResults> VstsSearch(SearchExpression searchExpression, CancellationToken cancellationToken)
         {
             var pc = this.SessionService.Session.ProjectContext;
 
             var query = new WorkItemQuery
             {
                 ProjectName = pc.ProjectName,
-                Wiql = searchExpression.ToTfsWiql(),
+                Wiql = searchExpression.ToVstsWiql(),
                 RequiredFields = pc.RequiredWorkItemFieldNames,
-                MaxItemsToFetch = MaxItemsFromTfs
+                MaxItemsToFetch = MaxItemsFromVsts
             };
 
-            await ChaosMonkey.ChaosAsync(ChaosScenarios.TfsSearch);
+            await ChaosMonkey.ChaosAsync(ChaosScenarios.VstsSearch);
 
             var result = await pc.WorkItemTrackingClient.QueryAsync(query);
             var workItems = result.WorkItems.Select(wi => CreateWorkItemViewModel(wi));
-            var searchResults = workItems.Select(wi => new SearchResult(wi, SearchResultSource.Tfs)).ToArray();
+            var searchResults = workItems.Select(wi => new SearchResult(wi, SearchResultSource.Vsts)).ToArray();
             return new SearchResults(searchResults, result.QueryResult.WorkItems.Count());
         }
 
@@ -134,7 +132,7 @@ namespace Microsoft.Tools.TeamMate.Services
         private QueryViewModelBase source;
         private string sourceName;
 
-        public static readonly SearchResultSource Tfs = new SearchResultSource("TFS");
+        public static readonly SearchResultSource Vsts = new SearchResultSource("VSTS");
 
         public SearchResultSource(QueryViewModelBase source)
         {
@@ -148,7 +146,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         public bool IsLocal
         {
-            get { return this != Tfs; }
+            get { return this != Vsts; }
         }
 
         public int CompareTo(object obj)
@@ -166,7 +164,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         private int GetRanking()
         {
-            if (this == Tfs)
+            if (this == Vsts)
             {
                 return 1;
             }

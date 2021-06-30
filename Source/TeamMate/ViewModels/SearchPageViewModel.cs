@@ -429,8 +429,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 var localSearchTask = searchService.LocalSearch(this.SearchExpression, CancellationToken.None);
                 searchTasks.Add(localSearchTask);
 
-                var tfsSearchTask = searchService.TfsSearch(this.SearchExpression, CancellationToken.None);
-                searchTasks.Add(tfsSearchTask);
+                var vstsSearchTask = searchService.VstsSearch(this.SearchExpression, CancellationToken.None);
+                searchTasks.Add(vstsSearchTask);
                 taskContext.Status = "Searching...";
 
                 while (searchTasks.Any())
