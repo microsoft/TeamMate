@@ -18,7 +18,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <WarningLevel>4</WarningLevel>
     <ErrorReport>prompt</ErrorReport>
     <NoWarn>467;618</NoWarn>
-
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
   </PropertyGroup>
   

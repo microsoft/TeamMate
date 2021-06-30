@@ -185,7 +185,7 @@ if($build)
     foreach($config in $configs)
     {
         Write-Info "Building $config...";
-        . "msbuild" "$project" "/p:Configuration=$config" -restore:true /nologo /v:m /t:rebuild 
+        . "msbuild" "$project" "/p:Configuration=$config" -restore:true /nologo
 
         if($LastExitCode -ne 0 )
         {
