@@ -100,13 +100,5 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             get { return this.overviewWindowWasHiddenBefore; }
             set { SetProperty(ref this.overviewWindowWasHiddenBefore, value); }
         }
-
-        private bool displayLegacyTfsSupportDroppedBanner;
-
-        public bool DisplayLegacyTfsSupportDroppedBanner
-        {
-            get { return this.displayLegacyTfsSupportDroppedBanner; }
-            set { this.SetProperty(ref this.displayLegacyTfsSupportDroppedBanner, value); }
-        }
     }
 }

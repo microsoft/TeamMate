@@ -31,12 +31,6 @@ namespace Microsoft.Tools.TeamMate.Services
         private void Upgrade(Version fromVersion, Version toVersion)
         {
             Log.Info("Executing upgrade from {0} to {1}", fromVersion, toVersion);
-
-            Version versionWhereLegacyTfsSupportWasDropped = new Version("2.1.21006.2");
-            if (fromVersion < versionWhereLegacyTfsSupportWasDropped && toVersion >= versionWhereLegacyTfsSupportWasDropped)
-            {
-                this.ShouldDisplayLegacyTfsSupportDroppedBanner = true;
-            }
         }
 
         public void DowngradeIfNeeded()
@@ -63,7 +57,5 @@ namespace Microsoft.Tools.TeamMate.Services
                 }
             }
         }
-
-        public bool ShouldDisplayLegacyTfsSupportDroppedBanner { get; private set; }
     }
 }

@@ -218,11 +218,6 @@ namespace Microsoft.Tools.TeamMate.Services
             this.BackgroundTaskService.Initialize();
             this.TracingService.Initialize();
 
-            if (this.UpgradeService.ShouldDisplayLegacyTfsSupportDroppedBanner)
-            {
-                this.SettingsService.VolatileSettings.DisplayLegacyTfsSupportDroppedBanner = true;
-            }
-
             // Update Last Run Time (after initializing services)
             var history = this.HistoryService.History;
             DateTime now = DateTime.Now;
