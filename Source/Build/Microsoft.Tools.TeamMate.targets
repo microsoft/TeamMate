@@ -13,11 +13,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
   <PropertyGroup>
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-    <BaseBinOutputPath>bin\</BaseBinOutputPath>
+    <BaseOutputPath>bin\</BaseOutputPath>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
-
-    <OutputPath>$(BaseBinOutputPath)$(Configuration)\</OutputPath>
   </PropertyGroup>
+
+  <Target Name="DeleteBinObjFolders" BeforeTargets="BeforeBuild">
+     <RemoveDir Directories="$(BaseIntermediateOutputPath)\$(Configuration)" />
+     <RemoveDir Directories="$(BaseOutputPath)\$(Configuration)" />
+     <RemoveDir Directories="$(BasePublishOutputPath)\$(Configuration)" />
+  </Target>
 
   <Import Project="Microsoft.Tools.TeamMate.Version.targets" />
 
