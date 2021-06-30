@@ -29,7 +29,7 @@
         <local:ErrorPage Title="Connection Failed"
                          Footer="{Binding ConnectionError.Message}"
                          Message="Please check your network connection or permissions."
-                         RetryCommand="{x:Static tmr:TeamMateCommands.RetryConnectToTfs}"
+                         RetryCommand="{x:Static tmr:TeamMateCommands.RetryConnectToVsts}"
                          Visibility="{Binding IsConnectionFailed,
                                               Converter={x:Static fw:Converters.Visibility}}" />
 

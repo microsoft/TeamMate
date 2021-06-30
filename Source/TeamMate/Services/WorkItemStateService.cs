@@ -5,7 +5,7 @@ namespace Microsoft.Tools.TeamMate.Services
 {
     public class WorkItemStateService
     {
-        // TODO: This has to be smarter and customizable, not hardcoded.
+        // This could be smarter and customizable, not hardcoded.
         private Dictionary<string, WorkItemState> workItemTypeStates = new Dictionary<string, WorkItemState>()
         {
             // Fields from default TFS Service Scrum Template

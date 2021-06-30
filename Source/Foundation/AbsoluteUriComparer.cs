@@ -40,7 +40,7 @@ namespace Microsoft.Tools.TeamMate.Foundation
         /// <returns>The normalized URI string.</returns>
         private string Normalize(Uri uri)
         {
-            // TODO: Match this more closely to TFS AbsoluteURIComparer. E.g. do we need to trim slashes et al?
+            // Match this more closely to VSTS AbsoluteURIComparer? E.g. do we need to trim slashes et al?
             return uri.AbsoluteUri.ToLowerInvariant();
         }
     }

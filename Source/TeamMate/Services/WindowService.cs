@@ -206,34 +206,6 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             ShowNewWorkItemWindow(workItemInfo.WorkItemType);
         }
-
-        /*
-        // TODO: Keeping just in case we need to revert back to using TeamProjectPicker, and re-adding the ExtendedClient TFS Nuget
-        public ICollection<ProjectInfo> ShowLegacyProjectPickerDialog(ViewModelBase ownerViewModel)
-        {
-            List<ProjectInfo> projects = new List<ProjectInfo>();
-            TeamProjectPicker picker = new TeamProjectPicker(TeamProjectPickerMode.MultiProject, false);
-            picker.AcceptButtonText = "Select";
-            picker.Text = "Add one or more Team Projects";
-
-            Window ownerWindow = (ownerViewModel != null) ? View.GetWindow(ownerViewModel) : null;
-            var winFormsOwner = (ownerWindow != null) ? ownerWindow.GetWinFormsWin32Window() : null;
-            var result = (winFormsOwner != null) ? picker.ShowDialog(winFormsOwner) : picker.ShowDialog();
-
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                foreach (var selection in picker.SelectedProjects)
-                {
-                    ProjectReference pr = new ProjectReference(picker.SelectedTeamProjectCollection.Uri, new Uri(selection.Uri));
-                    ProjectInfo pi = new ProjectInfo(pr, selection.Name);
-                    projects.Add(pi);
-                }
-            }
-
-            return projects;
-        }
-        */
-
         public ICollection<ProjectInfo> ShowProjectPickerDialog(ViewModelBase ownerViewModel)
         {
             var viewModel = ViewModelFactory.Create<ProjectPickerDialogViewModel>();

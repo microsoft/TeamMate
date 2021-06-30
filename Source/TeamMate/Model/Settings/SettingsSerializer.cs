@@ -205,7 +205,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             settingsElement.ReadElementValue<bool>(Schema.ShowRecordingBallonTip, (value) => settings.ShowRecordingBallonTip = value);
             settingsElement.ReadElementValue<bool>(Schema.TrayIconReminderWasShown, (value) => settings.TrayIconReminderWasShown = value);
             settingsElement.ReadElementValue<bool>(Schema.OverviewWindowWasHiddenBefore, (value) => settings.OverviewWindowWasHiddenBefore = value);
-            settingsElement.ReadElementValue<bool>(Schema.DisplayLegacyTfsSupportDroppedBanner, (value) => settings.DisplayLegacyTfsSupportDroppedBanner = value);
 
             return settings;
         }
@@ -241,7 +240,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             e.SetElementValue<bool>(Schema.ShowRecordingBallonTip, settings.ShowRecordingBallonTip);
             e.SetElementValue<bool>(Schema.TrayIconReminderWasShown, settings.TrayIconReminderWasShown);
             e.SetElementValue<bool>(Schema.OverviewWindowWasHiddenBefore, settings.OverviewWindowWasHiddenBefore);
-            e.SetElementValue<bool>(Schema.DisplayLegacyTfsSupportDroppedBanner, settings.DisplayLegacyTfsSupportDroppedBanner);
 
             return new XDocument(e);
         }
@@ -292,7 +290,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             public static readonly XName ShowRecordingBallonTip = "ShowRecordingBallonTip";
             public static readonly XName TrayIconReminderWasShown = "TrayIconReminderWasShown";
             public static readonly XName OverviewWindowWasHiddenBefore = "OverviewWindowWasHiddenBefore";
-            public static readonly XName DisplayLegacyTfsSupportDroppedBanner = "DisplayLegacyTfsSupportDroppedBanner";
 
             public static readonly XName ShowItemCountInNotificationArea = "ShowItemCountInNotificationArea";
             public static readonly XName ShowItemCountInOverviewWindow = "ShowItemCountInOverviewWindow";

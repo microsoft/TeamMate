@@ -14,7 +14,7 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 {
     public static class WorkItemTrackingExtensions
     {
-        // MaxWorkItemBatchSize reduced from default value of 200 due to incompatible behavior with TFS
+        // MaxWorkItemBatchSize reduced from default value of 200 due to incompatible behavior with VSTS
         // The work item query string generated for 200 work items would be too long and failed processing
         private const int MaxWorkItemBatchSize = 100;
 

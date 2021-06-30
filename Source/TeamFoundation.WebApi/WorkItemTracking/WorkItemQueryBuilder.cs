@@ -152,8 +152,6 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
         public const string WasEver = "Was Ever";
         public const string Under = "Under";
         public const string NotUnder = "Not Under";
-
-        // Be very careful, only supported in TFS 2012 quarterly update something? Otherwise fall back to plain Contains
         public const string ContainsWords = "Contains Words";
     }
 
