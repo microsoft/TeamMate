@@ -1,5 +1,6 @@
 ﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.VisualStudio.Services.Common;
+using Microsoft.VisualStudio.Services.WebApi;
 using System;
 
 namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
@@ -43,6 +44,18 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
             return result;
         }
 
+        public static string GetIdentityRefField(this WorkItem workItem, string fieldName)
+        {
+            IdentityRef result;
+            workItem.Fields.TryGetValue<IdentityRef>(fieldName, out result);
+            if (result == null)
+            {
+                return null;
+            }
+
+            return result.DisplayName;
+        }
+
         public static bool TryGetField<T>(this WorkItem workItem, string fieldName, out T result)
         {
             return workItem.Fields.TryGetValue(fieldName, out result);
@@ -82,12 +95,12 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 
         public static string AssignedTo(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.CoreFields.AssignedTo);
+            return workItem.GetIdentityRefField(WorkItemConstants.CoreFields.AssignedTo);
         }
 
         public static string ChangedBy(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.CoreFields.ChangedBy);
+            return workItem.GetIdentityRefField(WorkItemConstants.CoreFields.ChangedBy);
         }
 
         public static DateTime? ChangedDate(this WorkItem workItem)
@@ -97,7 +110,7 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 
         public static string CreatedBy(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.CoreFields.CreatedBy);
+            return workItem.GetIdentityRefField(WorkItemConstants.CoreFields.CreatedBy);
         }
 
         public static DateTime? CreatedDate(this WorkItem workItem)
@@ -150,7 +163,7 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 
         public static string ActivatedBy(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.VstsFields.ActivatedBy);
+            return workItem.GetIdentityRefField(WorkItemConstants.VstsFields.ActivatedBy);
         }
 
         public static DateTime? ActivatedDate(this WorkItem workItem)
@@ -160,7 +173,7 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 
         public static string ClosedBy(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.VstsFields.ClosedBy);
+            return workItem.GetIdentityRefField(WorkItemConstants.VstsFields.ClosedBy);
         }
 
         public static DateTime? ClosedDate(this WorkItem workItem)
@@ -181,7 +194,7 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking
 
         public static string ResolvedBy(this WorkItem workItem)
         {
-            return workItem.GetField(WorkItemConstants.VstsFields.ResolvedBy);
+            return workItem.GetIdentityRefField(WorkItemConstants.VstsFields.ResolvedBy);
         }
 
         public static DateTime? ResolvedDate(this WorkItem workItem)
