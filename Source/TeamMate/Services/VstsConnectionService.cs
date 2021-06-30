@@ -120,12 +120,6 @@ namespace Microsoft.Tools.TeamMate.Services
             {
                 await ChaosMonkey.ChaosAsync(ChaosScenarios.ConnectToTfs);
                 var connection = await this.ConnectAsync(projectInfo.ProjectCollectionUri, cancellationToken);
-                var serverVersion = await ServerVersionUtilities.GetVersionAsync(connection, cancellationToken);
-
-                if (serverVersion == ServerVersion.PreTfs2015)
-                {
-                    throw new NotSupportedException("TFS versions prior to 2015 are no longer supported. Sorry.");
-                }
 
                 WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();
                 WorkItemTrackingBatchHttpClient batchWitClient = connection.GetClient<WorkItemTrackingBatchHttpClient>();
@@ -168,7 +162,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemTrackingBatchClient = batchWitClient;
                 projectContext.WorkItemTypes = workItemTypeInfos;
                 projectContext.ProjectInfo = projectInfo;
-                projectContext.HyperlinkFactory = HyperlinkFactory.Create(serverVersion, projectInfo.ProjectCollectionUri, project.Name);
+                projectContext.HyperlinkFactory = new HyperlinkFactory(projectInfo.ProjectCollectionUri, project.Name);
                 projectContext.WorkItemIdentity = workItemIdentity;
                 projectContext.WorkItemFields = fields;
                 projectContext.WorkItemFieldsByName = fields.ToDictionary(f => f.ReferenceName, StringComparer.OrdinalIgnoreCase);

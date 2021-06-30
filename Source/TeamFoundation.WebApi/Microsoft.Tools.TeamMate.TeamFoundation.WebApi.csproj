@@ -31,9 +31,6 @@
     <Compile Include="ReferenceLinksExtensions.cs" />
     <Compile Include="ResourceLocationHttpClient.cs" />
     <Compile Include="HyperlinkFactory.cs" />
-    <Compile Include="ServerVersion.cs" />
-    <Compile Include="Tfs2015HyperlinkFactory.cs" />
-    <Compile Include="VstsHyperlinkFactory.cs" />
     <Compile Include="WorkItemTracking\WorkItemComparer.cs" />
     <Compile Include="WorkItemTracking\WorkItemConstants.cs" />
     <Compile Include="WorkItemTracking\WorkItemExtensions.cs" />
