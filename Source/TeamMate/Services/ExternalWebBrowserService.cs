@@ -9,5 +9,10 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             ExternalWebBrowser.Launch(TeamMateApplicationInfo.GitHubProjectUri);
         }
+
+        public void OpenGitHubMITLicenseUrl()
+        {
+            ExternalWebBrowser.Launch(TeamMateApplicationInfo.GitHubMITLicenseUri);
+        }
     }
 }

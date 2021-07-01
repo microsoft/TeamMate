@@ -97,6 +97,11 @@
                             <Run Text="{x:Static tmm:TeamMateApplicationInfo.GitHubProjectUri}" />
                         </Hyperlink>
                     </TextBlock>
+                    <TextBlock Margin="0,36,0,0">
+                        <Hyperlink Command="{Binding OpenGitHubMITLicenseUrlCommand}">
+                            MIT license
+                        </Hyperlink>
+                    </TextBlock>
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
