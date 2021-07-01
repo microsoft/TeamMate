@@ -61,12 +61,13 @@
                                    Visibility="Hidden" />
             <TextBlock Name="StatusText"
                        VerticalAlignment="Bottom"
+                       HorizontalAlignment="Right"
                        FontFamily="Segoe UI Light"
                        Opacity="0.8">
                 <TextBlock.RenderTransform>
                     <TranslateTransform />
                 </TextBlock.RenderTransform>
-                Created by Ben Amodio. For Microsoft Internal Use Only.
+                <Run Text="version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
             </TextBlock>
         </Grid>
     </Grid>
