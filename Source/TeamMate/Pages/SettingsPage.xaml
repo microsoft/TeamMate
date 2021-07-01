@@ -88,32 +88,20 @@
                 <StackPanel Margin="24">
                     <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}" Text="{x:Static tmm:TeamMateApplicationInfo.ApplicationName}" />
                     <TextBlock Margin="0,12,0,0">
-                        <Run Text="© 2014 Microsoft Corporation. All rights reserved." />
                         <LineBreak />
-                        <Run Text="For Microsoft Internal Use Only." />
-                        <LineBreak />
-                        <LineBreak /><Run Text="Version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
+                        <Run Text="Version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
                     </TextBlock>
-                    <TextBlock Margin="0,24,0,12" Style="{StaticResource SettingsGroupHeaderTextStyle}">Our Team</TextBlock>
-                    <ListBox Style="{StaticResource SimpleWrappingListBoxStyle}">
-                        <ListBox.Items>
-                            <tmc:TeamMemberView
-                                Margin="0,0,24,24"
-                                DisplayName="Ben"
-                                ImageSource="/Resources/Images/Team/Ben.jpg"
-                                LaunchUrl="http://who/is/bamodio" />
-                            <tmc:TeamMemberView
-                                Margin="0,0,24,24"
-                                DisplayName="Justin"
-                                ImageSource="/Resources/Images/Team/Justin.jpg"
-                                LaunchUrl="http://who/is/julam" />
-                            <tmc:TeamMemberView
-                                Margin="0,0,24,24"
-                                DisplayName="Vanya"
-                                ImageSource="/Resources/Images/Team/ivanv.jpg"
-                                LaunchUrl="http://who/is/ivanv" />
-                        </ListBox.Items>
-                    </ListBox>
+                    <TextBlock Margin="0,12,0,0">
+                        GitHub project: 
+                        <Hyperlink Command="{Binding OpenGitHubProjectUrlCommand}">
+                            <Run Text="{x:Static tmm:TeamMateApplicationInfo.GitHubProjectUri}" />
+                        </Hyperlink>
+                    </TextBlock>
+                    <TextBlock Margin="0,36,0,0">
+                        <Hyperlink Command="{Binding OpenGitHubMITLicenseUrlCommand}">
+                            MIT license
+                        </Hyperlink>
+                    </TextBlock>
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
