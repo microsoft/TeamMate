@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Microsoft.TeamMate</id>
-    <version>$version</version>
+    <version>1.0.0</version>
     <title>Microsoft TeramMate</title>
     <authors>supermem613, ivanv-microsoft</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
