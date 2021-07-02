@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Microsoft.TeamMate</id>
-    <version>1.0.0</version>
+    <version>$version</version>
     <title>Microsoft TeramMate</title>
     <authors>supermem613, ivanv-microsoft</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,8 +15,8 @@
     <tags></tags>
   </metadata>
   <files>
-    <file src="**/*.dll" target="lib" />
-    <file src="**/*.exe" target="lib" />
-    <file src="**/*.config" target="lib" />
+    <file src="bin/Release/**/*.dll" target="lib" />
+    <file src="bin/Release/**/*.exe" target="lib" />
+    <file src="bin/Release/**/*.config" target="lib" />
    </files>
 </package>
