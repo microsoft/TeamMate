@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Microsoft.TeamMate</id>
+    <version>1.0.0</version>
+    <title>Microsoft TeramMate</title>
+    <authors>supermem613, ivanv-microsoft</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/microsoft/TeamMate</projectUrl>
+    <iconUrl>https://github.com/microsoft/TeamMate/blob/main/Source/TeamMate/Resources/Logo/TeamMate_48.png</iconUrl>
+    <description>TeamMate is an application for managing Azure DevOps work items.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright (c) Microsoft</copyright>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="**/*.dll" target="lib" />
+    <file src="**/*.exe" target="lib" />
+    <file src="**/*.config" target="lib" />
+   </files>
+</package>
