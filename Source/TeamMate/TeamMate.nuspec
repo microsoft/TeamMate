@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>Microsoft.TeamMate</id>
-    <version>1.0.0</version>
-    <title>Microsoft TeramMate</title>
+    <version>0.0.1</version>
+    <title>Microsoft TeamMate</title>
     <authors>supermem613, ivanv-microsoft</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
