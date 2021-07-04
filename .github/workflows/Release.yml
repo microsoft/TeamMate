@@ -2,14 +2,14 @@ name: Release
 
 on:
   push:
-    branches: releases/**, feature/packaging
+    branches: releases/**,feature/packaging
   pull_request:
-    branches: releases/**, feature/packaging
+    branches: releases/**,feature/packaging
 
 jobs:
 
   build:
-    name: MSBuild
+    name: Release
     runs-on: windows-latest
 
     steps:
