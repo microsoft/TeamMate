@@ -35,8 +35,7 @@ jobs:
     - name: Decode the pfx
       run: |
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        $certificatePath = Join-Path -Path $env:"./Source/Packaging" -ChildPath GitHubActionsWorkflow.pfx
-        [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+        [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
       run: msbuild /restore:true /t:publish /p:Configuration=Release /p:Platform=x64 /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
