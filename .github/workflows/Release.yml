@@ -2,9 +2,13 @@ name: Release
 
 on:
   push:
-    branches: releases/**,feature/packaging
+    branches:
+      - releases/**
+      - feature/packaging
   pull_request:
-    branches: releases/**,feature/packaging
+    branches:
+      - releases/**
+      - feature/packaging
 
 jobs:
 
