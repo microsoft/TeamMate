@@ -13,7 +13,15 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/Setup-MSBuild@v1.0.2
 
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: csharp
+
     - name: MSBuild
       run: msbuild -restore:true TeamMate.csproj
       working-directory: ./Source/TeamMate
       shell: cmd
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
