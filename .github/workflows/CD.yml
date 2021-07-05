@@ -73,6 +73,12 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item -path "./Source/Packaging/GitHubActionsWorkflow.pfx"
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: "MSIX.${{ matrix.channel }}"
+        path: "./Source/Packaging/AppPackages/${{ matrix.channel }}"
+
     # Create the release:  https://github.com/actions/create-release
     - name: Create release
       id: create_release
