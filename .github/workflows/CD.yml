@@ -13,7 +13,29 @@ on:
 jobs:
 
   build:
-    name: Release
+
+    strategy:
+      matrix:
+        channel: [Dev, Production]
+        targetPlatform: [x64]
+        include:
+          - channel: Dev
+            ChannelName: Dev
+            Configuration: Debug
+            DistributionUrl: 
+            MsixPackageId: Microsoft.Tools.TeamMate.Dev
+            MsixPublisherId: CN=TeamMate
+            MsixPackageDisplayName: TeamMate (Dev)
+
+          - channel: Production
+            Configuration: Release
+            ChannelName: Production
+            DistributionUrl: 
+            MsixPackageId: Microsoft.Tools.TeamMate.Production
+            MsixPublisherId: CN=TeamMate
+            MsixPackageDisplayName: TeamMate (Production)
+
+    name: CD
     runs-on: windows-latest
 
     steps:
@@ -31,6 +53,14 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/Setup-MSBuild@v1.0.2
 
+    # Update the appxmanifest before build by setting the per-channel values set in the matrix.
+    - name: Update manifest version
+      run: |
+        [xml]$manifest = get-content ".\Source\Packaging\Package.appxmanifest"
+        $manifest.Package.Properties.DisplayName = "${{ matrix.MsixPackageDisplayName }}"
+        $manifest.Package.Applications.Application.VisualElements.DisplayName = "${{ matrix.MsixPackageDisplayName }}"
+        $manifest.save(".\Source\Packaging\Package.appxmanifest")
+
     # Decode the base 64 encoded pfx and save the Signing_Certificate
     - name: Decode the pfx
       run: |
@@ -38,7 +68,7 @@ jobs:
         [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
-      run: msbuild /restore:true /t:publish /p:Configuration=Release /p:Platform=x64 /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
+      run: msbuild /restore:true /t:publish /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
       working-directory: ./Source/Packaging
       shell: cmd
 
@@ -46,9 +76,26 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item -path "./Source/Packaging/GitHubActionsWorkflow.pfx"
 
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
+    # Create the release:  https://github.com/actions/create-release
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        name: MSIX Package
-        path: ./Source/Packaging/AppPackages
+        tag_name: ${{ github.ref }}.${{ matrix.ChannelName }}.${{ matrix.targetplatform }}
+        release_name:  ${{ github.ref }}.${{ matrix.ChannelName }}.${{ matrix.targetplatform }}
+        draft: true
+        prerelease: true
+
+    # Upload release asset:   https://github.com/actions/upload-release-asset
+    - name: Update release asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}  # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: Microsoft.Tools.TeamMate.Package\AppPackages\AppPackages.zip
+        asset_name: AppPackages.zip
+        asset_content_type: application/zip
