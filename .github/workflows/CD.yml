@@ -85,8 +85,9 @@ jobs:
         prerelease: true
 
     - name: Upload release binaries
-        uses: alexellis/upload-assets@0.2.2
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          asset_paths: '["/Source/Packaging/AppPackages/**.msix"]'
+      id: upload-release-binaries
+      uses: alexellis/upload-assets@0.2.2
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        asset_paths: '["/Source/Packaging/AppPackages/**.msix"]'
