@@ -76,8 +76,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: MSIX
-        path: "./Source/Packaging/AppPackages"
+        name: "MSIX.${{ matrix.channel }}"
+        path: "./Source/Packaging/AppPackages/${{ matrix.channel }}"
 
     # Create the release:  https://github.com/actions/create-release
     - name: Create release
