@@ -65,7 +65,7 @@ jobs:
         [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
-      run: msbuild /restore:true /t:publish /p:AppxPackageOutput="./Source/Packaging/AppPackages/${{ matrix.MsixPackageId }}.msix" /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true /p:AppInstallerUri="https://github.com/microsoft/TeamMate"
+      run: msbuild /restore:true /t:publish /p:AppxPackageOutput="./Source/Packaging/AppPackages/${{ matrix.channel }}/${{ matrix.MsixPackageId }}.msix" /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true /p:AppInstallerUri="https://github.com/microsoft/TeamMate"
       working-directory: ./Source/Packaging
       shell: cmd
 
@@ -91,6 +91,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./Source/Packaging/AppPackages
+        asset_path: "./Source/Packaging/AppPackages/${{ matrix.channel }}/${{ matrix.MsixPackageId }}.msix"
         asset_name: ${{ matrix.MsixPackageId }}.msix
         asset_content_type: application/msix
