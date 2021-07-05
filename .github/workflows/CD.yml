@@ -90,13 +90,3 @@ jobs:
         release_name:  ${{ github.ref }}.${{ matrix.ChannelName }}.${{ matrix.targetplatform }}
         draft: true
         prerelease: true
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1.0.2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: "./Source/Packaging/AppPackages/${{ matrix.channel }}/${{ matrix.MsixPackageId }}.msix"
-        asset_name: ${{ matrix.MsixPackageId }}.msix
-        asset_content_type: application/msix
