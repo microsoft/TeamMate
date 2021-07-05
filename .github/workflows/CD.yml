@@ -65,7 +65,7 @@ jobs:
         [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
-      run: msbuild /restore:true /t:publish /p:AppxPackageOutput="$(Build.ArtifactStagingDirectory)\${{ matrix.MsixPackageId }}.msix" /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true /p:AppInstallerUri="https://github.com/microsoft/TeamMate"
+      run: msbuild /restore:true /t:publish /p:AppxPackageOutput="./Source/Packaging/AppPackages/${{ matrix.MsixPackageId }}.msix" /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true /p:AppInstallerUri="https://github.com/microsoft/TeamMate"
       working-directory: ./Source/Packaging
       shell: cmd
 
@@ -77,7 +77,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: MSIX
-        path: "$(build.artifactstagingdirectory)"
+        path: "./Source/Packaging/AppPackages/"
 
     # Create the release:  https://github.com/actions/create-release
     - name: Create release
