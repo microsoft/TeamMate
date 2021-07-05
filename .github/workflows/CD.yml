@@ -22,17 +22,13 @@ jobs:
           - channel: Dev
             ChannelName: Dev
             Configuration: Debug
-            DistributionUrl: 
             MsixPackageId: Microsoft.Tools.TeamMate.Dev
-            MsixPublisherId: CN=TeamMate
             MsixPackageDisplayName: TeamMate (Dev)
 
           - channel: Production
             Configuration: Release
             ChannelName: Production
-            DistributionUrl: 
             MsixPackageId: Microsoft.Tools.TeamMate.Production
-            MsixPublisherId: CN=TeamMate
             MsixPackageDisplayName: TeamMate (Production)
 
     name: CD
@@ -68,7 +64,7 @@ jobs:
         [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
-      run: msbuild /restore:true /t:publish /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
+      run: msbuild /restore:true /t:publish /p:AppxBundle=never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true /p:AppInstallerUri="https://github.com/microsoft/TeamMate"
       working-directory: ./Source/Packaging
       shell: cmd
 
