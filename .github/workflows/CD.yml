@@ -68,7 +68,7 @@ jobs:
         [IO.File]::WriteAllBytes("./Source/Packaging/GitHubActionsWorkflow.pfx", $pfx_cert_byte)
         
     - name: Create MSIX
-      run: msbuild /restore:true /t:publish /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
+      run: msbuild /restore:true /t:publish /p:AppxBundle:never /p:GenerateAppInstallerFile=True /p:UapAppxPackageBuildMode=SideLoadOnly /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx  /p:PackageCertificatePassword=${{ secrets.Pfx_Key }} /p:AppxPackageSigningEnabled=true
       working-directory: ./Source/Packaging
       shell: cmd
 
