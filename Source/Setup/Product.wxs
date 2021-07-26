@@ -3,6 +3,7 @@
 	<Product Id="*" Name="TeamMate" Language="1033" Version="1.0.0.0" Manufacturer="https://github.com/microsoft/teammate" UpgradeCode="df0aeb4a-f671-4641-af7f-9629a80544d5">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
+   
     <Icon Id="TeamMate.ico" SourceFile=".\TeamMate.ico"/>
     <Property Id="ARPPRODUCTICON" Value="TeamMate.ico" />
 
@@ -12,6 +13,7 @@
 		<Feature Id="ProductFeature" Title="TeamMate" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
       <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationDirectory" />
     </Feature>
 
     <DirectoryRef Id="ApplicationProgramsFolder">
@@ -26,12 +28,18 @@
         <RegistryValue Root="HKCU" Key="Software\MyCompany\TeamMate" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="ApplicationDirectory" Guid="B4CD7732-0D44-481F-9108-322BC1389D21" KeyPath="yes">
+        <RemoveFolder Id="CleanUpDirectory" Directory="INSTALLFOLDER" On="uninstall"/>
+      </Component>
+    </DirectoryRef>
     
 	</Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
+			<Directory Id="LocalAppDataFolder" Name="AppData">
 				<Directory Id="INSTALLFOLDER" Name="TeamMate" />
 			</Directory>
       <Directory Id="ProgramMenuFolder">
@@ -42,29 +50,37 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <Component Id="ProductClient">
+      <Component Id="ProductClient" KeyPath="yes" Guid="8ceb1ed0-9310-4ed2-abd1-2ff09915db9d">
         <File Source="$(var.Client.TargetPath)" />
       </Component>
-      <Component Id="ProductFoundation">
+      <Component Id="ProductFoundation" KeyPath="yes" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">
         <File Source="$(var.Foundation.TargetPath)" />
       </Component>
-      <Component Id="ProductOffice">
+      <Component Id="ProductOffice" KeyPath="yes" Guid="90b9f632-e7d5-4244-97e7-707ca95b01e6">
         <File Source="$(var.Office.TargetPath)" />
       </Component>
-      <Component Id="ProductPlatform">
+      <Component Id="ProductPlatform" KeyPath="yes" Guid="616e1554-8ea9-4504-8023-6b3faf5bc0c5">
         <File Source="$(var.Platform.TargetPath)" />
       </Component>
-      <Component Id="ProductWebApi">
+      <Component Id="ProductWebApi" KeyPath="yes" Guid="7b188df3-c24a-48fb-b39e-03ac63d078d0">
         <File Source="$(var.WebApi.TargetPath)" />
       </Component>
-      <Component Id="ProductWindowsRuntime">
+      <Component Id="ProductWindowsRuntime" KeyPath="yes" Guid="b8ca560d-712d-477f-a362-7672ea6f5990">
         <File Source="$(var.WindowsRuntime.TargetPath)" />
       </Component>
-      <Component Id="ProductComponent">
+      <Component Id="ProductComponent" KeyPath="yes" Guid="d926b846-9c44-4bcc-a5f4-e859bb435b50">
         <File Source="$(var.TeamMate.TargetPath)" />
+        <File Source="$(var.TeamMate.TargetDir)\TeamMate.exe.config" />
       </Component>
-      <Component Id="SimpleInjector">
+      <Component Id="References" KeyPath="yes" Guid="557b615b-8cdf-4c4b-a15b-f41b74ec9a5e">
         <File Source="$(var.TeamMate.TargetDir)\SimpleInjector.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Newtonsoft.Json.dll" />
+        <File Source="$(var.WebApi.TargetDir)\System.Net.Http.Formatting.dll" />
       </Component>
 		</ComponentGroup>
 	</Fragment>
