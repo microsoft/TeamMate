@@ -63,6 +63,9 @@
       <Component Id="ProductComponent">
         <File Source="$(var.TeamMate.TargetPath)" />
       </Component>
+      <Component Id="SimpleInjector">
+        <File Source="$(var.TeamMate.TargetDir)\SimpleInjector.dll" />
+      </Component>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
