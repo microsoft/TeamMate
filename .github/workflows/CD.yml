@@ -45,7 +45,7 @@ jobs:
       run: nuget install WiX
       
     - name: Build Project
-      run: msbuild -restore:true TeamMate.csproj
+      run: msbuild /restore:true /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} TeamMate.csproj
       working-directory: ./Source/TeamMate
       shell: cmd
     
