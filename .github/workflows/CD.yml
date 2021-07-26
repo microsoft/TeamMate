@@ -43,7 +43,12 @@ jobs:
 
     - name: Install WiX
       run: nuget install WiX
-        
+      
+    - name: Build Project
+      run: msbuild -restore:true TeamMate.csproj
+      working-directory: ./Source/TeamMate
+      shell: cmd
+    
     - name: Create MSI
       run: msbuild /restore:true /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }}
       working-directory: ./Source/Setup
