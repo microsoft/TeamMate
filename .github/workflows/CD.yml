@@ -12,15 +12,13 @@ jobs:
     strategy:
       matrix:
         channel: [Dev, Production]
-        targetPlatform: [x64]
+        targetPlatform: [x86]
         include:
           - channel: Dev
-            ChannelName: Dev
             Configuration: Debug
 
           - channel: Production
             Configuration: Release
-            ChannelName: Production
 
     name: CD
     runs-on: windows-latest
@@ -35,8 +33,7 @@ jobs:
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       shell: bash
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
+    - name: Setup .NET 
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
@@ -48,7 +45,7 @@ jobs:
       run: nuget install WiX
         
     - name: Create MSI
-      run: msbuild /restore:true /t:publish /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }}
+      run: msbuild /restore:true /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }}
       working-directory: ./Source/Setup
       shell: cmd
 
