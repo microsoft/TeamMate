@@ -6,9 +6,7 @@ on:
       - '*'
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         channel: [Dev, Production]
