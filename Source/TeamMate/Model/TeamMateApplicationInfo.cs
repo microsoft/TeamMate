@@ -30,7 +30,6 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             ApplicationName = "TeamMate";
             ApplicationDescription = "A tool for managing work items";
-            VersionQualifier = null; // e.g. was "Preview"
 
             // KLUDGE: An AppUserModelId is needed to display Toast Notifications from a Windows Desktop app
             // See https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
@@ -52,8 +51,6 @@ namespace Microsoft.Tools.TeamMate.Model
                 Log.WarnAndBreak(new Exception(), "Code is trying to access the data directory before it has been upgraded.");
             }
         }
-
-        public static string VersionQualifier { get; private set; }
 
         public static ApplicationHistory History
         {
@@ -151,14 +148,6 @@ namespace Microsoft.Tools.TeamMate.Model
             }
         }
 
-        public static string FullVersion
-        {
-            get
-            {
-                return (!String.IsNullOrEmpty(VersionQualifier)) ? String.Format("{0} {1}", Version, VersionQualifier) : Version.ToString();
-            }
-        }
-
         private static bool lastVersionLoaded;
         private static Version lastVersion;
 
@@ -232,6 +221,25 @@ namespace Microsoft.Tools.TeamMate.Model
                 }
 
                 return version;
+            }
+        }
+
+        public static string PublicVersion
+        {
+            get
+            {
+                return Version.ToString();
+            }
+        }
+
+        public static string FullVersion
+        {
+            get
+            {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+                return fileVersionInfo.ProductVersion.ToString();
             }
         }
 

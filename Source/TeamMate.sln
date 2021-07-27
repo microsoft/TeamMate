@@ -9,11 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{1805B498
 	ProjectSection(SolutionItems) = preProject
 		Build\Build.bat = Build\Build.bat
 		Build\Build.ps1 = Build\Build.ps1
-		Build\BuildInfo.cs = Build\BuildInfo.cs
 		Build\Microsoft.Tools.TeamMate.Settings.targets = Build\Microsoft.Tools.TeamMate.Settings.targets
 		Build\Microsoft.Tools.TeamMate.targets = Build\Microsoft.Tools.TeamMate.targets
-		Build\Microsoft.Tools.TeamMate.Version.targets = Build\Microsoft.Tools.TeamMate.Version.targets
-		Build\version.txt = Build\version.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamMate", "TeamMate\TeamMate.csproj", "{01FCF244-D4B2-43DD-BB77-9D4946868299}"
@@ -30,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Tools.TeamMate.TeamFoundation.WebApi", "TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj", "{888E7687-95F8-4049-94DF-9DD3398B5592}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Setup", "Setup\Microsoft.Tools.TeamMate.wixproj", "{D8F90795-E254-441C-B231-D4611E574915}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Microsoft.Tools.TeamMate", "Setup\Microsoft.Tools.TeamMate.wixproj", "{D8F90795-E254-441C-B231-D4611E574915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

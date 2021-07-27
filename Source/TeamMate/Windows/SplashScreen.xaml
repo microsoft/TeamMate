@@ -27,11 +27,7 @@
                     <TranslateTransform />
                 </Image.RenderTransform>
             </Image>
-            <TextBlock Margin="6"
-                       VerticalAlignment="Center"
-                       FontSize="20"
-                       Text="{x:Static tmm:TeamMateApplicationInfo.VersionQualifier}" />
-        </StackPanel>
+         </StackPanel>
         <Grid Margin="13">
             <StackPanel HorizontalAlignment="Right"
                         VerticalAlignment="Top"
@@ -67,7 +63,7 @@
                 <TextBlock.RenderTransform>
                     <TranslateTransform />
                 </TextBlock.RenderTransform>
-                <Run Text="version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
+                <Run Text="version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.PublicVersion}" />
             </TextBlock>
         </Grid>
     </Grid>
