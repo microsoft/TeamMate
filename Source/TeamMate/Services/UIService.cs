@@ -7,7 +7,6 @@ using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Resources;
-using Microsoft.Tools.TeamMate.Resources.Native;
 using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.Tools.TeamMate.Windows;
@@ -259,9 +258,9 @@ namespace Microsoft.Tools.TeamMate.Services
             jumpList.ShowFrequentCategory = false;
             jumpList.ShowRecentCategory = false;
 
-            createDefaultTask = AddJumpTask("New Default Work Item", null, CommandLineService.GetArgsForCreateDefault(), NativeResources.AddIconIndex);
-            createTask = AddJumpTask("New Work Item", null, CommandLineService.GeatArgsForCreate(), NativeResources.NewTaskIconIndex);
-            queryTask = AddJumpTask("Search", null, CommandLineService.GetArgsForSearch(), NativeResources.SearchIconIndex);
+            createDefaultTask = AddJumpTask("New Default Work Item", null, CommandLineService.GetArgsForCreateDefault());
+            createTask = AddJumpTask("New Work Item", null, CommandLineService.GeatArgsForCreate());
+            queryTask = AddJumpTask("Search", null, CommandLineService.GetArgsForSearch());
 
             JumpList.SetJumpList(this.application, jumpList);
         }
@@ -272,15 +271,13 @@ namespace Microsoft.Tools.TeamMate.Services
             jumpList.JumpItems.RemoveRange(itemsToRemove);
         }
 
-        private JumpTask AddJumpTask(string title, string description, string args, int iconIndex)
+        private JumpTask AddJumpTask(string title, string description, string args)
         {
             JumpTask task = new JumpTask();
             task.Title = title;
             task.Description = description;
             task.ApplicationPath = applicationPath;
             task.Arguments = args;
-            task.IconResourcePath = applicationPath;
-            task.IconResourceIndex = iconIndex;
 
             jumpList.JumpItems.Add(task);
             return task;
