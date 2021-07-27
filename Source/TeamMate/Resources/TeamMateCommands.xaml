@@ -50,7 +50,7 @@
                    SymbolIcon="Add"
                    Text="Add Work Item Query" />
 
-    <fwi:UICommand x:Key="AddCodeFlowTileCommand"
+    <fwi:UICommand x:Key="AddPullRequestTileCommand"
                    SymbolIcon="SubscriptionAdd"
                    Text="Add Pull Review Query" />
 
@@ -460,16 +460,6 @@
                    Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
                    SymbolIcon="Add"
                    Text="New Code Review" />
-
-    <fwi:UICommand x:Key="OpenReviewInCodeFlowCommand"
-                   Description="Open code review in CodeFlow"
-                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
-                   Text="Open in _CodeFlow" />
-
-    <fwi:UICommand x:Key="OpenReviewInVisualStudioCommand"
-                   Description="Open code review in Visual Studio"
-                   Icon="/Resources/Icons/VisualStudio/VisualStudio.16x16x32.png"
-                   Text="Open in _Visual Studio" />
 
     <fwi:UICommand x:Key="OpenReviewInWebCommand"
                    Description="Open code review in web browser"

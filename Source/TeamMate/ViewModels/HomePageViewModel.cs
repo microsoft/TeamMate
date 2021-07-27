@@ -23,7 +23,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.GlobalCommandBindings = new CommandBindingCollection();
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh, HasProjectContext);
             this.GlobalCommandBindings.Add(TeamMateCommands.AddWorkItemQueryTile, AddWorkItemQueryTile, HasProjectContext);
-            this.GlobalCommandBindings.Add(TeamMateCommands.AddCodeFlowTile, AddCodeFlowTile, HasProjectContext);
+            this.GlobalCommandBindings.Add(TeamMateCommands.AddPullRequestTile, AddCodeFlowTile, HasProjectContext);
         }
 
         public void RegisterBindings(CommandBindingCollection commands)

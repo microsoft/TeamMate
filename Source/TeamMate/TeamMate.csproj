@@ -217,7 +217,7 @@
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
     <Compile Include="ViewModels\CodeFlowPickerViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowQueryTileViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestQueryTileViewModel.cs" />
     <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
     <Compile Include="ViewModels\PullRequestViewModel.cs" />
     <Compile Include="ViewModels\PullRequestQueryViewModel.cs" />

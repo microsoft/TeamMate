@@ -11,15 +11,11 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests
 
         public string ProjectName { get; set; }
 
-        public string TeamName { get; set; }
-
         public string QueryPath { get; set; }
 
         public Guid QueryId { get; set; }
 
         public GitPullRequestSearchCriteria GitPullRequestSearchCriteria { get; set; }
-
-        public WorkItemExpand? Expand { get; set; }
 
         public DateTime? AsOf { get; set; }
 

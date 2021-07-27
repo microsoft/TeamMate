@@ -68,7 +68,7 @@ namespace Microsoft.Tools.TeamMate.Pages
                 }
                 else if (selectedItems.All(sr => sr.Item is PullRequestViewModel))
                 {
-                    replacementContextMenu = this.FindResource<ContextMenu>("CodeFlowReviewContextMenu");
+                    replacementContextMenu = this.FindResource<ContextMenu>("PullRequestContextMenu");
                 }
                 else
                 {

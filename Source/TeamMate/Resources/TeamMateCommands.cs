@@ -73,7 +73,7 @@ namespace Microsoft.Tools.TeamMate.Resources
 
         public static ICommand ChooseProjects { get { return commands.FindResource(); } }
         public static ICommand AddWorkItemQueryTile { get { return commands.FindResource(); } }
-        public static ICommand AddCodeFlowTile { get { return commands.FindResource(); } }
+        public static ICommand AddPullRequestTile { get { return commands.FindResource(); } }
 
         public static ICommand Hamburger { get { return commands.FindResource(); } }
 

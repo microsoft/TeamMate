@@ -115,6 +115,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                                 pullRequest.Reference.PullRequestId);
 
                             iterationTasks.Add(asyncTask);
+
+                            pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
+                                pullRequest.Reference.PullRequestId,
+                                pullRequest.Reference.Repository.Name);
                         }
 
                         await Task.WhenAll(iterationTasks.ToArray());

@@ -210,7 +210,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 Action = ToastActivationAction.OpenCodeFlowReview,
                 CodeFlowReview = new ToastCodeFlowReviewInfo
                 {
-                    LaunchClientUri = pullRequest.GetWebViewUri()
+                    LaunchClientUri = pullRequest.Url
                 }
             };
 

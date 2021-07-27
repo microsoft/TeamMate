@@ -23,7 +23,7 @@
         <MenuItem Command="{x:Static tmr:TeamMateCommands.EditTags}" Style="{DynamicResource CommandMenuItemStyle}" />
     </ContextMenu>
 
-    <ContextMenu x:Key="CodeFlowReviewContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+    <ContextMenu x:Key="PullRequestContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
         <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInWeb}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"

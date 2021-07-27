@@ -21,7 +21,7 @@
                                          ConverterParameter={x:Static vm:CommandBarType.Home}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.AddWorkItemQueryTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.AddCodeFlowTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
+            <Button Command="{x:Static tmr:TeamMateCommands.AddPullRequestTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"

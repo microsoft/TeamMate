@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
-    public class CodeFlowQueryTileViewModel : TileViewModel
+    public class PullRequestQueryTileViewModel : TileViewModel
     {
         private PullRequestQueryViewModel CodeFlowQuery
         {
@@ -13,13 +13,13 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public override void Activate()
         {
-            ShowCodeFlowReviewsPage();
+            ShowPullRequestPage();
         }
 
         [Import]
         public WindowService WindowService { get; set; }
 
-        private void ShowCodeFlowReviewsPage()
+        private void ShowPullRequestPage()
         {
             PullRequestPageViewModel pageViewModel = ViewModelFactory.Create<PullRequestPageViewModel>();
             pageViewModel.Query = this.CodeFlowQuery;

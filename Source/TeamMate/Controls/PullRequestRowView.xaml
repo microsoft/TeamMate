@@ -50,13 +50,6 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBlock Grid.Row="0"
-                   Grid.Column="2"
-                   VerticalAlignment="Center"
-                   TextAlignment="Right"
-                   TextTrimming="CharacterEllipsis"
-                   fw:UI.Inlines="{Binding Converter={StaticResource ReviewerStatusConverter}}" />
-
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Margin="0,3,0,0"

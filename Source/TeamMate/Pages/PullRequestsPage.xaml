@@ -29,7 +29,7 @@
                            Grid.Row="1"
                            Margin="0,6,0,0"
                            DataContext="{Binding Reviews}"
-                           ItemContextMenu="{StaticResource CodeFlowReviewContextMenu}">
+                           ItemContextMenu="{StaticResource PullRequestContextMenu}">
                 <fwcd:ListView.ItemTemplate>
                     <DataTemplate>
                         <tmc:PullRequestRowView Padding="18,9,3,9" />

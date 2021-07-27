@@ -202,7 +202,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     break;
 
                 case TileType.CodeFlowQuery:
-                    result = ViewModelFactory.Create<CodeFlowQueryTileViewModel>();
+                    result = ViewModelFactory.Create<PullRequestQueryTileViewModel>();
                     break;
 
                 case TileType.BuiltIn:

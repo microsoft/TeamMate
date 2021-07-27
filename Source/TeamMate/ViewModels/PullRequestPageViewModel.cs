@@ -221,11 +221,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void CopyHyperlink()
         {
-            var review = GetSelectedItem();
-            if (review != null)
+            var pullRequest = GetSelectedItem();
+            if (pullRequest != null)
             {
                 DataObject dataObject = new DataObject();
-                dataObject.SetUri(review.GetWebViewUri(), review.GetFullTitle());
+                dataObject.SetUri(pullRequest.Url, pullRequest.GetFullTitle());
                 Clipboard.SetDataObject(dataObject);
             }
         }

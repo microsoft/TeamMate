@@ -104,12 +104,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public DateTime? SignedOffOn { get; set; }
 
-        public Uri GetWebViewUri()
-        {
-            // TODO(MEM)
-            return new Uri(this.Reference.Url);
-        }
-
+        public Uri Url { get; set; }
+ 
         public string GetFullTitle()
         {
             return Reference.Title;
@@ -150,7 +146,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public void OpenInWebBrowser()
         {
-            ExternalWebBrowser.Launch(GetWebViewUri());
+            ExternalWebBrowser.Launch(this.Url);
         }
 
         protected override bool WasLastChangedByMe()
