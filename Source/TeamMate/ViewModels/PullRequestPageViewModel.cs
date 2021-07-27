@@ -23,17 +23,17 @@ using System.Windows.Input;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
-    public class CodeFlowReviewsPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
+    public class PullRequestPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {
-        private CodeFlowQueryViewModel query;
-        private List<CodeFlowReviewViewModel> reviewList;
+        private PullRequestQueryViewModel query;
+        private List<PullRequestViewModel> reviewList;
         private ListCollectionView collectionView;
         private ListViewModel reviews;
 
-        public CodeFlowReviewsPageViewModel()
+        public PullRequestPageViewModel()
         {
             this.CommandBarType = CommandBarType.CodeReviews;
-            this.reviewList = new List<CodeFlowReviewViewModel>();
+            this.reviewList = new List<PullRequestViewModel>();
             this.collectionView = new ListCollectionView(this.reviewList);
 
             this.reviews = CreateListViewModel(this.collectionView);
@@ -41,7 +41,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             this.GlobalCommandBindings = new CommandBindingCollection();
             this.GlobalCommandBindings.Add(TeamMateCommands.NewCodeFlowReview, NewCodeFlowReview);
-            this.GlobalCommandBindings.Add(TeamMateCommands.SendAllReviewsReminderMail, SendAllReviewsReminderMail);
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh);
             this.GlobalCommandBindings.Add(TeamMateCommands.MarkAllAsRead, MarkAllAsRead);
         }
@@ -53,15 +52,15 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             model.DefaultSortDescription = new SortDescription("Summary.LastUpdatedOn", ListSortDirection.Descending);
 
             model.Filters.Add(new ListViewFilter("All"));
-            model.Filters.Add(new ListViewFilter("Unread", (o) => !((CodeFlowReviewViewModel)o).IsRead));
+            model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestViewModel)o).IsRead));
 
-            var actionableFilter = new ListViewFilter("Actionable", (o) => ((CodeFlowReviewViewModel)o).IsActionableByMe());
+            var actionableFilter = new ListViewFilter("Actionable", (o) => ((PullRequestViewModel)o).IsActionableByMe());
             model.Filters.Add(actionableFilter);
-            model.Filters.Add(new ListViewFilter("Pending", (o) => ((CodeFlowReviewViewModel)o).IsPending));
-            model.Filters.Add(new ListViewFilter("Waiting", (o) => ((CodeFlowReviewViewModel)o).IsWaiting));
-            model.Filters.Add(new ListViewFilter("Signed Off", (o) => ((CodeFlowReviewViewModel)o).IsSignedOff));
-            model.Filters.Add(new ListViewFilter("Not Signed Off By Me", (o) => !((CodeFlowReviewViewModel)o).IsSignedOffByMe));
-            model.Filters.Add(new ListViewFilter("Completed", (o) => ((CodeFlowReviewViewModel)o).IsCompleted));
+            model.Filters.Add(new ListViewFilter("Pending", (o) => ((PullRequestViewModel)o).IsPending));
+            model.Filters.Add(new ListViewFilter("Waiting", (o) => ((PullRequestViewModel)o).IsWaiting));
+            model.Filters.Add(new ListViewFilter("Signed Off", (o) => ((PullRequestViewModel)o).IsSignedOff));
+            model.Filters.Add(new ListViewFilter("Not Signed Off By Me", (o) => !((PullRequestViewModel)o).IsSignedOffByMe));
+            model.Filters.Add(new ListViewFilter("Completed", (o) => ((PullRequestViewModel)o).IsCompleted));
 
             model.Fields.Add(ListFieldInfo.Create<string>("Summary.Author.DisplayName", "Created By"));
 
@@ -104,12 +103,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public event EventHandler<SearchExpression> TextFilterApplied;
 
-        public CodeFlowQueryViewModel Query
+        public PullRequestQueryViewModel Query
         {
             get { return this.query; }
             set
             {
-                CodeFlowQueryViewModel oldQuery = this.query;
+                PullRequestQueryViewModel oldQuery = this.query;
                 if (SetProperty(ref this.query, value))
                 {
                     if (oldQuery != null)
@@ -142,9 +141,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.collectionView.Dispatcher.InvokeHere(delegate ()
             {
                 this.reviewList.Clear();
-                if (this.query != null && this.query.Reviews != null)
+                if (this.query != null && this.query.PullRequests != null)
                 {
-                    this.reviewList.AddRange(this.query.Reviews);
+                    this.reviewList.AddRange(this.query.PullRequests);
                 }
                 this.collectionView.Refresh();
 
@@ -189,13 +188,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public void RegisterBindings(CommandBindingCollection commands)
         {
-            commands.Add(TeamMateCommands.OpenReviewInCodeFlow, OpenReviewInCodeFlow, HasSelection);
-            commands.Add(TeamMateCommands.OpenReviewInVisualStudio, OpenReviewInVisualStudio, HasSelection);
             commands.Add(TeamMateCommands.OpenReviewInWeb, OpenReviewInWeb, HasSelection);
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
-            commands.Add(TeamMateCommands.SendReviewReminderMail, SendReviewReminderMail, HasSelection);
-            commands.Add(TeamMateCommands.PingReviewers, PingReviewers, HasSelection);
-            commands.Add(TeamMateCommands.CompleteReviews, CompleteReviews, HasSelection);
             commands.Add(TeamMateCommands.MarkAsRead, MarkAsRead, HasSelection);
             commands.Add(TeamMateCommands.MarkAsUnread, MarkAsUnread, HasSelection);
         }
@@ -218,7 +212,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void MarkAllAsRead()
         {
-            var allReviews = this.collectionView.OfType<CodeFlowReviewViewModel>().ToArray();
+            var allReviews = this.collectionView.OfType<PullRequestViewModel>().ToArray();
             foreach (var review in allReviews)
             {
                 review.IsRead = true;
@@ -239,7 +233,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public WindowService WindowService { get; set; }
 
-        public void OpenMany(ICollection<CodeFlowReviewViewModel> items)
+        public void OpenMany(ICollection<PullRequestViewModel> items)
         {
             if (this.WindowService.PromptShouldOpen(this, items.Count))
             {
@@ -247,7 +241,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 {
                     foreach (var item in items)
                     {
-                        item.OpenInCodeFlow();
+                        item.OpenInWebBrowser();
                     }
                 }
             }
@@ -272,46 +266,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             Process.Start(CodeFlowUriBuilder.LaunchClient().AbsoluteUri);
         }
 
-        private async void SendAllReviewsReminderMail()
-        {
-            var allReviews = this.collectionView.OfType<CodeFlowReviewViewModel>().ToArray();
-            bool result = await DoSendReviewReminderMail(allReviews);
-            if (!result)
-            {
-                this.MessageBoxService.Show(this, "There are no incomplete reviews to send a reminder for.");
-            }
-        }
-
-        private void OpenReviewInCodeFlow()
-        {
-            var items = GetSelectedItems();
-            if (this.WindowService.PromptShouldOpen(this, items.Count))
-            {
-                using (this.StatusService.BusyIndicator())
-                {
-                    foreach (CodeFlowReviewViewModel codeReview in items)
-                    {
-                        codeReview.OpenInCodeFlow();
-                    }
-                }
-            }
-        }
-
-        private void OpenReviewInVisualStudio()
-        {
-            var items = GetSelectedItems();
-            if (this.WindowService.PromptShouldOpen(this, items.Count))
-            {
-                using (this.StatusService.BusyIndicator())
-                {
-                    foreach (CodeFlowReviewViewModel codeReview in items)
-                    {
-                        codeReview.OpenInVisualStudio();
-                    }
-                }
-            }
-        }
-
         private void OpenReviewInWeb()
         {
             var items = GetSelectedItems();
@@ -319,7 +273,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 using (this.StatusService.BusyIndicator())
                 {
-                    foreach (CodeFlowReviewViewModel codeReview in items)
+                    foreach (PullRequestViewModel codeReview in items)
                     {
                         codeReview.OpenInWebBrowser();
                     }
@@ -327,127 +281,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private async void SendReviewReminderMail()
-        {
-            bool result = await DoSendReviewReminderMail(GetSelectedItems());
-            if (!result)
-            {
-                this.MessageBoxService.Show(this, "All of the selected reviews are already completed.");
-            }
-        }
-
-        private async Task<bool> DoSendReviewReminderMail(IEnumerable<CodeFlowReviewViewModel> reviews)
-        {
-            // Email authors to complete signed off reviews...
-
-            var signedOffReviews = reviews.Where(r => r.Summary.Status != CodeReviewStatus.Completed).Select(cri => cri.Summary).ToArray();
-
-            if (signedOffReviews.Any())
-            {
-                MailMessage message = await Task.Run(() => GenerateCompleteReviewsEmail(signedOffReviews));
-                this.CollaborationService.SendMail(message);
-                return true;
-            }
-
-            return false;
-        }
-
         [Import]
         public CollaborationService CollaborationService { get; set; }
-
-
-        private static MailMessage GenerateCompleteReviewsEmail(IEnumerable<CodeReviewSummary> reviews)
-        {
-            CodeFlowMailGenerator mailGenerator = new CodeFlowMailGenerator();
-            var result = mailGenerator.GenerateCompleteReviewsEmail(reviews);
-            result.ReminderDate = DateTime.Now.AddDays(3); // TODO: Hardcoded reminder
-            return result;
-        }
-
-        private async void PingReviewers()
-        {
-            // Ping
-            // Only for my reviews, not for others...
-            var selection = GetSelectedItems().Where(cr => cr.IsOwnedByMe).ToArray();
-            if (selection.Any())
-            {
-                // TODO: Poor coupling of View to ViewModel here
-                CodeFlowPingDialog dialog = new CodeFlowPingDialog();
-                dialog.Owner = View.GetWindow(this);
-                if (dialog.ShowDialog() == true)
-                {
-                    string message = dialog.Message;
-                    await PingReviewersAsync(selection, message);
-                }
-            }
-            else
-            {
-                this.MessageBoxService.ShowError(this, "You cannot Ping code reviews that are not owned by yourself!");
-            }
-        }
-
-        [Import]
-        public CodeFlowService CodeFlowService { get; set; }
-
-        private async Task PingReviewersAsync(IEnumerable<CodeFlowReviewViewModel> reviews, string pingMessage)
-        {
-            try
-            {
-                // TODO: Warning on pinging too many reviews? E.g. more than 5?
-                CodeFlowClient client = await this.CodeFlowService.GetCodeFlowClientAsync();
-
-                List<Task> tasks = new List<Task>();
-                foreach (CodeFlowReviewViewModel review in reviews)
-                {
-                    var task = client.ReviewServiceClient.AuthorPingAsync(review.Summary.Key, pingMessage);
-                    tasks.Add(task);
-                }
-
-                await Task.WhenAll(tasks);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-                this.MessageBoxService.ShowError(this, "An error occurred attempting to ping reviewers. Please try again later.");
-            }
-        }
-
-        private async void CompleteReviews()
-        {
-            // Only for my reviews, not for others... And only for active reviews.
-            var selection = GetSelectedItems().Where(cr => cr.IsOwnedByMe && cr.IsActive).ToArray();
-            if (selection.Any())
-            {
-                await CompleteReviewsAsync(selection);
-            }
-            else
-            {
-                this.MessageBoxService.ShowError(this, "You can only complete code reviews that are owned by yourself and have not already been completed.");
-            }
-        }
-
-        private async Task CompleteReviewsAsync(IEnumerable<CodeFlowReviewViewModel> reviews)
-        {
-            try
-            {
-                // TODO: Warning on completing too many reviews? E.g. more than 5?
-                CodeFlowClient client = await this.CodeFlowService.GetCodeFlowClientAsync();
-
-                List<Task> tasks = new List<Task>();
-                foreach (CodeFlowReviewViewModel review in reviews)
-                {
-                    var task = client.ReviewServiceClient.CompleteReviewAsync(review.Summary.Key, null);
-                    tasks.Add(task);
-                }
-
-                await Task.WhenAll(tasks);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-                this.MessageBoxService.ShowError(this, "An error occurred attempting to complete code reviews. Please try again later.");
-            }
-        }
 
         private bool HasSelection()
         {
@@ -459,14 +294,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             return Reviews.SelectedItems.Count == 1;
         }
 
-        private CodeFlowReviewViewModel GetSelectedItem()
+        private PullRequestViewModel GetSelectedItem()
         {
-            return (CodeFlowReviewViewModel)Reviews.SelectedItems.FirstOrDefault();
+            return (PullRequestViewModel)Reviews.SelectedItems.FirstOrDefault();
         }
 
-        private ICollection<CodeFlowReviewViewModel> GetSelectedItems()
+        private ICollection<PullRequestViewModel> GetSelectedItems()
         {
-            return Reviews.SelectedItems.OfType<CodeFlowReviewViewModel>().ToArray();
+            return Reviews.SelectedItems.OfType<PullRequestViewModel>().ToArray();
         }
 
         public override void OnNavigatingTo()

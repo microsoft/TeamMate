@@ -39,7 +39,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 foreach (var query in queries)
                 {
                     WorkItemQueryViewModel workItemQuery = query as WorkItemQueryViewModel;
-                    CodeFlowQueryViewModel codeFlowQuery = query as CodeFlowQueryViewModel;
+                    PullRequestQueryViewModel pullRequestQuery = query as PullRequestQueryViewModel;
 
                     var source = new SearchResultSource(query);
 
@@ -48,9 +48,9 @@ namespace Microsoft.Tools.TeamMate.Services
                         var matches = workItemQuery.WorkItems.Where(item => searchExpression.Matches(item));
                         resultList.AddRange(matches.Select(match => new SearchResult(match, source)));
                     }
-                    else if (codeFlowQuery != null && codeFlowQuery.Reviews != null)
+                    else if (pullRequestQuery != null && pullRequestQuery.PullRequests != null)
                     {
-                        var matches = codeFlowQuery.Reviews.Where(item => searchExpression.Matches(item));
+                        var matches = pullRequestQuery.PullRequests.Where(item => searchExpression.Matches(item));
                         resultList.AddRange(matches.Select(match => new SearchResult(match, source)));
                     }
                 }

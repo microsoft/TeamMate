@@ -7,6 +7,7 @@ using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
+using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
 using System;
@@ -124,6 +125,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();
                 WorkItemTrackingBatchHttpClient batchWitClient = connection.GetClient<WorkItemTrackingBatchHttpClient>();
                 ProjectHttpClient projectClient = connection.GetClient<ProjectHttpClient>();
+                GitHttpClient gitClient = connection.GetClient<GitHttpClient>();
 
                 var projectId = projectInfo.Reference.ProjectId;
 
@@ -160,8 +162,10 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.ProjectName = project.Name;
                 projectContext.WorkItemTrackingClient = witClient;
                 projectContext.WorkItemTrackingBatchClient = batchWitClient;
+                projectContext.GitHttpClient = gitClient;
                 projectContext.WorkItemTypes = workItemTypeInfos;
                 projectContext.ProjectInfo = projectInfo;
+                projectContext.Identity = identity;
                 projectContext.HyperlinkFactory = new HyperlinkFactory(projectInfo.ProjectCollectionUri, project.Name);
                 projectContext.WorkItemIdentity = workItemIdentity;
                 projectContext.WorkItemFields = fields;

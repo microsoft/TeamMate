@@ -12,7 +12,7 @@ using System.Windows.Media;
 
 namespace Microsoft.Tools.TeamMate.Converters
 {
-    public class CodeFlowReviewStatusConverter : OneWayConverterBase
+    public class PullRequestStatusConverter : OneWayConverterBase
     {
         private Brush defaultColor = new SolidColorBrush(Colors.Gray);
 
@@ -53,7 +53,7 @@ namespace Microsoft.Tools.TeamMate.Converters
 
         public override object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            CodeFlowReviewViewModel info = value as CodeFlowReviewViewModel;
+            PullRequestViewModel info = value as PullRequestViewModel;
             if (info != null)
             {
                 switch (Mode)
@@ -80,24 +80,20 @@ namespace Microsoft.Tools.TeamMate.Converters
             return null;
         }
 
-        private Span GetReviewerStatus(CodeFlowReviewViewModel info)
+        private Span GetReviewerStatus(PullRequestViewModel info)
         {
             Span span = new Span();
 
-            var summary = info.Summary;
+            var reference = info.Reference;
 
-            if(summary != null)
+            if(reference != null)
             {
-                var reviewersByStatus = summary.Reviewers.Where(r => r.HasLastUpdatedOn()).GroupBy((r) => r.Status).ToDictionary((i) => i.Key);
                 foreach (var status in DisplayStatusOrder)
                 {
-                    IGrouping<ReviewerStatus, Reviewer> group;
-                    if (reviewersByStatus.TryGetValue(status, out group))
+                    foreach (var review in reference.Reviewers)
                     {
-                        var orderedReviewers = group.OrderBy(r => r.LastUpdatedOn);
-
                         string statusText = GetMapValue(TextMap, status, (s) => s.ToString());
-                        String text = String.Format("{1}", statusText, String.Join(", ", orderedReviewers.Select(r => r.DisplayName)));
+                        String text = String.Format("{1}", statusText, String.Join(", ", reference.Reviewers.Select(r => r.DisplayName)));
 
                         string iconName = GetMapValue(IconMap, status, (string)null);
                         ImageSource source = (iconName != null) ? FindImageResource(iconName) : null;
@@ -134,7 +130,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             return TeamMateResources.FindResource<ImageSource>(iconName);
         }
 
-        private string GetReviewStatusText(CodeFlowReviewViewModel info)
+        private string GetReviewStatusText(PullRequestViewModel info)
         {
             if (info.IsWaiting)
             {
@@ -152,7 +148,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             return null;
         }
 
-        private ImageSource GetReviewStatusImage(CodeFlowReviewViewModel info)
+        private ImageSource GetReviewStatusImage(PullRequestViewModel info)
         {
             if (info.IsWaiting)
             {

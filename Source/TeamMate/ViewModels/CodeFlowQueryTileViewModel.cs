@@ -6,9 +6,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class CodeFlowQueryTileViewModel : TileViewModel
     {
-        private CodeFlowQueryViewModel CodeFlowQuery
+        private PullRequestQueryViewModel CodeFlowQuery
         {
-            get { return this.Query as CodeFlowQueryViewModel; }
+            get { return this.Query as PullRequestQueryViewModel; }
         }
 
         public override void Activate()
@@ -21,14 +21,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void ShowCodeFlowReviewsPage()
         {
-            CodeFlowReviewsPageViewModel pageViewModel = ViewModelFactory.Create<CodeFlowReviewsPageViewModel>();
+            PullRequestPageViewModel pageViewModel = ViewModelFactory.Create<PullRequestPageViewModel>();
             pageViewModel.Query = this.CodeFlowQuery;
             this.WindowService.NavigateTo(pageViewModel);
         }
 
         protected override QueryViewModelBase CreateQueryViewModel(TileInfo tileInfo)
         {
-            CodeFlowQueryViewModel viewModel = ViewModelFactory.Create<CodeFlowQueryViewModel>();
+            PullRequestQueryViewModel viewModel = ViewModelFactory.Create<PullRequestQueryViewModel>();
             viewModel.ShowNotifications = tileInfo.ShowNotifications;
             viewModel.IncludeInItemCountSummary = tileInfo.IncludeInItemCountSummary;
             viewModel.LastUpdated = tileInfo.LastUpdated;

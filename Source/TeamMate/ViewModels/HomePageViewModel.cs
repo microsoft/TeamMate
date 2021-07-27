@@ -89,7 +89,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void AddCodeFlowTile()
         {
-            CodeFlowQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this);
+            PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this);
 
             if (queryInfo != null)
             {
@@ -117,7 +117,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             if (tile.TileInfo.Type == TileType.CodeFlowQuery)
             {
-                CodeFlowQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.CodeFlowQueryInfo);
+                PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.CodeFlowQueryInfo);
 
                 if (queryInfo != null)
                 {
@@ -126,7 +126,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     tile.Query.Name = queryInfo.Name;
                     tile.TileInfo.FireChanged();
 
-                    ((CodeFlowQueryViewModel)tile.Query).QueryInfo = queryInfo;
+                    ((PullRequestQueryViewModel)tile.Query).QueryInfo = queryInfo;
                     tile.RefreshAsync();
                 }
             }

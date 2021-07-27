@@ -23,15 +23,15 @@ namespace Microsoft.Tools.TeamMate.Resources
         private static ToastViewModel toastViewModel;
         private static List<WorkItemRowViewModel> listOfWorkItems;
 
-        private static CodeFlowReviewViewModel codeFlowReview;
+        private static PullRequestViewModel codeFlowReview;
 
-        public static CodeFlowReviewViewModel CodeFlowReview
+        public static PullRequestViewModel CodeFlowReview
         {
             get
             {
                 if (codeFlowReview == null)
                 {
-                    codeFlowReview = new CodeFlowReviewViewModel();
+                    codeFlowReview = new PullRequestViewModel();
                     codeFlowReview.AuthorDisplayName = "Joe Stevens";
                     codeFlowReview.Name = "Bug 12347: Crashing bug on xyz";
                     codeFlowReview.CreatedOn = DateTime.Now.AddDays(-11);

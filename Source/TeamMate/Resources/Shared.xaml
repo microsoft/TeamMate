@@ -24,18 +24,12 @@
     </ContextMenu>
 
     <ContextMenu x:Key="CodeFlowReviewContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInCodeFlow}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInVisualStudio}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInWeb}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"
                   Header="Copy Hyperlink"
                   Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.SendReviewReminderMail}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <Separator />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.PingReviewers}" Style="{DynamicResource CommandMenuItemStyle}" />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.CompleteReviews}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsRead}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsUnread}" Style="{DynamicResource CommandMenuItemStyle}" />

@@ -10,7 +10,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
     public class CodeFlowPickerViewModel : ValidatableViewModelBase
     {
         private string name;
-        private CodeFlowQueryInfo queryInfo;
+        private PullRequestQueryInfo queryInfo;
         private string authors;
         private string reviewer;
         private string projects;
@@ -27,7 +27,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             );
         }
 
-        public CodeFlowQueryInfo QueryInfo
+        public PullRequestQueryInfo QueryInfo
         {
             get { return this.queryInfo; }
             set

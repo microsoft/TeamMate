@@ -3,11 +3,11 @@
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
-    /// Interaction logic for CodeFlowReviewRowView.xaml
+    /// Interaction logic for PullRequestRowView.xaml
     /// </summary>
-    public partial class CodeFlowReviewRowView : UserControl
+    public partial class PullRequestRowView : UserControl
     {
-        public CodeFlowReviewRowView()
+        public PullRequestRowView()
         {
             InitializeComponent();
         }

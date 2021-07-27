@@ -50,9 +50,9 @@ namespace Microsoft.Tools.TeamMate.Model
             set { SetProperty(ref this.workItemQueryReference, value); }
         }
 
-        private CodeFlowQueryInfo codeFlowQueryInfo;
+        private PullRequestQueryInfo codeFlowQueryInfo;
 
-        public CodeFlowQueryInfo CodeFlowQueryInfo
+        public PullRequestQueryInfo CodeFlowQueryInfo
         {
             get { return this.codeFlowQueryInfo; }
             set { SetProperty(ref this.codeFlowQueryInfo, value); }

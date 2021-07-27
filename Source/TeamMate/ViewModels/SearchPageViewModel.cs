@@ -66,12 +66,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.Flag, ToggleSelectionFlag, HasSelection);
             commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
 
-            // Code Reviews
-            commands.Add(TeamMateCommands.OpenReviewInCodeFlow, OpenReviewInCodeFlow, HasSelection);
-            commands.Add(TeamMateCommands.OpenReviewInVisualStudio, OpenReviewInVisualStudio, HasSelection);
+            // Code PullRequests
             commands.Add(TeamMateCommands.OpenReviewInWeb, OpenReviewInWeb, HasSelection);
-            commands.Add(TeamMateCommands.SendReviewReminderMail, SendReviewReminderMail, HasSelection);
-            commands.Add(TeamMateCommands.PingReviewers, PingReviewers, HasSelection);
 
             // Shared
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
@@ -107,7 +103,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             object item = GetSelectedItem<object>();
             WorkItemRowViewModel workItem = item as WorkItemRowViewModel;
-            CodeFlowReviewViewModel review = item as CodeFlowReviewViewModel;
+            PullRequestViewModel review = item as PullRequestViewModel;
 
             if (workItem != null)
             {
@@ -116,7 +112,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
             else if (review != null)
             {
-                Clipboard.SetDataObject(DataObjectFactory.CopyHyperlink(review.Summary));
+                // TODO(MEM)
+               // Clipboard.SetDataObject(DataObjectFactory.CopyHyperlink(review.Summary));
             }
         }
 
@@ -164,73 +161,19 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public WindowService WindowService { get; set; }
 
-        private void OpenReviewInCodeFlow()
-        {
-            ICollection<CodeFlowReviewViewModel> items = GetSelectedItems<CodeFlowReviewViewModel>().ToArray();
-
-            if (this.WindowService.PromptShouldOpen(this, items.Count))
-            {
-                foreach (var review in items)
-                {
-                    review.OpenInCodeFlow();
-                }
-            }
-        }
-
-
-        private void OpenReviewInVisualStudio()
-        {
-            ICollection<CodeFlowReviewViewModel> items = GetSelectedItems<CodeFlowReviewViewModel>().ToArray();
-            if (this.WindowService.PromptShouldOpen(this, items.Count))
-            {
-                using (this.StatusService.BusyIndicator())
-                {
-                    foreach (CodeFlowReviewViewModel codeReview in items)
-                    {
-                        codeReview.OpenInVisualStudio();
-                    }
-                }
-            }
-        }
-
         private void OpenReviewInWeb()
         {
-            ICollection<CodeFlowReviewViewModel> items = GetSelectedItems<CodeFlowReviewViewModel>().ToArray();
+            ICollection<PullRequestViewModel> items = GetSelectedItems<PullRequestViewModel>().ToArray();
             if (this.WindowService.PromptShouldOpen(this, items.Count))
             {
                 using (this.StatusService.BusyIndicator())
                 {
-                    foreach (CodeFlowReviewViewModel codeReview in items)
+                    foreach (PullRequestViewModel codeReview in items)
                     {
                         codeReview.OpenInWebBrowser();
                     }
                 }
             }
-        }
-
-        private async void SendReviewReminderMail()
-        {
-            bool result = await DoSendReviewReminderMail(GetSelectedItems<CodeFlowReviewViewModel>());
-            if (!result)
-            {
-                this.MessageBoxService.Show(this, "All of the selected reviews are already completed.");
-            }
-        }
-
-        private async Task<bool> DoSendReviewReminderMail(IEnumerable<CodeFlowReviewViewModel> reviews)
-        {
-            // Email authors to complete signed off reviews...
-
-            var signedOffReviews = reviews.Where(r => r.Summary.Status != CodeReviewStatus.Completed).Select(cri => cri.Summary).ToArray();
-
-            if (signedOffReviews.Any())
-            {
-                MailMessage message = await Task.Run(() => GenerateCompleteReviewsEmail(signedOffReviews));
-                this.CollaborationService.SendMail(message);
-                return true;
-            }
-
-            return false;
         }
 
         private static MailMessage GenerateCompleteReviewsEmail(IEnumerable<CodeReviewSummary> reviews)
@@ -239,54 +182,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             var result = mailGenerator.GenerateCompleteReviewsEmail(reviews);
             result.ReminderDate = DateTime.Now.AddDays(3); // TODO: Hardcoded reminder
             return result;
-        }
-
-        private async void PingReviewers()
-        {
-            // Ping
-            // Only for my reviews, not for others...
-            var selection = GetSelectedItems<CodeFlowReviewViewModel>().Where(cr => cr.IsOwnedByMe).ToArray();
-            if (selection.Any())
-            {
-                // TODO: Poor coupling of View to ViewModel here
-                CodeFlowPingDialog dialog = new CodeFlowPingDialog();
-                dialog.Owner = View.GetWindow(this);
-                if (dialog.ShowDialog() == true)
-                {
-                    string message = dialog.Message;
-                    await PingReviewers(selection, message);
-                }
-            }
-            else
-            {
-                this.MessageBoxService.ShowError(this, "You cannot Ping code reviews that are not owned by yourself!");
-            }
-        }
-
-        [Import]
-        public CodeFlowService CodeFlowService { get; set; }
-
-        private async Task PingReviewers(IEnumerable<CodeFlowReviewViewModel> reviews, string pingMessage)
-        {
-            // TODO: Warning on pinging too many reviews? E.g. more than 5?
-            CodeFlowClient client = await this.CodeFlowService.GetCodeFlowClientAsync();
-
-            List<Task> tasks = new List<Task>();
-            foreach (CodeFlowReviewViewModel review in reviews)
-            {
-                var task = client.ReviewServiceClient.AuthorPingAsync(review.Summary.Key, pingMessage);
-                tasks.Add(task);
-            }
-
-            try
-            {
-                await Task.WhenAll(tasks);
-            }
-            catch (Exception ex)
-            {
-                this.MessageBoxService.ShowError(this, "An error occurred attempting to ping reviewers");
-                Log.Warn(ex);
-            }
         }
 
 
@@ -337,7 +232,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             listViewModel.Filters.Add(new ListViewFilter("All"));
             listViewModel.Filters.Add(new ListViewFilter("Work Items", (o) => ((SearchResult)o).Item is WorkItemRowViewModel));
-            listViewModel.Filters.Add(new ListViewFilter("Code Reviews", (o) => ((SearchResult)o).Item is CodeFlowReviewViewModel));
+            listViewModel.Filters.Add(new ListViewFilter("Code PullRequests", (o) => ((SearchResult)o).Item is PullRequestViewModel));
             listViewModel.Filters.Add(new ListViewFilter("Local Only", (o) => ((SearchResult)o).Source.IsLocal));
 
             return listViewModel;
@@ -507,14 +402,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     foreach (SearchResult searchResult in items)
                     {
                         WorkItemRowViewModel workItem = searchResult.Item as WorkItemRowViewModel;
-                        CodeFlowReviewViewModel review = searchResult.Item as CodeFlowReviewViewModel;
+                        PullRequestViewModel review = searchResult.Item as PullRequestViewModel;
                         if (workItem != null)
                         {
                             workItem.Open();
                         }
                         else if (review != null)
                         {
-                            review.OpenInCodeFlow();
+                            review.OpenInWebBrowser();
                         }
                         else
                         {

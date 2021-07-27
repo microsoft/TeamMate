@@ -67,9 +67,9 @@ namespace Microsoft.Tools.TeamMate.Model
             return new WorkItemQueryReference(projectCollectionUri, id);
         }
 
-        private CodeFlowQueryInfo ReadCodeFlowQueryTileInfo(XElement e)
+        private PullRequestQueryInfo ReadCodeFlowQueryTileInfo(XElement e)
         {
-            CodeFlowQueryInfo query = new CodeFlowQueryInfo();
+            PullRequestQueryInfo query = new PullRequestQueryInfo();
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.Authors = e.Elements(Schema.Authors, Schema.Author).Select(c => c.Value).ToArray();
             query.Reviewers = e.Elements(Schema.Reviewers, Schema.Reviewer).Select(c => c.Value).ToArray();
@@ -136,7 +136,7 @@ namespace Microsoft.Tools.TeamMate.Model
             return e;
         }
 
-        private XElement WriteCodeFlowQueryTileInfo(CodeFlowQueryInfo query)
+        private XElement WriteCodeFlowQueryTileInfo(PullRequestQueryInfo query)
         {
             XElement e = new XElement(Schema.CodeFlowQueryInfo,
                 (query.Authors != null && query.Authors.Any()) ? new XElement(Schema.Authors, query.Authors.Select(a => new XElement(Schema.Author, a))) : null,
@@ -394,7 +394,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName WorkItemQueryInfo = "WorkItemQueryInfo";
 
             // CodeFlow Stuff
-            public static readonly XName CodeFlowQueryInfo = "CodeFlowQueryInfo";
+            public static readonly XName CodeFlowQueryInfo = "PullRequestQueryInfo";
             public static readonly XName Authors = "Authors";
             public static readonly XName Author = "Author";
             public static readonly XName Projects = "Projects";

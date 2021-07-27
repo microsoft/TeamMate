@@ -91,15 +91,7 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand EditTags { get { return commands.FindResource(); } }
 
         public static ICommand NewCodeFlowReview { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInCodeFlow { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInVisualStudio { get { return commands.FindResource(); } }
         public static ICommand OpenReviewInWeb { get { return commands.FindResource(); } }
-        public static ICommand SendReviewReminderMail { get { return commands.FindResource(); } }
-        public static ICommand SendAllReviewsReminderMail { get { return commands.FindResource(); } }
-
-        public static ICommand PingReviewers { get { return commands.FindResource(); } }
-        public static ICommand CompleteReviews { get { return commands.FindResource(); } }
-
 
         public static ICommand StopRecordingTray { get { return commands.FindResource(); } }
 

@@ -10,12 +10,12 @@ using System.Windows.Controls;
 namespace Microsoft.Tools.TeamMate.Pages
 {
     /// <summary>
-    /// Interaction logic for CodeFlowReviewsPage.xaml
+    /// Interaction logic for PullRequestsPage.xaml
     /// </summary>
-    [View(typeof(CodeFlowReviewsPageViewModel))]
-    public partial class CodeFlowReviewsPage : UserControl, IResultsContainer
+    [View(typeof(PullRequestPageViewModel))]
+    public partial class PullRequestsPage : UserControl, IResultsContainer
     {
-        public CodeFlowReviewsPage()
+        public PullRequestsPage()
         {
             View.Initialize(this);
             InitializeComponent();
@@ -57,24 +57,25 @@ namespace Microsoft.Tools.TeamMate.Pages
         {
             if (e.Items.Count == 1)
             {
-                var summary = e.Items.OfType<CodeFlowReviewViewModel>().Select(review => review.Summary).FirstOrDefault();
+                var summary = e.Items.OfType<PullRequestViewModel>().Select(review => review.Reference).FirstOrDefault();
                 if (summary != null)
                 {
-                    var dataObject = DataObjectFactory.CreateDraggableItem(summary);
-                    DragDrop.DoDragDrop(this, dataObject, DragDropEffects.All);
+                    // TODO(MEM)
+                  //  var dataObject = DataObjectFactory.CreateDraggableItem(summary);
+                  //  DragDrop.DoDragDrop(this, dataObject, DragDropEffects.All);
                 }
             }
         }
 
         private void HandleItemsActivated(object sender, ListViewItemsActivatedEventArgs e)
         {
-            var items = e.Items.OfType<CodeFlowReviewViewModel>().ToArray();
+            var items = e.Items.OfType<PullRequestViewModel>().ToArray();
             ViewModel.OpenMany(items);
         }
 
-        private CodeFlowReviewsPageViewModel ViewModel
+        private PullRequestPageViewModel ViewModel
         {
-            get { return this.DataContext as CodeFlowReviewsPageViewModel; }
+            get { return this.DataContext as PullRequestPageViewModel; }
         }
     }
 }

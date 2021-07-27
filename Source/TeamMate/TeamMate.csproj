@@ -131,8 +131,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\CodeFlowReviewRowView.xaml.cs">
-      <DependentUpon>CodeFlowReviewRowView.xaml</DependentUpon>
+    <Compile Include="Controls\PullRequestRowView.xaml.cs">
+      <DependentUpon>PullRequestRowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DropDownSelector.xaml.cs">
       <DependentUpon>DropDownSelector.xaml</DependentUpon>
@@ -150,7 +150,7 @@
     <Compile Include="Controls\WorkItemStateView.xaml.cs">
       <DependentUpon>WorkItemStateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\CodeFlowReviewStatusConverter.cs" />
+    <Compile Include="Converters\PullRequestStatusConverter.cs" />
     <Compile Include="Model\Application.cs" />
     <Compile Include="Model\ApplicationHistory.cs" />
     <Compile Include="Model\ContainerConfiguration.cs" />
@@ -159,7 +159,7 @@
     <Compile Include="Model\ProjectReference.cs" />
     <Compile Include="Model\Settings\DeveloperSettings.cs" />
     <Compile Include="Model\TeamMateApplicationInfo.cs" />
-    <Compile Include="Model\CodeFlowQueryInfo.cs" />
+    <Compile Include="Model\PullRequestQueryInfo.cs" />
     <Compile Include="Model\ConditionalFormattingRule.cs" />
     <Compile Include="Model\TileInfo.cs" />
     <Compile Include="Model\WorkItemQueryReference.cs" />
@@ -169,8 +169,8 @@
     <Compile Include="Model\WorkItemTypeInfo.cs" />
     <Compile Include="Model\WorkItemTypeReference.cs" />
     <Compile Include="Model\WorkItemWithUpdates.cs" />
-    <Compile Include="Pages\CodeFlowReviewsPage.xaml.cs">
-      <DependentUpon>CodeFlowReviewsPage.xaml</DependentUpon>
+    <Compile Include="Pages\PullRequestsPage.xaml.cs">
+      <DependentUpon>PullRequestsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DeveloperOptionsPage.xaml.cs">
       <DependentUpon>DeveloperOptionsPage.xaml</DependentUpon>
@@ -218,9 +218,9 @@
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
     <Compile Include="ViewModels\CodeFlowPickerViewModel.cs" />
     <Compile Include="ViewModels\CodeFlowQueryTileViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowReviewsPageViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowReviewViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowQueryViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestQueryViewModel.cs" />
     <Compile Include="ViewModels\CustomDialogViewModel.cs" />
     <Compile Include="ViewModels\DeveloperOptionsPageViewModel.cs" />
     <Compile Include="ViewModels\FlaggedWorkItemsViewModel.cs" />
@@ -386,7 +386,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\CodeFlowReviewRowView.xaml">
+    <Page Include="Controls\PullRequestRowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -442,7 +442,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\CodeFlowReviewsPage.xaml">
+    <Page Include="Pages\PullRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

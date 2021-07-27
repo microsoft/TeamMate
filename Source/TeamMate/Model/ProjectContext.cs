@@ -3,6 +3,7 @@ using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model.Settings;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System.Collections.Generic;
@@ -28,6 +29,10 @@ namespace Microsoft.Tools.TeamMate.Model
         public ProjectReference Reference { get; private set; }
 
         public WorkItemTrackingHttpClient WorkItemTrackingClient { get; set; }
+
+        public GitHttpClient GitHttpClient { get; set; }
+
+        public Microsoft.VisualStudio.Services.Identity.Identity Identity { get; set; }
 
         public WorkItemTrackingBatchHttpClient WorkItemTrackingBatchClient { get; set; }
 

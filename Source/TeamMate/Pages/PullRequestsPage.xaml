@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Microsoft.Tools.TeamMate.Pages.CodeFlowReviewsPage"
+﻿<UserControl x:Class="Microsoft.Tools.TeamMate.Pages.PullRequestsPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,7 +32,7 @@
                            ItemContextMenu="{StaticResource CodeFlowReviewContextMenu}">
                 <fwcd:ListView.ItemTemplate>
                     <DataTemplate>
-                        <tmc:CodeFlowReviewRowView Padding="18,9,3,9" />
+                        <tmc:PullRequestRowView Padding="18,9,3,9" />
                     </DataTemplate>
                 </fwcd:ListView.ItemTemplate>
             </fwcd:ListView>

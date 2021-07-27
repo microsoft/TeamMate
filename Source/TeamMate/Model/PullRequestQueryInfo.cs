@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
-    public class CodeFlowQueryInfo
+    public class PullRequestQueryInfo
     {
         private static readonly Dictionary<CodeFlowQueryReviewPeriod, TimeSpan> ReviewPeriodsMap = new Dictionary<CodeFlowQueryReviewPeriod, TimeSpan>()
         {

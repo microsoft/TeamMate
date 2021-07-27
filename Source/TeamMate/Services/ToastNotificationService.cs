@@ -103,15 +103,15 @@ namespace Microsoft.Tools.TeamMate.Services
             }
         }
 
-        public void QueueNotifications(IEnumerable<CodeFlowReviewViewModel> items, DateTime? previousUpdate, NotificationScope scope)
+        public void QueueNotifications(IEnumerable<PullRequestViewModel> items, DateTime? previousUpdate, NotificationScope scope)
         {
             try
             {
                 Assert.ParamIsNotNull(items, "items");
 
-                var orderedCodeReviews = items.OrderByDescending(wi => wi.Summary.LastUpdatedOn);
+                var orderedCodeReviews = items.OrderByDescending(wi => wi.Reference.CodeReviewId);
                 var changed = (scope == null) ? orderedCodeReviews : orderedCodeReviews.Where(wi => scope.ShouldNotify(wi));
-                var toasts = changed.Select(wi => CreateToast(wi, previousUpdate)).ToArray();
+                var toasts = changed.Select(wi => CreateToast(wi)).ToArray();
                 this.QueueToasts(toasts);
             }
             catch (Exception e)
@@ -199,28 +199,18 @@ namespace Microsoft.Tools.TeamMate.Services
             return toastInfo;
         }
 
-        private ToastInfo CreateToast(CodeFlowReviewViewModel review, DateTime? previousUpdate)
+        private ToastInfo CreateToast(PullRequestViewModel pullRequest)
         {
             ToastInfo toastInfo = new ToastInfo();
-
-            bool isNewSinceLastCheck = review.CreatedOn.IsAfter(previousUpdate);
-            if (isNewSinceLastCheck)
-            {
-                toastInfo.Title = review.Summary.GetCreatedChangeDescription();
-            }
-            else
-            {
-                toastInfo.Title = review.Summary.GetChangeDescription();
-            }
-
-            toastInfo.Description = review.Summary.Name;
+            toastInfo.Title = pullRequest.Reference.Title;
+            toastInfo.Description = pullRequest.Reference.Description;
 
             ToastActivationInfo activationInfo = new ToastActivationInfo
             {
                 Action = ToastActivationAction.OpenCodeFlowReview,
                 CodeFlowReview = new ToastCodeFlowReviewInfo
                 {
-                    LaunchClientUri = review.GetLaunchClientUri()
+                    LaunchClientUri = pullRequest.GetWebViewUri()
                 }
             };
 
@@ -285,7 +275,7 @@ namespace Microsoft.Tools.TeamMate.Services
                     break;
 
                 case ToastActivationAction.OpenCodeFlowReview:
-                    // TODO: Would be cool to find the CodeFlowReviewViewModel and mark it as read here...
+                    // TODO: Would be cool to find the PullRequestViewModel and mark it as read here...
                     Process.Start(activationInfo.CodeFlowReview.LaunchClientUri.AbsoluteUri);
                     break;
 
@@ -363,10 +353,13 @@ namespace Microsoft.Tools.TeamMate.Services
             return notify;
         }
 
-        public bool ShouldNotify(CodeFlowReviewViewModel review)
+        public bool ShouldNotify(PullRequestViewModel review)
         {
+            
             bool notify = false;
-
+            /*
+             // TODO(MEM) 
+             
             DateTime lastKnownChangeDate;
             string key = review.Summary.Key;
             if (!reviewCurrentScope.TryGetValue(key, out lastKnownChangeDate) || lastKnownChangeDate < review.Summary.LastUpdatedOn)
@@ -374,6 +367,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 reviewCurrentScope[key] = review.Summary.LastUpdatedOn;
                 notify = true;
             }
+            */
 
             return notify;
         }
