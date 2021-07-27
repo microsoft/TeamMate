@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{1805B498
 		Build\BuildInfo.cs = Build\BuildInfo.cs
 		Build\Microsoft.Tools.TeamMate.Settings.targets = Build\Microsoft.Tools.TeamMate.Settings.targets
 		Build\Microsoft.Tools.TeamMate.targets = Build\Microsoft.Tools.TeamMate.targets
-		Build\Microsoft.Tools.TeamMate.Version.targets = Build\Microsoft.Tools.TeamMate.Version.targets
 		Build\version.txt = Build\version.txt
 	EndProjectSection
 EndProject

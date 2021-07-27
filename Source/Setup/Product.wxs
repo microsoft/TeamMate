@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="TeamMate" Language="1033" Version="2.1.21106.0" Manufacturer="https://github.com/microsoft/teammate" UpgradeCode="df0aeb4a-f671-4641-af7f-9629a80544d5">
+  <?define productVersion= !(bind.FileVersion.TeamMate.Exe) ?>
+  <Product Id="*" Name="TeamMate" Language="1033" Version="$(var.productVersion)" Manufacturer="https://github.com/microsoft/teammate" UpgradeCode="df0aeb4a-f671-4641-af7f-9629a80544d5">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
 
     <Icon Id="TeamMate.ico" SourceFile=".\TeamMate.ico"/>

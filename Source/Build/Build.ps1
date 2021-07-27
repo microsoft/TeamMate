@@ -8,15 +8,12 @@
  .PARAMETER debug
  Builds the Debug flavor as opposed to the (default) Relase flavor.
 
- .PARAMETER updateVersion
- If true, generates a new version and updates source files with that value
-
  .PARAMETER build
  If true, performs a build. 
 
 #>
 
-param([switch]$debug, [switch] $updateVersion, [switch] $build, [switch] $upload, [switch]$noresign, [switch]$local)
+param([switch]$debug, [switch] $build, [switch] $upload, [switch]$noresign, [switch]$local)
 
 ###############################################################################
 # Helper Functions
@@ -141,12 +138,11 @@ function UpdateBuildVersion($currentVersion, $buildVersion)
 $scriptFolder = Get-ScriptDirectory;
 $versionFile = "$scriptFolder\version.txt";
 $buildInfoFile = "$scriptFolder\BuildInfo.cs";
-$versionTargetsFile = "$scriptFolder\Microsoft.Tools.TeamMate.Version.targets";
 $project = "$scriptFolder\..\TeamMate\TeamMate.csproj";
 
-if(-not ($updateVersion -or $build))
+if(-not $build)
 {
-    Write-Error "Please specify one or more of: -updateVersion, -build";
+    Write-Error "Please specify -build";
     exit 1
 }
 
@@ -157,27 +153,6 @@ if($debug)
 else
 {
     $configs = ( "Release" );
-}
-
-if($updateVersion) 
-{
-    $buildVersion = GenerateBuildVersion
-    $version = ParseVersion (gc $versionFile);
-    UpdateBuildVersion $version $buildVersion; 
-    $newVersion = "{0}.{1}.{2}.{3}" -f $version.Major,$version.Minor,$version.Build,$version.Revision;
-
-    Write-Info "Updating Build Version to $newVersion..."
-
-    $ignore = UpdateFile $versionFile $newVersion;
-
-    $buildInfo = Get-Content $buildInfoFile;
-    $buildInfo = $buildInfo -replace "AssemblyVersion\(.*", "AssemblyVersion(""$newVersion"")]";
-    $buildInfo = $buildInfo -replace "AssemblyFileVersion\(.*", "AssemblyFileVersion(""$newVersion"")]";
-    $ignore = UpdateFile $buildInfoFile $buildInfo;
-
-    $versionTargets = Get-Content $versionTargetsFile;
-    $versionTargets = $versionTargets -replace "<ApplicationVersion>.*</ApplicationVersion>", "<ApplicationVersion>$newVersion</ApplicationVersion>";
-    $ignore = UpdateFile $versionTargetsFile $versionTargets -UTF8;
 }
 
 if($build)
