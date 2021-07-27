@@ -89,7 +89,13 @@
                     <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}" Text="{x:Static tmm:TeamMateApplicationInfo.ApplicationName}" />
                     <TextBlock Margin="0,12,0,0">
                         <LineBreak />
-                        <Run Text="Version " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
+                        <Run Text="Version: " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.PublicVersion}" />
+                        <LineBreak />
+                        <Run Text="Full Version: " />
+                        <Hyperlink Command="{Binding CopyFullVersionToClipboard}">
+                           <Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
+                        </Hyperlink>
+                        <Run Text="(Click to copy to clipboard)" />
                     </TextBlock>
                     <TextBlock Margin="0,12,0,0">
                         GitHub project: 

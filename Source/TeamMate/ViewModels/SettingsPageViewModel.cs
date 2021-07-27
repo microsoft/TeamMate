@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
@@ -62,6 +63,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public ICommand OpenGitHubMITLicenseUrlCommand => new RelayCommand(() =>
         {
             this.ExternalWebBrowserService.OpenGitHubMITLicenseUrl();
+        });
+
+        public ICommand CopyFullVersionToClipboard => new RelayCommand(() =>
+        {
+            Clipboard.SetText(TeamMateApplicationInfo.FullVersion);
         });
 
         public string LogsFolder
