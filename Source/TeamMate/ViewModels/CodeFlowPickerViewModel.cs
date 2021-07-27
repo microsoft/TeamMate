@@ -14,8 +14,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private string authors;
         private string reviewer;
         private string projects;
-        private CodeFlowQueryReviewPeriod reviewPeriod;
-        private CodeFlowQueryReviewStatuses reviewStatuses;
+        private PullRequestQueryReviewPeriod reviewPeriod;
+        private PullRequestQueryReviewStatuses reviewStatuses;
 
         public CodeFlowPickerViewModel()
         {
@@ -63,13 +63,13 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             set { SetProperty(ref this.projects, value); }
         }
 
-        public CodeFlowQueryReviewPeriod ReviewPeriod
+        public PullRequestQueryReviewPeriod ReviewPeriod
         {
             get { return this.reviewPeriod; }
             set { SetProperty(ref this.reviewPeriod, value); }
         }
 
-        public CodeFlowQueryReviewStatuses ReviewStatuses
+        public PullRequestQueryReviewStatuses ReviewStatuses
         {
             get { return this.reviewStatuses; }
             set { SetProperty(ref this.reviewStatuses, value); }
@@ -129,12 +129,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public object AllReviewPeriods
         {
-            get { return Enum.GetValues(typeof(CodeFlowQueryReviewPeriod)); }
+            get { return Enum.GetValues(typeof(PullRequestQueryReviewPeriod)); }
         }
 
         public object AllReviewStatuses
         {
-            get { return Enum.GetValues(typeof(CodeFlowQueryReviewStatuses)); }
+            get { return Enum.GetValues(typeof(PullRequestQueryReviewStatuses)); }
         }
     }
 }

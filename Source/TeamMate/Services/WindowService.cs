@@ -293,7 +293,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         public PullRequestQueryInfo ShowCodeFlowQueryEditorDialog(ViewModelBase ownerViewModel, PullRequestQueryInfo queryInfo)
         {
-            CodeFlowQueryEditorDialog dialog = new CodeFlowQueryEditorDialog();
+            PullRequestQueryEditorDialog dialog = new PullRequestQueryEditorDialog();
             CodeFlowPickerViewModel viewModel = ViewModelFactory.Create<CodeFlowPickerViewModel>();
             viewModel.QueryInfo = queryInfo;
             dialog.DataContext = viewModel;

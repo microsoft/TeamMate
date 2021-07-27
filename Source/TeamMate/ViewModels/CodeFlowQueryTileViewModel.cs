@@ -33,7 +33,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             viewModel.IncludeInItemCountSummary = tileInfo.IncludeInItemCountSummary;
             viewModel.LastUpdated = tileInfo.LastUpdated;
             viewModel.Name = tileInfo.Name;
-            viewModel.QueryInfo = tileInfo.CodeFlowQueryInfo;
+            viewModel.QueryInfo = tileInfo.PullRequestQueryInfo;
             return viewModel;
         }
     }

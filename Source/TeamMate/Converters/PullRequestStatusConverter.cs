@@ -49,7 +49,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             { ReviewerStatus.Declined, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#777777")) },
         };
 
-        public CodeFlowReviewStatusConverterMode Mode { get; set; }
+        public PullRequestStatusConverterMode Mode { get; set; }
 
         public override object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
@@ -58,16 +58,16 @@ namespace Microsoft.Tools.TeamMate.Converters
             {
                 switch (Mode)
                 {
-                    case CodeFlowReviewStatusConverterMode.StatusText:
+                    case PullRequestStatusConverterMode.StatusText:
                         return GetReviewStatusText(info);
 
-                    case CodeFlowReviewStatusConverterMode.StatusImage:
+                    case PullRequestStatusConverterMode.StatusImage:
                         return GetReviewStatusImage(info);
 
-                    case CodeFlowReviewStatusConverterMode.ReviewerStatus:
+                    case PullRequestStatusConverterMode.ReviewerStatus:
                         return GetReviewerStatus(info);
 
-                    case CodeFlowReviewStatusConverterMode.IterationCount:
+                    case PullRequestStatusConverterMode.IterationCount:
                         if (info.IterationCount > 1)
                         {
                             return " - Iteration " + info.IterationCount;
@@ -190,7 +190,7 @@ namespace Microsoft.Tools.TeamMate.Converters
         }
     }
 
-    public enum CodeFlowReviewStatusConverterMode
+    public enum PullRequestStatusConverterMode
     {
         StatusText,
         StatusImage,

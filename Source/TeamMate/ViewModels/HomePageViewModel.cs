@@ -96,7 +96,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 TileInfo tileInfo = new TileInfo();
                 tileInfo.Type = TileType.CodeFlowQuery;
                 tileInfo.Name = queryInfo.Name;
-                tileInfo.CodeFlowQueryInfo = queryInfo;
+                tileInfo.PullRequestQueryInfo = queryInfo;
                 this.tileCollection.AddAndRefreshTileViewModel(tileInfo);
             }
         }
@@ -117,11 +117,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             if (tile.TileInfo.Type == TileType.CodeFlowQuery)
             {
-                PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.CodeFlowQueryInfo);
+                PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.PullRequestQueryInfo);
 
                 if (queryInfo != null)
                 {
-                    tile.TileInfo.CodeFlowQueryInfo = queryInfo;
+                    tile.TileInfo.PullRequestQueryInfo = queryInfo;
                     tile.TileInfo.Name = queryInfo.Name;
                     tile.Query.Name = queryInfo.Name;
                     tile.TileInfo.FireChanged();

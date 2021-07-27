@@ -5,11 +5,11 @@ using System.Windows;
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
-    /// Interaction logic for CodeFlowQueryEditorDialog.xaml
+    /// Interaction logic for PullRequestQueryEditorDialog.xaml
     /// </summary>
-    public partial class CodeFlowQueryEditorDialog : Window
+    public partial class PullRequestQueryEditorDialog : Window
     {
-        public CodeFlowQueryEditorDialog()
+        public PullRequestQueryEditorDialog()
         {
             InitializeComponent();
             this.okButton.Click += HandleOkButtonClick;

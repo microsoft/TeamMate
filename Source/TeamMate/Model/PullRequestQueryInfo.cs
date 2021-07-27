@@ -7,31 +7,31 @@ namespace Microsoft.Tools.TeamMate.Model
 {
     public class PullRequestQueryInfo
     {
-        private static readonly Dictionary<CodeFlowQueryReviewPeriod, TimeSpan> ReviewPeriodsMap = new Dictionary<CodeFlowQueryReviewPeriod, TimeSpan>()
+        private static readonly Dictionary<PullRequestQueryReviewPeriod, TimeSpan> ReviewPeriodsMap = new Dictionary<PullRequestQueryReviewPeriod, TimeSpan>()
         {
-            { CodeFlowQueryReviewPeriod.LastDay, TimeSpan.FromDays(1) },
-            { CodeFlowQueryReviewPeriod.LastWeek, TimeSpan.FromDays(7) },
-            { CodeFlowQueryReviewPeriod.LastTwoWeeks, TimeSpan.FromDays(14) },
-            { CodeFlowQueryReviewPeriod.LastMonth, TimeSpan.FromDays(30) },
-            { CodeFlowQueryReviewPeriod.LastTwoMonths, TimeSpan.FromDays(2 * 30) },
-            { CodeFlowQueryReviewPeriod.LastSixMonths, TimeSpan.FromDays(6 * 30) },
-            { CodeFlowQueryReviewPeriod.LastYear, TimeSpan.FromDays(365) },
+            { PullRequestQueryReviewPeriod.LastDay, TimeSpan.FromDays(1) },
+            { PullRequestQueryReviewPeriod.LastWeek, TimeSpan.FromDays(7) },
+            { PullRequestQueryReviewPeriod.LastTwoWeeks, TimeSpan.FromDays(14) },
+            { PullRequestQueryReviewPeriod.LastMonth, TimeSpan.FromDays(30) },
+            { PullRequestQueryReviewPeriod.LastTwoMonths, TimeSpan.FromDays(2 * 30) },
+            { PullRequestQueryReviewPeriod.LastSixMonths, TimeSpan.FromDays(6 * 30) },
+            { PullRequestQueryReviewPeriod.LastYear, TimeSpan.FromDays(365) },
         };
 
-        private static readonly Dictionary<CodeFlowQueryReviewStatuses, CodeReviewStatus[]> ReviewStatusesMap = new Dictionary<CodeFlowQueryReviewStatuses, CodeReviewStatus[]>()
+        private static readonly Dictionary<PullRequestQueryReviewStatuses, CodeReviewStatus[]> ReviewStatusesMap = new Dictionary<PullRequestQueryReviewStatuses, CodeReviewStatus[]>()
         {
-            { CodeFlowQueryReviewStatuses.Active, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created } },
-            { CodeFlowQueryReviewStatuses.Completed, new CodeReviewStatus[] { CodeReviewStatus.Completed } },
-            { CodeFlowQueryReviewStatuses.ActiveOrCompleted, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created, CodeReviewStatus.Completed } },
-            { CodeFlowQueryReviewStatuses.All, null },
+            { PullRequestQueryReviewStatuses.Active, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created } },
+            { PullRequestQueryReviewStatuses.Completed, new CodeReviewStatus[] { CodeReviewStatus.Completed } },
+            { PullRequestQueryReviewStatuses.ActiveOrCompleted, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created, CodeReviewStatus.Completed } },
+            { PullRequestQueryReviewStatuses.All, null },
         };
 
         public string Name { get; set; }
         public string[] Authors { get; set; }
         public string[] Reviewers { get; set; }
         public string[] Projects { get; set; }
-        public CodeFlowQueryReviewPeriod ReviewPeriod { get; set; }
-        public CodeFlowQueryReviewStatuses ReviewStatuses { get; set; }
+        public PullRequestQueryReviewPeriod ReviewPeriod { get; set; }
+        public PullRequestQueryReviewStatuses ReviewStatuses { get; set; }
 
         public CodeReviewQuery CreateCodeReviewQuery()
         {
@@ -48,7 +48,7 @@ namespace Microsoft.Tools.TeamMate.Model
         }
     }
 
-    public enum CodeFlowQueryReviewPeriod
+    public enum PullRequestQueryReviewPeriod
     {
         [Description("Day")]
         LastDay,
@@ -72,7 +72,7 @@ namespace Microsoft.Tools.TeamMate.Model
         LastYear
     }
 
-    public enum CodeFlowQueryReviewStatuses
+    public enum PullRequestQueryReviewStatuses
     {
         [Description("Active")]
         Active,

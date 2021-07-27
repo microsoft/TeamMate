@@ -1,4 +1,4 @@
-﻿<Window x:Class="Microsoft.Tools.TeamMate.Windows.CodeFlowQueryEditorDialog"
+﻿<Window x:Class="Microsoft.Tools.TeamMate.Windows.PullRequestQueryEditorDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:fw="clr-namespace:Microsoft.Tools.TeamMate.Foundation.Windows;assembly=Microsoft.Tools.TeamMate.Foundation"
@@ -19,7 +19,7 @@
     <AdornerDecorator>
         <fwc:DialogPanel Margin="12,0,24,12">
             <StackPanel Width="400">
-                <TextBlock Style="{StaticResource LyncDialogTitleStyle}">CodeFlow Query</TextBlock>
+                <TextBlock Style="{StaticResource LyncDialogTitleStyle}" Text="Pull Request Query"/>
                 <tmc:ValidationErrorView />
                 <Grid Margin="0,12,0,0">
                     <Grid.ColumnDefinitions>

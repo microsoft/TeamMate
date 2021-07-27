@@ -46,7 +46,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     break;
 
                 case TileType.CodeFlowQuery:
-                    tileInfo.CodeFlowQueryInfo = ReadCodeFlowQueryTileInfo(e.Element(Schema.CodeFlowQueryInfo));
+                    tileInfo.PullRequestQueryInfo = ReadCodeFlowQueryTileInfo(e.Element(Schema.CodeFlowQueryInfo));
                     break;
 
                 case TileType.BuiltIn:
@@ -75,8 +75,8 @@ namespace Microsoft.Tools.TeamMate.Model
             query.Reviewers = e.Elements(Schema.Reviewers, Schema.Reviewer).Select(c => c.Value).ToArray();
             query.Projects = e.Elements(Schema.Projects, Schema.Project).Select(c => c.Value).ToArray();
 
-            query.ReviewStatuses = e.GetAttribute<CodeFlowQueryReviewStatuses>(Schema.ReviewStatuses);
-            query.ReviewPeriod = e.GetAttribute<CodeFlowQueryReviewPeriod>(Schema.ReviewPeriod);
+            query.ReviewStatuses = e.GetAttribute<PullRequestQueryReviewStatuses>(Schema.ReviewStatuses);
+            query.ReviewPeriod = e.GetAttribute<PullRequestQueryReviewPeriod>(Schema.ReviewPeriod);
 
             return query;
         }
@@ -114,7 +114,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     break;
 
                 case TileType.CodeFlowQuery:
-                    e.Add(WriteCodeFlowQueryTileInfo(tile.CodeFlowQueryInfo));
+                    e.Add(WriteCodeFlowQueryTileInfo(tile.PullRequestQueryInfo));
                     break;
 
                 case TileType.BuiltIn:
@@ -146,8 +146,8 @@ namespace Microsoft.Tools.TeamMate.Model
 
             e.SetAttribute<string>(Schema.Name, query.Name);
 
-            e.SetAttribute<CodeFlowQueryReviewPeriod>(Schema.ReviewPeriod, query.ReviewPeriod);
-            e.SetAttribute<CodeFlowQueryReviewStatuses>(Schema.ReviewStatuses, query.ReviewStatuses);
+            e.SetAttribute<PullRequestQueryReviewPeriod>(Schema.ReviewPeriod, query.ReviewPeriod);
+            e.SetAttribute<PullRequestQueryReviewStatuses>(Schema.ReviewStatuses, query.ReviewStatuses);
 
             return e;
         }

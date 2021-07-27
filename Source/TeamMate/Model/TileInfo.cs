@@ -50,12 +50,12 @@ namespace Microsoft.Tools.TeamMate.Model
             set { SetProperty(ref this.workItemQueryReference, value); }
         }
 
-        private PullRequestQueryInfo codeFlowQueryInfo;
+        private PullRequestQueryInfo pullRequestQueryInfo;
 
-        public PullRequestQueryInfo CodeFlowQueryInfo
+        public PullRequestQueryInfo PullRequestQueryInfo
         {
-            get { return this.codeFlowQueryInfo; }
-            set { SetProperty(ref this.codeFlowQueryInfo, value); }
+            get { return this.pullRequestQueryInfo; }
+            set { SetProperty(ref this.pullRequestQueryInfo, value); }
         }
 
         private BuiltInTileType builtInTileType;

@@ -51,8 +51,8 @@
                    Text="Add Work Item Query" />
 
     <fwi:UICommand x:Key="AddCodeFlowTileCommand"
-                   SymbolIcon="AddFriend"
-                   Text="Add CodeFlow Reviews" />
+                   SymbolIcon="SubscriptionAdd"
+                   Text="Add Pull Review Query" />
 
     <fwi:UICommand x:Key="ChooseProjectsCommand"
                    SymbolIcon="Add"

@@ -315,11 +315,8 @@
     <Compile Include="ViewModels\WorkItemQueryTileViewModel.cs" />
     <Compile Include="ViewModels\WorkItemsPageViewModel.cs" />
     <Compile Include="Services\WindowService.cs" />
-    <Compile Include="Windows\CodeFlowQueryEditorDialog.xaml.cs">
-      <DependentUpon>CodeFlowQueryEditorDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CodeFlowPingDialog.xaml.cs">
-      <DependentUpon>CodeFlowPingDialog.xaml</DependentUpon>
+    <Compile Include="Windows\PullRequestQueryEditorDialog.xaml.cs">
+      <DependentUpon>PullRequestQueryEditorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ConditionalFormattingDialog.xaml.cs">
       <DependentUpon>ConditionalFormattingDialog.xaml</DependentUpon>
@@ -522,13 +519,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CodeFlowQueryEditorDialog.xaml">
+    <Page Include="Windows\PullRequestQueryEditorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CodeFlowPingDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\ConditionalFormattingDialog.xaml">
       <SubType>Designer</SubType>
