@@ -90,8 +90,7 @@ namespace Microsoft.Tools.TeamMate.Resources
 
         public static ICommand EditTags { get { return commands.FindResource(); } }
 
-        public static ICommand NewPullRequest { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInWeb { get { return commands.FindResource(); } }
+        public static ICommand OpenPullRequestInWeb { get { return commands.FindResource(); } }
 
         public static ICommand StopRecordingTray { get { return commands.FindResource(); } }
 

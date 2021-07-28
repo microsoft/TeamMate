@@ -42,7 +42,6 @@
                                          Converter={x:Static fw:Converters.Visibility},
                                          ConverterParameter={x:Static vm:CommandBarType.CodeReviews}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.NewPullRequest}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.MarkAllAsRead}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Right"

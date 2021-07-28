@@ -36,7 +36,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.model.FilterApplied += HandleFilterApplied;
 
             this.GlobalCommandBindings = new CommandBindingCollection();
-            this.GlobalCommandBindings.Add(TeamMateCommands.NewPullRequest, NewPullRequest);
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh);
             this.GlobalCommandBindings.Add(TeamMateCommands.MarkAllAsRead, MarkAllAsRead);
 
@@ -221,7 +220,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public void RegisterBindings(CommandBindingCollection commands)
         {
-            commands.Add(TeamMateCommands.OpenReviewInWeb, OpenReviewInWeb, HasSelection);
+            commands.Add(TeamMateCommands.OpenPullRequestInWeb, OpenPullRequestInWeb, HasSelection);
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
             commands.Add(TeamMateCommands.MarkAsRead, MarkAsRead, HasSelection);
             commands.Add(TeamMateCommands.MarkAsUnread, MarkAsUnread, HasSelection);
@@ -294,13 +293,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private void NewPullRequest()
-        {
-            // TODO(MEM)
-          //  Process.Start(CodeFlowUriBuilder.LaunchClient().AbsoluteUri);
-        }
-
-        private void OpenReviewInWeb()
+        private void OpenPullRequestInWeb()
         {
             var items = GetSelectedItems();
             if (this.WindowService.PromptShouldOpen(this, items.Count))

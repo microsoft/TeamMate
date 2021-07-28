@@ -455,55 +455,9 @@
 
     <!-- Pull Request Query & Commands  -->
 
-    <fwi:UICommand x:Key="NewPullRequestCommand"
-                   Description="Create a new code review in CodeFlow"
-                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
-                   SymbolIcon="Add"
-                   Text="New Code Review" />
-
-    <fwi:UICommand x:Key="OpenReviewInWebCommand"
+    <fwi:UICommand x:Key="OpenPullRequestInWebCommand"
                    Description="Open code review in web browser"
                    Icon="/Resources/Icons/Office15/WebInsertHyperlink.16x16x32.png"
                    Text="Open in _Browser" />
-
-    <fwi:UICommand x:Key="SendReviewReminderMailCommand"
-                   Description="Send a reminder email for authors to complete their active code reviews"
-                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
-                   Text="Send R_eminder Mail" />
-
-    <fwi:UICommand x:Key="SendAllReviewsReminderMailCommand"
-                   Description="Send a reminder email for authors to complete their active code reviews"
-                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
-                   SymbolIcon="MailReplyAll"
-                   Text="Send Reminder Mail" />
-
-    <fwi:UICommand x:Key="PingReviewersCommand"
-                   Description="Ping reviewers to remind them"
-                   Icon="/Resources/Icons/Other/17_16_N.16x16x32_modified.png"
-                   Text="_Ping" />
-
-    <fwi:UICommand x:Key="CompleteReviewsCommand"
-                   Description="Mark your CodeFlow reviews as completed"
-                   Icon="/Resources/Icons/Office15/CheckmarkCompleted.16x16x32.png"
-                   Text="_Complete" />
-
-    <!--  Screen Recording Tray Commands  -->
-
-    <fwi:UICommand x:Key="StopRecordingTrayCommand"
-                   Description="Stop recording"
-                   Icon="/Resources/Icons/Office15/Stop.16x16x32.png"
-                   Text="Stop">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F8</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
-    <fwi:UICommand x:Key="CancelRecordingTrayCommand"
-                   Description="Cancel and discard the recording"
-                   Text="Cancel">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F9</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
 
 </ResourceDictionary>

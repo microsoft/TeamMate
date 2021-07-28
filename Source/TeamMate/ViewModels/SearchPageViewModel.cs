@@ -67,7 +67,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
 
             // Code PullRequests
-            commands.Add(TeamMateCommands.OpenReviewInWeb, OpenReviewInWeb, HasSelection);
+            commands.Add(TeamMateCommands.OpenPullRequestInWeb, OpenPullRequestInWeb, HasSelection);
 
             // Shared
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
@@ -160,7 +160,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public WindowService WindowService { get; set; }
 
-        private void OpenReviewInWeb()
+        private void OpenPullRequestInWeb()
         {
             ICollection<PullRequestViewModel> items = GetSelectedItems<PullRequestViewModel>().ToArray();
             if (this.WindowService.PromptShouldOpen(this, items.Count))

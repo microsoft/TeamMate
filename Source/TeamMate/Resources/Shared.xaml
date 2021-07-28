@@ -24,7 +24,7 @@
     </ContextMenu>
 
     <ContextMenu x:Key="PullRequestContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenReviewInWeb}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.OpenPullRequestInWeb}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyHyperlink}"
                   Header="Copy Hyperlink"
