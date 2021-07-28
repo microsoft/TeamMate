@@ -23,7 +23,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.GlobalCommandBindings = new CommandBindingCollection();
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh, HasProjectContext);
             this.GlobalCommandBindings.Add(TeamMateCommands.AddWorkItemQueryTile, AddWorkItemQueryTile, HasProjectContext);
-            this.GlobalCommandBindings.Add(TeamMateCommands.AddPullRequestTile, AddCodeFlowTile, HasProjectContext);
+            this.GlobalCommandBindings.Add(TeamMateCommands.AddPullRequestTile, AddPullRequestTile, HasProjectContext);
         }
 
         public void RegisterBindings(CommandBindingCollection commands)
@@ -87,9 +87,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private void AddCodeFlowTile()
+        private void AddPullRequestTile()
         {
-            PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this);
+            PullRequestQueryInfo queryInfo = this.WindowService.ShowPullRequestQueryEditorDialog(this);
 
             if (queryInfo != null)
             {
@@ -117,7 +117,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             if (tile.TileInfo.Type == TileType.PullRequestQuery)
             {
-                PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.PullRequestQueryInfo);
+                PullRequestQueryInfo queryInfo = this.WindowService.ShowPullRequestQueryEditorDialog(this, tile.TileInfo.PullRequestQueryInfo);
 
                 if (queryInfo != null)
                 {

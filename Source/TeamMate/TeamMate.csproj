@@ -216,7 +216,7 @@
     <Compile Include="Utilities\WorkItemMailGenerator.cs" />
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowPickerViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestPickerViewModel.cs" />
     <Compile Include="ViewModels\PullRequestQueryTileViewModel.cs" />
     <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
     <Compile Include="ViewModels\PullRequestRowViewModel.cs" />

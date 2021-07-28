@@ -56,7 +56,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Win32
                 // Of these, ODE should never occur in the code above in the try block. 
                 // 
                 // If any of the relevant exceptions are encountered, we conclude that 
-                // the existance of codeflow:// protocol handler is indeterminate, and 
+                // the existance of any specialized <this>:// protocol handler is indeterminate, and 
                 // therefore we return false.
 
                 // Do nothing here - handlerExists is already initialized to false. 
