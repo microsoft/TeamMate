@@ -157,6 +157,7 @@
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\ItemCountSummary.cs" />
     <Compile Include="Model\ProjectReference.cs" />
+    <Compile Include="Model\PullRequestReference.cs" />
     <Compile Include="Model\Settings\DeveloperSettings.cs" />
     <Compile Include="Model\TeamMateApplicationInfo.cs" />
     <Compile Include="Model\PullRequestQueryInfo.cs" />
@@ -219,7 +220,7 @@
     <Compile Include="ViewModels\CodeFlowPickerViewModel.cs" />
     <Compile Include="ViewModels\PullRequestQueryTileViewModel.cs" />
     <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestRowViewModel.cs" />
     <Compile Include="ViewModels\PullRequestQueryViewModel.cs" />
     <Compile Include="ViewModels\CustomDialogViewModel.cs" />
     <Compile Include="ViewModels\DeveloperOptionsPageViewModel.cs" />

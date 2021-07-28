@@ -66,7 +66,7 @@ namespace Microsoft.Tools.TeamMate.Pages
                 {
                     replacementContextMenu = this.FindResource<ContextMenu>("WorkItemContextMenu");
                 }
-                else if (selectedItems.All(sr => sr.Item is PullRequestViewModel))
+                else if (selectedItems.All(sr => sr.Item is PullRequestRowViewModel))
                 {
                     replacementContextMenu = this.FindResource<ContextMenu>("PullRequestContextMenu");
                 }
@@ -127,9 +127,9 @@ namespace Microsoft.Tools.TeamMate.Pages
                     dataObject = DataObjectFactory.CreateDraggableItem(workItems.Select(wi => wi.Reference).ToArray());
                 }
             }
-            else if (items.Length == 1 && items.First() is PullRequestViewModel)
+            else if (items.Length == 1 && items.First() is PullRequestRowViewModel)
             {
-                PullRequestViewModel pullRequest = (PullRequestViewModel)items.First();
+                PullRequestRowViewModel pullRequest = (PullRequestRowViewModel)items.First();
                 dataObject = DataObjectFactory.CreateDraggableItem(pullRequest);
             }
 
@@ -150,7 +150,7 @@ namespace Microsoft.Tools.TeamMate.Pages
             {
                 template = this.FindResource<DataTemplate>("WorkItemTemplate");
             }
-            else if (item is PullRequestViewModel)
+            else if (item is PullRequestRowViewModel)
             {
                 template = this.FindResource<DataTemplate>("CodeReviewTemplate");
             }

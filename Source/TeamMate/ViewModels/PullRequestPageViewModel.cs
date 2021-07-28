@@ -21,7 +21,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
     public class PullRequestPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {
         private PullRequestQueryViewModel query;
-        private List<PullRequestViewModel> modelList;
+        private List<PullRequestRowViewModel> modelList;
         private ListCollectionView collectionView;
         private ListViewModel model;
         private TileInfo tileInfo;
@@ -29,7 +29,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public PullRequestPageViewModel()
         {
             this.CommandBarType = CommandBarType.CodeReviews;
-            this.modelList = new List<PullRequestViewModel>();
+            this.modelList = new List<PullRequestRowViewModel>();
             this.collectionView = new ListCollectionView(this.modelList);
 
             this.model = CreateListViewModel(this.collectionView);
@@ -55,15 +55,15 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             model.DefaultSortDescription = new SortDescription("LastUpdatedOn", ListSortDirection.Descending);
 
             model.Filters.Add(new ListViewFilter("All"));
-            model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestViewModel)o).IsRead));
+            model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestRowViewModel)o).IsRead));
 
-            var actionableFilter = new ListViewFilter("Assigned To Me", (o) => ((PullRequestViewModel)o).IsAssignedToMe);
+            var actionableFilter = new ListViewFilter("Assigned To Me", (o) => ((PullRequestRowViewModel)o).IsAssignedToMe);
             model.Filters.Add(actionableFilter);
-            model.Filters.Add(new ListViewFilter("Pending", (o) => ((PullRequestViewModel)o).IsPending));
-            model.Filters.Add(new ListViewFilter("Waiting", (o) => ((PullRequestViewModel)o).IsWaiting));
-            model.Filters.Add(new ListViewFilter("Signed Off", (o) => ((PullRequestViewModel)o).IsSignedOff));
-            model.Filters.Add(new ListViewFilter("Not Signed Off By Me", (o) => !((PullRequestViewModel)o).IsSignedOffByMe));
-            model.Filters.Add(new ListViewFilter("Completed", (o) => ((PullRequestViewModel)o).IsCompleted));
+            model.Filters.Add(new ListViewFilter("Pending", (o) => ((PullRequestRowViewModel)o).IsPending));
+            model.Filters.Add(new ListViewFilter("Waiting", (o) => ((PullRequestRowViewModel)o).IsWaiting));
+            model.Filters.Add(new ListViewFilter("Signed Off", (o) => ((PullRequestRowViewModel)o).IsSignedOff));
+            model.Filters.Add(new ListViewFilter("Not Signed Off By Me", (o) => !((PullRequestRowViewModel)o).IsSignedOffByMe));
+            model.Filters.Add(new ListViewFilter("Completed", (o) => ((PullRequestRowViewModel)o).IsCompleted));
 
             model.Fields.Add(ListFieldInfo.Create<string>("CreatedBy", "Created By"));
 
@@ -244,7 +244,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void MarkAllAsRead()
         {
-            var allReviews = this.collectionView.OfType<PullRequestViewModel>().ToArray();
+            var allReviews = this.collectionView.OfType<PullRequestRowViewModel>().ToArray();
             foreach (var review in allReviews)
             {
                 review.IsRead = true;
@@ -265,7 +265,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public WindowService WindowService { get; set; }
 
-        public void OpenMany(ICollection<PullRequestViewModel> items)
+        public void OpenMany(ICollection<PullRequestRowViewModel> items)
         {
             if (this.WindowService.PromptShouldOpen(this, items.Count))
             {
@@ -300,7 +300,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 using (this.StatusService.BusyIndicator())
                 {
-                    foreach (PullRequestViewModel codeReview in items)
+                    foreach (PullRequestRowViewModel codeReview in items)
                     {
                         codeReview.OpenInWebBrowser();
                     }
@@ -321,14 +321,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             return Reviews.SelectedItems.Count == 1;
         }
 
-        private PullRequestViewModel GetSelectedItem()
+        private PullRequestRowViewModel GetSelectedItem()
         {
-            return (PullRequestViewModel)Reviews.SelectedItems.FirstOrDefault();
+            return (PullRequestRowViewModel)Reviews.SelectedItems.FirstOrDefault();
         }
 
-        private ICollection<PullRequestViewModel> GetSelectedItems()
+        private ICollection<PullRequestRowViewModel> GetSelectedItems()
         {
-            return Reviews.SelectedItems.OfType<PullRequestViewModel>().ToArray();
+            return Reviews.SelectedItems.OfType<PullRequestRowViewModel>().ToArray();
         }
 
         public override void OnNavigatingTo()

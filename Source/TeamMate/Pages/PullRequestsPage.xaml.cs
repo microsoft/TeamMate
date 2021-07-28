@@ -57,7 +57,7 @@ namespace Microsoft.Tools.TeamMate.Pages
         {
             if (e.Items.Count == 1)
             {
-                var pullRequest = e.Items.OfType<PullRequestViewModel>().FirstOrDefault();
+                var pullRequest = e.Items.OfType<PullRequestRowViewModel>().FirstOrDefault();
                 if (pullRequest != null)
                 {
                     var dataObject = DataObjectFactory.CreateDraggableItem(pullRequest);
@@ -68,7 +68,7 @@ namespace Microsoft.Tools.TeamMate.Pages
 
         private void HandleItemsActivated(object sender, ListViewItemsActivatedEventArgs e)
         {
-            var items = e.Items.OfType<PullRequestViewModel>().ToArray();
+            var items = e.Items.OfType<PullRequestRowViewModel>().ToArray();
             ViewModel.OpenMany(items);
         }
 

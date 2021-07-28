@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
-    public class PullRequestViewModel : TrackableViewModelBase
+    public class PullRequestRowViewModel : TrackableViewModelBase
     {
         private GitPullRequest reference;
         private List<GitPullRequestIteration> iterations;

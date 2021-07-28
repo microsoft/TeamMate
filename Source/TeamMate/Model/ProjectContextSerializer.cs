@@ -2,7 +2,6 @@
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
 using Microsoft.Tools.TeamMate.Model.Settings;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +45,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     break;
 
                 case TileType.PullRequestQuery:
-                    tileInfo.PullRequestQueryInfo = ReadCodeFlowQueryTileInfo(e.Element(Schema.CodeFlowQueryInfo));
+                    tileInfo.PullRequestQueryInfo = ReadPullRequestQueryTileInfo(e.Element(Schema.PullRequestQueryInfo));
                     break;
 
                 case TileType.BuiltIn:
@@ -67,9 +66,11 @@ namespace Microsoft.Tools.TeamMate.Model
             return new WorkItemQueryReference(projectCollectionUri, id);
         }
 
-        private PullRequestQueryInfo ReadCodeFlowQueryTileInfo(XElement e)
+        private PullRequestQueryInfo ReadPullRequestQueryTileInfo(XElement e)
         {
             PullRequestQueryInfo query = new PullRequestQueryInfo();
+
+            // TODO(MEM)
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.Authors = e.Elements(Schema.Authors, Schema.Author).Select(c => c.Value).ToArray();
             query.Reviewers = e.Elements(Schema.Reviewers, Schema.Reviewer).Select(c => c.Value).ToArray();
@@ -114,7 +115,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     break;
 
                 case TileType.PullRequestQuery:
-                    e.Add(WriteCodeFlowQueryTileInfo(tile.PullRequestQueryInfo));
+                    e.Add(WritePullRequestQueryTileInfo(tile.PullRequestQueryInfo));
                     break;
 
                 case TileType.BuiltIn:
@@ -136,9 +137,9 @@ namespace Microsoft.Tools.TeamMate.Model
             return e;
         }
 
-        private XElement WriteCodeFlowQueryTileInfo(PullRequestQueryInfo query)
+        private XElement WritePullRequestQueryTileInfo(PullRequestQueryInfo query)
         {
-            XElement e = new XElement(Schema.CodeFlowQueryInfo,
+            XElement e = new XElement(Schema.PullRequestQueryInfo,
                 (query.Authors != null && query.Authors.Any()) ? new XElement(Schema.Authors, query.Authors.Select(a => new XElement(Schema.Author, a))) : null,
                 (query.Projects != null && query.Projects.Any()) ? new XElement(Schema.Projects, query.Projects.Select(a => new XElement(Schema.Project, a))) : null,
                 (query.Reviewers != null && query.Reviewers.Any()) ? new XElement(Schema.Reviewers, query.Reviewers.Select(a => new XElement(Schema.Reviewer, a))) : null
@@ -223,6 +224,14 @@ namespace Microsoft.Tools.TeamMate.Model
             return new WorkItemReference(projectCollectionUri, id);
         }
 
+        private PullRequestReference ReadPullRequestReference(XElement element)
+        {
+            int id = element.GetRequiredAttribute<int>(Schema.PullRequestId);
+            Guid projectId = element.GetRequiredAttribute<Guid>(Schema.PullRequestProjectId);
+
+            return new PullRequestReference(projectId, id);
+        }
+
         private XElement WriteWorkItemReference(WorkItemReference workItem)
         {
             XElement result = new XElement(Schema.WorkItem);
@@ -300,11 +309,10 @@ namespace Microsoft.Tools.TeamMate.Model
             }
             else
             {
-                var codeFlowElement = element.Element(Schema.CodeFlowReview);
-                if (codeFlowElement != null)
+                var pullRequestElement = element.Element(Schema.PullRequest);
+                if (pullRequestElement != null)
                 {
-                    string keyString = codeFlowElement.GetAttribute<string>(Schema.Key);
-                    key = new CodeFlowReviewReference(keyString);
+                    key = ReadPullRequestReference(pullRequestElement);
                 }
             }
 
@@ -323,15 +331,16 @@ namespace Microsoft.Tools.TeamMate.Model
             result.SetAttribute<DateTime>(Schema.Date, entry.Date);
 
             WorkItemReference workItemReference = entry.Key as WorkItemReference;
-            CodeFlowReviewReference codeFlowReference = entry.Key as CodeFlowReviewReference;
+            PullRequestReference pullRequestReference = entry.Key as PullRequestReference;
             if (workItemReference != null)
             {
                 result.Add(WriteWorkItemReference(workItemReference));
             }
-            else if (codeFlowReference != null)
+            else if (pullRequestReference != null)
             {
-                XElement e = new XElement(Schema.CodeFlowReview);
-                e.SetAttribute<string>(Schema.Key, codeFlowReference.Key);
+                XElement e = new XElement(Schema.PullRequest);
+                e.SetAttribute<Guid>(Schema.PullRequestProjectId, pullRequestReference.ProjectId);
+                e.SetAttribute<int>(Schema.PullRequestId, pullRequestReference.Id);
                 result.Add(e);
             }
             else
@@ -394,7 +403,8 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName WorkItemQueryInfo = "WorkItemQueryInfo";
 
             // CodeFlow Stuff
-            public static readonly XName CodeFlowQueryInfo = "PullRequestQueryInfo";
+            // TODO(MEM)
+            public static readonly XName PullRequestQueryInfo = "PullRequestQueryInfo";
             public static readonly XName Authors = "Authors";
             public static readonly XName Author = "Author";
             public static readonly XName Projects = "Projects";
@@ -409,9 +419,10 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName Entry = "Entry";
             public const string Date = "Date";
 
-            // CodeFlow Reference Stuff
-            public static readonly XName CodeFlowReview = "PullRequest";
-            public const string Key = "Key";
+            // Pull Request Reference Stuff
+            public static readonly XName PullRequest = "PullRequest";
+            public const string PullRequestId = "PullRequestId";
+            public const string PullRequestProjectId = "PullRequestProjectId";
 
             // ProjectSettings Stuff
             public static readonly XName ProjectSettings = "ProjectSettings";

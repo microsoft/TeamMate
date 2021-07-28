@@ -23,9 +23,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             set { SetProperty(ref this.queryInfo, value); }
         }
 
-        private ICollection<PullRequestViewModel> pullRequests;
+        private ICollection<PullRequestRowViewModel> pullRequests;
 
-        public ICollection<PullRequestViewModel> PullRequests
+        public ICollection<PullRequestRowViewModel> PullRequests
         {
             get { return this.pullRequests; }
             set
@@ -132,7 +132,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     {
                         ItemCount = 0;
                         ProjectInfo = null;
-                        PullRequests = new List<PullRequestViewModel>();
+                        PullRequests = new List<PullRequestRowViewModel>();
                         InvalidateUnreadItemCount();
                     }
                 }
@@ -155,6 +155,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             var pc = this.SessionService.Session.ProjectContext;
           
+            // TODO(MEM)
             var query = new PullRequestQuery();
             query.ProjectName = pc.ProjectName;
             query.GitPullRequestSearchCriteria = new GitPullRequestSearchCriteria
@@ -169,7 +170,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public SettingsService SettingsService { get; set; }
 
-        private void OnQueryCompleted(ProjectContext projectContext, PullRequestViewModel[] pullRequests, NotificationScope notificationScope)
+        private void OnQueryCompleted(ProjectContext projectContext, PullRequestRowViewModel[] pullRequests, NotificationScope notificationScope)
         {
             DateTime? previousUpdate = this.LastUpdated;
             this.LastUpdated = DateTime.Now;
@@ -180,7 +181,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             if (ShowNotifications && this.PullRequests != null)
             {
-                IEnumerable<PullRequestViewModel> modifiedItems;
+                IEnumerable<PullRequestRowViewModel> modifiedItems;
 
                 if (this.SettingsService.DeveloperSettings.DebugAllNotifications)
                 {
@@ -206,14 +207,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.UnreadItemCount = (PullRequests != null) ? PullRequests.Count(review => !review.IsRead) : 0;
         }
 
-        private static bool ShouldNotify(PullRequestViewModel pullRequest, DateTime? previousUpdate)
+        private static bool ShouldNotify(PullRequestRowViewModel pullRequest, DateTime? previousUpdate)
         {
             return (pullRequest.ChangedDate > previousUpdate) && !pullRequest.IsRead;
         }
 
-        private PullRequestViewModel CreateViewModel(GitPullRequest gitPullRequest, ProjectContext projectContext)
+        private PullRequestRowViewModel CreateViewModel(GitPullRequest gitPullRequest, ProjectContext projectContext)
         {
-            PullRequestViewModel viewModel = ViewModelFactory.Create<PullRequestViewModel>();
+            PullRequestRowViewModel viewModel = ViewModelFactory.Create<PullRequestRowViewModel>();
             viewModel.IdentityRef = projectContext.Identity.Id.ToString();
             viewModel.Reference = gitPullRequest;
             viewModel.ProjectName = projectContext.ProjectName;

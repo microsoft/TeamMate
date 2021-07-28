@@ -68,7 +68,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
             }
             else
             {
-                PullRequestViewModel review = item as PullRequestViewModel;
+                PullRequestRowViewModel review = item as PullRequestRowViewModel;
                 if (review != null)
                 {
                     matches = Matches(review);
@@ -79,9 +79,9 @@ namespace Microsoft.Tools.TeamMate.Utilities
         }
 
         private Predicate<WorkItemRowViewModel> workItemPredicate;
-        private Predicate<PullRequestViewModel> codeReviewPredicate;
+        private Predicate<PullRequestRowViewModel> codeReviewPredicate;
 
-        public bool Matches(PullRequestViewModel item)
+        public bool Matches(PullRequestRowViewModel item)
         {
             if (this.codeReviewPredicate == null)
             {
@@ -91,10 +91,10 @@ namespace Microsoft.Tools.TeamMate.Utilities
             return this.codeReviewPredicate(item);
         }
 
-        private Predicate<PullRequestViewModel> BuildCodeReviewPredicate()
+        private Predicate<PullRequestRowViewModel> BuildCodeReviewPredicate()
         {
             List<string> plainWords = new List<string>();
-            List<Predicate<PullRequestViewModel>> predicates = new List<Predicate<PullRequestViewModel>>();
+            List<Predicate<PullRequestRowViewModel>> predicates = new List<Predicate<PullRequestRowViewModel>>();
             foreach (var token in Tokens)
             {
                 string value = token.Value;

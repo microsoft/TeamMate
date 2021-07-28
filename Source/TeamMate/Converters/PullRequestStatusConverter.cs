@@ -53,7 +53,7 @@ namespace Microsoft.Tools.TeamMate.Converters
 
         public override object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            PullRequestViewModel info = value as PullRequestViewModel;
+            PullRequestRowViewModel info = value as PullRequestRowViewModel;
             if (info != null)
             {
                 switch (Mode)
@@ -80,7 +80,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             return null;
         }
 
-        private Span GetReviewerStatus(PullRequestViewModel info)
+        private Span GetReviewerStatus(PullRequestRowViewModel info)
         {
             Span span = new Span();
 
@@ -130,7 +130,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             return TeamMateResources.FindResource<ImageSource>(iconName);
         }
 
-        private string GetReviewStatusText(PullRequestViewModel info)
+        private string GetReviewStatusText(PullRequestRowViewModel info)
         {
             if (info.IsWaiting)
             {
@@ -148,7 +148,7 @@ namespace Microsoft.Tools.TeamMate.Converters
             return null;
         }
 
-        private ImageSource GetReviewStatusImage(PullRequestViewModel info)
+        private ImageSource GetReviewStatusImage(PullRequestRowViewModel info)
         {
             if (info.IsWaiting)
             {

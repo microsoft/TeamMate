@@ -103,7 +103,7 @@ namespace Microsoft.Tools.TeamMate.Services
             }
         }
 
-        public void QueueNotifications(IEnumerable<PullRequestViewModel> items, DateTime? previousUpdate, NotificationScope scope)
+        public void QueueNotifications(IEnumerable<PullRequestRowViewModel> items, DateTime? previousUpdate, NotificationScope scope)
         {
             try
             {
@@ -199,7 +199,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return toastInfo;
         }
 
-        private ToastInfo CreateToast(PullRequestViewModel pullRequest)
+        private ToastInfo CreateToast(PullRequestRowViewModel pullRequest)
         {
             ToastInfo toastInfo = new ToastInfo();
             toastInfo.Title = pullRequest.Reference.Title;
@@ -275,7 +275,7 @@ namespace Microsoft.Tools.TeamMate.Services
                     break;
 
                 case ToastActivationAction.OpenCodeFlowReview:
-                    // TODO: Would be cool to find the PullRequestViewModel and mark it as read here...
+                    // TODO: Would be cool to find the PullRequestRowViewModel and mark it as read here...
                     Process.Start(activationInfo.CodeFlowReview.LaunchClientUri.AbsoluteUri);
                     break;
 
@@ -353,7 +353,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return notify;
         }
 
-        public bool ShouldNotify(PullRequestViewModel pullRequest)
+        public bool ShouldNotify(PullRequestRowViewModel pullRequest)
         {
             bool notify = false;
              

@@ -50,14 +50,14 @@ namespace Microsoft.Tools.TeamMate.Utilities
             return dataObject;
         }
 
-        public static IDataObject CreateDraggableItem(PullRequestViewModel pullRequest)
+        public static IDataObject CreateDraggableItem(PullRequestRowViewModel pullRequest)
         {
             Assert.ParamIsNotNull(pullRequest, "pullRequest");
 
             return CopyHyperlink(pullRequest);
         }
 
-        public static IDataObject CopyHyperlink(PullRequestViewModel pullRequest)
+        public static IDataObject CopyHyperlink(PullRequestRowViewModel pullRequest)
         {
             Assert.ParamIsNotNull(pullRequest, "pullRequest");
 

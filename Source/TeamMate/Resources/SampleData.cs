@@ -23,15 +23,15 @@ namespace Microsoft.Tools.TeamMate.Resources
         private static ToastViewModel toastViewModel;
         private static List<WorkItemRowViewModel> listOfWorkItems;
 
-        private static PullRequestViewModel pullRequest;
+        private static PullRequestRowViewModel pullRequest;
 
-        public static PullRequestViewModel PullRequest
+        public static PullRequestRowViewModel PullRequest
         {
             get
             {
                 if (pullRequest == null)
                 {
-                    pullRequest = new PullRequestViewModel();
+                    pullRequest = new PullRequestRowViewModel();
                     pullRequest.CreatedBy = "Joe Stevens";
                     pullRequest.Name = "Bug 12347: Crashing bug on xyz";
                     pullRequest.CreatedDate = DateTime.Now.AddDays(-11);

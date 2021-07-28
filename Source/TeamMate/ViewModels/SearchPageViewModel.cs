@@ -103,7 +103,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             object item = GetSelectedItem<object>();
             WorkItemRowViewModel workItem = item as WorkItemRowViewModel;
-            PullRequestViewModel pullRequest = item as PullRequestViewModel;
+            PullRequestRowViewModel pullRequest = item as PullRequestRowViewModel;
 
             if (workItem != null)
             {
@@ -162,12 +162,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private void OpenPullRequestInWeb()
         {
-            ICollection<PullRequestViewModel> items = GetSelectedItems<PullRequestViewModel>().ToArray();
+            ICollection<PullRequestRowViewModel> items = GetSelectedItems<PullRequestRowViewModel>().ToArray();
             if (this.WindowService.PromptShouldOpen(this, items.Count))
             {
                 using (this.StatusService.BusyIndicator())
                 {
-                    foreach (PullRequestViewModel codeReview in items)
+                    foreach (PullRequestRowViewModel codeReview in items)
                     {
                         codeReview.OpenInWebBrowser();
                     }
@@ -231,7 +231,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             listViewModel.Filters.Add(new ListViewFilter("All"));
             listViewModel.Filters.Add(new ListViewFilter("Work Items", (o) => ((SearchResult)o).Item is WorkItemRowViewModel));
-            listViewModel.Filters.Add(new ListViewFilter("Code PullRequests", (o) => ((SearchResult)o).Item is PullRequestViewModel));
+            listViewModel.Filters.Add(new ListViewFilter("Code PullRequests", (o) => ((SearchResult)o).Item is PullRequestRowViewModel));
             listViewModel.Filters.Add(new ListViewFilter("Local Only", (o) => ((SearchResult)o).Source.IsLocal));
 
             return listViewModel;
@@ -401,7 +401,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     foreach (SearchResult searchResult in items)
                     {
                         WorkItemRowViewModel workItem = searchResult.Item as WorkItemRowViewModel;
-                        PullRequestViewModel review = searchResult.Item as PullRequestViewModel;
+                        PullRequestRowViewModel review = searchResult.Item as PullRequestRowViewModel;
                         if (workItem != null)
                         {
                             workItem.Open();
