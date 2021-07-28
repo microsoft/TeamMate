@@ -9,14 +9,12 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
     {
         private ProjectInfo lastUsedProject;
         private bool isWorkItemRibbonMinimized;
-        private bool showRecordingBallonTip;
 
         private Dictionary<string, WindowStateInfo> windowStates = new Dictionary<string, WindowStateInfo>();
 
         public VolatileSettings()
         {
             // Defaults
-            ShowRecordingBallonTip = true;
         }
 
         public ProjectInfo LastUsedProject
@@ -29,12 +27,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         {
             get { return this.isWorkItemRibbonMinimized; }
             set { SetProperty(ref this.isWorkItemRibbonMinimized, value); }
-        }
-
-        public bool ShowRecordingBallonTip
-        {
-            get { return this.showRecordingBallonTip; }
-            set { SetProperty(ref this.showRecordingBallonTip, value); }
         }
 
         public ICollection<string> LastKnownStateKeys

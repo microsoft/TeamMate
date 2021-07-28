@@ -313,26 +313,6 @@
                    SmallImage="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
                    Text="Delete" />
 
-    <fwi:UICommand x:Key="CaptureDesktopCommand"
-                   Description="Attach an image or video recording of your desktop."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor.16x16x32.png"
-                   Text="Desktop" />
-
-    <fwi:UICommand x:Key="CaptureMainScreenCommand"
-                   Description="Attach an image or video recording of your main monitor."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor1.16x16x32.png"
-                   Text="Main Monitor" />
-
-    <fwi:UICommand x:Key="CaptureSecondaryScreenCommand"
-                   Description="Attach an image or video recording of your secondary monitor."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor2.16x16x32.png"
-                   Text="Secondary Monitor" />
-
-    <fwi:UICommand x:Key="CaptureAllScreensCommand"
-                   Description="Attach an image or video recording of your desktop."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitorAll.16x16x32.png"
-                   Text="All Monitors" />
-
     <fwi:UICommand x:Key="OpenQueryInWebAccessCommand"
                    Description="Open this query in Web Access."
                    LargeImage="/Resources/Icons/Office15/WebInsertHyperlink.32x32x32.png"
