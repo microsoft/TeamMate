@@ -22,7 +22,7 @@ namespace Microsoft.Tools.TeamMate.Windows
             bool isValid = ValidationUtilities.Validate(this);
             if (isValid)
             {
-                CodeFlowPickerViewModel viewModel = (CodeFlowPickerViewModel)this.DataContext;
+                PullRequestPickerViewModel viewModel = (PullRequestPickerViewModel)this.DataContext;
                 viewModel.Flush();
 
                 this.DialogResult = true;

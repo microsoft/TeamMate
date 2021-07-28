@@ -206,8 +206,8 @@ namespace Microsoft.Tools.TeamMate.Services
 
             ToastActivationInfo activationInfo = new ToastActivationInfo
             {
-                Action = ToastActivationAction.OpenCodeFlowReview,
-                CodeFlowReview = new ToastCodeFlowReviewInfo
+                Action = ToastActivationAction.OpenPullRequest,
+                PullRequest = new ToastPullRequestInfo
                 {
                     LaunchClientUri = pullRequest.Url
                 }
@@ -273,9 +273,9 @@ namespace Microsoft.Tools.TeamMate.Services
                     this.WindowService.ShowWorkItemWindow(reference);
                     break;
 
-                case ToastActivationAction.OpenCodeFlowReview:
+                case ToastActivationAction.OpenPullRequest:
                     // TODO: Would be cool to find the PullRequestRowViewModel and mark it as read here...
-                    Process.Start(activationInfo.CodeFlowReview.LaunchClientUri.AbsoluteUri);
+                    Process.Start(activationInfo.PullRequest.LaunchClientUri.AbsoluteUri);
                     break;
 
                 default:
@@ -298,7 +298,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
             public ToastWorkItemInfo WorkItem { get; set; }
 
-            public ToastCodeFlowReviewInfo CodeFlowReview { get; set; }
+            public ToastPullRequestInfo PullRequest { get; set; }
 
             public string ToJson()
             {
@@ -315,7 +315,7 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             None,
             OpenWorkItem,
-            OpenCodeFlowReview,
+            OpenPullRequest,
             OpenHomePage
         }
 
@@ -326,7 +326,7 @@ namespace Microsoft.Tools.TeamMate.Services
             public int Id { get; set; }
         }
 
-        private class ToastCodeFlowReviewInfo
+        private class ToastPullRequestInfo
         {
             public Uri LaunchClientUri { get; set; }
         }

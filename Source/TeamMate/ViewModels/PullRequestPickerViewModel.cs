@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
-    public class CodeFlowPickerViewModel : ValidatableViewModelBase
+    public class PullRequestPickerViewModel : ValidatableViewModelBase
     {
         private string name;
         private PullRequestQueryInfo queryInfo;
@@ -17,7 +17,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private PullRequestQueryReviewPeriod reviewPeriod;
         private PullRequestQueryReviewStatuses reviewStatuses;
 
-        public CodeFlowPickerViewModel()
+        public PullRequestPickerViewModel()
         {
             Validator.RuleForProperty(() => Name)
                 .IsNotEmpty();

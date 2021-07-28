@@ -25,7 +25,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class SearchPageViewModel : PageViewModelBase, ICommandProvider
     {
-        // TODO: Nasty nasty duplication here! There's duplication with the CodeFlowsReviewsPageViewModel and
+        // TODO: Nasty nasty duplication here! There's duplication with the PullRequestPageViewModel and
         // WorkItemsPageViewModel because we were lazy! Remove the duplication.
         private string searchText;
 

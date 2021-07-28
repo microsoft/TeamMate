@@ -402,7 +402,7 @@ namespace Microsoft.Tools.TeamMate.Model
             // Work Item Stuff
             public static readonly XName WorkItemQueryInfo = "WorkItemQueryInfo";
 
-            // CodeFlow Stuff
+            // Pull Request Stuff
             // TODO(MEM)
             public static readonly XName PullRequestQueryInfo = "PullRequestQueryInfo";
             public static readonly XName Authors = "Authors";
