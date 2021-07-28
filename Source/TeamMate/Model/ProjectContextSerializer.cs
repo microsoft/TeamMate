@@ -410,7 +410,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public const string Date = "Date";
 
             // CodeFlow Reference Stuff
-            public static readonly XName CodeFlowReview = "CodeFlowReview";
+            public static readonly XName CodeFlowReview = "PullRequest";
             public const string Key = "Key";
 
             // ProjectSettings Stuff

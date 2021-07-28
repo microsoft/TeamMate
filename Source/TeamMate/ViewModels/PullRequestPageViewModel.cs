@@ -54,7 +54,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             model.Filters.Add(new ListViewFilter("All"));
             model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestViewModel)o).IsRead));
 
-            var actionableFilter = new ListViewFilter("Actionable", (o) => ((PullRequestViewModel)o).IsActionableByMe());
+            var actionableFilter = new ListViewFilter("Assigned To Me", (o) => ((PullRequestViewModel)o).IsAssignedToMe);
             model.Filters.Add(actionableFilter);
             model.Filters.Add(new ListViewFilter("Pending", (o) => ((PullRequestViewModel)o).IsPending));
             model.Filters.Add(new ListViewFilter("Waiting", (o) => ((PullRequestViewModel)o).IsWaiting));

@@ -42,7 +42,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public DateTime ChangeDate
         {
-            // TODO(MEM)
             get { return this.Iterations[this.IterationCount - 1].UpdatedDate.GetValueOrDefault(DateTime.MinValue); }
         }
 
@@ -53,27 +52,23 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 return;
             }
 
-            this.Name = Reference.Title;
-            this.AuthorDisplayName = Reference.CreatedBy.DisplayName;
-            this.CreatedOn = Reference.CreationDate;
-            this.IsActive = Reference.Status == PullRequestStatus.Active;
-            this.IsOwnedByMe = (Reference.CreatedBy.Id == this.IdentityRef);
+            this.Name = this.Reference.Title;
+            this.AuthorDisplayName = this.Reference.CreatedBy.DisplayName;
+            this.CreatedOn = this.Reference.CreationDate;
+            this.IsActive = this.Reference.Status == PullRequestStatus.Active;
+            this.IsOwnedByMe = (this.Reference.CreatedBy.Id == this.IdentityRef);
 
             ResetTrackingToken();
 
-            // TODO(MEM)
-            //this.SignOffCount = Summary.CountReviewerStatus(ReviewerStatus.SignedOff);
-            //this.WaitingCount = Summary.CountReviewerStatus(ReviewerStatus.Waiting);
-
-            this.IsSignedOff = (this.SignOffCount > 0);
-            this.IsWaiting = (this.WaitingCount > 0);
-            this.IsPending = IsActive && !IsSignedOff;
-            //this.IsCompleted = (Summary.Status == CodeReviewStatus.Completed);
+            this.IsSignedOff = this.Reference.Reviewers.Count(x => x.IsRequired && x.Vote != 10 && x.Vote != 5) == 0;
+            this.IsWaiting = this.Reference.Reviewers.Count(x => x.IsRequired && x.Vote == -5) > 0;
+            this.IsPending = this.IsActive && !this.IsSignedOff;
+            this.IsCompleted = (this.Reference.Status == PullRequestStatus.Completed);
+            this.IsAssignedToMe = this.IsActive && this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef) == 1;
 
             if (this.IsSignedOff)
             {
-                this.SignedOffOn = Reference.ClosedDate;
-                this.IsSignedOffByMe = Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) == 1;
+                this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) == 1;
             }
 
             this.BottomLeftText = this.AuthorDisplayName;
@@ -99,43 +94,13 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public bool IsOwnedByMe { get; set; }
 
-        public int SignOffCount { get; set; }
-        public int WaitingCount { get; set; }
-
-        public DateTime? SignedOffOn { get; set; }
+        public bool IsAssignedToMe { get; set; }
 
         public Uri Url { get; set; }
  
         public string GetFullTitle()
         {
             return Reference.Title;
-        }
-
-        public bool IsActionableByMe()
-        {
-            bool result = false;
-
-            if (this.IsActive)
-            {
-              //  Array.Find<IdentityRefWithVote>
-               // Reference.Reviewers.Find
-
-                // TODO(MEM)
-                /*
-                if (!IsOwnedByMe)
-                {
-                    // If I have not reviewed yet, or I reviewed as "Waiting" and the author made updates...
-                    result = Summary.NotReviewedByMeOrUpdatedAfterReview();
-                }
-                else
-                {
-                    // If it is my review, check that it has at least a signed off or waiting status, and it is not already completed
-                    result = Summary.IsSignedOffOrWaiting();
-                }
-                */
-            }
-
-            return result;
         }
 
         public bool Matches(MultiWordMatcher matcher)
@@ -151,9 +116,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         protected override bool WasLastChangedByMe()
         {
-            return false;
-            // TODO(MEM)
-        //    return (Summary != null && Summary.GetLastChange().IsMe());
+            if (this.Iterations == null)
+            {
+                return false;
+            }
+
+            return this.Iterations[this.IterationCount - 1].Author.DisplayName == this.IdentityRef;
         }
 
         protected override int GetRevision()
