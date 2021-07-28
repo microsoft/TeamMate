@@ -18,7 +18,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
         }
     }
 
-    public partial class CodeReviewSummary : IDeserializationCallback
+    public partial class GitPullRequest : IDeserializationCallback
     {
         public void OnDeserialization(object sender)
         {

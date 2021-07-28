@@ -23,7 +23,6 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests
 
         public void Validate()
         {
-            // TODO(MEM)
             int projectInputs = (ProjectId != Guid.Empty ? 1 : 0) + (ProjectName != null ? 1 : 0);
             if (projectInputs == 0)
             {
@@ -37,11 +36,11 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests
             int inputs = (QueryPath != null ? 1 : 0) + (GitPullRequestSearchCriteria != null ? 1 : 0) + (QueryId != Guid.Empty ? 1 : 0);
             if (inputs == 0)
             {
-                throw new InvalidOperationException("You must specify a QueryPath, QueryId or Wiql");
+                throw new InvalidOperationException("You must specify a QueryPath, QueryId or GitPullRequestSearchCriteria");
             }
             else if (inputs > 1)
             {
-                throw new InvalidOperationException("You must specify only one of QueryPath, QueryId or Wiql");
+                throw new InvalidOperationException("You must specify only one of QueryPath, QueryId or GitPullRequestSearchCriteria");
             }
         }
     }

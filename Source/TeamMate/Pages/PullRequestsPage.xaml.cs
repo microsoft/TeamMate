@@ -57,12 +57,11 @@ namespace Microsoft.Tools.TeamMate.Pages
         {
             if (e.Items.Count == 1)
             {
-                var summary = e.Items.OfType<PullRequestViewModel>().Select(review => review.Reference).FirstOrDefault();
-                if (summary != null)
+                var pullRequest = e.Items.OfType<PullRequestViewModel>().FirstOrDefault();
+                if (pullRequest != null)
                 {
-                    // TODO(MEM)
-                  //  var dataObject = DataObjectFactory.CreateDraggableItem(summary);
-                  //  DragDrop.DoDragDrop(this, dataObject, DragDropEffects.All);
+                    var dataObject = DataObjectFactory.CreateDraggableItem(pullRequest);
+                    DragDrop.DoDragDrop(this, dataObject, DragDropEffects.All);
                 }
             }
         }

@@ -91,60 +91,60 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             return status == ReviewerStatus.Started || status == ReviewerStatus.Reviewing || status.IsActioned();
         }
 
-        public static bool ActionedAfter(this CodeReviewSummary review, DateTime date)
+        public static bool ActionedAfter(this GitPullRequest review, DateTime date)
         {
             return review.Reviewers.Any(reviewer => reviewer.HasActioned() && reviewer.LastUpdatedOn > date);
         }
 
-        public static bool ActionedBy(this CodeReviewSummary review, string alias)
+        public static bool ActionedBy(this GitPullRequest review, string alias)
         {
             var reviewer = review.GetReviewer(alias);
             return (reviewer != null) ? reviewer.HasActioned() : false;
         }
 
-        public static bool ActionedByAfter(this CodeReviewSummary review, string alias, DateTime date)
+        public static bool ActionedByAfter(this GitPullRequest review, string alias, DateTime date)
         {
             var reviewer = review.GetReviewer(alias);
             return (reviewer != null) ? (reviewer.HasActioned() && reviewer.LastUpdatedOn > date) : false;
         }
 
-        public static IEnumerable<Reviewer> ActionsAfter(this CodeReviewSummary review, Reviewer aReview)
+        public static IEnumerable<Reviewer> ActionsAfter(this GitPullRequest review, Reviewer aReview)
         {
             return review.Reviewers.Where(reviewer => reviewer != aReview && reviewer.HasActioned() && reviewer.LastUpdatedOn > aReview.LastUpdatedOn);
         }
 
-        public static ReviewerStatus? GetStatus(this CodeReviewSummary review, string alias)
+        public static ReviewerStatus? GetStatus(this GitPullRequest review, string alias)
         {
             var reviewer = review.GetReviewer(alias);
             return (reviewer != null) ? reviewer.Status : (ReviewerStatus?)null;
         }
 
-        public static Reviewer GetReviewer(this CodeReviewSummary review, string alias)
+        public static Reviewer GetReviewer(this GitPullRequest review, string alias)
         {
             return review.Reviewers.FirstOrDefault(reviewer => Is(reviewer, alias));
         }
 
-        public static bool IsActive(this CodeReviewSummary summary)
+        public static bool IsActive(this GitPullRequest summary)
         {
             return (summary.Status == CodeReviewStatus.Created || summary.Status == CodeReviewStatus.Active);
         }
 
-        public static CodeFlowReviewReference GetReference(this CodeReviewSummary summary)
+        public static CodeFlowReviewReference GetReference(this GitPullRequest summary)
         {
             return new CodeFlowReviewReference(summary.Key);
         }
 
-        public static int CountReviewerStatus(this CodeReviewSummary review, ReviewerStatus status)
+        public static int CountReviewerStatus(this GitPullRequest review, ReviewerStatus status)
         {
             return review.Reviewers.Count(reviewer => reviewer.Status == status);
         }
 
-        public static bool HasReviewerStatus(this CodeReviewSummary review, ReviewerStatus status)
+        public static bool HasReviewerStatus(this GitPullRequest review, ReviewerStatus status)
         {
             return review.Reviewers.Any(reviewer => reviewer.Status == status);
         }
 
-        public static bool IsRequired(this CodeReviewSummary review, string alias)
+        public static bool IsRequired(this GitPullRequest review, string alias)
         {
             var reviewer = review.GetReviewer(alias);
             return (reviewer != null) ? reviewer.Required : false;
@@ -177,50 +177,50 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             return String.Equals(alias1, alias2, StringComparison.OrdinalIgnoreCase);
         }
 
-        public static ReviewerStatus MyFeedbackStatus(this CodeReviewSummary review)
+        public static ReviewerStatus MyFeedbackStatus(this GitPullRequest review)
         {
             var reviewer = review.MyReview();
             return (reviewer != null) ? reviewer.Status : ReviewerStatus.NotStarted;
         }
 
-        public static Reviewer MyReview(this CodeReviewSummary review)
+        public static Reviewer MyReview(this GitPullRequest review)
         {
             return review.Reviewers.FirstOrDefault(r => r.IsMe());
         }
 
-        public static DateTime? SignedOffOn(this CodeReviewSummary summary)
+        public static DateTime? SignedOffOn(this GitPullRequest summary)
         {
             var signedOff = summary.Reviewers.Where(r => r.Status == ReviewerStatus.SignedOff).ToArray();
             return (signedOff.Any()) ? signedOff.Min(r => r.LastUpdatedOn) : (DateTime?)null;
         }
 
-        public static Uri GetWebViewUri(this CodeReviewSummary review)
+        public static Uri GetWebViewUri(this GitPullRequest review)
         {
             // Move to extension method
             return CodeFlowUriBuilder.WebView(review.Key);
         }
 
-        public static Uri GetLaunchClientUri(this CodeReviewSummary review)
+        public static Uri GetLaunchClientUri(this GitPullRequest review)
         {
             return CodeFlowUriBuilder.LaunchClient(review.Key);
         }
 
-        public static Uri GetLaunchVisualStudioUri(this CodeReviewSummary review)
+        public static Uri GetLaunchVisualStudioUri(this GitPullRequest review)
         {
             return CodeFlowUriBuilder.LaunchVisualStudio(review.Key);
         }
 
-        public static string GetFullTitle(this CodeReviewSummary review)
+        public static string GetFullTitle(this GitPullRequest review)
         {
             return String.Format("CodeFlow Review: {0}", review.Name);
         }
 
-        public static string GetCreatedChangeDescription(this CodeReviewSummary summary)
+        public static string GetCreatedChangeDescription(this GitPullRequest summary)
         {
             return String.Format("{0} created a code review", summary.Author.DisplayName);
         }
 
-        public static string GetChangeDescription(this CodeReviewSummary summary)
+        public static string GetChangeDescription(this GitPullRequest summary)
         {
             var author = summary.Author;
 
@@ -270,7 +270,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             }
         }
 
-        public static Reviewer GetLastReviewerWhoActioned(this CodeReviewSummary summary)
+        public static Reviewer GetLastReviewerWhoActioned(this GitPullRequest summary)
         {
             Reviewer lastReviewer = summary.Reviewers.Where(r => r.Status != ReviewerStatus.InviteOnly && r.Status != ReviewerStatus.NotStarted && r.HasLastUpdatedOn())
                 .OrderByDescending(r => r.LastUpdatedOn).FirstOrDefault();
@@ -288,7 +288,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             return IsValidDate(reviewer.LastUpdatedOn);
         }
 
-        public static bool HasLastUpdatedOn(this CodeReviewSummary summary)
+        public static bool HasLastUpdatedOn(this GitPullRequest summary)
         {
             return IsValidDate(summary.LastUpdatedOn);
         }
@@ -298,7 +298,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             return date != DateTime.MinValue;
         }
 
-        public static LastReviewChange GetLastChange(this CodeReviewSummary summary)
+        public static LastReviewChange GetLastChange(this GitPullRequest summary)
         {
             DateTime lastAuthorUpdate = summary.GetLastAuthorUpdate();
             Reviewer lastReviewer = summary.GetLastReviewerWhoActioned();
@@ -313,7 +313,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             }
         }
 
-        public static DateTime GetLastAuthorUpdate(this CodeReviewSummary summary)
+        public static DateTime GetLastAuthorUpdate(this GitPullRequest summary)
         {
             Author author = summary.Author;
             DateTime authorDate = (author.HasLastUpdatedOn()) ? Max(author.LastUpdatedOn, summary.CreatedOn) : summary.CreatedOn;
@@ -325,12 +325,12 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard
             return (d1 > d2) ? d1 : d2;
         }
 
-        public static bool IsSignedOffOrWaiting(this CodeReviewSummary summary)
+        public static bool IsSignedOffOrWaiting(this GitPullRequest summary)
         {
             return summary.Reviewers.Any(r => r.Status == ReviewerStatus.SignedOff || r.Status == ReviewerStatus.Waiting);
         }
 
-        public static bool NotReviewedByMeOrUpdatedAfterReview(this CodeReviewSummary summary)
+        public static bool NotReviewedByMeOrUpdatedAfterReview(this GitPullRequest summary)
         {
             var myReview = summary.MyReview();
 

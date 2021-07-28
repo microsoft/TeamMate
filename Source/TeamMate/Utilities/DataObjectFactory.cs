@@ -4,6 +4,7 @@ using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,19 +50,19 @@ namespace Microsoft.Tools.TeamMate.Utilities
             return dataObject;
         }
 
-        public static IDataObject CreateDraggableItem(CodeReviewSummary review)
+        public static IDataObject CreateDraggableItem(PullRequestViewModel pullRequest)
         {
-            Assert.ParamIsNotNull(review, "review");
+            Assert.ParamIsNotNull(pullRequest, "pullRequest");
 
-            return CopyHyperlink(review);
+            return CopyHyperlink(pullRequest);
         }
 
-        public static IDataObject CopyHyperlink(CodeReviewSummary review)
+        public static IDataObject CopyHyperlink(PullRequestViewModel pullRequest)
         {
-            Assert.ParamIsNotNull(review, "review");
+            Assert.ParamIsNotNull(pullRequest, "pullRequest");
 
             DataObject dataObject = new DataObject();
-            dataObject.SetUri(review.GetLaunchClientUri(), review.GetFullTitle());
+            dataObject.SetUri(pullRequest.Url, pullRequest.GetFullTitle());
             return dataObject;
         }
 

@@ -103,17 +103,16 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             object item = GetSelectedItem<object>();
             WorkItemRowViewModel workItem = item as WorkItemRowViewModel;
-            PullRequestViewModel review = item as PullRequestViewModel;
+            PullRequestViewModel pullRequest = item as PullRequestViewModel;
 
             if (workItem != null)
             {
                 var factory = this.SessionService.Session.ProjectContext.HyperlinkFactory;
                 Clipboard.SetDataObject(DataObjectFactory.CopyHyperlink(workItem.WorkItem, factory));
             }
-            else if (review != null)
+            else if (pullRequest != null)
             {
-                // TODO(MEM)
-               // Clipboard.SetDataObject(DataObjectFactory.CopyHyperlink(review.Summary));
+               Clipboard.SetDataObject(DataObjectFactory.CopyHyperlink(pullRequest));
             }
         }
 
@@ -176,7 +175,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private static MailMessage GenerateCompleteReviewsEmail(IEnumerable<CodeReviewSummary> reviews)
+        private static MailMessage GenerateCompleteReviewsEmail(IEnumerable<GitPullRequest> reviews)
         {
             CodeFlowMailGenerator mailGenerator = new CodeFlowMailGenerator();
             var result = mailGenerator.GenerateCompleteReviewsEmail(reviews);

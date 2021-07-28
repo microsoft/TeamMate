@@ -14,7 +14,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
 {
     public class CodeFlowMailGenerator
     {
-        public MailMessage GenerateEmail(CodeReviewSummary review)
+        public MailMessage GenerateEmail(GitPullRequest review)
         {
             MailMessage message = new MailMessage();
 
@@ -43,7 +43,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
             return message;
         }
 
-        public MailMessage GenerateCompleteReviewsEmail(IEnumerable<CodeReviewSummary> reviews)
+        public MailMessage GenerateCompleteReviewsEmail(IEnumerable<GitPullRequest> reviews)
         {
             XDocument document = CreateDocument(reviews);
             StringWriter writer = new StringWriter();
@@ -74,7 +74,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow
             xslt.Transform(doc.CreateReader(), args, writer);
         }
 
-        private XDocument CreateDocument(IEnumerable<CodeReviewSummary> reviews)
+        private XDocument CreateDocument(IEnumerable<GitPullRequest> reviews)
         {
             var reviewsByAuthor = reviews.GroupBy(r => r.Author.Name).OrderBy(rg => rg.First().Author.DisplayName);
 

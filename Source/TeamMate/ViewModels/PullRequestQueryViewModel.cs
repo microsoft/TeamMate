@@ -87,9 +87,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                     PullRequestQuery query = CreateBuiltInQuery();
 
-                    // TODO(MEM)
-                    //WorkItemQueryExpandedResult queryResult = null;
-
                     if (query != null)
                     {
                         await ChaosMonkey.ChaosAsync(ChaosScenarios.PullRequestQueryExecution);
@@ -209,12 +206,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.UnreadItemCount = (PullRequests != null) ? PullRequests.Count(review => !review.IsRead) : 0;
         }
 
-        private static bool ShouldNotify(PullRequestViewModel review, DateTime? previousUpdate)
+        private static bool ShouldNotify(PullRequestViewModel pullRequest, DateTime? previousUpdate)
         {
-            // TODO(MEM)
-            return false;
-           // var lastChange = review.Reference.GetLastChange();
-           // return lastChange.ChangeDate.IsAfter(previousUpdate) && !review.IsRead;
+            return (pullRequest.ChangedDate > previousUpdate) && !pullRequest.IsRead;
         }
 
         private PullRequestViewModel CreateViewModel(GitPullRequest gitPullRequest, ProjectContext projectContext)

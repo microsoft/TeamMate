@@ -336,7 +336,7 @@ namespace Microsoft.Tools.TeamMate.Services
     public class NotificationScope
     {
         private Dictionary<WorkItemReference, DateTime> currentScope = new Dictionary<WorkItemReference, DateTime>();
-        private Dictionary<string, DateTime> reviewCurrentScope = new Dictionary<string, DateTime>();
+        private Dictionary<int, DateTime> pullRequestCurrentScope = new Dictionary<int, DateTime>();
 
         public bool ShouldNotify(WorkItem item)
         {
@@ -353,21 +353,17 @@ namespace Microsoft.Tools.TeamMate.Services
             return notify;
         }
 
-        public bool ShouldNotify(PullRequestViewModel review)
+        public bool ShouldNotify(PullRequestViewModel pullRequest)
         {
-            
             bool notify = false;
-            /*
-             // TODO(MEM) 
              
             DateTime lastKnownChangeDate;
-            string key = review.Summary.Key;
-            if (!reviewCurrentScope.TryGetValue(key, out lastKnownChangeDate) || lastKnownChangeDate < review.Summary.LastUpdatedOn)
+            var key = pullRequest.Reference.PullRequestId;
+            if (!pullRequestCurrentScope.TryGetValue(key, out lastKnownChangeDate) || lastKnownChangeDate < pullRequest.ChangedDate)
             {
-                reviewCurrentScope[key] = review.Summary.LastUpdatedOn;
+                pullRequestCurrentScope[key] = pullRequest.ChangedDate;
                 notify = true;
             }
-            */
 
             return notify;
         }

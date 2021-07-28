@@ -248,7 +248,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard {
         
         private System.TimeSpan QueryDurationField;
         
-        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.GitPullRequest[] ReviewsField;
         
         private int TotalResultsField;
         
@@ -276,7 +276,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.GitPullRequest[] Reviews {
             get {
                 return this.ReviewsField;
             }
@@ -315,7 +315,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CodeReviewSummary", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.CodeFlow.ServiceModel")]
     [System.SerializableAttribute()]
-    public partial class CodeReviewSummary : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class GitPullRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -908,7 +908,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard {
         
         private System.TimeSpan QueryDurationField;
         
-        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] ReviewsField;
+        private Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.GitPullRequest[] ReviewsField;
         
         private int TotalResultsField;
         
@@ -936,7 +936,7 @@ namespace Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.CodeReviewSummary[] Reviews {
+        public Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard.GitPullRequest[] Reviews {
             get {
                 return this.ReviewsField;
             }

@@ -129,9 +129,8 @@ namespace Microsoft.Tools.TeamMate.Pages
             }
             else if (items.Length == 1 && items.First() is PullRequestViewModel)
             {
-                // TODO(MEM)
-              //  PullRequestViewModel singleReview = (PullRequestViewModel)items.First();
-              //  dataObject = DataObjectFactory.CreateDraggableItem(singleReview.Summary);
+                PullRequestViewModel pullRequest = (PullRequestViewModel)items.First();
+                dataObject = DataObjectFactory.CreateDraggableItem(pullRequest);
             }
 
             if (dataObject != null)
