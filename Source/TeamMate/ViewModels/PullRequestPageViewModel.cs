@@ -52,7 +52,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             ListViewModel model = new ListViewModel(collectionView);
 
-            model.DefaultSortDescription = new SortDescription("LastUpdatedOn", ListSortDirection.Descending);
+            model.DefaultSortDescription = new SortDescription("ChangedDate", ListSortDirection.Descending);
 
             model.Filters.Add(new ListViewFilter("All"));
             model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestRowViewModel)o).IsRead));

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System;
@@ -14,39 +13,53 @@ namespace Microsoft.Tools.TeamMate.Converters
 {
     public class PullRequestStatusConverter : OneWayConverterBase
     {
+        public enum PullRequestStatus
+        {
+            Waiting,
+            SignedOff,
+            Reviewing,
+            Started,
+            Declined
+        }
+
         private Brush defaultColor = new SolidColorBrush(Colors.Gray);
 
-        private static readonly ReviewerStatus[] DisplayStatusOrder = new ReviewerStatus[] {
-            ReviewerStatus.Waiting, ReviewerStatus.SignedOff, ReviewerStatus.Reviewing, ReviewerStatus.Started, ReviewerStatus.Declined
+        // Summary:
+        //     Vote on a pull request:
+        //     10 - approved 5 - approved with suggestions 0 - no vote -5 - waiting for author
+        //     -10 - rejected
+
+        private static readonly PullRequestStatus[] DisplayStatusOrder = new PullRequestStatus[] {
+            PullRequestStatus.Waiting, PullRequestStatus.SignedOff, PullRequestStatus.Reviewing, PullRequestStatus.Started, PullRequestStatus.Declined
         };
 
-        private static readonly Dictionary<ReviewerStatus, string> TextMap = new Dictionary<ReviewerStatus, string>()
+        private static readonly Dictionary<PullRequestStatus, string> TextMap = new Dictionary<PullRequestStatus, string>()
         {
-            { ReviewerStatus.SignedOff, "Signed Off" },
+            { PullRequestStatus.SignedOff, "Signed Off" },
         };
 
-        private static readonly Dictionary<ReviewerStatus, FontWeight> FontWeightMap = new Dictionary<ReviewerStatus, FontWeight>()
+        private static readonly Dictionary<PullRequestStatus, FontWeight> FontWeightMap = new Dictionary<PullRequestStatus, FontWeight>()
         {
-            // { ReviewerStatus.Waiting, FontWeights.Bold },
-            // { ReviewerStatus.SignedOff, FontWeights.Bold },
+            // { PullRequestStatus.Waiting, FontWeights.Bold },
+            // { PullRequestStatus.SignedOff, FontWeights.Bold },
         };
 
-        private static readonly Dictionary<ReviewerStatus, string> IconMap = new Dictionary<ReviewerStatus, string>()
+        private static readonly Dictionary<PullRequestStatus, string> IconMap = new Dictionary<PullRequestStatus, string>()
         {
-            { ReviewerStatus.Waiting, "SmallWaitingIcon" },
-            { ReviewerStatus.SignedOff, "SmallSignedOffIcon" },
-            { ReviewerStatus.Started, "SmallReviewingIcon" },
-            { ReviewerStatus.Reviewing, "SmallReviewingIcon" },
-            { ReviewerStatus.Declined, "SmallDeclinedIcon" },
+            { PullRequestStatus.Waiting, "SmallWaitingIcon" },
+            { PullRequestStatus.SignedOff, "SmallSignedOffIcon" },
+            { PullRequestStatus.Started, "SmallReviewingIcon" },
+            { PullRequestStatus.Reviewing, "SmallReviewingIcon" },
+            { PullRequestStatus.Declined, "SmallDeclinedIcon" },
         };
 
-        private readonly Dictionary<ReviewerStatus, Brush> BrushMap = new Dictionary<ReviewerStatus, Brush>()
+        private readonly Dictionary<PullRequestStatus, Brush> BrushMap = new Dictionary<PullRequestStatus, Brush>()
         {
-            { ReviewerStatus.Waiting, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CA4A2B")) },
-            { ReviewerStatus.SignedOff, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#58947E")) },
-            { ReviewerStatus.Reviewing, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#727272")) },
-            { ReviewerStatus.Started, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#727272")) },
-            { ReviewerStatus.Declined, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#777777")) },
+            { PullRequestStatus.Waiting, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CA4A2B")) },
+            { PullRequestStatus.SignedOff, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#58947E")) },
+            { PullRequestStatus.Reviewing, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#727272")) },
+            { PullRequestStatus.Started, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#727272")) },
+            { PullRequestStatus.Declined, new SolidColorBrush((Color)ColorConverter.ConvertFromString("#777777")) },
         };
 
         public PullRequestStatusConverterMode Mode { get; set; }

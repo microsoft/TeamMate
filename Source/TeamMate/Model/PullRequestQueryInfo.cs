@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+﻿using Microsoft.TeamFoundation.SourceControl.WebApi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +18,12 @@ namespace Microsoft.Tools.TeamMate.Model
             { PullRequestQueryReviewPeriod.LastYear, TimeSpan.FromDays(365) },
         };
 
-        private static readonly Dictionary<PullRequestQueryReviewStatuses, CodeReviewStatus[]> ReviewStatusesMap = new Dictionary<PullRequestQueryReviewStatuses, CodeReviewStatus[]>()
+        private static readonly Dictionary<PullRequestQueryReviewStatuses, PullRequestStatus[]> ReviewStatusesMap = new Dictionary<PullRequestQueryReviewStatuses, PullRequestStatus[]>()
         {
-            { PullRequestQueryReviewStatuses.Active, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created } },
-            { PullRequestQueryReviewStatuses.Completed, new CodeReviewStatus[] { CodeReviewStatus.Completed } },
-            { PullRequestQueryReviewStatuses.ActiveOrCompleted, new CodeReviewStatus[] { CodeReviewStatus.Active, CodeReviewStatus.Created, CodeReviewStatus.Completed } },
-            { PullRequestQueryReviewStatuses.All, null },
+            { PullRequestQueryReviewStatuses.Active, new PullRequestStatus[] { PullRequestStatus.Active } },
+            { PullRequestQueryReviewStatuses.Completed, new PullRequestStatus[] { PullRequestStatus.Completed } },
+            { PullRequestQueryReviewStatuses.ActiveOrCompleted, new PullRequestStatus[] { PullRequestStatus.Active, PullRequestStatus.Completed } },
+            { PullRequestQueryReviewStatuses.All, null }
         };
 
         public string Name { get; set; }
@@ -32,20 +32,6 @@ namespace Microsoft.Tools.TeamMate.Model
         public string[] Projects { get; set; }
         public PullRequestQueryReviewPeriod ReviewPeriod { get; set; }
         public PullRequestQueryReviewStatuses ReviewStatuses { get; set; }
-
-        public CodeReviewQuery CreateCodeReviewQuery()
-        {
-            CodeReviewQuery query = new CodeReviewQuery();
-
-            query.Authors = this.Authors;
-            query.Projects = this.Projects;
-            query.Reviewers = this.Reviewers;
-
-            query.CreatedAfterDate = (DateTime.Now - ReviewPeriodsMap[this.ReviewPeriod]).ToUniversalTime();
-            query.ReviewStatuses = ReviewStatusesMap[this.ReviewStatuses];
-
-            return query;
-        }
     }
 
     public enum PullRequestQueryReviewPeriod

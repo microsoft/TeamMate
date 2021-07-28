@@ -4,13 +4,10 @@ using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Office.Outlook;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
 using Microsoft.Tools.TeamMate.Utilities;
-using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -174,15 +171,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 }
             }
         }
-
-        private static MailMessage GenerateCompleteReviewsEmail(IEnumerable<GitPullRequest> reviews)
-        {
-            CodeFlowMailGenerator mailGenerator = new CodeFlowMailGenerator();
-            var result = mailGenerator.GenerateCompleteReviewsEmail(reviews);
-            result.ReminderDate = DateTime.Now.AddDays(3); // TODO: Hardcoded reminder
-            return result;
-        }
-
 
         private void MarkAsRead()
         {

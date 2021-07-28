@@ -194,7 +194,6 @@
     <Compile Include="Resources\TeamMateGestures.cs" />
     <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\AsyncWriterService.cs" />
-    <Compile Include="Services\CodeFlowService.cs" />
     <Compile Include="Services\ExternalWebBrowserService.cs" />
     <Compile Include="Services\GlobalCommandService.cs" />
     <Compile Include="Services\HistoryService.cs" />
@@ -369,10 +368,6 @@
     <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
       <Name>Microsoft.Tools.TeamMate.Office</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Platform\Microsoft.Tools.TeamMate.Platform.csproj">
-      <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
-      <Name>Microsoft.Tools.TeamMate.Platform</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
