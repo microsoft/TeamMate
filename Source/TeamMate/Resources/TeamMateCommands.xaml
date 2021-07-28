@@ -453,9 +453,9 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <!--  Code Flow Review Query & Review Commands  -->
+    <!-- Pull Request Query & Commands  -->
 
-    <fwi:UICommand x:Key="NewCodeFlowReviewCommand"
+    <fwi:UICommand x:Key="NewPullRequestCommand"
                    Description="Create a new code review in CodeFlow"
                    Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
                    SymbolIcon="Add"

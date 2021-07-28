@@ -1,22 +1,17 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Tools.TeamMate.Foundation.Windows;
+﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Transfer;
-using Microsoft.Tools.TeamMate.Office.Outlook;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow;
-using Microsoft.Tools.TeamMate.Platform.CodeFlow.Dashboard;
+using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.Utilities;
-using Microsoft.Tools.TeamMate.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -26,30 +21,39 @@ namespace Microsoft.Tools.TeamMate.ViewModels
     public class PullRequestPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {
         private PullRequestQueryViewModel query;
-        private List<PullRequestViewModel> reviewList;
+        private List<PullRequestViewModel> modelList;
         private ListCollectionView collectionView;
-        private ListViewModel reviews;
+        private ListViewModel model;
+        private TileInfo tileInfo;
 
         public PullRequestPageViewModel()
         {
             this.CommandBarType = CommandBarType.CodeReviews;
-            this.reviewList = new List<PullRequestViewModel>();
-            this.collectionView = new ListCollectionView(this.reviewList);
+            this.modelList = new List<PullRequestViewModel>();
+            this.collectionView = new ListCollectionView(this.modelList);
 
-            this.reviews = CreateListViewModel(this.collectionView);
-            this.reviews.FilterApplied += HandleFilterApplied;
+            this.model = CreateListViewModel(this.collectionView);
+            this.model.FilterApplied += HandleFilterApplied;
 
             this.GlobalCommandBindings = new CommandBindingCollection();
-            this.GlobalCommandBindings.Add(TeamMateCommands.NewCodeFlowReview, NewCodeFlowReview);
+            this.GlobalCommandBindings.Add(TeamMateCommands.NewPullRequest, NewPullRequest);
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh);
             this.GlobalCommandBindings.Add(TeamMateCommands.MarkAllAsRead, MarkAllAsRead);
+
+            this.model.OrderByFieldChanged += HandleOrderByFieldPropertyChanged;
+            this.model.FilterByFieldChanged += HandleFilterByFieldPropertyChanged;
+
+            foreach (var filter in this.model.Filters)
+            {
+                filter.PropertyChanged += HandleFilterByFieldPropertyChanged;
+            }
         }
 
         private ListViewModel CreateListViewModel(ICollectionView collectionView)
         {
             ListViewModel model = new ListViewModel(collectionView);
 
-            model.DefaultSortDescription = new SortDescription("Summary.LastUpdatedOn", ListSortDirection.Descending);
+            model.DefaultSortDescription = new SortDescription("LastUpdatedOn", ListSortDirection.Descending);
 
             model.Filters.Add(new ListViewFilter("All"));
             model.Filters.Add(new ListViewFilter("Unread", (o) => !((PullRequestViewModel)o).IsRead));
@@ -62,18 +66,47 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             model.Filters.Add(new ListViewFilter("Not Signed Off By Me", (o) => !((PullRequestViewModel)o).IsSignedOffByMe));
             model.Filters.Add(new ListViewFilter("Completed", (o) => ((PullRequestViewModel)o).IsCompleted));
 
-            model.Fields.Add(ListFieldInfo.Create<string>("Summary.Author.DisplayName", "Created By"));
+            model.Fields.Add(ListFieldInfo.Create<string>("CreatedBy", "Created By"));
 
-            var createdDate = ListFieldInfo.Create<DateTime>("Summary.CreatedOn", "Created Date");
+            var createdDate = ListFieldInfo.Create<DateTime>("CreatedDate", "Created Date");
             model.Fields.Add(createdDate);
-            model.Fields.Add(ListFieldInfo.Create<DateTime>("Summary.LastUpdatedOn", "Last Updated"));
-            model.Fields.Add(ListFieldInfo.Create<string>("Summary.ProjectShortName", "Project"));
+            model.Fields.Add(ListFieldInfo.Create<DateTime>("ChangedDate", "Last Updated"));
+            model.Fields.Add(ListFieldInfo.Create<string>("ProjectName", "Project"));
 
             actionableFilter.IsSelected = true;
             model.OrderBy(createdDate);
             model.ShowInGroups = true;
 
             return model;
+        }
+
+        private void HandleOrderByFieldPropertyChanged(object sender, EventArgs e)
+        {
+            this.tileInfo.OrderByFieldName = this.model.OrderByField.PropertyName;
+            this.tileInfo.FireChanged();
+        }
+
+        private void HandleFilterByFieldPropertyChanged(object sender, EventArgs e)
+        {
+            ListViewFilter filter = (ListViewFilter)sender;
+            if (filter.IsSelected)
+            {
+                this.tileInfo.FilterByFieldName = filter.Name;
+                this.tileInfo.FireChanged();
+            }
+        }
+
+        public TileInfo TileInfo
+        {
+            get { return this.tileInfo; }
+            set
+            {
+                if (SetProperty(ref this.tileInfo, value))
+                {
+                    this.model.OrderByFieldName(this.TileInfo.OrderByFieldName);
+                    this.model.FilterByFieldName(this.TileInfo.FilterByFieldName);
+                }
+            }
         }
 
         private void HandleFilterApplied(object sender, EventArgs e)
@@ -93,7 +126,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             SearchExpression expression = SearchExpression.Parse(filterText);
             Predicate<object> searchFilter = (!expression.IsEmpty) ? expression.Matches : (Predicate<object>)null;
-            this.reviews.SearchFilter = searchFilter;
+            this.model.SearchFilter = searchFilter;
 
             if (searchFilter != null)
             {
@@ -128,7 +161,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public ListViewModel Reviews
         {
-            get { return this.reviews; }
+            get { return this.model; }
         }
 
         public CommandBindingCollection GlobalCommandBindings
@@ -140,10 +173,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             this.collectionView.Dispatcher.InvokeHere(delegate ()
             {
-                this.reviewList.Clear();
+                this.modelList.Clear();
                 if (this.query != null && this.query.PullRequests != null)
                 {
-                    this.reviewList.AddRange(this.query.PullRequests);
+                    this.modelList.AddRange(this.query.PullRequests);
                 }
                 this.collectionView.Refresh();
 
@@ -261,9 +294,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private void NewCodeFlowReview()
+        private void NewPullRequest()
         {
-            Process.Start(CodeFlowUriBuilder.LaunchClient().AbsoluteUri);
+            // TODO(MEM)
+          //  Process.Start(CodeFlowUriBuilder.LaunchClient().AbsoluteUri);
         }
 
         private void OpenReviewInWeb()

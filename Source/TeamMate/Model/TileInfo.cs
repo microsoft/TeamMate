@@ -117,7 +117,7 @@ namespace Microsoft.Tools.TeamMate.Model
     public enum TileType
     {
         WorkItemQuery,
-        CodeFlowQuery,
+        PullRequestQuery,
         BuiltIn
     }
 

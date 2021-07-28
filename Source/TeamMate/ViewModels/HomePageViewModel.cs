@@ -94,7 +94,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             if (queryInfo != null)
             {
                 TileInfo tileInfo = new TileInfo();
-                tileInfo.Type = TileType.CodeFlowQuery;
+                tileInfo.Type = TileType.PullRequestQuery;
                 tileInfo.Name = queryInfo.Name;
                 tileInfo.PullRequestQueryInfo = queryInfo;
                 this.tileCollection.AddAndRefreshTileViewModel(tileInfo);
@@ -115,7 +115,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             Assert.ParamIsNotNull(tile, nameof(tile));
 
-            if (tile.TileInfo.Type == TileType.CodeFlowQuery)
+            if (tile.TileInfo.Type == TileType.PullRequestQuery)
             {
                 PullRequestQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.PullRequestQueryInfo);
 

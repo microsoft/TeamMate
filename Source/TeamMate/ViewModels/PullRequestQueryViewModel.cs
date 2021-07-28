@@ -222,6 +222,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             PullRequestViewModel viewModel = ViewModelFactory.Create<PullRequestViewModel>();
             viewModel.IdentityRef = projectContext.Identity.Id.ToString();
             viewModel.Reference = gitPullRequest;
+            viewModel.ProjectName = projectContext.ProjectName;
             return viewModel;
         }
     }

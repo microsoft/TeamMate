@@ -45,7 +45,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     tileInfo.WorkItemQueryReference = ReadWorkItemQueryTileInfo(e.Element(Schema.WorkItemQueryInfo));
                     break;
 
-                case TileType.CodeFlowQuery:
+                case TileType.PullRequestQuery:
                     tileInfo.PullRequestQueryInfo = ReadCodeFlowQueryTileInfo(e.Element(Schema.CodeFlowQueryInfo));
                     break;
 
@@ -113,7 +113,7 @@ namespace Microsoft.Tools.TeamMate.Model
                     e.Add(WriteWorkItemQueryTileInfo(tile.WorkItemQueryReference));
                     break;
 
-                case TileType.CodeFlowQuery:
+                case TileType.PullRequestQuery:
                     e.Add(WriteCodeFlowQueryTileInfo(tile.PullRequestQueryInfo));
                     break;
 

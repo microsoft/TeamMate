@@ -32,9 +32,9 @@ namespace Microsoft.Tools.TeamMate.Resources
                 if (pullRequest == null)
                 {
                     pullRequest = new PullRequestViewModel();
-                    pullRequest.AuthorDisplayName = "Joe Stevens";
+                    pullRequest.CreatedBy = "Joe Stevens";
                     pullRequest.Name = "Bug 12347: Crashing bug on xyz";
-                    pullRequest.CreatedOn = DateTime.Now.AddDays(-11);
+                    pullRequest.CreatedDate = DateTime.Now.AddDays(-11);
                     pullRequest.IterationCount = 7;
                 }
 

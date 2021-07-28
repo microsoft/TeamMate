@@ -71,7 +71,7 @@
                    Margin="0,3,0,0"
                    VerticalAlignment="Center"
                    FontSize="11"
-                   Text="{Binding CreatedOn,
+                   Text="{Binding ChangedDate,
                                   Converter={x:Static tmcv:TeamMateConverters.FriendlyDate}}"
                    TextAlignment="Right"
                    ToolTip="Creation Date">

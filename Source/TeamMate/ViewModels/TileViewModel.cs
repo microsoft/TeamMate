@@ -148,7 +148,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 switch (this.TileInfo.Type)
                 {
-                    case TileType.CodeFlowQuery:
+                    case TileType.PullRequestQuery:
                         return CodeFlowQueryTileBackgroundColor;
                     default:
                         return DefaultBackgroundColor;

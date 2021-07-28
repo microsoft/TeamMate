@@ -40,9 +40,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        public DateTime ChangeDate
+        public DateTime ChangedDate
         {
             get { return this.Iterations[this.IterationCount - 1].UpdatedDate.GetValueOrDefault(DateTime.MinValue); }
+        }
+
+        public string ChangedBy
+        {
+            get { return this.Iterations[this.IterationCount - 1].Author.DisplayName; }
         }
 
         private void Invalidate()
@@ -53,8 +58,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
 
             this.Name = this.Reference.Title;
-            this.AuthorDisplayName = this.Reference.CreatedBy.DisplayName;
-            this.CreatedOn = this.Reference.CreationDate;
+            this.CreatedBy = this.Reference.CreatedBy.DisplayName;
+            this.CreatedDate = this.Reference.CreationDate;
             this.IsActive = this.Reference.Status == PullRequestStatus.Active;
             this.IsOwnedByMe = (this.Reference.CreatedBy.Id == this.IdentityRef);
 
@@ -71,7 +76,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) == 1;
             }
 
-            this.BottomLeftText = this.AuthorDisplayName;
+            this.BottomLeftText = this.CreatedBy;
 
             if (this.IterationCount > 1)
             {
@@ -81,10 +86,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public string BottomLeftText { get; set; }
         public int IterationCount { get; set; }
-        public string AuthorDisplayName { get; set; }
+        public string CreatedBy { get; set; }
         public string Name { get; set; }
-        public DateTime CreatedOn { get; set; }
-
+        public DateTime CreatedDate { get; set; }
         public bool IsActive { get; set; }
         public bool IsPending { get; set; }
         public bool IsSignedOff { get; set; }
@@ -98,6 +102,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public Uri Url { get; set; }
  
+        public string ProjectName { get; set; }
+
         public string GetFullTitle()
         {
             return Reference.Title;

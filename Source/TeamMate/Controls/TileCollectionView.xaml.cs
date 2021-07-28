@@ -34,9 +34,9 @@ namespace Microsoft.Tools.TeamMate.Controls
                 // TODO: Need to handle built in types?
 
                 TileViewModel vm = item as TileViewModel;
-                if (vm != null && vm.TileInfo != null && vm.TileInfo.Type == TileType.CodeFlowQuery)
+                if (vm != null && vm.TileInfo != null && vm.TileInfo.Type == TileType.PullRequestQuery)
                 {
-                    templateName = "CodeFlowQueryTileTemplate";
+                    templateName = "PullRequestQueryTileTemplate";
                 }
 
                 return ((FrameworkElement)container).FindResource<DataTemplate>(templateName);

@@ -6,7 +6,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class PullRequestQueryTileViewModel : TileViewModel
     {
-        private PullRequestQueryViewModel CodeFlowQuery
+        private PullRequestQueryViewModel QueryModel
         {
             get { return this.Query as PullRequestQueryViewModel; }
         }
@@ -22,7 +22,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private void ShowPullRequestPage()
         {
             PullRequestPageViewModel pageViewModel = ViewModelFactory.Create<PullRequestPageViewModel>();
-            pageViewModel.Query = this.CodeFlowQuery;
+            pageViewModel.Query = this.QueryModel;
+            pageViewModel.TileInfo = this.TileInfo;
             this.WindowService.NavigateTo(pageViewModel);
         }
 
