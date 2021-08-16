@@ -75,6 +75,7 @@
         <File Source="$(var.WebApi.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
         <File Source="$(var.WebApi.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
         <File Source="$(var.WebApi.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
+        <File Source="$(var.WebApi.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
         <File Source="$(var.WebApi.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
         <File Source="$(var.WebApi.TargetDir)\Newtonsoft.Json.dll" />
         <File Source="$(var.WebApi.TargetDir)\System.Net.Http.Formatting.dll" />

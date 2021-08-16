@@ -40,7 +40,11 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             Assert.ParamIsNotNull(projectCollectionUri, "projectCollectionUri");
 
-            VssConnection connection = new VssConnection(projectCollectionUri, new VssClientCredentials());
+            var credentials = new VssClientCredentials();
+            credentials.PromptType = VisualStudio.Services.Common.CredentialPromptType.PromptIfNeeded;
+            credentials.Storage = new VssClientCredentialStorage("TeamMate", "TeamMate");
+
+            VssConnection connection = new VssConnection(projectCollectionUri, credentials);
             using (Log.PerformanceBlock("Authenticating with collection at {0}", projectCollectionUri))
             {
                 await connection.ConnectAsync(cancellationToken);
