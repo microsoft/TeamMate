@@ -44,7 +44,10 @@ namespace Microsoft.Tools.TeamMate.Services
             credentials.PromptType = VisualStudio.Services.Common.CredentialPromptType.PromptIfNeeded;
             credentials.Storage = GetVssClientCredentialStorage(86400);
 
-            VssConnection connection = new VssConnection(projectCollectionUri, credentials);
+            var settings = new VssClientHttpRequestSettings();
+            settings.AllowAutoRedirect = true;
+
+            VssConnection connection = new VssConnection(projectCollectionUri, credentials, settings);
             using (Log.PerformanceBlock("Authenticating with collection at {0}", projectCollectionUri))
             {
                 await connection.ConnectAsync(cancellationToken);
