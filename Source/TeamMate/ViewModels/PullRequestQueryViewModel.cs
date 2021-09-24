@@ -160,7 +160,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             query.ProjectName = pc.ProjectName;
             query.GitPullRequestSearchCriteria = new GitPullRequestSearchCriteria
             {
-                Status = PullRequestStatus.Completed,
+                Status = PullRequestQueryInfo.ReviewStatusesMap[this.queryInfo.ReviewStatus],
                 CreatorId = pc.Identity.Id
             };
 

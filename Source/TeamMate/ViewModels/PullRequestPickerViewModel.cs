@@ -13,9 +13,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private PullRequestQueryInfo queryInfo;
         private string authors;
         private string reviewer;
-        private string projects;
-        private PullRequestQueryReviewPeriod reviewPeriod;
-        private PullRequestQueryReviewStatuses reviewStatuses;
+        private PullRequestQueryReviewStatus reviewStatus;
 
         public PullRequestPickerViewModel()
         {
@@ -57,22 +55,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             set { SetProperty(ref this.reviewer, value); }
         }
 
-        public string Projects
+        public PullRequestQueryReviewStatus ReviewStatus
         {
-            get { return this.projects; }
-            set { SetProperty(ref this.projects, value); }
-        }
-
-        public PullRequestQueryReviewPeriod ReviewPeriod
-        {
-            get { return this.reviewPeriod; }
-            set { SetProperty(ref this.reviewPeriod, value); }
-        }
-
-        public PullRequestQueryReviewStatuses ReviewStatuses
-        {
-            get { return this.reviewStatuses; }
-            set { SetProperty(ref this.reviewStatuses, value); }
+            get { return this.reviewStatus; }
+            set { SetProperty(ref this.reviewStatus, value); }
         }
 
         private void Invalidate()
@@ -82,9 +68,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.Name = this.queryInfo.Name;
                 this.Authors = StringUtilities.ToCommaSeparatedList(this.queryInfo.Authors);
                 this.Reviewers = StringUtilities.ToCommaSeparatedList(this.queryInfo.Reviewers);
-                this.Projects = StringUtilities.ToCommaSeparatedList(this.queryInfo.Projects);
-                this.ReviewPeriod = this.queryInfo.ReviewPeriod;
-                this.ReviewStatuses = this.queryInfo.ReviewStatuses;
+                this.ReviewStatus = this.queryInfo.ReviewStatus;
             }
         }
 
@@ -95,9 +79,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.Name = this.Name.Trim();
                 this.queryInfo.Authors = StringUtilities.FromCommaSeparatedList(this.Authors);
                 this.queryInfo.Reviewers = StringUtilities.FromCommaSeparatedList(this.Reviewers);
-                this.queryInfo.Projects = StringUtilities.FromCommaSeparatedList(this.Projects);
-                this.queryInfo.ReviewPeriod = this.ReviewPeriod;
-                this.queryInfo.ReviewStatuses = this.ReviewStatuses;
+                this.queryInfo.ReviewStatus = this.ReviewStatus;
             }
         }
 
@@ -105,16 +87,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             var authors = GetAuthors();
             var reviewers = GetReviewers();
-            var projects = GetProjects();
 
             return (authors != null && authors.Any())
-                || (reviewers != null && reviewers.Any())
-                || (projects != null && projects.Any());
-        }
-
-        private string[] GetProjects()
-        {
-            return StringUtilities.FromCommaSeparatedList(this.Projects);
+                || (reviewers != null && reviewers.Any());
         }
 
         private string[] GetReviewers()
@@ -127,14 +102,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             return StringUtilities.FromCommaSeparatedList(this.Authors);
         }
 
-        public object AllReviewPeriods
-        {
-            get { return Enum.GetValues(typeof(PullRequestQueryReviewPeriod)); }
-        }
-
         public object AllReviewStatuses
         {
-            get { return Enum.GetValues(typeof(PullRequestQueryReviewStatuses)); }
+            get { return Enum.GetValues(typeof(PullRequestQueryReviewStatus)); }
         }
     }
 }

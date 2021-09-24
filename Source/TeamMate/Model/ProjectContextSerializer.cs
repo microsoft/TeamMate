@@ -70,14 +70,10 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             PullRequestQueryInfo query = new PullRequestQueryInfo();
 
-            // TODO(MEM)
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.Authors = e.Elements(Schema.Authors, Schema.Author).Select(c => c.Value).ToArray();
             query.Reviewers = e.Elements(Schema.Reviewers, Schema.Reviewer).Select(c => c.Value).ToArray();
-            query.Projects = e.Elements(Schema.Projects, Schema.Project).Select(c => c.Value).ToArray();
-
-            query.ReviewStatuses = e.GetAttribute<PullRequestQueryReviewStatuses>(Schema.ReviewStatuses);
-            query.ReviewPeriod = e.GetAttribute<PullRequestQueryReviewPeriod>(Schema.ReviewPeriod);
+            query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
 
             return query;
         }
@@ -141,14 +137,12 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             XElement e = new XElement(Schema.PullRequestQueryInfo,
                 (query.Authors != null && query.Authors.Any()) ? new XElement(Schema.Authors, query.Authors.Select(a => new XElement(Schema.Author, a))) : null,
-                (query.Projects != null && query.Projects.Any()) ? new XElement(Schema.Projects, query.Projects.Select(a => new XElement(Schema.Project, a))) : null,
                 (query.Reviewers != null && query.Reviewers.Any()) ? new XElement(Schema.Reviewers, query.Reviewers.Select(a => new XElement(Schema.Reviewer, a))) : null
             );
 
             e.SetAttribute<string>(Schema.Name, query.Name);
 
-            e.SetAttribute<PullRequestQueryReviewPeriod>(Schema.ReviewPeriod, query.ReviewPeriod);
-            e.SetAttribute<PullRequestQueryReviewStatuses>(Schema.ReviewStatuses, query.ReviewStatuses);
+            e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
 
             return e;
         }
@@ -403,16 +397,13 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName WorkItemQueryInfo = "WorkItemQueryInfo";
 
             // Pull Request Stuff
-            // TODO(MEM)
             public static readonly XName PullRequestQueryInfo = "PullRequestQueryInfo";
             public static readonly XName Authors = "Authors";
             public static readonly XName Author = "Author";
             public static readonly XName Projects = "Projects";
-            public static readonly XName Project = "Project";
             public static readonly XName Reviewers = "Reviewers";
             public static readonly XName Reviewer = "Reviewer";
-            public const string ReviewStatuses = "ReviewStatus";
-            public const string ReviewPeriod = "ReviewPeriod";
+            public const string ReviewStatus = "ReviewStatus";
 
             public static readonly XName LastRead = "LastRead";
             public static readonly XName Entries = "Entries";

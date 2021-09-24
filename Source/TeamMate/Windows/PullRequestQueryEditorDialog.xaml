@@ -74,30 +74,6 @@
                              Text="{Binding Reviewers}"
                              fw:UI.HintText="Comma-separated list of specific reviewers" />
 
-                    <Label Grid.Row="3"
-                           Grid.Column="0"
-                           Margin="0,0,6,6">
-                        Projects:
-                    </Label>
-                    <TextBox Grid.Row="3"
-                             Grid.Column="1"
-                             Margin="0,0,0,6"
-                             VerticalContentAlignment="Center"
-                             Text="{Binding Projects}"
-                             fw:UI.HintText="Comma-separated list of specific projects" />
-
-                    <Label Grid.Row="4"
-                           Grid.Column="0"
-                           Margin="0,0,6,6">
-                        Within the last:
-                    </Label>
-                    <ComboBox Grid.Row="4"
-                              Grid.Column="1"
-                              Margin="0,0,0,6"
-                              ItemTemplate="{StaticResource EnumTemplate}"
-                              ItemsSource="{Binding AllReviewPeriods}"
-                              SelectedItem="{Binding ReviewPeriod}" />
-
                     <Label Grid.Row="5"
                            Grid.Column="0"
                            Margin="0,0,6,6">
@@ -108,7 +84,7 @@
                               Margin="0,0,0,6"
                               ItemTemplate="{StaticResource EnumTemplate}"
                               ItemsSource="{Binding AllReviewStatuses}"
-                              SelectedItem="{Binding ReviewStatuses}" />
+                              SelectedItem="{Binding ReviewStatus}" />
                 </Grid>
             </StackPanel>
             <fwc:DialogPanel.ButtonPanel>
