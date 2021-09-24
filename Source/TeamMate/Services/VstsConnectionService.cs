@@ -42,7 +42,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
             var credentials = new VssClientCredentials();
             credentials.PromptType = VisualStudio.Services.Common.CredentialPromptType.PromptIfNeeded;
-            credentials.Storage = new VssClientCredentialStorage("TeamMate", "TeamMate");
+            credentials.Storage = GetVssClientCredentialStorage(86400);
 
             VssConnection connection = new VssConnection(projectCollectionUri, credentials);
             using (Log.PerformanceBlock("Authenticating with collection at {0}", projectCollectionUri))
@@ -51,6 +51,10 @@ namespace Microsoft.Tools.TeamMate.Services
             }
 
             return connection;
+        }
+        private static VstsClientCredentialCachingStorage GetVssClientCredentialStorage(double tokenLeaseInSeconds)
+        {
+            return new VstsClientCredentialCachingStorage("TeamMate", "TokenStorage", tokenLeaseInSeconds);
         }
 
         public async Task<ProjectReference> ResolveProjectReferenceAsync(Uri projectCollectionUri, string projectName)

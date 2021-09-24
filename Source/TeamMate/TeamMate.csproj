@@ -200,6 +200,7 @@
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\UpgradeService.cs" />
+    <Compile Include="Services\VstsClientCredentialCachingStorage.cs" />
     <Compile Include="Services\WorkItemStateService.cs" />
     <Compile Include="Model\Settings\ProjectSettings.cs" />
     <Compile Include="Model\Settings\SettingsBase.cs" />
