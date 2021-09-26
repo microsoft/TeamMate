@@ -15,8 +15,6 @@ namespace Microsoft.Tools.TeamMate.Model
         };
 
         public string Name { get; set; }
-        public string[] Authors { get; set; }
-        public string[] Reviewers { get; set; }
         public PullRequestQueryReviewStatus ReviewStatus { get; set; }
     }
     public enum PullRequestQueryReviewStatus

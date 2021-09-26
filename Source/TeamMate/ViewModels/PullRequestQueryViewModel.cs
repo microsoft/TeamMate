@@ -155,7 +155,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             var pc = this.SessionService.Session.ProjectContext;
           
-            // TODO(MEM)
             var query = new PullRequestQuery();
             query.ProjectName = pc.ProjectName;
             query.GitPullRequestSearchCriteria = new GitPullRequestSearchCriteria

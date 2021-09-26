@@ -71,8 +71,6 @@ namespace Microsoft.Tools.TeamMate.Model
             PullRequestQueryInfo query = new PullRequestQueryInfo();
 
             query.Name = e.GetAttribute<string>(Schema.Name);
-            query.Authors = e.Elements(Schema.Authors, Schema.Author).Select(c => c.Value).ToArray();
-            query.Reviewers = e.Elements(Schema.Reviewers, Schema.Reviewer).Select(c => c.Value).ToArray();
             query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
 
             return query;
@@ -135,13 +133,8 @@ namespace Microsoft.Tools.TeamMate.Model
 
         private XElement WritePullRequestQueryTileInfo(PullRequestQueryInfo query)
         {
-            XElement e = new XElement(Schema.PullRequestQueryInfo,
-                (query.Authors != null && query.Authors.Any()) ? new XElement(Schema.Authors, query.Authors.Select(a => new XElement(Schema.Author, a))) : null,
-                (query.Reviewers != null && query.Reviewers.Any()) ? new XElement(Schema.Reviewers, query.Reviewers.Select(a => new XElement(Schema.Reviewer, a))) : null
-            );
-
+            XElement e = new XElement(Schema.PullRequestQueryInfo);
             e.SetAttribute<string>(Schema.Name, query.Name);
-
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
 
             return e;
@@ -398,11 +391,7 @@ namespace Microsoft.Tools.TeamMate.Model
 
             // Pull Request Stuff
             public static readonly XName PullRequestQueryInfo = "PullRequestQueryInfo";
-            public static readonly XName Authors = "Authors";
-            public static readonly XName Author = "Author";
             public static readonly XName Projects = "Projects";
-            public static readonly XName Reviewers = "Reviewers";
-            public static readonly XName Reviewer = "Reviewer";
             public const string ReviewStatus = "ReviewStatus";
 
             public static readonly XName LastRead = "LastRead";
