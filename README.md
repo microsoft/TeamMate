@@ -1,10 +1,8 @@
 # TeamMate
 
 <p align="center">
-  <img alt="TeamMate" src="https://raw.githubusercontent.com/microsoft/TeamMate/main/Badge.png?token=AKNCJV7WOLHLRVYX4GBDZNTBLIMQI">
+  <img alt="TeamMate" src="https://raw.githubusercontent.com/microsoft/TeamMate/c03cc824da9359958ae0340eaf6a158d5cb8e9ca/Images/Badge.png?token=AKNCJVZLG2OMQ2H7NLHY5X3BLIPOK">
 </p>
-
-## Description
 
 TeamMate is an application for managing Azure Dev Ops (ADO) work items and pull requests.
 
@@ -16,7 +14,7 @@ Pull Requests (PRs) are also first class citizens, and treated almost identicall
 
 ## Installation
 
-TODO(MEM)
+Coming Soon.
 
 ## Keyboard Shortcuts
 
@@ -32,7 +30,14 @@ TeamMate does NOT send any telemetry to Microsoft and anywhere else. None.
 
 ## Authors
 
-TODO(MEM)
+TeamMate was originally created by Ben Amodio.
+
+Authors (in alphabetical order):
+
+* Ben Amodio
+* Justin Lam
+* Marcus Markiewicz
+* Vanya Kashperuk
 
 ## Contributing
 
@@ -67,6 +72,22 @@ msbuild /restore:true /p:Platform=x64 /p:Configuration=Debug
 The TeamMate executable can be found under Sources\TeamMate\bin.
 
 MSI installers can be found under Sources\Setup\bin.
+
+## Application Data
+
+Application Data refers to files and settings created and stored by the application at runtime. All of TeamMate's application data is stored in the folder %LOCALAPPDATA%\TeamMate. 
+
+On first run this folder doesn't exist and is created on demand. Deleting this folder and restarting TeamMate is essentially a way of triggering a "first run experience" again. You can also back this directory to save your settings.
+
+Here's an example of the files contained in the TeamMate appdata folder: 
+
+![AppData example state](https://raw.githubusercontent.com/microsoft/TeamMate/main/Images/AppData.png?token=AKNCJVYYGVOZPRJPX3NRFRLBLIQD4)
+
+This might include: 
+
+* Logs, which stores plain text diagnostics logs used for troubleshooting 
+* Projects, which contains XML files capture TFS project specific information/configuration. 
+* Settings, which contains XML files that store user application settings. 
 
 ## Trademarks
 
