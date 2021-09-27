@@ -114,10 +114,11 @@
         <TextBlock Name="assignedToTextBlock"
                    Grid.Row="1"
                    Grid.Column="1"
-                   Margin="12,3,0,0"
+                   Margin="12,3,220,0"
                    Text="{Binding BottomLeftValue,
                                   Converter={x:Static tmcv:TeamMateConverters.AssignedTo}}"
-                   TextTrimming="CharacterEllipsis">
+                   TextTrimming="CharacterEllipsis"
+                   TextAlignment="Left">
             <TextBlock.Style>
                 <Style TargetType="TextBlock">
                     <Style.Triggers>
@@ -139,6 +140,25 @@
             <TextBlock.Style>
                 <Style TargetType="TextBlock">
                     <Setter Property="Foreground" Value="Gray" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsFlagged}" Value="True">
+                            <Setter Property="Foreground" Value="#D00E0D" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBlock x:Name="tagsBlock"
+            FontFamily="Segoe UI"
+            Foreground="Gray"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="370,3,5,0"
+            Text="{Binding BottomRightValue}"
+            TextAlignment="Right"
+            TextTrimming="CharacterEllipsis">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsFlagged}" Value="True">
                             <Setter Property="Foreground" Value="#D00E0D" />

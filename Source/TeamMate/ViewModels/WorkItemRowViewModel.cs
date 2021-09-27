@@ -44,6 +44,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private IDictionary<string, object> additionalFields;
         private string bottomLeftValue;
+        private string bottomRightValue;
         private WorkItemState? workItemState;
         private WorkItem workItem;
 
@@ -151,6 +152,34 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 }
 
                 return this.bottomLeftValue;
+            }
+        }
+
+        public string BottomRightValue
+        {
+            get
+            {
+                if (this.bottomRightValue == null)
+                {
+                    bool first = true;
+
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var tag in Tags)
+                    {
+                        if (!first)
+                        {
+                            sb.Append(" | ");
+                        }
+
+                        first = false;
+
+                        sb.Append(tag);
+                    }
+
+                    this.bottomRightValue = sb.ToString();
+                }
+
+                return this.bottomRightValue;
             }
         }
 
