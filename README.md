@@ -26,7 +26,7 @@ Coming Soon.
 
 ## Telemetry
 
-TeamMate does NOT send any telemetry to Microsoft and anywhere else. None.
+TeamMate does NOT send any telemetry to Microsoft or anywhere else. None.
 
 ## Authors
 
