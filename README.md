@@ -1,7 +1,7 @@
 # TeamMate
 
 <p align="center">
-  <img alt="TeamMate" src="https://raw.githubusercontent.com/microsoft/TeamMate/c03cc824da9359958ae0340eaf6a158d5cb8e9ca/Images/Badge.png?token=AKNCJVZLG2OMQ2H7NLHY5X3BLIPOK">
+  <img alt="TeamMate Logo" src="https://raw.githubusercontent.com/microsoft/TeamMate/c03cc824da9359958ae0340eaf6a158d5cb8e9ca/Images/Badge.png?token=AKNCJVZLG2OMQ2H7NLHY5X3BLIPOK">
 </p>
 
 TeamMate is an application for managing Azure Dev Ops (ADO) work items and pull requests.
@@ -10,7 +10,11 @@ TeamMate was designed from the ground up to manage, search and collaborate on bu
 
 Managing work item queries is simple. You can pin several queries as tiles, filter/group work items on common fields, receive toast notifications when work items change, quickly filter a list of work items using search terms, or do a global search of work items in your local pinned queries.
 
-Pull Requests (PRs) are also first class citizens, and treated almost identically to work items. You get notifications, filtering, search, and quick digests and status of a set of reviews. 
+Pull Requests (PRs) are also first class citizens, and treated almost identically to work items. You get notifications, filtering, search, and quick digests and status of a set of reviews.
+
+<p align="center">
+  <img alt="TeamMate Home Demo" src="https://raw.githubusercontent.com/microsoft/TeamMate/main/Images/demo_home.gif?token=AKNCJVZIPYSPOGYLBI3XTRTBLNJNW">
+</p>
 
 ## Installation
 
