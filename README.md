@@ -18,7 +18,9 @@ Pull Requests (PRs) are also first class citizens, and treated almost identicall
 
 ## Installation
 
-Coming Soon.
+* Go to the [Release Page](https://github.com/microsoft/TeamMate/releases)
+* In the Assets for a desired release (recommended: choose the newest), download and install Microsoft.Tools.TeamMate.Production.msi.
+* (Alternatively, you can install Microsoft.Tools.TeamMate.Dev.msi if you want to debug it)
 
 ## Documentation
 
@@ -52,26 +54,6 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Developing
-
-### Pre-Requisites
-
-First, install [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/). Make sure to install .NET Framework 4.8 and C# support.
-
-### Setup
-
-Open a Visual Studio Developer Command Prompt and run:
-
-```bash
-git clone https://github.com/microsoft/TeamMate.git
-cd Sources
-msbuild /restore:true /p:Platform=x64 /p:Configuration=Debug
-```
-
-The TeamMate executable can be found under Sources\TeamMate\bin.
-
-MSI installers can be found under Sources\Setup\bin.
 
 ## Trademarks
 
