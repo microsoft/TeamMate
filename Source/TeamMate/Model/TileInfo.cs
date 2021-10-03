@@ -50,12 +50,12 @@ namespace Microsoft.Tools.TeamMate.Model
             set { SetProperty(ref this.workItemQueryReference, value); }
         }
 
-        private CodeFlowQueryInfo codeFlowQueryInfo;
+        private PullRequestQueryInfo pullRequestQueryInfo;
 
-        public CodeFlowQueryInfo CodeFlowQueryInfo
+        public PullRequestQueryInfo PullRequestQueryInfo
         {
-            get { return this.codeFlowQueryInfo; }
-            set { SetProperty(ref this.codeFlowQueryInfo, value); }
+            get { return this.pullRequestQueryInfo; }
+            set { SetProperty(ref this.pullRequestQueryInfo, value); }
         }
 
         private BuiltInTileType builtInTileType;
@@ -117,7 +117,7 @@ namespace Microsoft.Tools.TeamMate.Model
     public enum TileType
     {
         WorkItemQuery,
-        CodeFlowQuery,
+        PullRequestQuery,
         BuiltIn
     }
 

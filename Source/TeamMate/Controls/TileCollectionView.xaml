@@ -42,7 +42,7 @@
                 </local:TileView>
             </Border>
         </DataTemplate>
-        <DataTemplate x:Key="CodeFlowQueryTileTemplate">
+        <DataTemplate x:Key="PullRequestQueryTileTemplate">
             <Border Style="{StaticResource TileBorderStyle}">
                 <local:TileView>
                     <local:TileView.ContextMenu>

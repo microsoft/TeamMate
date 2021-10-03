@@ -131,8 +131,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\CodeFlowReviewRowView.xaml.cs">
-      <DependentUpon>CodeFlowReviewRowView.xaml</DependentUpon>
+    <Compile Include="Controls\PullRequestRowView.xaml.cs">
+      <DependentUpon>PullRequestRowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DropDownSelector.xaml.cs">
       <DependentUpon>DropDownSelector.xaml</DependentUpon>
@@ -150,16 +150,17 @@
     <Compile Include="Controls\WorkItemStateView.xaml.cs">
       <DependentUpon>WorkItemStateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\CodeFlowReviewStatusConverter.cs" />
+    <Compile Include="Converters\PullRequestStatusConverter.cs" />
     <Compile Include="Model\Application.cs" />
     <Compile Include="Model\ApplicationHistory.cs" />
     <Compile Include="Model\ContainerConfiguration.cs" />
     <Compile Include="Model\Counter.cs" />
     <Compile Include="Model\ItemCountSummary.cs" />
     <Compile Include="Model\ProjectReference.cs" />
+    <Compile Include="Model\PullRequestReference.cs" />
     <Compile Include="Model\Settings\DeveloperSettings.cs" />
     <Compile Include="Model\TeamMateApplicationInfo.cs" />
-    <Compile Include="Model\CodeFlowQueryInfo.cs" />
+    <Compile Include="Model\PullRequestQueryInfo.cs" />
     <Compile Include="Model\ConditionalFormattingRule.cs" />
     <Compile Include="Model\TileInfo.cs" />
     <Compile Include="Model\WorkItemQueryReference.cs" />
@@ -169,8 +170,8 @@
     <Compile Include="Model\WorkItemTypeInfo.cs" />
     <Compile Include="Model\WorkItemTypeReference.cs" />
     <Compile Include="Model\WorkItemWithUpdates.cs" />
-    <Compile Include="Pages\CodeFlowReviewsPage.xaml.cs">
-      <DependentUpon>CodeFlowReviewsPage.xaml</DependentUpon>
+    <Compile Include="Pages\PullRequestsPage.xaml.cs">
+      <DependentUpon>PullRequestsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DeveloperOptionsPage.xaml.cs">
       <DependentUpon>DeveloperOptionsPage.xaml</DependentUpon>
@@ -193,7 +194,6 @@
     <Compile Include="Resources\TeamMateGestures.cs" />
     <Compile Include="Services\ApplicationService.cs" />
     <Compile Include="Services\AsyncWriterService.cs" />
-    <Compile Include="Services\CodeFlowService.cs" />
     <Compile Include="Services\ExternalWebBrowserService.cs" />
     <Compile Include="Services\GlobalCommandService.cs" />
     <Compile Include="Services\HistoryService.cs" />
@@ -217,11 +217,11 @@
     <Compile Include="Utilities\WorkItemMailGenerator.cs" />
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowPickerViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowQueryTileViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowReviewsPageViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowReviewViewModel.cs" />
-    <Compile Include="ViewModels\CodeFlowQueryViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestPickerViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestQueryTileViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestRowViewModel.cs" />
+    <Compile Include="ViewModels\PullRequestQueryViewModel.cs" />
     <Compile Include="ViewModels\CustomDialogViewModel.cs" />
     <Compile Include="ViewModels\DeveloperOptionsPageViewModel.cs" />
     <Compile Include="ViewModels\FlaggedWorkItemsViewModel.cs" />
@@ -316,11 +316,8 @@
     <Compile Include="ViewModels\WorkItemQueryTileViewModel.cs" />
     <Compile Include="ViewModels\WorkItemsPageViewModel.cs" />
     <Compile Include="Services\WindowService.cs" />
-    <Compile Include="Windows\CodeFlowQueryEditorDialog.xaml.cs">
-      <DependentUpon>CodeFlowQueryEditorDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CodeFlowPingDialog.xaml.cs">
-      <DependentUpon>CodeFlowPingDialog.xaml</DependentUpon>
+    <Compile Include="Windows\PullRequestQueryEditorDialog.xaml.cs">
+      <DependentUpon>PullRequestQueryEditorDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ConditionalFormattingDialog.xaml.cs">
       <DependentUpon>ConditionalFormattingDialog.xaml</DependentUpon>
@@ -373,10 +370,6 @@
       <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
       <Name>Microsoft.Tools.TeamMate.Office</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Platform\Microsoft.Tools.TeamMate.Platform.csproj">
-      <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
-      <Name>Microsoft.Tools.TeamMate.Platform</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
       <Name>Microsoft.Tools.TeamMate.TeamFoundation.WebApi</Name>
@@ -387,7 +380,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\CodeFlowReviewRowView.xaml">
+    <Page Include="Controls\PullRequestRowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -443,7 +436,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\CodeFlowReviewsPage.xaml">
+    <Page Include="Pages\PullRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -523,13 +516,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CodeFlowQueryEditorDialog.xaml">
+    <Page Include="Windows\PullRequestQueryEditorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CodeFlowPingDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\ConditionalFormattingDialog.xaml">
       <SubType>Designer</SubType>

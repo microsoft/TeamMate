@@ -50,14 +50,6 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\Platform\Microsoft.Tools.TeamMate.Platform.csproj">
-      <Name>Platform</Name>
-      <Project>{d00e5193-1b32-478e-8a11-8c3ce0d9d9b3}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Name>WebApi</Name>
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>

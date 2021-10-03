@@ -34,7 +34,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand AttachFile { get { return commands.FindResource(); } }
         public static ICommand AttachClipboardContents { get { return commands.FindResource(); } }
         public static ICommand AttachScreenshot { get { return commands.FindResource(); } }
-        public static ICommand AttachScreenRecording { get { return commands.FindResource(); } }
         public static ICommand AddLink { get { return commands.FindResource(); } }
         public static ICommand NewLinkedWorkItem { get { return commands.FindResource(); } }
         public static ICommand SendEmail { get { return commands.FindResource(); } }
@@ -73,7 +72,7 @@ namespace Microsoft.Tools.TeamMate.Resources
 
         public static ICommand ChooseProjects { get { return commands.FindResource(); } }
         public static ICommand AddWorkItemQueryTile { get { return commands.FindResource(); } }
-        public static ICommand AddCodeFlowTile { get { return commands.FindResource(); } }
+        public static ICommand AddPullRequestTile { get { return commands.FindResource(); } }
 
         public static ICommand Hamburger { get { return commands.FindResource(); } }
 
@@ -90,21 +89,7 @@ namespace Microsoft.Tools.TeamMate.Resources
 
         public static ICommand EditTags { get { return commands.FindResource(); } }
 
-        public static ICommand NewCodeFlowReview { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInCodeFlow { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInVisualStudio { get { return commands.FindResource(); } }
-        public static ICommand OpenReviewInWeb { get { return commands.FindResource(); } }
-        public static ICommand SendReviewReminderMail { get { return commands.FindResource(); } }
-        public static ICommand SendAllReviewsReminderMail { get { return commands.FindResource(); } }
-
-        public static ICommand PingReviewers { get { return commands.FindResource(); } }
-        public static ICommand CompleteReviews { get { return commands.FindResource(); } }
-
-
-        public static ICommand StopRecordingTray { get { return commands.FindResource(); } }
-
-        public static ICommand CancelRecordingTray { get { return commands.FindResource(); } }
-
+        public static ICommand OpenPullRequestInWeb { get { return commands.FindResource(); } }
 
         // Non resource commands
 

@@ -5,8 +5,6 @@
     <ImageSource x:Key="ToastIcon">/Resources/Logo/TeamMate_NoBorder_32.png</ImageSource>
     <ImageSource x:Key="TrayIcon">/Resources/Logo/TeamMate_16.png</ImageSource>
 
-    <ImageSource x:Key="RecordingTrayIcon">/Resources/Icons/Office15/StartRecording.16x16x32.png</ImageSource>
-
     <ImageSource x:Key="TemplateSmallIcon">/Resources/Icons/Office15/SaveToolAsTemplate.16x16x32.png</ImageSource>
     <ImageSource x:Key="TemplateLargeIcon">/Resources/Icons/Office15/SaveToolAsTemplate.32x32x32.png</ImageSource>
 

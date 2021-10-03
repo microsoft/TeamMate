@@ -142,14 +142,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public string GetDefaultBackgroundColor()
         {
             const string DefaultBackgroundColor = "#00A200";
-            const string CodeFlowQueryTileBackgroundColor = "#0063B1";
+            const string PullRequestQueryTileBackgroundColor = "#0063B1";
 
             if (this.TileInfo != null)
             {
                 switch (this.TileInfo.Type)
                 {
-                    case TileType.CodeFlowQuery:
-                        return CodeFlowQueryTileBackgroundColor;
+                    case TileType.PullRequestQuery:
+                        return PullRequestQueryTileBackgroundColor;
                     default:
                         return DefaultBackgroundColor;
                 }
