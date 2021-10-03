@@ -160,7 +160,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             query.GitPullRequestSearchCriteria = new GitPullRequestSearchCriteria
             {
                 Status = PullRequestQueryInfo.ReviewStatusesMap[this.queryInfo.ReviewStatus],
-                CreatorId = pc.Identity.Id
+                ReviewerId = pc.Identity.Id
             };
 
             return query;
