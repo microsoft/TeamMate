@@ -1,5 +1,7 @@
 # TeamMate
 
+![CI](https://github.com/microsoft/TeamMate/actions/workflows/CI.yml/badge.svg)
+
 <p align="center">
   <img alt="TeamMate Logo" src="https://raw.githubusercontent.com/microsoft/TeamMate/c03cc824da9359958ae0340eaf6a158d5cb8e9ca/Images/Badge.png?token=AKNCJVZLG2OMQ2H7NLHY5X3BLIPOK">
 </p>
