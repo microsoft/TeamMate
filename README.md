@@ -20,13 +20,9 @@ Pull Requests (PRs) are also first class citizens, and treated almost identicall
 
 Coming Soon.
 
-## Keyboard Shortcuts
+## Documentation
 
-* WIN + `: opens the quick search dialog.
-* SHIFT + WIN + A: creates a new default work item.
-* CTRL + WIN + A: opens the work item type picker to create a new work item.
-* WIN + Esc: opens the TeamMate home page.
-* ESC: minimizes or closes windows.
+Check out our [wiki](https://github.com/microsoft/TeamMate/wiki) for more details on how to use and configure TeamMate.
 
 ## Telemetry
 
@@ -76,22 +72,6 @@ msbuild /restore:true /p:Platform=x64 /p:Configuration=Debug
 The TeamMate executable can be found under Sources\TeamMate\bin.
 
 MSI installers can be found under Sources\Setup\bin.
-
-## Application Data
-
-Application Data refers to files and settings created and stored by the application at runtime. All of TeamMate's application data is stored in the folder %LOCALAPPDATA%\TeamMate. 
-
-On first run this folder doesn't exist and is created on demand. Deleting this folder and restarting TeamMate is essentially a way of triggering a "first run experience" again. You can also back this directory to save your settings.
-
-Here's an example of the files contained in the TeamMate appdata folder: 
-
-![AppData example state](https://raw.githubusercontent.com/microsoft/TeamMate/main/Images/AppData.png?token=AKNCJVYYGVOZPRJPX3NRFRLBLIQD4)
-
-This might include: 
-
-* Logs, which stores plain text diagnostics logs used for troubleshooting 
-* Projects, which contains XML files capture TFS project specific information/configuration. 
-* Settings, which contains XML files that store user application settings. 
 
 ## Trademarks
 
