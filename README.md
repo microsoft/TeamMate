@@ -20,6 +20,14 @@ Pull Requests (PRs) are also first class citizens, and treated almost identicall
 
 ## Installation
 
+The easiest way to install is using winget. On Windows 10 version 1709 and newer or Windows 11, open a prompt and run this command:
+
+```bash
+winget install --id Microsoft.TeamMate
+```
+
+Alternatively:
+
 * Go to the [Release Page](https://github.com/microsoft/TeamMate/releases)
 * In the Assets for a desired release (recommended: choose the newest), download and install Microsoft.Tools.TeamMate.Production.msi.
 * (Alternatively, you can install Microsoft.Tools.TeamMate.Dev.msi if you want to debug it)
