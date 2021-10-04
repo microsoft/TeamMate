@@ -23,7 +23,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.GlobalCommandBindings = new CommandBindingCollection();
             this.GlobalCommandBindings.Add(TeamMateCommands.Refresh, Refresh, HasProjectContext);
             this.GlobalCommandBindings.Add(TeamMateCommands.AddWorkItemQueryTile, AddWorkItemQueryTile, HasProjectContext);
-            this.GlobalCommandBindings.Add(TeamMateCommands.AddCodeFlowTile, AddCodeFlowTile, HasProjectContext);
+            this.GlobalCommandBindings.Add(TeamMateCommands.AddPullRequestTile, AddPullRequestTile, HasProjectContext);
         }
 
         public void RegisterBindings(CommandBindingCollection commands)
@@ -87,16 +87,16 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private void AddCodeFlowTile()
+        private void AddPullRequestTile()
         {
-            CodeFlowQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this);
+            PullRequestQueryInfo queryInfo = this.WindowService.ShowPullRequestQueryEditorDialog(this);
 
             if (queryInfo != null)
             {
                 TileInfo tileInfo = new TileInfo();
-                tileInfo.Type = TileType.CodeFlowQuery;
+                tileInfo.Type = TileType.PullRequestQuery;
                 tileInfo.Name = queryInfo.Name;
-                tileInfo.CodeFlowQueryInfo = queryInfo;
+                tileInfo.PullRequestQueryInfo = queryInfo;
                 this.tileCollection.AddAndRefreshTileViewModel(tileInfo);
             }
         }
@@ -115,18 +115,18 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             Assert.ParamIsNotNull(tile, nameof(tile));
 
-            if (tile.TileInfo.Type == TileType.CodeFlowQuery)
+            if (tile.TileInfo.Type == TileType.PullRequestQuery)
             {
-                CodeFlowQueryInfo queryInfo = this.WindowService.ShowCodeFlowQueryEditorDialog(this, tile.TileInfo.CodeFlowQueryInfo);
+                PullRequestQueryInfo queryInfo = this.WindowService.ShowPullRequestQueryEditorDialog(this, tile.TileInfo.PullRequestQueryInfo);
 
                 if (queryInfo != null)
                 {
-                    tile.TileInfo.CodeFlowQueryInfo = queryInfo;
+                    tile.TileInfo.PullRequestQueryInfo = queryInfo;
                     tile.TileInfo.Name = queryInfo.Name;
                     tile.Query.Name = queryInfo.Name;
                     tile.TileInfo.FireChanged();
 
-                    ((CodeFlowQueryViewModel)tile.Query).QueryInfo = queryInfo;
+                    ((PullRequestQueryViewModel)tile.Query).QueryInfo = queryInfo;
                     tile.RefreshAsync();
                 }
             }

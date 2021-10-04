@@ -59,9 +59,6 @@
 			<Component Id="ProductOffice" KeyPath="yes" Guid="90b9f632-e7d5-4244-97e7-707ca95b01e6">
 				<File Source="$(var.Office.TargetPath)" />
 			</Component>
-			<Component Id="ProductPlatform" KeyPath="yes" Guid="616e1554-8ea9-4504-8023-6b3faf5bc0c5">
-				<File Source="$(var.Platform.TargetPath)" />
-			</Component>
 			<Component Id="ProductWebApi" KeyPath="yes" Guid="7b188df3-c24a-48fb-b39e-03ac63d078d0">
 				<File Source="$(var.WebApi.TargetPath)" />
 			</Component>

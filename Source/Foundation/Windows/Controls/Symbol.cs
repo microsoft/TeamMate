@@ -301,6 +301,7 @@
         Minimize = 59681,
         Maximize = 59682,
         Restore = 59683,
+        SubscriptionAdd = 60686,
         Close = Clear,
         Developer = 0xE90F,
 

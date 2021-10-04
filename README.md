@@ -1,5 +1,7 @@
 # TeamMate
 
+![CI](https://github.com/microsoft/TeamMate/actions/workflows/CI.yml/badge.svg)
+
 <p align="center">
   <img alt="TeamMate Logo" src="https://raw.githubusercontent.com/microsoft/TeamMate/c03cc824da9359958ae0340eaf6a158d5cb8e9ca/Images/Badge.png?token=AKNCJVZLG2OMQ2H7NLHY5X3BLIPOK">
 </p>
@@ -18,15 +20,21 @@ Pull Requests (PRs) are also first class citizens, and treated almost identicall
 
 ## Installation
 
-Coming Soon.
+The easiest way to install is using winget. On Windows 10 version 1709 and newer or Windows 11, open a prompt and run this command:
 
-## Keyboard Shortcuts
+```bash
+winget install --id Microsoft.TeamMate
+```
 
-* WIN + `: opens the quick search dialog.
-* SHIFT + WIN + A: creates a new default work item.
-* CTRL + WIN + A: opens the work item type picker to create a new work item.
-* WIN + Esc: opens the TeamMate home page.
-* ESC: minimizes or closes windows.
+Alternatively:
+
+* Go to the [Release Page](https://github.com/microsoft/TeamMate/releases)
+* In the Assets for a desired release (recommended: choose the newest), download and install Microsoft.Tools.TeamMate.Production.msi.
+* (Alternatively, you can install Microsoft.Tools.TeamMate.Dev.msi if you want to debug it)
+
+## Documentation
+
+Check out our [wiki](https://github.com/microsoft/TeamMate/wiki) for more details on how to use and configure TeamMate.
 
 ## Telemetry
 
@@ -56,42 +64,6 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Developing
-
-### Pre-Requisites
-
-First, install [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/). Make sure to install .NET Framework 4.8 and C# support.
-
-### Setup
-
-Open a Visual Studio Developer Command Prompt and run:
-
-```bash
-git clone https://github.com/microsoft/TeamMate.git
-cd Sources
-msbuild /restore:true /p:Platform=x64 /p:Configuration=Debug
-```
-
-The TeamMate executable can be found under Sources\TeamMate\bin.
-
-MSI installers can be found under Sources\Setup\bin.
-
-## Application Data
-
-Application Data refers to files and settings created and stored by the application at runtime. All of TeamMate's application data is stored in the folder %LOCALAPPDATA%\TeamMate. 
-
-On first run this folder doesn't exist and is created on demand. Deleting this folder and restarting TeamMate is essentially a way of triggering a "first run experience" again. You can also back this directory to save your settings.
-
-Here's an example of the files contained in the TeamMate appdata folder: 
-
-![AppData example state](https://raw.githubusercontent.com/microsoft/TeamMate/main/Images/AppData.png?token=AKNCJVYYGVOZPRJPX3NRFRLBLIQD4)
-
-This might include: 
-
-* Logs, which stores plain text diagnostics logs used for troubleshooting 
-* Projects, which contains XML files capture TFS project specific information/configuration. 
-* Settings, which contains XML files that store user application settings. 
 
 ## Trademarks
 

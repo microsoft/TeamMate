@@ -19,7 +19,7 @@
             <tmc:WorkItemRowView DataContext="{Binding Item}" Padding="18,9,3,9" />
         </DataTemplate>
         <DataTemplate x:Key="CodeReviewTemplate">
-            <tmc:CodeFlowReviewRowView DataContext="{Binding Item}" Padding="18,9,3,9" />
+            <tmc:PullRequestRowView DataContext="{Binding Item}" Padding="18,9,3,9" />
         </DataTemplate>
     </UserControl.Resources>
     <Grid>

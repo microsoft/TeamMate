@@ -66,9 +66,9 @@ namespace Microsoft.Tools.TeamMate.Pages
                 {
                     replacementContextMenu = this.FindResource<ContextMenu>("WorkItemContextMenu");
                 }
-                else if (selectedItems.All(sr => sr.Item is CodeFlowReviewViewModel))
+                else if (selectedItems.All(sr => sr.Item is PullRequestRowViewModel))
                 {
-                    replacementContextMenu = this.FindResource<ContextMenu>("CodeFlowReviewContextMenu");
+                    replacementContextMenu = this.FindResource<ContextMenu>("PullRequestContextMenu");
                 }
                 else
                 {
@@ -127,10 +127,10 @@ namespace Microsoft.Tools.TeamMate.Pages
                     dataObject = DataObjectFactory.CreateDraggableItem(workItems.Select(wi => wi.Reference).ToArray());
                 }
             }
-            else if (items.Length == 1 && items.First() is CodeFlowReviewViewModel)
+            else if (items.Length == 1 && items.First() is PullRequestRowViewModel)
             {
-                CodeFlowReviewViewModel singleReview = (CodeFlowReviewViewModel)items.First();
-                dataObject = DataObjectFactory.CreateDraggableItem(singleReview.Summary);
+                PullRequestRowViewModel pullRequest = (PullRequestRowViewModel)items.First();
+                dataObject = DataObjectFactory.CreateDraggableItem(pullRequest);
             }
 
             if (dataObject != null)
@@ -150,7 +150,7 @@ namespace Microsoft.Tools.TeamMate.Pages
             {
                 template = this.FindResource<DataTemplate>("WorkItemTemplate");
             }
-            else if (item is CodeFlowReviewViewModel)
+            else if (item is PullRequestRowViewModel)
             {
                 template = this.FindResource<DataTemplate>("CodeReviewTemplate");
             }

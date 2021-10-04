@@ -50,9 +50,9 @@
                    SymbolIcon="Add"
                    Text="Add Work Item Query" />
 
-    <fwi:UICommand x:Key="AddCodeFlowTileCommand"
-                   SymbolIcon="AddFriend"
-                   Text="Add CodeFlow Reviews" />
+    <fwi:UICommand x:Key="AddPullRequestTileCommand"
+                   SymbolIcon="SubscriptionAdd"
+                   Text="Add Pull Request Query" />
 
     <fwi:UICommand x:Key="ChooseProjectsCommand"
                    SymbolIcon="Add"
@@ -313,26 +313,6 @@
                    SmallImage="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
                    Text="Delete" />
 
-    <fwi:UICommand x:Key="CaptureDesktopCommand"
-                   Description="Attach an image or video recording of your desktop."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor.16x16x32.png"
-                   Text="Desktop" />
-
-    <fwi:UICommand x:Key="CaptureMainScreenCommand"
-                   Description="Attach an image or video recording of your main monitor."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor1.16x16x32.png"
-                   Text="Main Monitor" />
-
-    <fwi:UICommand x:Key="CaptureSecondaryScreenCommand"
-                   Description="Attach an image or video recording of your secondary monitor."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitor2.16x16x32.png"
-                   Text="Secondary Monitor" />
-
-    <fwi:UICommand x:Key="CaptureAllScreensCommand"
-                   Description="Attach an image or video recording of your desktop."
-                   SmallImage="/Resources/Icons/Office15/DesktopMonitorAll.16x16x32.png"
-                   Text="All Monitors" />
-
     <fwi:UICommand x:Key="OpenQueryInWebAccessCommand"
                    Description="Open this query in Web Access."
                    LargeImage="/Resources/Icons/Office15/WebInsertHyperlink.32x32x32.png"
@@ -453,67 +433,11 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <!--  Code Flow Review Query & Review Commands  -->
+    <!-- Pull Request Query & Commands  -->
 
-    <fwi:UICommand x:Key="NewCodeFlowReviewCommand"
-                   Description="Create a new code review in CodeFlow"
-                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
-                   SymbolIcon="Add"
-                   Text="New Code Review" />
-
-    <fwi:UICommand x:Key="OpenReviewInCodeFlowCommand"
-                   Description="Open code review in CodeFlow"
-                   Icon="/Resources/Icons/CodeFlow/codeflow_16.png"
-                   Text="Open in _CodeFlow" />
-
-    <fwi:UICommand x:Key="OpenReviewInVisualStudioCommand"
-                   Description="Open code review in Visual Studio"
-                   Icon="/Resources/Icons/VisualStudio/VisualStudio.16x16x32.png"
-                   Text="Open in _Visual Studio" />
-
-    <fwi:UICommand x:Key="OpenReviewInWebCommand"
-                   Description="Open code review in web browser"
+    <fwi:UICommand x:Key="OpenPullRequestInWebCommand"
+                   Description="Open pull request in web browser"
                    Icon="/Resources/Icons/Office15/WebInsertHyperlink.16x16x32.png"
                    Text="Open in _Browser" />
-
-    <fwi:UICommand x:Key="SendReviewReminderMailCommand"
-                   Description="Send a reminder email for authors to complete their active code reviews"
-                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
-                   Text="Send R_eminder Mail" />
-
-    <fwi:UICommand x:Key="SendAllReviewsReminderMailCommand"
-                   Description="Send a reminder email for authors to complete their active code reviews"
-                   Icon="/Resources/Icons/Office15/OLSendTrack.16x16x32.png"
-                   SymbolIcon="MailReplyAll"
-                   Text="Send Reminder Mail" />
-
-    <fwi:UICommand x:Key="PingReviewersCommand"
-                   Description="Ping reviewers to remind them"
-                   Icon="/Resources/Icons/Other/17_16_N.16x16x32_modified.png"
-                   Text="_Ping" />
-
-    <fwi:UICommand x:Key="CompleteReviewsCommand"
-                   Description="Mark your CodeFlow reviews as completed"
-                   Icon="/Resources/Icons/Office15/CheckmarkCompleted.16x16x32.png"
-                   Text="_Complete" />
-
-    <!--  Screen Recording Tray Commands  -->
-
-    <fwi:UICommand x:Key="StopRecordingTrayCommand"
-                   Description="Stop recording"
-                   Icon="/Resources/Icons/Office15/Stop.16x16x32.png"
-                   Text="Stop">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F8</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
-    <fwi:UICommand x:Key="CancelRecordingTrayCommand"
-                   Description="Cancel and discard the recording"
-                   Text="Cancel">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>F9</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
 
 </ResourceDictionary>

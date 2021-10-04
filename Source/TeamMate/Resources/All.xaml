@@ -49,10 +49,10 @@
 
             <Style BasedOn="{StaticResource WindowsUniversalListView}" TargetType="fwcd:ListView" />
 
-            <tmcv:CodeFlowReviewStatusConverter x:Key="ReviewerStatusConverter" Mode="ReviewerStatus" />
-            <tmcv:CodeFlowReviewStatusConverter x:Key="StatusImageConverter" Mode="StatusImage" />
-            <tmcv:CodeFlowReviewStatusConverter x:Key="StatusTextConverter" Mode="StatusText" />
-            <tmcv:CodeFlowReviewStatusConverter x:Key="IterationCountConverter" Mode="IterationCount" />
+            <tmcv:PullRequestStatusConverter x:Key="ReviewerStatusConverter" Mode="ReviewerStatus" />
+            <tmcv:PullRequestStatusConverter x:Key="StatusImageConverter" Mode="StatusImage" />
+            <tmcv:PullRequestStatusConverter x:Key="StatusTextConverter" Mode="StatusText" />
+            <tmcv:PullRequestStatusConverter x:Key="IterationCountConverter" Mode="IterationCount" />
         </ResourceDictionary>
 
     </ResourceDictionary.MergedDictionaries>

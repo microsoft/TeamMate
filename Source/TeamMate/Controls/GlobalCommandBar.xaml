@@ -21,7 +21,7 @@
                                          ConverterParameter={x:Static vm:CommandBarType.Home}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.AddWorkItemQueryTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.AddCodeFlowTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
+            <Button Command="{x:Static tmr:TeamMateCommands.AddPullRequestTile}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Right"
                     Orientation="Horizontal"
@@ -42,8 +42,6 @@
                                          Converter={x:Static fw:Converters.Visibility},
                                          ConverterParameter={x:Static vm:CommandBarType.CodeReviews}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.NewCodeFlowReview}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.SendAllReviewsReminderMail}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.MarkAllAsRead}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Right"

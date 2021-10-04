@@ -286,15 +286,15 @@ namespace Microsoft.Tools.TeamMate.Services
             return null;
         }
 
-        public CodeFlowQueryInfo ShowCodeFlowQueryEditorDialog(ViewModelBase ownerViewModel)
+        public PullRequestQueryInfo ShowPullRequestQueryEditorDialog(ViewModelBase ownerViewModel)
         {
-            return this.ShowCodeFlowQueryEditorDialog(ownerViewModel, new CodeFlowQueryInfo());
+            return this.ShowPullRequestQueryEditorDialog(ownerViewModel, new PullRequestQueryInfo());
         }
 
-        public CodeFlowQueryInfo ShowCodeFlowQueryEditorDialog(ViewModelBase ownerViewModel, CodeFlowQueryInfo queryInfo)
+        public PullRequestQueryInfo ShowPullRequestQueryEditorDialog(ViewModelBase ownerViewModel, PullRequestQueryInfo queryInfo)
         {
-            CodeFlowQueryEditorDialog dialog = new CodeFlowQueryEditorDialog();
-            CodeFlowPickerViewModel viewModel = ViewModelFactory.Create<CodeFlowPickerViewModel>();
+            PullRequestQueryEditorDialog dialog = new PullRequestQueryEditorDialog();
+            PullRequestPickerViewModel viewModel = ViewModelFactory.Create<PullRequestPickerViewModel>();
             viewModel.QueryInfo = queryInfo;
             dialog.DataContext = viewModel;
             dialog.Owner = View.GetWindow(ownerViewModel);

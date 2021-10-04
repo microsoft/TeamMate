@@ -21,14 +21,6 @@ namespace Microsoft.Tools.TeamMate.Resources
             }
         }
 
-        public static Icon RecordingTrayIcon
-        {
-            get
-            {
-                return InteropUtilities.IconFromBitmapSource(FindResource<BitmapSource>("RecordingTrayIcon"));
-            }
-        }
-
         public static Icon TrayIcon
         {
             get

@@ -202,7 +202,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             }
 
             settingsElement.ReadElementValue<bool>(Schema.IsWorkItemRibbonMinimized, (value) => settings.IsWorkItemRibbonMinimized = value);
-            settingsElement.ReadElementValue<bool>(Schema.ShowRecordingBallonTip, (value) => settings.ShowRecordingBallonTip = value);
             settingsElement.ReadElementValue<bool>(Schema.TrayIconReminderWasShown, (value) => settings.TrayIconReminderWasShown = value);
             settingsElement.ReadElementValue<bool>(Schema.OverviewWindowWasHiddenBefore, (value) => settings.OverviewWindowWasHiddenBefore = value);
 
@@ -237,7 +236,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             }
 
             e.SetElementValue<bool>(Schema.IsWorkItemRibbonMinimized, settings.IsWorkItemRibbonMinimized);
-            e.SetElementValue<bool>(Schema.ShowRecordingBallonTip, settings.ShowRecordingBallonTip);
             e.SetElementValue<bool>(Schema.TrayIconReminderWasShown, settings.TrayIconReminderWasShown);
             e.SetElementValue<bool>(Schema.OverviewWindowWasHiddenBefore, settings.OverviewWindowWasHiddenBefore);
 
@@ -287,7 +285,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             public static readonly XName LastKnownWindowStates = "LastKnownWindowStates";
             public static readonly string Key = "Key";
             public static readonly XName IsWorkItemRibbonMinimized = "IsWorkItemRibbonMinimized";
-            public static readonly XName ShowRecordingBallonTip = "ShowRecordingBallonTip";
             public static readonly XName TrayIconReminderWasShown = "TrayIconReminderWasShown";
             public static readonly XName OverviewWindowWasHiddenBefore = "OverviewWindowWasHiddenBefore";
 
