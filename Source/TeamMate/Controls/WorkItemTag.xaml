@@ -8,14 +8,16 @@
              d:DesignWidth="200"
              mc:Ignorable="d">
         <Border BorderBrush="LightGray"
+                Background="LightGray"
                 BorderThickness="1"
                 Margin="3"
                 Padding="0">
             <TextBox Name="tagContent"
                      BorderThickness="0"
+                     Margin="0"
                      Foreground="Black"
                      Background="LightGray"
-                      Focusable="false"
+                     Focusable="false"
                      IsReadOnly="True"
                      Cursor="Arrow">
             </TextBox>
