@@ -46,7 +46,7 @@ namespace Microsoft.Tools.TeamMate.Controls
         private void InvalidateTags()
         {
             // Remove existing tags
-            var oldTags = this.tagContainer.Children.OfType<TagLabel>().ToArray();
+            var oldTags = this.tagContainer.Children.OfType<WorkItemTag>().ToArray();
             foreach (var oldTag in oldTags)
             {
                 this.tagContainer.Children.Remove(oldTag);
@@ -71,10 +71,13 @@ namespace Microsoft.Tools.TeamMate.Controls
             }
         }
 
-        private TagLabel AddTag(string tag)
+        private WorkItemTag AddTag(string tag)
         {
-            TagLabel label = new TagLabel();
-            label.Text = tag;
+            WorkItemTag label = new WorkItemTag();
+            label.tagContent.Text = tag;
+            label.tagContent.Margin = new System.Windows.Thickness(3);
+            label.tagContent.Focusable = false;
+            label.tagContent.IsReadOnly = true;
             this.tagContainer.Children.Add(label);
             return label;
         }
