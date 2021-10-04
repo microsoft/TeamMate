@@ -116,6 +116,9 @@
       <DependentUpon>ItemCountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MsnSymbol.cs" />
+    <Compile Include="Controls\WorkItemTag.xaml.cs">
+      <DependentUpon>WorkItemTag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\QueryPickerControl.xaml.cs">
       <DependentUpon>QueryPickerControl.xaml</DependentUpon>
     </Compile>
@@ -140,7 +143,6 @@
     <Compile Include="Controls\GlobalCommandBar.xaml.cs">
       <DependentUpon>GlobalCommandBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TagLabel.cs" />
     <Compile Include="Controls\TeamMemberView.xaml.cs">
       <DependentUpon>TeamMemberView.xaml</DependentUpon>
     </Compile>
@@ -380,6 +382,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\WorkItemTag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\PullRequestRowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -509,10 +515,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Images.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
