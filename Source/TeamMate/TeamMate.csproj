@@ -216,6 +216,7 @@
     <Compile Include="Utilities\SearchTextHighlighter.cs" />
     <Compile Include="Utilities\TextMatcher.cs" />
     <Compile Include="Utilities\WorkItemHtmlFormatter.cs" />
+    <Compile Include="Utilities\WorkItemTextGenerator.cs" />
     <Compile Include="Utilities\WorkItemHtmlGenerator.cs" />
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />

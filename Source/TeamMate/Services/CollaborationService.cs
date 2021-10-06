@@ -30,11 +30,12 @@ namespace Microsoft.Tools.TeamMate.Services
         [Import]
         public SettingsService SettingsService { get; set; }
 
-        private void CopyToClipboard(string html)
+        private void CopyToClipboard(string html, string text)
         {
             Assert.ParamIsNotNull(html, "html");
+            Assert.ParamIsNotNull(text, "text");
 
-            ClipboardUtilities.CopyHtmlToClipboard(html);
+            ClipboardUtilities.CopyToClipboard(html, text);
         }
 
         public async Task CopyToClipboardAsync(WorkItem workItem)
@@ -42,7 +43,8 @@ namespace Microsoft.Tools.TeamMate.Services
             Assert.ParamIsNotNull(workItem, "workItem");
 
             var html = await CreateWorkItemHtmlAsync(workItem);
-            CopyToClipboard(html);
+            var text = await CreateWorkItemTextAsync(workItem);
+            CopyToClipboard(html, text);
         }
 
         public async Task CopyToClipboard(WorkItem workItem)
@@ -50,19 +52,22 @@ namespace Microsoft.Tools.TeamMate.Services
             Assert.ParamIsNotNull(workItem, "workItem");
 
             var html = await CreateWorkItemHtmlAsync(workItem);
-            CopyToClipboard(html);
+            var text = await CreateWorkItemTextAsync(workItem);
+            CopyToClipboard(html, text);
         }
 
         public void CopyToClipboard(WorkItemQueryExpandedResult workItems)
         {
             var html = CreateWorkItemHtml(workItems);
-            CopyToClipboard(html);
+            var text = CreateWorkItemText(workItems);
+            CopyToClipboard(html, text);
         }
 
         public void CopyToClipboard(ICollection<WorkItem> workItems)
         {
             var html = CreateWorkItemHtml(workItems);
-            CopyToClipboard(html);
+            var text = CreateWorkItemText(workItems);
+            CopyToClipboard(html, text);
         }
 
         private async Task<string> CreateWorkItemHtmlAsync(WorkItem workItem)
@@ -87,6 +92,24 @@ namespace Microsoft.Tools.TeamMate.Services
             return generator.GenerateHtml(workItemWithUpdates);
         }
 
+        private async Task<string> CreateWorkItemTextAsync(WorkItem workItem)
+        {
+            var witClient = this.SessionService.Session.ProjectContext.WorkItemTrackingClient;
+
+            var getWorkItemTask = witClient.GetWorkItemAsync(workItem.Id.Value, expand: WorkItemExpand.Fields | WorkItemExpand.Links);
+            var getUpdatesTask = witClient.GetUpdatesAsync(workItem.Id.Value);
+
+            await Task.WhenAll(getWorkItemTask, getUpdatesTask);
+
+            workItem = getWorkItemTask.Result;
+            var updates = getUpdatesTask.Result;
+
+            WorkItemTextGenerator generator = new WorkItemTextGenerator();
+
+            WorkItemWithUpdates workItemWithUpdates = new WorkItemWithUpdates(workItem, updates);
+            return generator.GenerateText(workItemWithUpdates);
+        }
+
         private WorkItemHtmlGenerator GetHtmlGenerator()
         {
             var projectContext = this.SessionService.Session.ProjectContext;
@@ -101,15 +124,22 @@ namespace Microsoft.Tools.TeamMate.Services
             return generator.GenerateHtml(result);
         }
 
+        private string CreateWorkItemText(WorkItemQueryExpandedResult result)
+        {
+            WorkItemTextGenerator generator = new WorkItemTextGenerator();
+            return generator.GenerateText(result);
+        }
+
         private string CreateWorkItemHtml(ICollection<WorkItem> workItems)
         {
             WorkItemHtmlGenerator generator = GetHtmlGenerator();
             return generator.GenerateHtml(workItems);
         }
 
-        private static string GetEmailOrDisplayName(WorkItemIdentity identity)
+        private string CreateWorkItemText(ICollection<WorkItem> workItems)
         {
-            return identity.EmailAddress != null ? identity.EmailAddress : identity.DisplayName;
+            WorkItemTextGenerator generator = new WorkItemTextGenerator();
+            return generator.GenerateText(workItems);
         }
     }
 }

@@ -50,7 +50,7 @@ EndSelection:{3}";
             return null;
         }
 
-        private static DataObject CreateDataObject(string html)
+        private static DataObject CreateDataObject(string html, string text)
         {
             html = html ?? String.Empty;
             var htmlFragment = GetHtmlDataString(html);
@@ -61,12 +61,14 @@ EndSelection:{3}";
 
             var dataObject = new DataObject();
             dataObject.SetData(DataFormats.Html, htmlFragment);
+            dataObject.SetData(DataFormats.Text, text);
+            dataObject.SetData(DataFormats.UnicodeText, text);
             return dataObject;
         }
 
-        public static void CopyHtmlToClipboard(string html)
+        public static void CopyToClipboard(string html, string text)
         {
-            var dataObject = CreateDataObject(html);
+            var dataObject = CreateDataObject(html, text);
             Clipboard.SetDataObject(dataObject, true);
         }
 

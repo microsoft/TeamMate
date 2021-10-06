@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
@@ -45,29 +46,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
             return new WorkItemHtmlFormatter(this.workItemFieldsByName, this.hyperlinkFactory);
         }
 
-        private static ICollection<string> GetAllChangers(WorkItemWithUpdates workItemWithUpdates)
-        {
-            var updates = workItemWithUpdates.Updates;
-            List<string> allChangedBy = new List<string>();
-            foreach (var update in updates)
-            {
-                WorkItemFieldUpdate historyUpdate;
-                if (update.Fields != null
-                    && update.Fields.TryGetValue(WorkItemConstants.CoreFields.History, out historyUpdate)
-                    && historyUpdate.NewValue != null)
-                {
-                    string changedBy = update.RevisedBy.Name;
-                    if (!string.IsNullOrEmpty(changedBy))
-                    {
-                        allChangedBy.Add(changedBy);
-                    }
-                }
-            }
-
-            allChangedBy = allChangedBy.Distinct().ToList();
-            return allChangedBy;
-        }
-
         public string GenerateHtml(WorkItemQueryExpandedResult result)
         {
             Assert.ParamIsNotNull(result, "result");
@@ -78,6 +56,19 @@ namespace Microsoft.Tools.TeamMate.Utilities
             formatter.FormatResults(result, writer);
 
             return writer.ToString();
+        }
+        public string GenerateText(WorkItemQueryExpandedResult result)
+        {
+            Assert.ParamIsNotNull(result, "result");
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (var workItem in result.WorkItems)
+            {
+                stringBuilder.AppendLine(workItem.GetFullTitle());
+            }
+
+            return stringBuilder.ToString();
         }
 
         public string GenerateHtml(ICollection<WorkItem> workItems)
@@ -90,6 +81,20 @@ namespace Microsoft.Tools.TeamMate.Utilities
             formatter.FormatResults(workItems, writer);
 
             return writer.ToString();
+        }
+
+        public string GenerateText(ICollection<WorkItem> workItems)
+        {
+            Assert.ParamIsNotNull(workItems, "workItems");
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            foreach (var workItem in workItems)
+            {
+                stringBuilder.AppendLine(workItem.GetFullTitle());
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }
