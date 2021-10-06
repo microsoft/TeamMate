@@ -114,16 +114,5 @@ namespace Microsoft.Tools.TeamMate.Utilities
             dataObject.SetData(typeof(WorkItemReference), reference);
             return dataObject;
         }
-
-        public static IDataObject CopyDetails(WorkItem workItem)
-        {
-            Assert.ParamIsNotNull(workItem, "workItem");
-
-            // TODO: Implement "Copy Details" action (e.g. using WorkItemPrinter?)
-            object data = workItem.GetFullTitle();
-            DataObject dataObject = new DataObject(data);
-            dataObject.SetData(typeof(WorkItemReference), workItem.GetReference());
-            return dataObject;
-        }
     }
 }

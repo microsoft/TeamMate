@@ -67,8 +67,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             // TODO: KLUDGE: Re-registering commands that get registered through Query.RegisterBindings(). Remove duplication
             this.GlobalCommandBindings.Add(TeamMateCommands.OpenQueryInWebAccess, () => Query.OpenInWebAccess(), () => HasQuery() && Query.CanOpenInWebAccess);
-            this.GlobalCommandBindings.Add(TeamMateCommands.SendEmailForQuery, () => Query.SendMail(), HasQuery);
-            this.GlobalCommandBindings.Add(TeamMateCommands.ReplyAllInQueryWithEmail, () => Query.ReplyAll(), HasQuery);
 
             this.workItems.OrderByFieldChanged += HandleOrderByFieldPropertyChanged;
             this.workItems.FilterByFieldChanged += HandleFilterByFieldPropertyChanged;
@@ -121,7 +119,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.CopyHyperlink, CopyHyperlink, HasSingleSelection);
             commands.Add(ApplicationCommands.Copy, CopyHyperlink, HasSingleSelection);
             commands.Add(TeamMateCommands.Flag, ToggleSelectionFlag, HasSelection);
-            commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
+            commands.Add(TeamMateCommands.CopyToClipboard, CopyToClipboard, HasSelection);
             commands.Add(TeamMateCommands.MarkAsRead, MarkAsRead, HasSelection);
             commands.Add(TeamMateCommands.MarkAsUnread, MarkAsUnread, HasSelection);
             commands.Add(TeamMateCommands.EditTags, EditTags, HasSelection);
@@ -292,7 +290,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public CollaborationService CollaborationService { get; set; }
 
 
-        private async void ReplyWithEmail()
+        private async void CopyToClipboard()
         {
             try
             {
@@ -301,12 +299,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     if (HasSingleSelection())
                     {
                         WorkItemRowViewModel workItem = GetSelectedItem();
-                        await this.CollaborationService.ReplyWithMailAsync(workItem.WorkItem);
+                        await this.CollaborationService.CopyToClipboardAsync(workItem.WorkItem);
                     }
                     else
                     {
                         var items = GetSelectedItems().Select(wii => wii.WorkItem).ToArray();
-                        this.CollaborationService.ReplyAllWithMail(items);
+                        this.CollaborationService.CopyToClipboard(items);
                     }
                 }
             }

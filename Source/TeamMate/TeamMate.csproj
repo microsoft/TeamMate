@@ -216,7 +216,8 @@
     <Compile Include="Utilities\SearchTextHighlighter.cs" />
     <Compile Include="Utilities\TextMatcher.cs" />
     <Compile Include="Utilities\WorkItemHtmlFormatter.cs" />
-    <Compile Include="Utilities\WorkItemMailGenerator.cs" />
+    <Compile Include="Utilities\WorkItemTextGenerator.cs" />
+    <Compile Include="Utilities\WorkItemHtmlGenerator.cs" />
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
     <Compile Include="ViewModels\PullRequestPickerViewModel.cs" />
@@ -300,7 +301,6 @@
     <Compile Include="Services\ToastNotificationService.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\SettingsService.cs" />
-    <Compile Include="Services\TempFileService.cs" />
     <Compile Include="Model\ProjectContextSerializer.cs" />
     <Compile Include="Services\ProjectDataService.cs" />
     <Compile Include="Model\Settings\ApplicationSettings.cs" />
@@ -367,10 +367,6 @@
     <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
       <Name>Microsoft.Tools.TeamMate.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
-      <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
-      <Name>Microsoft.Tools.TeamMate.Office</Name>
     </ProjectReference>
     <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
@@ -598,16 +594,10 @@
   <ItemGroup>
     <Resource Include="Resources\Fonts\Bowtie.ttf" />
     <Resource Include="Resources\Fonts\MSNMDL2.ttf" />
-    <None Include="Resources\Native\compilerc.bat" />
     <None Include="Resources\Xml\Samples\Settings.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Xml\Samples\TeamMateFile.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Native\Icons\Add.ico" />
-    <None Include="Resources\Native\Icons\Search.ico" />
-    <None Include="Resources\Native\Icons\Task.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\EmailResources.resx">
@@ -870,12 +860,6 @@
     <Resource Include="Resources\Icons\Office15\EndReviewPPT.32x32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\Codeflow\addcomment.png" />
-    <Resource Include="Resources\Icons\Codeflow\codeflow_16.png" />
-    <Resource Include="Resources\Icons\Codeflow\codeflow_64.png" />
-    <Resource Include="Resources\Icons\Codeflow\comment.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Icons\Office15\ClosePaneGlyph.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\CommentDefault.16x16x32.png" />
   </ItemGroup>
@@ -904,9 +888,6 @@
   <ItemGroup>
     <Resource Include="Resources\Icons\Office15\OLFlagHover.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\OLFlagPlaceHolder.16x16x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Codeflow\CodeFlowDashboard.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Office15\PersonaStatusAway.10x10x32.png" />
@@ -1021,6 +1002,9 @@
     <PackageReference Include="SimpleInjector">
       <Version>5.3.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Icons\Codeflow\" />
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
   <Target Name="BeforeBuild" />

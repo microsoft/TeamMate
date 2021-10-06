@@ -50,14 +50,8 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="ProductClient" KeyPath="yes" Guid="8ceb1ed0-9310-4ed2-abd1-2ff09915db9d">
-				<File Source="$(var.Client.TargetPath)" />
-			</Component>
 			<Component Id="ProductFoundation" KeyPath="yes" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">
 				<File Source="$(var.Foundation.TargetPath)" />
-			</Component>
-			<Component Id="ProductOffice" KeyPath="yes" Guid="90b9f632-e7d5-4244-97e7-707ca95b01e6">
-				<File Source="$(var.Office.TargetPath)" />
 			</Component>
 			<Component Id="ProductWebApi" KeyPath="yes" Guid="7b188df3-c24a-48fb-b39e-03ac63d078d0">
 				<File Source="$(var.WebApi.TargetPath)" />
@@ -71,7 +65,6 @@
 			</Component>
 			<Component Id="References" KeyPath="yes" Guid="557b615b-8cdf-4c4b-a15b-f41b74ec9a5e">
 				<File Source="$(var.TeamMate.TargetDir)\SimpleInjector.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />

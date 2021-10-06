@@ -46,8 +46,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         public string NoThumbnail { get; set; }
 
-        public bool OutlookMode { get; set; }
-
         public IDictionary<string, string> Thumbnails { get; set; }
 
         public void FormatWorkItem(WorkItemWithUpdates workItemWithUpdates, TextWriter writer)
@@ -89,11 +87,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
             if (!String.IsNullOrEmpty(NoThumbnail))
             {
                 args.AddParam("NoThumbnail", String.Empty, NoThumbnail);
-            }
-
-            if (OutlookMode)
-            {
-                args.AddParam("Mode", String.Empty, "Outlook");
             }
 
             // Execute the transform and output the results to a writer.
@@ -270,8 +263,15 @@ namespace Microsoft.Tools.TeamMate.Utilities
                 object fieldValue;
                 if(f.ReferenceName == WorkItemConstants.CoreFields.Id)
                 {
-                    // KLUDGE: Don't ask me why, but the System.Id field is not part of the fields collection
                     fieldValue = workItem.Id;
+                }
+                else if ((f.ReferenceName == WorkItemConstants.CoreFields.ChangedBy) ||
+                    (f.ReferenceName == WorkItemConstants.CoreFields.AssignedTo) ||
+                    (f.ReferenceName == WorkItemConstants.CoreFields.CreatedBy))
+                {
+                    object rawField;
+                    workItem.Fields.TryGetValue(f.ReferenceName, out rawField);
+                    fieldValue = ((Microsoft.VisualStudio.Services.WebApi.IdentityRef)rawField).DisplayName;
                 }
                 else
                 {

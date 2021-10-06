@@ -1,5 +1,4 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
-using Microsoft.Tools.TeamMate.Foundation.DirectoryServices;
 using Microsoft.Tools.TeamMate.Foundation.IO;
 using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
@@ -8,7 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Microsoft.Tools.TeamMate.Model
@@ -70,8 +68,6 @@ namespace Microsoft.Tools.TeamMate.Model
             }
         }
 
-        public static UserEntry UserInfo { get; private set; }
-
         private static string ApplicationHistoryFile
         {
             get { return Path.Combine(TeamMateApplicationInfo.DataDirectory, "History.xml"); }
@@ -100,24 +96,6 @@ namespace Microsoft.Tools.TeamMate.Model
                     // data directory we do not understand. Hence, we will mark this as a first run.
                     IsFirstRun = true;
                 }
-            }
-
-            BeingLoadUserInfo();
-        }
-
-        private static async void BeingLoadUserInfo()
-        {
-            try
-            {
-                DirectoryBrowser browser = new DirectoryBrowser(DirectoryBrowserMode.Light);
-                if (browser.IsInDomain)
-                {
-                    UserInfo = await Task.Run(() => browser.FindMe());
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Warn(e);
             }
         }
 
