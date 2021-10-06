@@ -101,7 +101,6 @@ namespace Microsoft.Tools.TeamMate.Services
             return generator.GenerateHtml(result);
         }
 
-
         private string CreateWorkItemHtml(ICollection<WorkItem> workItems)
         {
             WorkItemHtmlGenerator generator = GetHtmlGenerator();

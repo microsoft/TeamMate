@@ -263,8 +263,15 @@ namespace Microsoft.Tools.TeamMate.Utilities
                 object fieldValue;
                 if(f.ReferenceName == WorkItemConstants.CoreFields.Id)
                 {
-                    // KLUDGE: Don't ask me why, but the System.Id field is not part of the fields collection
                     fieldValue = workItem.Id;
+                }
+                else if ((f.ReferenceName == WorkItemConstants.CoreFields.ChangedBy) ||
+                    (f.ReferenceName == WorkItemConstants.CoreFields.AssignedTo) ||
+                    (f.ReferenceName == WorkItemConstants.CoreFields.CreatedBy))
+                {
+                    object rawField;
+                    workItem.Fields.TryGetValue(f.ReferenceName, out rawField);
+                    fieldValue = ((Microsoft.VisualStudio.Services.WebApi.IdentityRef)rawField).DisplayName;
                 }
                 else
                 {

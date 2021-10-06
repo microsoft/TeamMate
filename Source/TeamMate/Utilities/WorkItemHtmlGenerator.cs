@@ -22,25 +22,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
             this.hyperlinkFactory = hyperlinkFactory;
         }
 
-        private static string GetUniqueFilename(string directory, string extension)
-        {
-            Assert.ParamIsNotNull(directory, "directory");
-            Assert.ParamIsNotNull(extension, "extension");
-
-            string path;
-
-            do
-            {
-                // IMPORTANT, KLUDGE! Apparently if the filename had spaces or parenthesis, Outlook did not
-                // render the attachment nicely inline... Hence, we use a custom routine to ensure filenames are unique,
-                // again, the important part is to make sure the generated filename has no spaces or parenthesis!
-                path = Path.Combine(directory, Path.ChangeExtension(Path.GetRandomFileName(), extension));
-            }
-            while (PathUtilities.Exists(path));
-
-            return path;
-        }
-
         public string GenerateHtml(WorkItemWithUpdates workItemWithUpdates)
         {
             Assert.ParamIsNotNull(workItemWithUpdates, "workItemWithUpdates");
