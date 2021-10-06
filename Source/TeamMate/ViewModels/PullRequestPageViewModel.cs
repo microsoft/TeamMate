@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
@@ -307,9 +306,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 }
             }
         }
-
-        [Import]
-        public CollaborationService CollaborationService { get; set; }
 
         private bool HasSelection()
         {

@@ -312,8 +312,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public void RegisterBindings(CommandBindingCollection bindings)
         {
             bindings.Add(TeamMateCommands.OpenQueryInWebAccess, OpenInWebAccess, () => CanOpenInWebAccess);
-            bindings.Add(TeamMateCommands.SendEmailForQuery, SendMail);
-            bindings.Add(TeamMateCommands.ReplyAllInQueryWithEmail, ReplyAll);
         }
 
         public void OpenInWebAccess()
@@ -327,38 +325,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        public void SendMail()
-        {
-            var workItems = this.Result;
-
-            if (workItems != null)
-            {
-                using (this.StatusService.BusyIndicator())
-                {
-                    this.CollaborationService.SendMail(workItems);
-                }
-            }
-        }
-
-        [Import]
-        public CollaborationService CollaborationService { get; set; }
-
-
         [Import]
         public StatusService StatusService { get; set; }
-
-        public void ReplyAll()
-        {
-            var workItems = this.Result;
-
-            if (workItems != null)
-            {
-                using (this.StatusService.BusyIndicator())
-                {
-                    this.CollaborationService.ReplyAllWithMail(workItems);
-                }
-            }
-        }
 
         [Import]
         public TrackingService TrackingService { get; set; }

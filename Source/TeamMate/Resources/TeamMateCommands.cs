@@ -21,8 +21,6 @@ namespace Microsoft.Tools.TeamMate.Resources
         // Auto Update command
         public static ICommand Restart { get { return commands.FindResource(); } }
 
-        // Ribbon Comands
-        public static ICommand Save { get { return commands.FindResource(); } }
         public static ICommand SaveAndClose { get { return commands.FindResource(); } }
         public static ICommand Refresh { get { return commands.FindResource(); } }
         public static ICommand Revert { get { return commands.FindResource(); } }
@@ -31,36 +29,15 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand CopyId { get { return commands.FindResource(); } }
         public static ICommand CopyTitle { get { return commands.FindResource(); } }
         public static ICommand CopyDetails { get { return commands.FindResource(); } }
-        public static ICommand AttachFile { get { return commands.FindResource(); } }
-        public static ICommand AttachClipboardContents { get { return commands.FindResource(); } }
-        public static ICommand AttachScreenshot { get { return commands.FindResource(); } }
-        public static ICommand AddLink { get { return commands.FindResource(); } }
         public static ICommand NewLinkedWorkItem { get { return commands.FindResource(); } }
-        public static ICommand SendEmail { get { return commands.FindResource(); } }
         public static ICommand ReplyWithEmail { get { return commands.FindResource(); } }
-        public static ICommand ReplyAllWithEmail { get { return commands.FindResource(); } }
-        public static ICommand ReplyWithIM { get { return commands.FindResource(); } }
-        public static ICommand ReplyAllWithIM { get { return commands.FindResource(); } }
-        public static ICommand CreateMeeting { get { return commands.FindResource(); } }
         public static ICommand Flag { get { return commands.FindResource(); } }
-        public static ICommand CaptureTemplate { get { return commands.FindResource(); } }
-        public static ICommand ModifyTemplateContextMenu { get { return commands.FindResource(); } }
-        public static ICommand RemoveTemplateContextMenu { get { return commands.FindResource(); } }
-
-        public static ICommand CaptureDesktop { get { return commands.FindResource(); } }
-        public static ICommand CaptureMainScreen { get { return commands.FindResource(); } }
-        public static ICommand CaptureSecondaryScreen { get { return commands.FindResource(); } }
-        public static ICommand CaptureAllScreens { get { return commands.FindResource(); } }
 
         public static ICommand PreviousItem { get { return commands.FindResource(); } }
         public static ICommand NextItem { get { return commands.FindResource(); } }
         public static ICommand SaveAll { get { return commands.FindResource(); } }
         public static ICommand OpenQueryInWebAccess { get { return commands.FindResource(); } }
-        public static ICommand SendEmailForQuery { get { return commands.FindResource(); } }
-        public static ICommand ReplyAllInQueryWithEmail { get { return commands.FindResource(); } }
-
         public static ICommand ConnectToProject { get { return commands.FindResource(); } }
-
         public static ICommand OpenAttachment { get { return commands.FindResource(); } }
         public static ICommand SaveAttachmentAs { get { return commands.FindResource(); } }
         public static ICommand SaveAllAttachments { get { return commands.FindResource(); } }

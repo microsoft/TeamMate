@@ -31,8 +31,6 @@
                                          ConverterParameter={x:Static vm:CommandBarType.WorkItems}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.OpenQueryInWebAccess}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.SendEmailForQuery}" Style="{StaticResource CommandAppBarButtonStyle}" />
-            <Button Command="{x:Static tmr:TeamMateCommands.ReplyAllInQueryWithEmail}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.MarkAllAsRead}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Right"

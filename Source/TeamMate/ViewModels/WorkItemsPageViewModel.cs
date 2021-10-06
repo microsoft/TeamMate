@@ -67,8 +67,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             // TODO: KLUDGE: Re-registering commands that get registered through Query.RegisterBindings(). Remove duplication
             this.GlobalCommandBindings.Add(TeamMateCommands.OpenQueryInWebAccess, () => Query.OpenInWebAccess(), () => HasQuery() && Query.CanOpenInWebAccess);
-            this.GlobalCommandBindings.Add(TeamMateCommands.SendEmailForQuery, () => Query.SendMail(), HasQuery);
-            this.GlobalCommandBindings.Add(TeamMateCommands.ReplyAllInQueryWithEmail, () => Query.ReplyAll(), HasQuery);
 
             this.workItems.OrderByFieldChanged += HandleOrderByFieldPropertyChanged;
             this.workItems.FilterByFieldChanged += HandleFilterByFieldPropertyChanged;
