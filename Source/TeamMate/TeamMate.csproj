@@ -367,10 +367,6 @@
       <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
       <Name>Microsoft.Tools.TeamMate.Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Office\Microsoft.Tools.TeamMate.Office.csproj">
-      <Project>{ad2c7e6a-15c3-4f95-ad74-f4a75d04bc18}</Project>
-      <Name>Microsoft.Tools.TeamMate.Office</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
       <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
       <Name>Microsoft.Tools.TeamMate.TeamFoundation.WebApi</Name>

@@ -3,7 +3,6 @@ using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
-using Microsoft.Tools.TeamMate.Office.Outlook;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
