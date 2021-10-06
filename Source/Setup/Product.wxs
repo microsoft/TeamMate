@@ -50,9 +50,6 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="ProductClient" KeyPath="yes" Guid="8ceb1ed0-9310-4ed2-abd1-2ff09915db9d">
-				<File Source="$(var.Client.TargetPath)" />
-			</Component>
 			<Component Id="ProductFoundation" KeyPath="yes" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">
 				<File Source="$(var.Foundation.TargetPath)" />
 			</Component>
