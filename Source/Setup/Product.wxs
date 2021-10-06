@@ -65,7 +65,6 @@
 			</Component>
 			<Component Id="References" KeyPath="yes" Guid="557b615b-8cdf-4c4b-a15b-f41b74ec9a5e">
 				<File Source="$(var.TeamMate.TargetDir)\SimpleInjector.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
 				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />

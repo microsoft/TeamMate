@@ -43,7 +43,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceModel" />
@@ -78,9 +77,6 @@
     <Compile Include="Diagnostics\Assert.cs" />
     <Compile Include="Diagnostics\Log.cs" />
     <Compile Include="Diagnostics\TraceLogFile.cs" />
-    <Compile Include="DirectoryServices\DirectoryBrowser.cs" />
-    <Compile Include="DirectoryServices\DirectoryUtilities.cs" />
-    <Compile Include="DirectoryServices\UserEntry.cs" />
     <Compile Include="ConvertUtilities.cs" />
     <Compile Include="Diagnostics\ExceptionInfo.cs" />
     <Compile Include="FormatUtilities.cs" />
@@ -104,7 +100,6 @@
     <Compile Include="Native\Structs.cs" />
     <Compile Include="Native\User32.cs" />
     <Compile Include="Native\WtsApi32.cs" />
-    <Compile Include="Net\Mime\MimeTypes.cs" />
     <Compile Include="ObjectUtilities.cs" />
     <Compile Include="PredicateUtilities.cs" />
     <Compile Include="Reflection\ReflectionExtensions.cs" />
@@ -119,15 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FoundationResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Runtime\InteropServices\InteropUtilities.cs" />
-    <Compile Include="Runtime\InteropServices\RetryMessageFilterScope.cs" />
-    <Compile Include="Runtime\InteropServices\RetryMesssageFillter.cs" />
-    <Compile Include="Runtime\Serialization\SerializationUtilities.cs" />
-    <Compile Include="ServiceModel\WcfClientProxy.cs" />
     <Compile Include="Shell\ApplicationRegistrationServices.cs" />
     <Compile Include="Shell\ExternalWebBrowser.cs" />
     <Compile Include="Shell\SessionNotificationHelper.cs" />
-    <Compile Include="Shell\ShortcutUtilities.cs" />
     <Compile Include="Shell\WndProcHelper.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="StringUtilities.cs" />

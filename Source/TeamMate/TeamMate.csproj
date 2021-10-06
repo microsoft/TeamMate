@@ -594,16 +594,10 @@
   <ItemGroup>
     <Resource Include="Resources\Fonts\Bowtie.ttf" />
     <Resource Include="Resources\Fonts\MSNMDL2.ttf" />
-    <None Include="Resources\Native\compilerc.bat" />
     <None Include="Resources\Xml\Samples\Settings.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Xml\Samples\TeamMateFile.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Native\Icons\Add.ico" />
-    <None Include="Resources\Native\Icons\Search.ico" />
-    <None Include="Resources\Native\Icons\Task.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\EmailResources.resx">
