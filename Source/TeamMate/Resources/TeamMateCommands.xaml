@@ -184,17 +184,6 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-
-    <fwi:UICommand x:Key="ReplyAllWithEmailCommand"
-                   Description="Reply to all of the people that have been involved with this work item."
-                   LargeImage="/Resources/Icons/Office15/ReplyAll.32x32x32.png"
-                   SmallImage="/Resources/Icons/Office15/ReplyAll.16x16x32.png"
-                   Text="Reply All">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Ctrl+Shift+R</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
     <fwi:UICommand x:Key="FlagCommand"
                    Description="Set a flag to remind you to follow up on this work item."
                    LargeImage="/Resources/Icons/Office15/89_16_N.32x32x32.png"

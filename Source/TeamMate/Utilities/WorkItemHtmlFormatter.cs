@@ -46,8 +46,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         public string NoThumbnail { get; set; }
 
-        public bool OutlookMode { get; set; }
-
         public IDictionary<string, string> Thumbnails { get; set; }
 
         public void FormatWorkItem(WorkItemWithUpdates workItemWithUpdates, TextWriter writer)
@@ -89,11 +87,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
             if (!String.IsNullOrEmpty(NoThumbnail))
             {
                 args.AddParam("NoThumbnail", String.Empty, NoThumbnail);
-            }
-
-            if (OutlookMode)
-            {
-                args.AddParam("Mode", String.Empty, "Outlook");
             }
 
             // Execute the transform and output the results to a writer.

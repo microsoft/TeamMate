@@ -216,7 +216,7 @@
     <Compile Include="Utilities\SearchTextHighlighter.cs" />
     <Compile Include="Utilities\TextMatcher.cs" />
     <Compile Include="Utilities\WorkItemHtmlFormatter.cs" />
-    <Compile Include="Utilities\WorkItemMailGenerator.cs" />
+    <Compile Include="Utilities\WorkItemHtmlGenerator.cs" />
     <Compile Include="Utilities\WorkItemQueryFactory.cs" />
     <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
     <Compile Include="ViewModels\PullRequestPickerViewModel.cs" />
@@ -300,7 +300,6 @@
     <Compile Include="Services\ToastNotificationService.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\SettingsService.cs" />
-    <Compile Include="Services\TempFileService.cs" />
     <Compile Include="Model\ProjectContextSerializer.cs" />
     <Compile Include="Services\ProjectDataService.cs" />
     <Compile Include="Model\Settings\ApplicationSettings.cs" />
