@@ -45,7 +45,7 @@ namespace Microsoft.Tools.TeamMate.Services
             CopyToClipboard(html);
         }
 
-        public async Task ReplyWithMailAsync(WorkItem workItem)
+        public async Task CopyToClipboard(WorkItem workItem)
         {
             Assert.ParamIsNotNull(workItem, "workItem");
 
@@ -59,13 +59,7 @@ namespace Microsoft.Tools.TeamMate.Services
             CopyToClipboard(html);
         }
 
-        public void ReplyAllWithMail(ICollection<WorkItem> workItems)
-        {
-            var html = CreateWorkItemHtml(workItems);
-            CopyToClipboard(html);
-        }
-
-        public void ReplyAllWithMail(WorkItemQueryExpandedResult workItems)
+        public void CopyToClipboard(ICollection<WorkItem> workItems)
         {
             var html = CreateWorkItemHtml(workItems);
             CopyToClipboard(html);

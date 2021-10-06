@@ -865,12 +865,6 @@
     <Resource Include="Resources\Icons\Office15\EndReviewPPT.32x32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\Codeflow\addcomment.png" />
-    <Resource Include="Resources\Icons\Codeflow\codeflow_16.png" />
-    <Resource Include="Resources\Icons\Codeflow\codeflow_64.png" />
-    <Resource Include="Resources\Icons\Codeflow\comment.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Icons\Office15\ClosePaneGlyph.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\CommentDefault.16x16x32.png" />
   </ItemGroup>
@@ -899,9 +893,6 @@
   <ItemGroup>
     <Resource Include="Resources\Icons\Office15\OLFlagHover.16x16x32.png" />
     <Resource Include="Resources\Icons\Office15\OLFlagPlaceHolder.16x16x32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Codeflow\CodeFlowDashboard.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Office15\PersonaStatusAway.10x10x32.png" />
@@ -1016,6 +1007,9 @@
     <PackageReference Include="SimpleInjector">
       <Version>5.3.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Icons\Codeflow\" />
   </ItemGroup>
   <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
   <Target Name="BeforeBuild" />

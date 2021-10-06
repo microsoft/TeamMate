@@ -153,32 +153,11 @@
         </fwi:UICommand.InputGestures>
     </fwi:UICommand>
 
-    <fwi:UICommand x:Key="CopyDetailsCommand"
-                   Description="Copy the work item details."
-                   ScreenTipTitle="Copy Details"
+    <fwi:UICommand x:Key="CopyToClipboardCommand"
+                   Description="Copy details of the selected work items to the clipboard."
+                   LargeImage="/Resources/Icons/Office15/Copy.32x32x32.png"
                    SmallImage="/Resources/Icons/Office15/Copy.16x16x32.png"
-                   Text="Details">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Ctrl+OemSemicolon</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
-    <fwi:UICommand x:Key="AttachClipboardContentsCommand"
-                   Description="Attach the contents of the clipboard to this work item.&#10;&#10;The types of clipboard contents that can be attached include images, text, files and Outlook messages."
-                   LargeImage="/Resources/Icons/Office15/Paste.32x32x32.png"
-                   ScreenTipTitle="Attach Clipboard Contents"
-                   SmallImage="/Resources/Icons/Office15/Paste.16x16x32.png"
-                   Text="From Clipboard">
-        <fwi:UICommand.InputGestures>
-            <KeyGesture>Ctrl+Shift+V</KeyGesture>
-        </fwi:UICommand.InputGestures>
-    </fwi:UICommand>
-
-    <fwi:UICommand x:Key="ReplyWithEmailCommand"
-                   Description="Reply to the person this work item is assigned to or was updated by."
-                   LargeImage="/Resources/Icons/Office15/OLRepliedMail.32x32x32.png"
-                   SmallImage="/Resources/Icons/Office15/OLRepliedMail.16x16x32.png"
-                   Text="Reply">
+                   Text="Copy to Clipboard">
         <fwi:UICommand.InputGestures>
             <KeyGesture>Ctrl+R</KeyGesture>
         </fwi:UICommand.InputGestures>
@@ -219,12 +198,6 @@
     <!--  Global Commands  -->
 
     <c:RoutedUICommand x:Key="ConnectToProjectCommand" Text="Connect to Project" />
-
-    <!--  Link Commands  -->
-
-    <fwi:UICommand x:Key="RemoveLinkCommand"
-                   Icon="/Resources/Icons/Office15/CommentDelete.16x16x32.png"
-                   Text="Remove Link" />
 
     <!--  Work Item Query & Work Item Commands  -->
 

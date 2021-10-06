@@ -60,7 +60,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add(TeamMateCommands.CopyTitle, CopyTitle, HasSingleSelection);
             commands.Add(ApplicationCommands.Copy, CopyHyperlink, HasSingleSelection);
             commands.Add(TeamMateCommands.Flag, ToggleSelectionFlag, HasSelection);
-            commands.Add(TeamMateCommands.ReplyWithEmail, ReplyWithEmail, HasSelection);
+            commands.Add(TeamMateCommands.CopyToClipboard, CopyToClipboard, HasSelection);
 
             // Code PullRequests
             commands.Add(TeamMateCommands.OpenPullRequestInWeb, OpenPullRequestInWeb, HasSelection);
@@ -128,8 +128,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public StatusService StatusService { get; set; }
 
-
-        private async void ReplyWithEmail()
+        private async void CopyToClipboard()
         {
             try
             {
@@ -138,12 +137,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     if (HasSingleSelection())
                     {
                         WorkItemRowViewModel workItem = GetSelectedItem<WorkItemRowViewModel>();
-                        await this.CollaborationService.ReplyWithMailAsync(workItem.WorkItem);
+                        await this.CollaborationService.CopyToClipboard(workItem.WorkItem);
                     }
                     else
                     {
                         var items = GetSelectedItems<WorkItemRowViewModel>().Select(wii => wii.WorkItem).ToArray();
-                        this.CollaborationService.ReplyAllWithMail(items);
+                        this.CollaborationService.CopyToClipboard(items);
                     }
                 }
             }

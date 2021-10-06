@@ -14,7 +14,7 @@
                   Header="Copy Title"
                   Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
-        <MenuItem Command="{x:Static tmr:TeamMateCommands.ReplyWithEmail}" Style="{DynamicResource CommandMenuItemStyle}" />
+        <MenuItem Command="{x:Static tmr:TeamMateCommands.CopyToClipboard}" Style="{DynamicResource CommandMenuItemStyle}" />
         <Separator />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.Flag}" Style="{DynamicResource CommandMenuItemStyle}" />
         <MenuItem Command="{x:Static tmr:TeamMateCommands.MarkAsRead}" Style="{DynamicResource CommandMenuItemStyle}" />
