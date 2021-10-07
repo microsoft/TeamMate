@@ -32,6 +32,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     this.includeInItemCountSummary = (this.TileInfo != null) ? this.tileInfo.IncludeInItemCountSummary : false;
                     this.backgroundColor = this.GetBackgroundColor();
                     this.isDefaultBackgroundColor = this.IsDefaultBackColor();
+                    this.fontColor = this.GetFontColor();
+                    this.tileInfo.FontColor = this.fontColor;
+                    this.isDefaultFontColor = this.IsDefaultTextFontColor();
 
                     this.Query = (this.TileInfo != null) ? CreateQueryViewModel(this.TileInfo) : null;
 
@@ -103,6 +106,19 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
+        private bool isDefaultFontColor;
+        public bool IsDefaultFontColor
+        {
+            get
+            {
+                return this.isDefaultFontColor;
+            }
+            set
+            {
+                SetProperty(ref this.isDefaultFontColor, value);
+            }
+        }
+
         private string backgroundColor;
         /// <summary>
         /// Holds the hex code for the background color of the tile.
@@ -155,6 +171,53 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 }
             }
             return DefaultBackgroundColor;
+        }
+
+        protected const string DefaultFontColor = "White";
+
+        private string fontColor = DefaultFontColor;
+        /// <summary>
+        /// Holds the hex code for the background color of the tile.
+        /// Defaults to a predefined color based on the type of the tile, if no color is explicitly selected for it.
+        /// </summary>
+        public string FontColor
+        {
+            get { return this.fontColor; }
+            set
+            {
+                this.TileInfo.FontColor = value;
+                this.TileInfo.FireChanged();
+
+                SetProperty(ref this.fontColor, this.GetFontColor());
+                this.IsDefaultFontColor = this.IsDefaultTextFontColor();
+            }
+        }
+
+        private string GetFontColor()
+        {
+            if (this.TileInfo != null && !string.IsNullOrEmpty(this.TileInfo.FontColor))
+            {
+                return this.TileInfo.FontColor;
+            }
+            return this.GetDefaultFontColor();
+        }
+        public void ResetFontColor()
+        {
+            this.FontColor = DefaultFontColor;
+        }
+
+        private bool IsDefaultTextFontColor()
+        {
+            return string.Equals(this.FontColor, this.GetDefaultFontColor(), StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// Get the default foreground color for the tile based on its type
+        /// </summary>
+        /// <returns>Hex value of the default color for the tile</returns>
+        public string GetDefaultFontColor()
+        {
+            return DefaultFontColor;
         }
 
         public QueryViewModelBase Query
