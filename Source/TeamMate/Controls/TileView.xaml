@@ -43,7 +43,7 @@
                    Margin="6"
                    VerticalAlignment="Top"
                    FontSize="18"
-                   Foreground="White"
+                   Foreground="{Binding TileInfo.FontColor}"
                    Text="{Binding TileInfo.Name}"
                    TextTrimming="CharacterEllipsis"
                    TextWrapping="Wrap" />

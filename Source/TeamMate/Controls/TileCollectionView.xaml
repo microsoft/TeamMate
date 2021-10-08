@@ -37,6 +37,16 @@
                                       CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
                                       Visibility="{Binding IsDefaultBackgroundColor, Converter={x:Static fw:Converters.InverseVisibility}}"
                                       CommandParameter="{Binding}" />                            
+                            <Separator />
+                            <MenuItem Header="Select _Font Color"
+                                      Command="{x:Static tmr:TeamMateCommands.SelectTileFontColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      CommandParameter="{Binding}" />
+                            <MenuItem Header="Re_set Font Color"
+                                      Command="{x:Static tmr:TeamMateCommands.ResetTileFontColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Visibility="{Binding IsDefaultFontColor, Converter={x:Static fw:Converters.InverseVisibility}}"
+                                      CommandParameter="{Binding}" />                            
                         </ContextMenu>
                     </local:TileView.ContextMenu>
                 </local:TileView>
@@ -69,7 +79,17 @@
                                       Command="{x:Static tmr:TeamMateCommands.ResetTileBackgroundColor}"
                                       CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
                                       Visibility="{Binding IsDefaultBackgroundColor, Converter={x:Static fw:Converters.InverseVisibility}}"
-                                      CommandParameter="{Binding}" />                            
+                                      CommandParameter="{Binding}" />
+                            <Separator />
+                            <MenuItem Header="Select _Font Color"
+                                      Command="{x:Static tmr:TeamMateCommands.SelectTileFontColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      CommandParameter="{Binding}" />
+                            <MenuItem Header="Re_set Font Color"
+                                      Command="{x:Static tmr:TeamMateCommands.ResetTileFontColor}"
+                                      CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+                                      Visibility="{Binding IsDefaultFontColor, Converter={x:Static fw:Converters.InverseVisibility}}"
+                                      CommandParameter="{Binding}" />
                         </ContextMenu>
                     </local:TileView.ContextMenu>
                 </local:TileView>

@@ -66,7 +66,6 @@ namespace Microsoft.Tools.TeamMate.Model
             set { SetProperty(ref this.builtInTileType, value); }
         }
 
-
         private bool includeInItemCountSummary;
 
         public bool IncludeInItemCountSummary
@@ -96,6 +95,13 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             get { return this.backgroundColor; }
             set { SetProperty(ref this.backgroundColor, value); }
+        }
+
+        private string fontColor;
+        public string FontColor
+        {
+            get { return this.fontColor; }
+            set { SetProperty(ref this.fontColor, value); }
         }
 
         // TODO: KLUDGE, don't make this public, refactor or cleanup

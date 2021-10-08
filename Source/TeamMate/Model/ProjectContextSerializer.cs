@@ -56,6 +56,8 @@ namespace Microsoft.Tools.TeamMate.Model
                     throw new NotSupportedException(String.Format("Tile type {0} is not supported", tileInfo.Type));
             }
 
+            tileInfo.FontColor = e.GetAttribute<string>(Schema.FontColor);
+
             return tileInfo;
         }
 
@@ -119,6 +121,8 @@ namespace Microsoft.Tools.TeamMate.Model
                 default:
                     throw new NotSupportedException(String.Format("Tile type {0} is not supported", tile.Type));
             }
+
+            e.SetAttribute<string>(Schema.FontColor, tile.FontColor);
 
             return e;
         }
@@ -385,6 +389,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public const string LastUpdated = "LastUpdated";
             public const string OrderByFieldName = "OrderByFieldName";
             public const string FilterByFieldName = "FilterByFieldName";
+            public const string FontColor = "FontColor";
 
             // Work Item Stuff
             public static readonly XName WorkItemQueryInfo = "WorkItemQueryInfo";

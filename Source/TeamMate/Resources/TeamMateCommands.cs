@@ -60,6 +60,8 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static ICommand ModifyTile { get { return commands.Create(); } }
         public static ICommand SelectTileBackgroundColor { get { return commands.Create(); } }
         public static ICommand ResetTileBackgroundColor { get { return commands.Create(); } }
+        public static ICommand SelectTileFontColor { get { return commands.Create(); } }
+        public static ICommand ResetTileFontColor { get { return commands.Create(); } }
         public static ICommand RetryConnectToVsts { get { return commands.Create(); } }
     }
 }

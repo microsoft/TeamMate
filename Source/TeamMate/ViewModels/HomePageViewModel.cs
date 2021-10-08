@@ -32,6 +32,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             commands.Add<TileViewModel>(TeamMateCommands.ModifyTile, ModifyTile);
             commands.Add<TileViewModel>(TeamMateCommands.SelectTileBackgroundColor, SelectBackgroundColor);
             commands.Add<TileViewModel>(TeamMateCommands.ResetTileBackgroundColor, ResetBackgroundColor);
+            commands.Add<TileViewModel>(TeamMateCommands.SelectTileFontColor, SelectFontColor);
+            commands.Add<TileViewModel>(TeamMateCommands.ResetTileFontColor, ResetFontColor);
         }
 
         public Session Session
@@ -145,12 +147,31 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
+        public void SelectFontColor(TileViewModel tile)
+        {
+            Assert.ParamIsNotNull(tile, nameof(tile));
+
+            string selectedColor = this.WindowService.ShowColorPickerDialog(this, tile.TileInfo.FontColor);
+
+            // Update the text box color if the user selected a different color
+            if (!string.Equals(selectedColor, tile.TileInfo.FontColor, System.StringComparison.OrdinalIgnoreCase))
+            {
+                tile.FontColor = selectedColor;
+            }
+        }
+
         public void ResetBackgroundColor(TileViewModel tile)
         {
             Assert.ParamIsNotNull(tile, nameof(tile));
 
             // Assigning null will clear out any overridden background color, returning to default
             tile.BackgroundColor = null;
+        }
+        public void ResetFontColor(TileViewModel tile)
+        {
+            Assert.ParamIsNotNull(tile, nameof(tile));
+
+            tile.ResetFontColor();
         }
     }
 }

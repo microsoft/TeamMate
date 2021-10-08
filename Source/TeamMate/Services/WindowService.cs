@@ -305,7 +305,7 @@ namespace Microsoft.Tools.TeamMate.Services
         public string ShowColorPickerDialog(ViewModelBase ownerViewModel, string initialColor)
         {
             WindowsForms.ColorDialog colorPicker = new WindowsForms.ColorDialog();
-            // Sets the initial color select to the current tile background color.
+
             colorPicker.Color = ColorTranslator.FromHtml(initialColor);
 
             // If the user clicks OK, return that color, otherwise return initial color
