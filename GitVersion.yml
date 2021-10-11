@@ -1,4 +1,4 @@
-next-version: 0.1.1.0
+next-version: 0.1.2.0
 mode: ContinuousDeployment
 branches: {}
 ignore:
