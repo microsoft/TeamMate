@@ -54,7 +54,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Bottom"
                        FontSize="14"
-                       Foreground="White"
+                       Foreground="{Binding TileInfo.FontColor}"
                        Text="{Binding Query.UnreadItemCount,
                                       StringFormat='{}{0} unread'}"
                        Visibility="{Binding Query.UnreadItemCount,
@@ -64,7 +64,7 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Bottom"
                        FontSize="40"
-                       Foreground="White"
+                       Foreground="{Binding TileInfo.FontColor}"
                        Text="{Binding Query.ItemCount}"
                        Visibility="{Binding Query.ProgressContext.IsCompleteWithoutFailures,
                                             Converter={x:Static fw:Converters.Visibility}}" />
@@ -83,7 +83,7 @@
                           Margin="6,6,9,6"
                           HorizontalAlignment="Right"
                           VerticalAlignment="Bottom"
-                          Foreground="White"
+                          Foreground="{Binding TileInfo.FontColor}"
                           ToolTip="Loading..."
                           Visibility="{Binding Query.ProgressContext.IsRunning,
                                                Converter={x:Static fw:Converters.Visibility}}" />
