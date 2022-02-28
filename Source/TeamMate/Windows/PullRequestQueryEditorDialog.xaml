@@ -73,7 +73,7 @@
                     <ComboBox Grid.Row="2"
                               Margin="82,0,0,-26"
                               ItemsSource="{Binding CreatedBy}"
-                              SelectedItem="{Binding SelectedCreatedByo}"
+                              SelectedItem="{Binding SelectedCreatedBy}"
                               Text="{Binding NewCreatedBy, UpdateSourceTrigger=LostFocus}"
                               Grid.ColumnSpan="2" />
                     <ComboBox Grid.Row="3"
