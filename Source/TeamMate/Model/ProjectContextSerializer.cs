@@ -1,4 +1,5 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Collections;
+﻿using Microsoft.TeamFoundation.SourceControl.WebApi;
+using Microsoft.Tools.TeamMate.Foundation.Collections;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
 using Microsoft.Tools.TeamMate.Model.Settings;
@@ -74,6 +75,8 @@ namespace Microsoft.Tools.TeamMate.Model
 
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
+            query.AssignedTo = e.GetAttribute<string>(Schema.AssignedTo);
+            query.CreatedBy = e.GetAttribute<string>(Schema.CreatedBy);
 
             return query;
         }
@@ -140,6 +143,8 @@ namespace Microsoft.Tools.TeamMate.Model
             XElement e = new XElement(Schema.PullRequestQueryInfo);
             e.SetAttribute<string>(Schema.Name, query.Name);
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
+            e.SetAttribute<string>(Schema.CreatedBy, query.CreatedBy);
+            e.SetAttribute<string>(Schema.AssignedTo, query.AssignedTo);
 
             return e;
         }
@@ -322,7 +327,7 @@ namespace Microsoft.Tools.TeamMate.Model
             result.SetAttribute<DateTime>(Schema.Date, entry.Date);
 
             WorkItemReference workItemReference = entry.Key as WorkItemReference;
-            PullRequestReference pullRequestReference = entry.Key as PullRequestReference;
+            GitPullRequest pullRequestReference = entry.Key as GitPullRequest;
             if (workItemReference != null)
             {
                 result.Add(WriteWorkItemReference(workItemReference));
@@ -330,8 +335,8 @@ namespace Microsoft.Tools.TeamMate.Model
             else if (pullRequestReference != null)
             {
                 XElement e = new XElement(Schema.PullRequest);
-                e.SetAttribute<Guid>(Schema.PullRequestProjectId, pullRequestReference.ProjectId);
-                e.SetAttribute<int>(Schema.PullRequestId, pullRequestReference.Id);
+                e.SetAttribute<Guid>(Schema.PullRequestProjectId, pullRequestReference.Repository.Id);
+                e.SetAttribute<int>(Schema.PullRequestId, pullRequestReference.PullRequestId);
                 result.Add(e);
             }
             else

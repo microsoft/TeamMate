@@ -16,6 +16,9 @@ namespace Microsoft.Tools.TeamMate.Model
 
         public string Name { get; set; }
         public PullRequestQueryReviewStatus ReviewStatus { get; set; }
+        public string CreatedBy { get; set; }
+
+        public string AssignedTo { get; set; }
     }
     public enum PullRequestQueryReviewStatus
     {
@@ -26,7 +29,7 @@ namespace Microsoft.Tools.TeamMate.Model
         Completed,
 
         [Description("All")]
-        All
+        All,
     }
 }
 
