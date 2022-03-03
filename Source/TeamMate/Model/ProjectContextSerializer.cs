@@ -327,16 +327,24 @@ namespace Microsoft.Tools.TeamMate.Model
             result.SetAttribute<DateTime>(Schema.Date, entry.Date);
 
             WorkItemReference workItemReference = entry.Key as WorkItemReference;
-            GitPullRequest pullRequestReference = entry.Key as GitPullRequest;
+            PullRequestReference pullRequestReference = entry.Key as PullRequestReference;
+            GitPullRequest gitPullRequest = entry.Key as GitPullRequest;
             if (workItemReference != null)
             {
                 result.Add(WriteWorkItemReference(workItemReference));
             }
+            else if (gitPullRequest != null)
+            {
+                XElement e = new XElement(Schema.PullRequest);
+                e.SetAttribute<Guid>(Schema.PullRequestProjectId, gitPullRequest.GetReference().ProjectId);
+                e.SetAttribute<int>(Schema.PullRequestId, gitPullRequest.GetReference().Id);
+                result.Add(e);
+           }
             else if (pullRequestReference != null)
             {
                 XElement e = new XElement(Schema.PullRequest);
-                e.SetAttribute<Guid>(Schema.PullRequestProjectId, pullRequestReference.Repository.Id);
-                e.SetAttribute<int>(Schema.PullRequestId, pullRequestReference.PullRequestId);
+                e.SetAttribute<Guid>(Schema.PullRequestProjectId, pullRequestReference.ProjectId);
+                e.SetAttribute<int>(Schema.PullRequestId, pullRequestReference.Id);
                 result.Add(e);
             }
             else
