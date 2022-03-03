@@ -328,10 +328,18 @@ namespace Microsoft.Tools.TeamMate.Model
 
             WorkItemReference workItemReference = entry.Key as WorkItemReference;
             PullRequestReference pullRequestReference = entry.Key as PullRequestReference;
+            GitPullRequest gitPullRequest = entry.Key as GitPullRequest;
             if (workItemReference != null)
             {
                 result.Add(WriteWorkItemReference(workItemReference));
             }
+            else if (gitPullRequest != null)
+            {
+                XElement e = new XElement(Schema.PullRequest);
+                e.SetAttribute<Guid>(Schema.PullRequestProjectId, gitPullRequest.GetReference().ProjectId);
+                e.SetAttribute<int>(Schema.PullRequestId, gitPullRequest.GetReference().Id);
+                result.Add(e);
+           }
             else if (pullRequestReference != null)
             {
                 XElement e = new XElement(Schema.PullRequest);
