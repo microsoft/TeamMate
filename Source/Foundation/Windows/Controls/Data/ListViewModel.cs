@@ -379,10 +379,18 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
         /// <summary>
         /// Invalidates the no items text.
         /// </summary>
-        private void InvalidateNoItemsText()
+        public void InvalidateNoItemsText()
         {
             string text = (SearchFilter != null) ? EmptyFilteredCollectionText : EmptyCollectionText;
             NoItemsText = text;
+        }
+
+        /// <summary>
+        /// Clears the no items text.
+        /// </summary>
+        public void ClearNoItemsText()
+        {
+            NoItemsText = String.Empty;
         }
 
         /// <summary>

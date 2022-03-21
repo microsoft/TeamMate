@@ -39,10 +39,9 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         public static void Highlight(ListView listView, SearchExpression searchExpression)
         {
-            var words = searchExpression.Tokens.Select(t => t.Value).ToArray();
-            if (words.Any())
+            if (searchExpression.Tokens.Any())
             {
-                Regex regex = TextMatcher.MatchAnyWordStartRegex(words);
+                Regex regex = TextMatcher.MatchAnyWordStartRegex(searchExpression.Tokens);
 
                 var listBoxItems = GetHighlightableListBoxItems(listView);
                 foreach (var listBoxItem in listBoxItems)
