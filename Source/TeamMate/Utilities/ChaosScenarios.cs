@@ -10,7 +10,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
         public static readonly ChaosScenario DownloadAttachment = new ChaosScenario("DownloadAttachment");
         public static readonly ChaosScenario SaveWorkItem = new ChaosScenario("SaveWorkItem");
         public static readonly ChaosScenario LocalSearch = new ChaosScenario("LocalSearch");
-        public static readonly ChaosScenario VstsSearch = new ChaosScenario("VstsSearch");
+        public static readonly ChaosScenario VstsSearch = new ChaosScenario("AdoSearch");
         public static readonly ChaosScenario GetLinkedChangesetInfo = new ChaosScenario("GetLinkedChangesetInfo");
         public static readonly ChaosScenario GetLinkedWorkItemsInfo = new ChaosScenario("GetLinkedWorkItemsInfo");
         public static readonly ChaosScenario FileUpload = new ChaosScenario("FileUpload");

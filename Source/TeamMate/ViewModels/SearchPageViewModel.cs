@@ -217,7 +217,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             listViewModel.Filters.Add(new ListViewFilter("All"));
             listViewModel.Filters.Add(new ListViewFilter("Work Items", (o) => ((SearchResult)o).Item is WorkItemRowViewModel));
-            listViewModel.Filters.Add(new ListViewFilter("Code PullRequests", (o) => ((SearchResult)o).Item is PullRequestRowViewModel));
+            listViewModel.Filters.Add(new ListViewFilter("Pull Requests", (o) => ((SearchResult)o).Item is PullRequestRowViewModel));
             listViewModel.Filters.Add(new ListViewFilter("Local Only", (o) => ((SearchResult)o).Source.IsLocal));
 
             return listViewModel;
@@ -297,6 +297,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 return;
             }
 
+            this.listViewModel.IsFilterByVisible = false;
+            this.listViewModel.ClearNoItemsText();
+
             SearchStarted?.Invoke(this, EventArgs.Empty);
 
             TaskContext taskContext = new TaskContext();
@@ -309,7 +312,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 var localSearchTask = searchService.LocalSearch(this.SearchExpression, CancellationToken.None);
                 searchTasks.Add(localSearchTask);
 
-                var vstsSearchTask = searchService.VstsSearch(this.SearchExpression, CancellationToken.None);
+                var vstsSearchTask = searchService.AdoSearch(this.SearchExpression, CancellationToken.None);
                 searchTasks.Add(vstsSearchTask);
                 taskContext.Status = "Searching...";
 
@@ -330,13 +333,16 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     {
                         if (!taskContext.IsFailed)
                         {
-                            taskContext.Fail("An error occurred while performing the search", ex);
+                            taskContext.Fail("An error occurred while performing the search: " + ex.InnerException.Message, ex);
                         }
 
                         Log.Warn(ex);
                     }
                 }
             }
+
+            this.listViewModel.IsFilterByVisible = true;
+            this.listViewModel.InvalidateNoItemsText();
 
             SearchCompleted?.Invoke(this, EventArgs.Empty);
         }

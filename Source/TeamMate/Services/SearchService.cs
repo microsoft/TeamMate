@@ -14,7 +14,7 @@ namespace Microsoft.Tools.TeamMate.Services
 {
     public class SearchService
     {
-        private const int MaxItemsFromVsts = 25;
+        private const int MaxItemsFromAdo = 250;
 
         [Import]
         public WindowService WindowService { get; set; }
@@ -66,7 +66,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return this.WindowService.MainWindow.ViewModel.HomePage.TileCollection.Tiles.Select(t => t.Query).ToArray();
         }
 
-        public async Task<SearchResults> VstsSearch(SearchExpression searchExpression, CancellationToken cancellationToken)
+        public async Task<SearchResults> AdoSearch(SearchExpression searchExpression, CancellationToken cancellationToken)
         {
             var pc = this.SessionService.Session.ProjectContext;
 
@@ -75,14 +75,14 @@ namespace Microsoft.Tools.TeamMate.Services
                 ProjectName = pc.ProjectName,
                 Wiql = searchExpression.ToVstsWiql(),
                 RequiredFields = pc.RequiredWorkItemFieldNames,
-                MaxItemsToFetch = MaxItemsFromVsts
+                MaxItemsToFetch = MaxItemsFromAdo
             };
 
             await ChaosMonkey.ChaosAsync(ChaosScenarios.VstsSearch);
 
             var result = await pc.WorkItemTrackingClient.QueryAsync(query);
             var workItems = result.WorkItems.Select(wi => CreateWorkItemViewModel(wi));
-            var searchResults = workItems.Select(wi => new SearchResult(wi, SearchResultSource.Vsts)).ToArray();
+            var searchResults = workItems.Select(wi => new SearchResult(wi, SearchResultSource.Ado)).ToArray();
             return new SearchResults(searchResults, result.QueryResult.WorkItems.Count());
         }
 
@@ -132,7 +132,7 @@ namespace Microsoft.Tools.TeamMate.Services
         private QueryViewModelBase source;
         private string sourceName;
 
-        public static readonly SearchResultSource Vsts = new SearchResultSource("VSTS");
+        public static readonly SearchResultSource Ado = new SearchResultSource("ADO");
 
         public SearchResultSource(QueryViewModelBase source)
         {
@@ -146,7 +146,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         public bool IsLocal
         {
-            get { return this != Vsts; }
+            get { return this != Ado; }
         }
 
         public int CompareTo(object obj)
@@ -164,7 +164,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         private int GetRanking()
         {
-            if (this == Vsts)
+            if (this == Ado)
             {
                 return 1;
             }

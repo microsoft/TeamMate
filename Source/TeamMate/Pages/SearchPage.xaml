@@ -25,34 +25,34 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="22"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="18"
+                   Text="{Binding ProgressContext.Status}"
+                   Visibility="{Binding ProgressContext.IsRunning,
+                                        Converter={x:Static fw:Converters.Visibility}}" />
 
-        <fwc:ProgressIndicator Grid.Row="0"
+
+        <fwc:ProgressIndicator Grid.Row="1"
                                Foreground="{StaticResource ApplicationColorBrush}"
                                Visibility="{Binding ProgressContext.IsRunning,
                                                     Converter={x:Static fw:Converters.VisibilityHidden}}" />
 
         <fwcd:ListView Name="listView"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        DataContext="{Binding ListViewModel}"
-                       Visibility="{Binding NoResultsText,
+                       Visibility="{Binding ProgressContext.IsRunning,
                                             Converter={x:Static fw:Converters.InverseVisibility}}" />
 
-        <TextBlock Grid.Row="2"
-                   Margin="22"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="11"
-                   Text="{Binding ProgressContext.Status}"
-                   Visibility="{Binding ProgressContext.IsRunning,
-                                        Converter={x:Static fw:Converters.Visibility}}" />
-
-        <Grid Grid.Row="2" Visibility="{Binding ProgressContext.IsFailed, Converter={x:Static fw:Converters.Visibility}}">
+         <Grid Grid.Row="2" Visibility="{Binding ProgressContext.IsFailed, Converter={x:Static fw:Converters.Visibility}}">
             <StackPanel Margin="22"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                        VerticalAlignment="Top"
                         Orientation="Horizontal">
                 <fwc:SymbolIcon Name="attentionIcon"
                                 Margin="0,0,6,0"

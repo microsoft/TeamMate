@@ -11,13 +11,9 @@ namespace Microsoft.Tools.TeamMate.Utilities
 {
     public class SearchExpression
     {
-        private static readonly Regex SearchRegex = new Regex(@"(?<key>\w+):""(?<value>[^\""]*)""|(?<key>\w+):(?<value>\w*)|(?<value>\w+)", RegexOptions.Compiled);
-        private const string KeyGroup = "key";
-        private const string ValueGroup = "value";
-
         private SearchExpression()
         {
-            this.Tokens = new List<SearchExpressionToken>();
+            this.Tokens = new string[0];
         }
 
         public static SearchExpression Parse(string text)
@@ -29,30 +25,13 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
             if (!String.IsNullOrWhiteSpace(text))
             {
-                var matches = SearchRegex.Matches(text);
-                foreach (Match item in matches)
-                {
-                    var valueGroup = item.Groups[ValueGroup];
-
-                    if (valueGroup != null)
-                    {
-                        string value = valueGroup.Value;
-                        if (!String.IsNullOrWhiteSpace(value))
-                        {
-                            var keyGroup = item.Groups[KeyGroup];
-                            string key = (keyGroup != null) ? keyGroup.Value : null;
-
-                            var token = (!String.IsNullOrWhiteSpace(key)) ? new SearchExpressionToken(key, value) : new SearchExpressionToken(value);
-                            expression.Tokens.Add(token);
-                        }
-                    }
-                }
+                expression.Tokens = text.Split(' ');
             }
 
             return expression;
         }
 
-        public IList<SearchExpressionToken> Tokens { get; private set; }
+        public string[] Tokens { get; private set; }
         public string Text { get; private set; }
 
         public bool IsEmpty { get { return !Tokens.Any(); } }
@@ -93,25 +72,11 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
         private Predicate<PullRequestRowViewModel> BuildCodeReviewPredicate()
         {
-            List<string> plainWords = new List<string>();
             List<Predicate<PullRequestRowViewModel>> predicates = new List<Predicate<PullRequestRowViewModel>>();
-            foreach (var token in Tokens)
-            {
-                string value = token.Value;
-                if (IsKey(token.Key, "c"))
-                {
-                    predicates.Add((r) => Matches(r.Reference.CreatedBy.DisplayName, value));
-                }
-                else
-                {
-                    // If we don't recognize the key token, treat the value as a plain word for matching
-                    plainWords.Add(value);
-                }
-            }
 
-            if (plainWords.Any())
+            if (this.Tokens.Any())
             {
-                var predicate = TextMatcher.MatchAllWordStartsMultiText(plainWords);
+                var predicate = TextMatcher.MatchAllWordStartsMultiText(this.Tokens);
                 var matcher = new MultiWordMatcher(predicate);
                 predicates.Add((wi) => wi.Matches(matcher));
             }
@@ -133,37 +98,11 @@ namespace Microsoft.Tools.TeamMate.Utilities
         private Predicate<WorkItemRowViewModel> BuildWorkItemPredicate()
         {
             // IMPORTANT: Keep in sync with ToVstsWiql
-            List<string> plainWords = new List<string>();
             List<Predicate<WorkItemRowViewModel>> predicates = new List<Predicate<WorkItemRowViewModel>>();
-            foreach (var token in Tokens)
-            {
-                string value = token.Value;
-                if (IsKey(token.Key, "a"))
-                {
-                    predicates.Add((wi) => Matches(wi.AssignedTo, value));
-                }
-                else if (IsKey(token.Key, "s"))
-                {
-                    predicates.Add((wi) => Matches(wi.State, value));
-                }
-                else if (IsKey(token.Key, "t"))
-                {
-                    predicates.Add((wi) => Matches(wi.Type, value));
-                }
-                else if (IsKey(token.Key, "c"))
-                {
-                    predicates.Add((wi) => Matches(wi.CreatedBy, value));
-                }
-                else
-                {
-                    // If we don't recognize the key token, treat the value as a plain word for matching
-                    plainWords.Add(value);
-                }
-            }
 
-            if (plainWords.Any())
+            if (this.Tokens.Any())
             {
-                var predicate = TextMatcher.MatchAllWordStartsMultiText(plainWords);
+                var predicate = TextMatcher.MatchAllWordStartsMultiText(this.Tokens);
                 var matcher = new MultiWordMatcher(predicate);
                 predicates.Add((wi) => wi.Matches(matcher));
             }
@@ -202,65 +141,13 @@ namespace Microsoft.Tools.TeamMate.Utilities
             WorkItemQueryBuilder builder = new WorkItemQueryBuilder();
             builder.Condition = FieldConditionInfo.CurrentProjectCondition;
 
-            List<string> plainWords = new List<string>();
-            List<Predicate<WorkItemRowViewModel>> predicates = new List<Predicate<WorkItemRowViewModel>>();
-            foreach (var token in Tokens)
+            if (this.Tokens.Any())
             {
-                string value = token.Value;
-                if (IsKey(token.Key, "a"))
-                {
-                    builder.Condition = builder.Condition.And(new FieldConditionInfo(WorkItemConstants.CoreFields.AssignedTo, Operators.Contains, value));
-                }
-                else if (IsKey(token.Key, "s"))
-                {
-                    builder.Condition = builder.Condition.And(new FieldConditionInfo(WorkItemConstants.CoreFields.State, Operators.Contains, value));
-                }
-                else if (IsKey(token.Key, "t"))
-                {
-                    builder.Condition = builder.Condition.And(new FieldConditionInfo(WorkItemConstants.CoreFields.WorkItemType, Operators.Contains, value));
-                }
-                else if (IsKey(token.Key, "c"))
-                {
-                    builder.Condition = builder.Condition.And(new FieldConditionInfo(WorkItemConstants.CoreFields.CreatedBy, Operators.Contains, value));
-                }
-                else
-                {
-                    // If we don't recognize the key token, treat the value as a plain word for matching
-                    plainWords.Add(value);
-                }
-            }
-
-            if (plainWords.Any())
-            {
-                builder.Condition = builder.Condition.And(WorkItemQueryFactory.CreateWordSearchClause(plainWords));
+                builder.Condition = builder.Condition.And(WorkItemQueryFactory.CreateWordSearchClause(this.Tokens));
             }
 
             builder.AddOrderBy(WorkItemConstants.CoreFields.ChangedDate, false);
             return builder.ToString();
-        }
-    }
-
-    public class SearchExpressionToken
-    {
-        public SearchExpressionToken(string value)
-        {
-            this.Value = value;
-        }
-
-        public SearchExpressionToken(string key, string value)
-        {
-            this.Key = key;
-            this.Value = value;
-        }
-
-        public string Key { get; private set; }
-        public string Value { get; private set; }
-        public bool HasKey { get { return Key != null; } }
-
-        public override string ToString()
-        {
-            string escapedValue = (Value.Contains(' ')) ? '\"' + Value + '\"' : Value;
-            return (Key != null) ? String.Format("{0}:{1}", Key, escapedValue) : escapedValue;
         }
     }
 }
