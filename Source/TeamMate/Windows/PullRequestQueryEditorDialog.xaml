@@ -6,7 +6,7 @@
         xmlns:tmc="clr-namespace:Microsoft.Tools.TeamMate.Controls"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Microsoft.Tools.TeamMate.Windows.PullRequestQueryEditorDialog"
         FocusManager.FocusedElement="{Binding ElementName=nameTextBox}"
-        SizeToContent="WidthAndHeight" Height="294"
+        SizeToContent="WidthAndHeight" Height="370"
         >
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
@@ -31,7 +31,7 @@
                     <Button Style="{StaticResource LyncButtonStyle}" fw:UI.ButtonType="Cancel" />
                 </fwc:ButtonPanel>
             </fwc:DialogPanel.ButtonPanel>
-            <StackPanel Width="400" Height="230">
+            <StackPanel Width="400" Height="500" Margin="0,37,0,-6">
                 <TextBlock Style="{StaticResource LyncDialogTitleStyle}" Text="Pull Request Query"/>
                 <tmc:ValidationErrorView />
                 <Grid Margin="0,12,0,0">
@@ -81,6 +81,16 @@
                               ItemTemplate="{StaticResource EnumTemplate}"
                               ItemsSource="{Binding AllReviewStatuses}"
                               SelectedItem="{Binding ReviewStatus}" Grid.ColumnSpan="2" />
+                    <Label Grid.Row="5"
+                           Grid.Column="0"
+                           Margin="3,62,3,-88" Content="Branch Matches:"/>
+                    <TextBox x:Name="asdf"
+                             Grid.Row="5"
+                             Grid.Column="1"
+                             Margin="3,62,3,-88"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding SourceRefMatchExpression}" />
+                    
                 </Grid>
             </StackPanel>
         </fwc:DialogPanel>

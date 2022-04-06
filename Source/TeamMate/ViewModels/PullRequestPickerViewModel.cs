@@ -1,17 +1,16 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
-using Microsoft.Tools.TeamMate.Foundation.Validation;
+﻿using Microsoft.Tools.TeamMate.Foundation.Validation;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class PullRequestPickerViewModel : ValidatableViewModelBase
     {
         private string name;
+        private string sourceRefMatchExpression;
         private PullRequestQueryInfo queryInfo;
         private PullRequestQueryReviewStatus reviewStatus;
 
@@ -51,6 +50,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             get { return this.name; }
             set { SetProperty(ref this.name, value); }
+        }
+
+        public string SourceRefMatchExpression
+        {
+            get { return this.sourceRefMatchExpression; }
+            set { SetProperty(ref this.sourceRefMatchExpression, value); }
         }
 
         public PullRequestQueryReviewStatus ReviewStatus
@@ -127,6 +132,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
                 this.SelectedAssignedTo = this.queryInfo.AssignedTo;
                 this.SelectedCreatedBy = this.queryInfo.CreatedBy;
+                this.SourceRefMatchExpression = this.queryInfo.SourceRefMatchExpression;
             }
         }
 
@@ -138,6 +144,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.ReviewStatus = this.ReviewStatus;
                 this.queryInfo.AssignedTo = this.SelectedAssignedTo;
                 this.queryInfo.CreatedBy = this.SelectedCreatedBy;
+                this.queryInfo.SourceRefMatchExpression = this.SourceRefMatchExpression.Trim();
             }
         }
 

@@ -103,7 +103,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                         List<Task<List<GitPullRequestIteration>>> iterationTasks = new List<Task<List<GitPullRequestIteration>>>();
 
-                        var pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                        var pullRequests =
+                            queryAsyncTask.Result
+                            .Where(r => query.MatchesSourceRef(r.SourceRefName))
+                            .Select(r => CreateViewModel(r, projectContext)).ToArray();
 
                         foreach (var pullRequest in pullRequests)
                         {
@@ -171,6 +174,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 query.GitPullRequestSearchCriteria.CreatorId = pc.Identity.Id;
             }
+
+            query.SourceRefMatchExpression = this.queryInfo.SourceRefMatchExpression;
 
             return query;
         }

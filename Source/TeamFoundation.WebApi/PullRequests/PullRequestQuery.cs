@@ -1,7 +1,7 @@
-﻿using Microsoft.TeamFoundation.SourceControl.WebApi;
-using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+﻿using Microsoft.TeamFoundation.Common;
+using Microsoft.TeamFoundation.SourceControl.WebApi;
 using System;
-using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests
 {
@@ -20,6 +20,12 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests
         public DateTime? AsOf { get; set; }
 
         public int? MaxItemsToFetch { get; set; }
+
+        public string SourceRefMatchExpression { get; set; }
+
+        public bool MatchesSourceRef(string sourceRef) =>
+            SourceRefMatchExpression.IsNullOrEmpty()
+            || Regex.IsMatch(sourceRef, SourceRefMatchExpression, RegexOptions.Compiled);
 
         public void Validate()
         {

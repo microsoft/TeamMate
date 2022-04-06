@@ -1,5 +1,4 @@
 ﻿using Microsoft.TeamFoundation.SourceControl.WebApi;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -19,6 +18,8 @@ namespace Microsoft.Tools.TeamMate.Model
         public string CreatedBy { get; set; }
 
         public string AssignedTo { get; set; }
+
+        public string SourceRefMatchExpression { get; set; }
     }
     public enum PullRequestQueryReviewStatus
     {
