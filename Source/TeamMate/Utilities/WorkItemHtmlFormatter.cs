@@ -260,7 +260,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
 
             foreach (var f in fields)
             {
-                object fieldValue;
+                object fieldValue = null;
                 if(f.ReferenceName == WorkItemConstants.CoreFields.Id)
                 {
                     fieldValue = workItem.Id;
@@ -271,14 +271,18 @@ namespace Microsoft.Tools.TeamMate.Utilities
                 {
                     object rawField;
                     workItem.Fields.TryGetValue(f.ReferenceName, out rawField);
-                    fieldValue = ((Microsoft.VisualStudio.Services.WebApi.IdentityRef)rawField).DisplayName;
+
+                    if (rawField != null)
+                    {
+                        fieldValue = ((Microsoft.VisualStudio.Services.WebApi.IdentityRef)rawField).DisplayName;
+                    }
                 }
                 else
                 {
                     workItem.Fields.TryGetValue(f.ReferenceName, out fieldValue);
                 }
 
-                workItemElement.Add(new XElement("Value", fieldValue));
+                workItemElement.Add(new XElement("Value", fieldValue ?? ""));
             }
 
             container.Add(workItemElement);
