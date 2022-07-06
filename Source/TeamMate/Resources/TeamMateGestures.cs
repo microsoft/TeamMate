@@ -15,8 +15,8 @@ namespace Microsoft.Tools.TeamMate.Resources
 
             QuickCreate = new KeyGesture(Key.A, ModifierKeys.Shift | ModifierKeys.Windows);
             QuickCreateWithOptions = new KeyGesture(Key.A, ModifierKeys.Control | ModifierKeys.Windows);
-            QuickSearch = new KeyGesture(Key.OemTilde, ModifierKeys.Windows);
-            ToggleMainWindow = new KeyGesture(Key.Escape, ModifierKeys.Windows);
+            QuickSearch = new KeyGesture(Key.End, ModifierKeys.Windows);
+            ToggleMainWindow = new KeyGesture(Key.F, ModifierKeys.Windows);
 
             New = new KeyGesture(Key.N, ModifierKeys.Control);
             Minimize = new KeyGesture(Key.Escape);
