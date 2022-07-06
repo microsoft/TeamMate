@@ -19,7 +19,7 @@
             <TextBlock Margin="0,12,0,0" FontSize="20" Text="Keyboard shortcuts"/>
             <TextBlock Margin="0,12" Foreground="{StaticResource ApplicationColorBrush}">You might want to learn these, you'll use them all the time.</TextBlock>
             <TextBlock>
-                <Run>•</Run> <Run FontWeight="Bold">WIN + `</Run> <Run>(grave accent, above the Tab key), opens the quick search dialog.</Run>
+                <Run>•</Run> <Run FontWeight="Bold">WIN + END</Run> <Run>opens the quick search dialog.</Run>
                 <LineBreak />
                 <Run>•</Run> <Run FontWeight="Bold">SHIFT + WIN + A</Run> <Run>creates a new default work item.</Run>
                 <LineBreak />

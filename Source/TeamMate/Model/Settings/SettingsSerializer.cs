@@ -50,7 +50,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             settingsElement.ReadElementValue<bool>(Schema.IsTracingEnabled, (value) => settings.IsTracingEnabled = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateGesture, (value) => settings.QuickCreateGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.QuickCreateWithOptionsGesture, (value) => settings.QuickCreateWithOptionsGesture = value);
-            settingsElement.ReadElementValue<KeyGesture>(Schema.QuickSearchGesture, (value) => settings.QuickSearchGesture = value);
             settingsElement.ReadElementValue<KeyGesture>(Schema.ToggleMainWindowGesture, (value) => settings.ToggleMainWindowGesture = value);
             settingsElement.ReadElementValue<bool>(Schema.LaunchOnStartup, (value) => settings.LaunchOnStartup = value);
             settingsElement.ReadElementValue<bool>(Schema.ShowSplashScreen, (value) => settings.ShowSplashScreen = value);
@@ -139,7 +138,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
             e.SetElementValue<TimeSpan>(Schema.RefreshInterval, settings.RefreshInterval);
             e.SetElementValue<KeyGesture>(Schema.QuickCreateGesture, settings.QuickCreateGesture);
             e.SetElementValue<KeyGesture>(Schema.QuickCreateWithOptionsGesture, settings.QuickCreateWithOptionsGesture);
-            e.SetElementValue<KeyGesture>(Schema.QuickSearchGesture, settings.QuickSearchGesture);
             e.SetElementValue<KeyGesture>(Schema.ToggleMainWindowGesture, settings.ToggleMainWindowGesture);
             e.SetElementValue<bool>(Schema.SearchIdsAutomatically, settings.SearchIdsAutomatically);
             e.SetElementValue<bool>(Schema.ShowCountdown, settings.ShowCountdown);
@@ -273,7 +271,6 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
 
             public static readonly XName QuickCreateGesture = "QuickCreateGesture";
             public static readonly XName QuickCreateWithOptionsGesture = "QuickCreateWithOptionsGesture";
-            public static readonly XName QuickSearchGesture = "QuickSearchGesture";
             public static readonly XName ToggleMainWindowGesture = "ToggleMainWindowGesture";
 
             public static readonly XName RefreshInterval = "RefreshInterval";
