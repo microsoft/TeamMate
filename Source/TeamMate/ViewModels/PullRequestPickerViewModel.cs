@@ -2,10 +2,13 @@
 using Microsoft.Tools.TeamMate.Foundation.Validation;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Services;
 using System;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Composition;
 using System.Linq;
+using static Microsoft.TeamFoundation.Client.CommandLine.Options;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
@@ -96,6 +99,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public IEnumerable Project
         {
             get { return this._project; }
+        }
+        public void AddProject(string projectName)
+        {
+            this._project.Add(projectName);
         }
         public string SelectedProject
         {
