@@ -15,6 +15,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private PullRequestQueryInfo queryInfo;
         private PullRequestQueryReviewStatus reviewStatus;
 
+        private string _selectedProject;
+        private ObservableCollection<string> _project = new ObservableCollection<string>()
+        {
+        };
+
         private string _selectedAssignedTo;
         private ObservableCollection<string> _assignedTo = new ObservableCollection<string>()
         {
@@ -71,7 +76,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 OnPropertyChanged("SelectedAssignedTo");
             }
         }
-
+       
         public string NewAssignedTo
         {
             set
@@ -85,6 +90,35 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 {
                     this._assignedTo.Add(value);
                     SelectedAssignedTo = value;
+                }
+            }
+        }
+        public IEnumerable Project
+        {
+            get { return this._project; }
+        }
+        public string SelectedProject
+        {
+            get { return this._selectedProject; }
+            set
+            {
+                this._selectedProject = value;
+                OnPropertyChanged("SelectedProject");
+            }
+        }
+        public string NewProject
+        {
+            set
+            {
+                if (SelectedProject != null)
+                {
+                    return;
+                }
+
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this._project.Add(value);
+                    SelectedProject = value;
                 }
             }
         }
@@ -127,6 +161,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
                 this.SelectedAssignedTo = this.queryInfo.AssignedTo;
                 this.SelectedCreatedBy = this.queryInfo.CreatedBy;
+                this.SelectedProject = this.queryInfo.Project;
             }
         }
 
@@ -138,6 +173,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.ReviewStatus = this.ReviewStatus;
                 this.queryInfo.AssignedTo = this.SelectedAssignedTo;
                 this.queryInfo.CreatedBy = this.SelectedCreatedBy;
+                this.queryInfo.Project = this.SelectedProject;
             }
         }
 

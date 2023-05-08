@@ -35,7 +35,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         None,
         Home,
         WorkItems,
-        CodeReviews,
+        PullRequests,
         Projects
     }
 }

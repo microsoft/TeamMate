@@ -67,10 +67,10 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
             return builder.Uri;
         }
 
-        public Uri GetPullRequestUrl(int id, string repositoryName)
+        public Uri GetPullRequestUrl(int id, string projectName, string repositoryName)
         {
             UriBuilder builder = new UriBuilder(this.BaseUrl);
-            builder.Path = CombinePath(builder.Path, ProjectName, "_git", repositoryName, "pullrequest", id.ToString());
+            builder.Path = CombinePath(builder.Path, projectName, "_git", repositoryName, "pullrequest", id.ToString());
             return builder.Uri;
         }
 

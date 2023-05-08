@@ -94,7 +94,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                         List<Task> tasks = new List<Task>();
 
                         var queryAsyncTask = projectContext.GitHttpClient.GetPullRequestsByProjectAsync(
-                            projectContext.ProjectInfo.ProjectName,
+                            query.ProjectName,
                             query.GitPullRequestSearchCriteria);
 
                         tasks.Add(queryAsyncTask);
@@ -115,6 +115,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                             pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
                                 pullRequest.Reference.PullRequestId,
+                                query.ProjectName,
                                 pullRequest.Reference.Repository.Name);
                         }
 
@@ -156,7 +157,16 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             var pc = this.SessionService.Session.ProjectContext;
           
             var query = new PullRequestQuery();
-            query.ProjectName = pc.ProjectName;
+
+            if (this.queryInfo.Project != null)
+            {
+                query.ProjectName = this.queryInfo.Project;
+            }
+            else
+            {
+                query.ProjectName = pc.ProjectName;
+            }
+
             query.GitPullRequestSearchCriteria = new GitPullRequestSearchCriteria
             {
                 Status = PullRequestQueryInfo.ReviewStatusesMap[this.queryInfo.ReviewStatus],
@@ -225,7 +235,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             PullRequestRowViewModel viewModel = ViewModelFactory.Create<PullRequestRowViewModel>();
             viewModel.IdentityRef = projectContext.Identity.Id.ToString();
             viewModel.Reference = gitPullRequest;
-            viewModel.ProjectName = projectContext.ProjectName;
+            viewModel.ProjectName = gitPullRequest.Repository.Name;
             return viewModel;
         }
     }

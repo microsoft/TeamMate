@@ -77,6 +77,7 @@ namespace Microsoft.Tools.TeamMate.Model
             query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
             query.AssignedTo = e.GetAttribute<string>(Schema.AssignedTo);
             query.CreatedBy = e.GetAttribute<string>(Schema.CreatedBy);
+            query.Project = e.GetAttribute<string>(Schema.PullRequestProject);
 
             return query;
         }
@@ -145,6 +146,7 @@ namespace Microsoft.Tools.TeamMate.Model
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
             e.SetAttribute<string>(Schema.CreatedBy, query.CreatedBy);
             e.SetAttribute<string>(Schema.AssignedTo, query.AssignedTo);
+            e.SetAttribute<string>(Schema.PullRequestProject, query.Project);
 
             return e;
         }
@@ -421,6 +423,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName PullRequest = "PullRequest";
             public const string PullRequestId = "PullRequestId";
             public const string PullRequestProjectId = "PullRequestProjectId";
+            public const string PullRequestProject = "PullRequestProject";
 
             // ProjectSettings Stuff
             public static readonly XName ProjectSettings = "ProjectSettings";

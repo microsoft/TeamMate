@@ -27,7 +27,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         public PullRequestPageViewModel()
         {
-            this.CommandBarType = CommandBarType.CodeReviews;
+            this.CommandBarType = CommandBarType.PullRequests;
             this.modelList = new List<PullRequestRowViewModel>();
             this.collectionView = new ListCollectionView(this.modelList);
 

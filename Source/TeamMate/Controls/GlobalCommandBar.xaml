@@ -38,7 +38,7 @@
                     Visibility="{Binding ElementName=self,
                                          Path=Type,
                                          Converter={x:Static fw:Converters.Visibility},
-                                         ConverterParameter={x:Static vm:CommandBarType.CodeReviews}}">
+                                         ConverterParameter={x:Static vm:CommandBarType.PullRequests}}">
             <Button Command="{x:Static tmr:TeamMateCommands.Refresh}" Style="{StaticResource CommandAppBarButtonStyle}" />
             <Button Command="{x:Static tmr:TeamMateCommands.MarkAllAsRead}" Style="{StaticResource CommandAppBarButtonStyle}" />
         </StackPanel>

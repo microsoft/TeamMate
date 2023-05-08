@@ -57,26 +57,35 @@
                              Text="{Binding Name, ValidatesOnNotifyDataErrors=True}" />
                     <Label Grid.Row="1"
                            Grid.Column="0"
-                           Margin="0,0,6,6" Content="Assigned To:"/>
+                           Margin="0,0,6,6" Content="Project:"/>
                     <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Margin="0,0,6,6" Content="Assigned To:"/>
+                    <Label Grid.Row="3"
                         Grid.Column="0"
                         Margin="0,0,6,-26" Content="Created By:"/>
-                    <Label Grid.Row="3"
+                    <Label Grid.Row="4"
                            Grid.Column="0"
                            Margin="0,31,6,-57" Content="Status:"/>
                     <ComboBox Grid.Row="1"
                               Margin="82,0,0,6"
+                              ItemsSource="{Binding Project}"
+                              SelectedItem="{Binding SelectedProject}"
+                              Text="{Binding NewProject, UpdateSourceTrigger=LostFocus}"
+                              Grid.ColumnSpan="2" IsEditable="True" />
+                    <ComboBox Grid.Row="2"
+                              Margin="82,0,0,6"
                               ItemsSource="{Binding AssignedTo}"
                               SelectedItem="{Binding SelectedAssignedTo}"
                               Text="{Binding NewAssignedTo, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" />
-                    <ComboBox Grid.Row="2"
+                              Grid.ColumnSpan="2" IsEditable="True" />
+                    <ComboBox Grid.Row="3"
                               Margin="82,0,0,-26"
                               ItemsSource="{Binding CreatedBy}"
                               SelectedItem="{Binding SelectedCreatedBy}"
                               Text="{Binding NewCreatedBy, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" />
-                    <ComboBox Grid.Row="3"
+                              Grid.ColumnSpan="2" IsEditable="True" />
+                    <ComboBox Grid.Row="4"
                               Margin="82,31,0,-57"
                               ItemTemplate="{StaticResource EnumTemplate}"
                               ItemsSource="{Binding AllReviewStatuses}"

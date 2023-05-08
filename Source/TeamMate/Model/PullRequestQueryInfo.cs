@@ -19,6 +19,8 @@ namespace Microsoft.Tools.TeamMate.Model
         public string CreatedBy { get; set; }
 
         public string AssignedTo { get; set; }
+
+        public string Project { get; set; }
     }
     public enum PullRequestQueryReviewStatus
     {
