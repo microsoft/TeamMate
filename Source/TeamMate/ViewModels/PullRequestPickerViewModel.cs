@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
+using System.Linq;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
@@ -40,6 +41,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         {
             Validator
                 .RuleForProperty(() => Name)
+                    .IsNotEmpty();
+
+            Validator
+                .RuleForProperty(() => SelectedProject)
                     .IsNotEmpty();
         }
 
@@ -112,14 +117,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private TaskContext progress = TaskContext.None;
-
-        public TaskContext Progress
-        {
-            get { return this.progress; }
-            set { this.SetProperty(ref this.progress, value); }
-        }
-
         private void Invalidate()
         {
             if (this.queryInfo != null)
@@ -131,13 +128,16 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
 
             var projects = this.SettingsService.Settings.Projects;
-            foreach (var project in projects)
+            if (projects.Count > 0)
             {
-                AddProject(project.ProjectName);
+                foreach (var project in projects)
+                {
+                    AddProject(project.ProjectName);
+                }
             }
         }
 
-        public async void Flush()
+        public void Flush()
         {
             if (this.queryInfo != null)
             {
