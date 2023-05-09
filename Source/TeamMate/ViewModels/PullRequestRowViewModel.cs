@@ -70,12 +70,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.IsPending = this.IsActive && !this.IsSignedOff;
             this.IsCompleted = (this.Reference.Status == PullRequestStatus.Completed);
             this.IsAssignedToMe = this.IsActive && this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef) == 1;
-
-            if (this.IsSignedOff)
-            {
-                this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) != 0;
-            }
-
+            this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) != 0;
             this.BottomLeftText = this.CreatedBy;
 
             if (this.IterationCount > 1)
