@@ -1,6 +1,5 @@
-﻿using Microsoft.Tools.TeamMate.Model;
-using Microsoft.VisualStudio.Services.Graph.Client;
-using Microsoft.VisualStudio.Services.MemberEntitlementManagement.WebApi;
+﻿using Microsoft.VisualStudio.Services.Graph.Client;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,14 +12,11 @@ namespace Microsoft.Tools.TeamMate.Services
         private List<GraphUser> GraphUserCache { get; set; }
 
         private List<GraphGroup> GraphGroupCache { get; set; }
-
-        private List<GroupEntitlement> GroupEntitlements { get; set; }
-
+        
         private List<Task> Tasks = new List<Task>();
 
         private async Task<List<GraphUser>> FetchUsersAsync(
-            GraphHttpClient graphClient,
-            MemberEntitlementManagementHttpClient memberEntitlementManagementClient)
+            GraphHttpClient graphClient)
         {
             if (GraphUserCache != null)
             {
@@ -74,28 +70,19 @@ namespace Microsoft.Tools.TeamMate.Services
             return groups;
         }
 
-        private async Task<List<GroupEntitlement>> FetchGroupsEntitlementsAsync(
-          MemberEntitlementManagementHttpClient memberEntitlementManagementClient)
+        public async void FetchDataSync(
+            GraphHttpClient client)
         {
-            if (GroupEntitlements != null)
-            {
-                return GroupEntitlements;
-            }
-
-            GroupEntitlements = await memberEntitlementManagementClient.GetGroupEntitlementsAsync();
-           
-            return GroupEntitlements;
+            Tasks.Add(FetchUsersAsync(client));
+            Tasks.Add(FetchGroupsAsync(client));
         }
 
-        public async void FetchDataSync(
-            GraphHttpClient client,
-            MemberEntitlementManagementHttpClient memberEntitlementManagementClient)
+        public void WaitToComplete()
         {
-            Tasks.Add(FetchUsersAsync(client, memberEntitlementManagementClient));
-            Tasks.Add(FetchGroupsAsync(client));
-
-            // TODO(MEM)
-          // Tasks.Add(FetchGroupsEntitlementsAsync(memberEntitlementManagementClient));
+            foreach (var task in Tasks)
+            {
+                task.Wait();
+            }
         }
 
         public ObservableCollection<string> GetDisplayNames()
@@ -120,9 +107,8 @@ namespace Microsoft.Tools.TeamMate.Services
             return strings;
         }
 
-        public async Task<string> Resolve(
+        public async Task<Guid?> Resolve(
             GraphHttpClient client,
-            MemberEntitlementManagementHttpClient memberEntitlementManagementClient,
             string value)
         {
             if (value == null)
@@ -130,20 +116,14 @@ namespace Microsoft.Tools.TeamMate.Services
                 return null;
             }
 
-            foreach (var task in Tasks)
-            {
-                task.Wait();
-            }
-
             foreach (var user in GraphUserCache)
             {
                 if (user.MailAddress != null &&
-                    (user.MailAddress.StartsWith(value)))
+                    (user.MailAddress.Contains(value)))
                 {
                     var storageKey = client.GetStorageKeyAsync(user.Descriptor).Result;
 
-                    // TODO(MEM)
-                    return "{" + storageKey.Value.ToString() + "}";
+                    return storageKey.Value;
                 }
             }
 
@@ -154,12 +134,12 @@ namespace Microsoft.Tools.TeamMate.Services
                 {
                     var storageKey = client.GetStorageKeyAsync(group.Descriptor).Result;
 
-                    // TODO(MEM)
-                    return "{" + storageKey.Value.ToString() + "}";
+                    return storageKey.Value;
                 }
             }
 
-            return null;
+            throw new ArgumentException("Could not resolve '" + value + "'. Try the full email for the person and/or group.");
+
         }
     }
 }

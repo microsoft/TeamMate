@@ -1,4 +1,5 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 
@@ -23,7 +24,11 @@ namespace Microsoft.Tools.TeamMate.Windows
             if (isValid)
             {
                 PullRequestPickerViewModel viewModel = (PullRequestPickerViewModel)this.DataContext;
-                viewModel.Flush();
+
+                using (viewModel.Progress = new TaskContext())
+                {
+                    viewModel.Flush();
+                }
 
                 this.DialogResult = true;
             }

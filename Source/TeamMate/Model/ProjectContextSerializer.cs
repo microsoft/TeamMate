@@ -75,8 +75,8 @@ namespace Microsoft.Tools.TeamMate.Model
 
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
-            query.AssignedTo = e.GetAttribute<string>(Schema.AssignedTo);
-            query.CreatedBy = e.GetAttribute<string>(Schema.CreatedBy);
+            query.AssignedTo = e.GetAttribute<Guid?>(Schema.AssignedTo);
+            query.CreatedBy = e.GetAttribute<Guid?>(Schema.CreatedBy);
             query.Project = e.GetAttribute<string>(Schema.PullRequestProject);
 
             return query;
@@ -144,8 +144,8 @@ namespace Microsoft.Tools.TeamMate.Model
             XElement e = new XElement(Schema.PullRequestQueryInfo);
             e.SetAttribute<string>(Schema.Name, query.Name);
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
-            e.SetAttribute<string>(Schema.CreatedBy, query.CreatedBy);
-            e.SetAttribute<string>(Schema.AssignedTo, query.AssignedTo);
+            e.SetAttribute<Guid?>(Schema.CreatedBy, query.CreatedBy);
+            e.SetAttribute<Guid?>(Schema.AssignedTo, query.AssignedTo);
             e.SetAttribute<string>(Schema.PullRequestProject, query.Project);
 
             return e;

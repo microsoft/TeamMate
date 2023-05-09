@@ -103,7 +103,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             get { return this.selectedProjects; }
             set { this.SetProperty(ref this.selectedProjects, value); }
         }
-
         public void CancelConnect()
         {
             this.previousCancellationTokenSource.Cancel();

@@ -6,7 +6,7 @@
         xmlns:tmc="clr-namespace:Microsoft.Tools.TeamMate.Controls"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Microsoft.Tools.TeamMate.Windows.PullRequestQueryEditorDialog"
         FocusManager.FocusedElement="{Binding ElementName=nameTextBox}"
-        SizeToContent="WidthAndHeight" Height="306"
+        SizeToContent="WidthAndHeight"
         >
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
@@ -20,10 +20,18 @@
     <Window.Style>
         <StaticResource ResourceKey="LyncDialogStyle"/>
     </Window.Style>
-    <AdornerDecorator>
-        <fwc:DialogPanel Margin="12,0,24,12">
+    <AdornerDecorator RenderTransformOrigin="0.5,0.5" Margin="0,0,0,0">
+        <AdornerDecorator.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform AngleX="0.254"/>
+                <RotateTransform/>
+                <TranslateTransform X="0.679"/>
+            </TransformGroup>
+        </AdornerDecorator.RenderTransform>
+        <fwc:DialogPanel Margin="12,-3,24,10" Width="400">
             <fwc:DialogPanel.ButtonPanel>
-                <fwc:ButtonPanel>
+                <fwc:ButtonPanel Margin="0,4,0,4">
                     <Button x:Name="okButton"
                             Content="OK"
                             IsDefault="True"
@@ -31,7 +39,11 @@
                     <Button Style="{StaticResource LyncButtonStyle}" fw:UI.ButtonType="Cancel" />
                 </fwc:ButtonPanel>
             </fwc:DialogPanel.ButtonPanel>
-            <StackPanel Width="400" Height="230">
+            <StackPanel Margin="0,5,0,59    ">
+                <fwc:ProgressIndicator
+                    Foreground="{StaticResource ApplicationColorBrush}"
+                    Visibility="{Binding Progress.IsRunning,
+                    Converter={x:Static fw:Converters.VisibilityHidden}}" />
                 <TextBlock Style="{StaticResource LyncDialogTitleStyle}" Text="Pull Request Query"/>
                 <tmc:ValidationErrorView />
                 <Grid Margin="0,12,0,0">
@@ -51,41 +63,36 @@
                            Margin="0,0,6,6" Content="Name:"/>
                     <TextBox x:Name="nameTextBox"
                              Grid.Row="0"
-                             Grid.Column="1"
-                             Margin="0,0,0,6"
+                             Margin="82,0,0,6"
                              VerticalContentAlignment="Center"
-                             Text="{Binding Name, ValidatesOnNotifyDataErrors=True}" />
-                    <Label Grid.Row="1"
+                             Text="{Binding Name, ValidatesOnNotifyDataErrors=True}" Grid.ColumnSpan="2" />
+                    <Label
                            Grid.Column="0"
-                           Margin="0,0,6,6" Content="Project:"/>
+                           Margin="0,0,6,6" Content="Project:" Grid.Row="1"/>
                     <Label Grid.Row="2"
                            Grid.Column="0"
                            Margin="0,0,6,6" Content="Assigned To:"/>
                     <Label Grid.Row="3"
                         Grid.Column="0"
                         Margin="0,0,6,-26" Content="Created By:"/>
-                    <Label Grid.Row="4"
+                    <Label Grid.Row="3"
                            Grid.Column="0"
                            Margin="0,31,6,-57" Content="Status:"/>
-                    <ComboBox Grid.Row="1"
+                    <ComboBox
                               Margin="82,0,0,6"
                               ItemsSource="{Binding Project}"
                               SelectedItem="{Binding SelectedProject}"
                               Text="{Binding NewProject, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" IsEditable="True" />
-                    <ComboBox Grid.Row="2"
+                              Grid.ColumnSpan="2" IsEditable="True" Grid.Row="1" />
+                    <TextBox Grid.Row="2"
                               Margin="82,0,0,6"
-                              ItemsSource="{Binding AssignedTo}"
-                              SelectedItem="{Binding SelectedAssignedTo}"
-                              Text="{Binding NewAssignedTo, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" IsEditable="True" />
-                    <ComboBox Grid.Row="3"
+                              Text="{Binding AssignedTo, UpdateSourceTrigger=LostFocus}"
+                              Grid.ColumnSpan="2"/>
+                    <TextBox Grid.Row="3"
                               Margin="82,0,0,-26"
-                              ItemsSource="{Binding CreatedBy}"
-                              SelectedItem="{Binding SelectedCreatedBy}"
-                              Text="{Binding NewCreatedBy, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" IsEditable="True" />
-                    <ComboBox Grid.Row="4"
+                              Text="{Binding CreatedBy, UpdateSourceTrigger=LostFocus}"
+                              Grid.ColumnSpan="2"/>
+                    <ComboBox Grid.Row="3"
                               Margin="82,31,0,-57"
                               ItemTemplate="{StaticResource EnumTemplate}"
                               ItemsSource="{Binding AllReviewStatuses}"

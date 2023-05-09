@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Services.Graph.Client;
-using Microsoft.VisualStudio.Services.MemberEntitlementManagement.WebApi;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
@@ -40,8 +39,6 @@ namespace Microsoft.Tools.TeamMate.Model
         public WorkItemTrackingBatchHttpClient WorkItemTrackingBatchClient { get; set; }
 
         public GraphHttpClient GraphClient { get; set; }
-
-        public MemberEntitlementManagementHttpClient MemberEntitlementManagementClient { get; set; }
 
         public Task<List<GraphUser>> UsersAsync { get; set; }
 

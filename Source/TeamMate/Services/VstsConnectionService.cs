@@ -20,7 +20,6 @@ using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
 using Microsoft.VisualStudio.Services.Graph.Client;
-using Microsoft.VisualStudio.Services.MemberEntitlementManagement.WebApi;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
@@ -144,7 +143,6 @@ namespace Microsoft.Tools.TeamMate.Services
                 ProjectHttpClient projectClient = connection.GetClient<ProjectHttpClient>();
                 GitHttpClient gitClient = connection.GetClient<GitHttpClient>();
                 GraphHttpClient graphClient = connection.GetClient<GraphHttpClient>();
-                MemberEntitlementManagementHttpClient memberEntitlementManagementClient = connection.GetClient<MemberEntitlementManagementHttpClient>();
 
                 var projectId = projectInfo.Reference.ProjectId;
 
@@ -191,11 +189,9 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemFields = fields;
                 projectContext.WorkItemFieldsByName = fields.ToDictionary(f => f.ReferenceName, StringComparer.OrdinalIgnoreCase);
                 projectContext.RequiredWorkItemFieldNames = GetWorkItemFieldsToPrefetch(projectContext.WorkItemFieldsByName);
-                projectContext.MemberEntitlementManagementClient = memberEntitlementManagementClient;
 
                 this.ResolverService.FetchDataSync(
-                   graphClient,
-                   memberEntitlementManagementClient);
+                   graphClient);
 
                 return projectContext;
             }

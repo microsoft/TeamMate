@@ -192,22 +192,14 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             // TODO(MEM): Mapping
 
-            if (this.queryInfo.AssignedTo == "@me")
+            if (this.queryInfo.AssignedTo.HasValue)
             {
-                query.GitPullRequestSearchCriteria.ReviewerId = pc.Identity.Id;
-            }
-            else if (this.queryInfo.AssignedTo != null)
-            {
-                query.GitPullRequestSearchCriteria.ReviewerId = new Guid(this.queryInfo.AssignedTo);
+                query.GitPullRequestSearchCriteria.ReviewerId = this.queryInfo.AssignedTo.Value;
             }
 
-            if (this.queryInfo.CreatedBy == "@me")
+            if (this.queryInfo.CreatedBy.HasValue)
             {
-                query.GitPullRequestSearchCriteria.CreatorId = pc.Identity.Id;
-            }
-            else if (this.queryInfo.CreatedBy != null)
-            {
-                query.GitPullRequestSearchCriteria.CreatorId = new Guid(this.queryInfo.CreatedBy);
+                query.GitPullRequestSearchCriteria.CreatorId = this.queryInfo.CreatedBy.Value;
             }
 
             return query;
