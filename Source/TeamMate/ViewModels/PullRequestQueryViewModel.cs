@@ -109,46 +109,29 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                         var pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
 
-                        List<PullRequestRowViewModel> actualPullRequests = new List<PullRequestRowViewModel>();
-
                         foreach (var pullRequest in pullRequests)
                         {
-                            bool hasDeclined = false;
-                            foreach (var reviewer in pullRequest.Reference.Reviewers)
-                            {
-                                if (reviewer.Id == this.SessionService.Session.ProjectContext.Identity.Id.ToString())
-                                {
-                                    hasDeclined = reviewer.HasDeclined.GetValueOrDefault(false);
-                                    break;
-                                }
-                            }
+                            var asyncTask = projectContext.GitHttpClient.GetPullRequestIterationsAsync(
+                                pullRequest.Reference.Repository.Id,
+                                pullRequest.Reference.PullRequestId);
 
-                            if (!hasDeclined)
-                            {
-                                var asyncTask = projectContext.GitHttpClient.GetPullRequestIterationsAsync(
-                                    pullRequest.Reference.Repository.Id,
-                                    pullRequest.Reference.PullRequestId);
+                            iterationTasks.Add(asyncTask);
 
-                                iterationTasks.Add(asyncTask);
-
-                                pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
-                                    pullRequest.Reference.PullRequestId,
-                                    query.ProjectName,
-                                    pullRequest.Reference.Repository.Name);
-
-                                actualPullRequests.Add(pullRequest);
-                            }
+                            pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
+                                pullRequest.Reference.PullRequestId,
+                                query.ProjectName,
+                                pullRequest.Reference.Repository.Name);
                         }
 
                         await Task.WhenAll(iterationTasks.ToArray());
 
                         int i = 0;
-                        foreach (var pullRequest in actualPullRequests)
+                        foreach (var pullRequest in pullRequests)
                         {
                             pullRequest.Iterations = iterationTasks[i++].Result;
                         }
 
-                        OnQueryCompleted(projectContext, actualPullRequests.ToArray(), notificationScope);
+                        OnQueryCompleted(projectContext, pullRequests, notificationScope);
                     }
                     else
                     {
