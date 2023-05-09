@@ -10,6 +10,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
+using Microsoft.TeamFoundation.Build.WebApi;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
@@ -105,29 +106,46 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                         var pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
 
+                        List<PullRequestRowViewModel> actualPullRequests = new List<PullRequestRowViewModel>();
+
                         foreach (var pullRequest in pullRequests)
                         {
-                            var asyncTask = projectContext.GitHttpClient.GetPullRequestIterationsAsync(
-                                pullRequest.Reference.Repository.Id,
-                                pullRequest.Reference.PullRequestId);
+                            bool hasDeclined = false;
+                            foreach (var reviewer in pullRequest.Reference.Reviewers)
+                            {
+                                if (reviewer.Id == this.SessionService.Session.ProjectContext.Identity.Id.ToString())
+                                {
+                                    hasDeclined = reviewer.HasDeclined.GetValueOrDefault(false);
+                                    break;
+                                }
+                            }
 
-                            iterationTasks.Add(asyncTask);
+                            if (!hasDeclined)
+                            {
+                                var asyncTask = projectContext.GitHttpClient.GetPullRequestIterationsAsync(
+                                    pullRequest.Reference.Repository.Id,
+                                    pullRequest.Reference.PullRequestId);
 
-                            pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
-                                pullRequest.Reference.PullRequestId,
-                                query.ProjectName,
-                                pullRequest.Reference.Repository.Name);
+                                iterationTasks.Add(asyncTask);
+
+                                pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
+                                    pullRequest.Reference.PullRequestId,
+                                    query.ProjectName,
+                                    pullRequest.Reference.Repository.Name);
+
+                                actualPullRequests.Add(pullRequest);
+                            }
                         }
 
                         await Task.WhenAll(iterationTasks.ToArray());
 
                         int i = 0;
-                        foreach (var pullRequest in pullRequests)
+                        foreach (var pullRequest in actualPullRequests)
                         {
                             pullRequest.Iterations = iterationTasks[i++].Result;
                         }
 
-                        OnQueryCompleted(projectContext, pullRequests, notificationScope);
+                        OnQueryCompleted(projectContext, actualPullRequests.ToArray(), notificationScope);
                     }
                     else
                     {
@@ -172,14 +190,24 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 Status = PullRequestQueryInfo.ReviewStatusesMap[this.queryInfo.ReviewStatus],
             };
 
+            // TODO(MEM): Mapping
+
             if (this.queryInfo.AssignedTo == "@me")
             {
                 query.GitPullRequestSearchCriteria.ReviewerId = pc.Identity.Id;
+            }
+            else if (this.queryInfo.AssignedTo != null)
+            {
+                query.GitPullRequestSearchCriteria.ReviewerId = new Guid(this.queryInfo.AssignedTo);
             }
 
             if (this.queryInfo.CreatedBy == "@me")
             {
                 query.GitPullRequestSearchCriteria.CreatorId = pc.Identity.Id;
+            }
+            else if (this.queryInfo.CreatedBy != null)
+            {
+                query.GitPullRequestSearchCriteria.CreatorId = new Guid(this.queryInfo.CreatedBy);
             }
 
             return query;

@@ -198,6 +198,7 @@
     <Compile Include="Services\AsyncWriterService.cs" />
     <Compile Include="Services\ExternalWebBrowserService.cs" />
     <Compile Include="Services\GlobalCommandService.cs" />
+    <Compile Include="Services\ResolverService.cs" />
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\SessionService.cs" />
@@ -998,6 +999,9 @@
       <Version>5.8.2</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Services.MemberEntitlementManagement.WebApi">
+      <Version>16.205.1</Version>
     </PackageReference>
     <PackageReference Include="SimpleInjector">
       <Version>5.3.3</Version>

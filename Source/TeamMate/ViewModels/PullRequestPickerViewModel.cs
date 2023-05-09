@@ -1,5 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
-using Microsoft.Tools.TeamMate.Foundation.Validation;
+﻿using Microsoft.Tools.TeamMate.Foundation.Validation;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Services;
@@ -7,8 +6,6 @@ using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using System.Linq;
-using static Microsoft.TeamFoundation.Client.CommandLine.Options;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
@@ -36,6 +33,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             "@me",
             "",
         };
+
+        [Import]
+        public ResolverService ResolverService { get; set; }
+
+        [Import]
+        public SessionService SessionService { get; set; }
 
         public PullRequestPickerViewModel()
         {
@@ -172,15 +175,24 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        public void Flush()
+        public async void Flush()
         {
             if (this.queryInfo != null)
             {
                 this.queryInfo.Name = this.Name.Trim();
                 this.queryInfo.ReviewStatus = this.ReviewStatus;
-                this.queryInfo.AssignedTo = this.SelectedAssignedTo;
-                this.queryInfo.CreatedBy = this.SelectedCreatedBy;
-                this.queryInfo.Project = this.SelectedProject;
+                this.queryInfo.AssignedTo = this.SelectedAssignedTo != null ? this.SelectedAssignedTo.Trim() : this.SelectedAssignedTo;
+                this.queryInfo.CreatedBy = this.SelectedCreatedBy != null ? this.SelectedCreatedBy.Trim() : this.SelectedCreatedBy;
+                this.queryInfo.Project = this.SelectedProject.Trim();
+
+                this.queryInfo.AssignedTo = await this.ResolverService.Resolve(
+                    this.SessionService.Session.ProjectContext.GraphClient,
+                    this.SessionService.Session.ProjectContext.MemberEntitlementManagementClient,
+                    this.queryInfo.AssignedTo);
+                this.queryInfo.CreatedBy = await this.ResolverService.Resolve(
+                    this.SessionService.Session.ProjectContext.GraphClient,
+                    this.SessionService.Session.ProjectContext.MemberEntitlementManagementClient,
+                    this.queryInfo.CreatedBy);
             }
         }
 

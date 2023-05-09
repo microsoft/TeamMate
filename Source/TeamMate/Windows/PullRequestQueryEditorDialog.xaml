@@ -6,7 +6,7 @@
         xmlns:tmc="clr-namespace:Microsoft.Tools.TeamMate.Controls"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Microsoft.Tools.TeamMate.Windows.PullRequestQueryEditorDialog"
         FocusManager.FocusedElement="{Binding ElementName=nameTextBox}"
-        SizeToContent="WidthAndHeight" Height="294"
+        SizeToContent="WidthAndHeight" Height="306"
         >
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">

@@ -388,7 +388,6 @@ namespace Microsoft.Tools.TeamMate.Services
             this.MainWindowViewModel.Search(e.SearchText, true, true);
         }
 
-
         public bool RequestShutdown()
         {
             bool shouldCancel = this.PromptSaveOnDirtyWindows();
