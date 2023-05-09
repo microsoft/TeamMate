@@ -73,7 +73,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             if (this.IsSignedOff)
             {
-                this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) == 1;
+                this.IsSignedOffByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5)) != 0;
             }
 
             this.BottomLeftText = this.CreatedBy;

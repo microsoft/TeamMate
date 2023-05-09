@@ -78,7 +78,7 @@
                     <Label Grid.Row="3"
                            Grid.Column="0"
                            Margin="0,31,6,-57" Content="Status:"/>
-                    <ComboBox
+                    <ComboBox x:Name="projectTextBox"
                               Margin="82,0,0,6"
                               ItemsSource="{Binding Project}"
                               SelectedItem="{Binding SelectedProject}"

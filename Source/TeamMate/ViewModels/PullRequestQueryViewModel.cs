@@ -202,6 +202,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 query.GitPullRequestSearchCriteria.ReviewerId = await this.ResolverService.Resolve(
                     this.SessionService.Session.ProjectContext.GraphClient,
                     this.queryInfo.SelectedAssignedTo);
+
+                this.queryInfo.AssignedTo = query.GitPullRequestSearchCriteria.ReviewerId;
             }
 
             if (this.queryInfo.CreatedBy.HasValue)
@@ -213,6 +215,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 query.GitPullRequestSearchCriteria.CreatorId = await this.ResolverService.Resolve(
                     this.SessionService.Session.ProjectContext.GraphClient,
                     this.queryInfo.SelectedCreatedBy);
+
+                this.queryInfo.CreatedBy = query.GitPullRequestSearchCriteria.CreatorId;
             }
 
             return query;
