@@ -300,13 +300,6 @@ namespace Microsoft.Tools.TeamMate.Services
             dialog.DataContext = viewModel;
             dialog.Owner = View.GetWindow(ownerViewModel);
 
-            // TODO(MEM)
-            var projects = this.SettingsService.Settings.Projects;
-            foreach (var project in projects)
-            {
-                viewModel.AddProject(project.ProjectName);
-            }
-
             return (dialog.ShowDialog() == true) ? viewModel.QueryInfo : null;
         }
 

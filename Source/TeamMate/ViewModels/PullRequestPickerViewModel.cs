@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
@@ -31,6 +32,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         [Import]
         public SessionService SessionService { get; set; }
+
+        [Import]
+        public SettingsService SettingsService { get; set; }
 
         public PullRequestPickerViewModel()
         {
@@ -124,6 +128,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
                 this.AssignedTo = this.queryInfo.SelectedAssignedTo;
                 this.CreatedBy = this.queryInfo.SelectedAssignedTo;
+            }
+
+            var projects = this.SettingsService.Settings.Projects;
+            foreach (var project in projects)
+            {
+                AddProject(project.ProjectName);
             }
         }
 
