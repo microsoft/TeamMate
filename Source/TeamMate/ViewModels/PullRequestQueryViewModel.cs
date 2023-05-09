@@ -70,7 +70,10 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         [Import]
         public SessionService SessionService { get; set; }
- 
+
+        [Import]
+        public ResolverService ResolverService { get; set; }
+
         public ProjectInfo ProjectInfo { get; private set; }
 
         private async Task DoRefreshAsync(NotificationScope notificationScope)
@@ -86,7 +89,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 {
                     FireQueryExecuting();
 
-                    PullRequestQuery query = CreateBuiltInQuery();
+                    PullRequestQuery query = await CreateBuiltInQuery();
 
                     if (query != null)
                     {
@@ -170,7 +173,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
 
-        private PullRequestQuery CreateBuiltInQuery()
+        private async Task<PullRequestQuery> CreateBuiltInQuery()
         {
             var pc = this.SessionService.Session.ProjectContext;
           
@@ -190,16 +193,26 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 Status = PullRequestQueryInfo.ReviewStatusesMap[this.queryInfo.ReviewStatus],
             };
 
-            // TODO(MEM): Mapping
-
             if (this.queryInfo.AssignedTo.HasValue)
             {
                 query.GitPullRequestSearchCriteria.ReviewerId = this.queryInfo.AssignedTo.Value;
+            }
+            else if (this.queryInfo.SelectedAssignedTo != null)
+            {
+                query.GitPullRequestSearchCriteria.ReviewerId = await this.ResolverService.Resolve(
+                    this.SessionService.Session.ProjectContext.GraphClient,
+                    this.queryInfo.SelectedAssignedTo);
             }
 
             if (this.queryInfo.CreatedBy.HasValue)
             {
                 query.GitPullRequestSearchCriteria.CreatorId = this.queryInfo.CreatedBy.Value;
+            }
+            else if (this.queryInfo.CreatedBy != null)
+            {
+                query.GitPullRequestSearchCriteria.CreatorId = await this.ResolverService.Resolve(
+                    this.SessionService.Session.ProjectContext.GraphClient,
+                    this.queryInfo.SelectedCreatedBy);
             }
 
             return query;

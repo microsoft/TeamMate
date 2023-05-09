@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
@@ -77,36 +78,6 @@ namespace Microsoft.Tools.TeamMate.Services
             Tasks.Add(FetchGroupsAsync(client));
         }
 
-        public void WaitToComplete()
-        {
-            foreach (var task in Tasks)
-            {
-                task.Wait();
-            }
-        }
-
-        public ObservableCollection<string> GetDisplayNames()
-        {
-            foreach (var task in Tasks)
-            {
-                task.Wait();
-            }
-
-            ObservableCollection<string> strings = new ObservableCollection<string>();
-
-            foreach (var user in GraphUserCache)
-            {
-                strings.Add(user.DisplayName);
-            }
-
-            foreach (var user in GraphGroupCache)
-            {
-                strings.Add(user.DisplayName);
-            }
-
-            return strings;
-        }
-
         public async Task<Guid?> Resolve(
             GraphHttpClient client,
             string value)
@@ -115,6 +86,8 @@ namespace Microsoft.Tools.TeamMate.Services
             {
                 return null;
             }
+
+            await Task.Run(() => { foreach (var task in this.Tasks) { task.Wait(); } });
 
             foreach (var user in GraphUserCache)
             {

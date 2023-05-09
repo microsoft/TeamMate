@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
+using System.Threading.Tasks;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
@@ -121,8 +122,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 this.Name = this.queryInfo.Name;
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
-                this.AssignedTo = null;
-                this.CreatedBy = null;
+                this.AssignedTo = this.queryInfo.SelectedAssignedTo;
+                this.CreatedBy = this.queryInfo.SelectedAssignedTo;
             }
         }
 
@@ -133,14 +134,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.Name = this.Name.Trim();
                 this.queryInfo.ReviewStatus = this.ReviewStatus;
                 this.queryInfo.Project = this.SelectedProject.Trim();
-
-                this.ResolverService.Resolve(
-                    this.SessionService.Session.ProjectContext.GraphClient,
-                    this.AssignedTo).ContinueWith(assignedTo => this.queryInfo.AssignedTo);
-
-                this.ResolverService.Resolve(
-                    this.SessionService.Session.ProjectContext.GraphClient,
-                    this.CreatedBy).ContinueWith(createdBy => this.queryInfo.CreatedBy);
+                this.queryInfo.SelectedAssignedTo = this.AssignedTo;
+                this.queryInfo.SelectedCreatedBy = this.CreatedBy;
             }
         }
 

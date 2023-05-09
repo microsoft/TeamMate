@@ -24,12 +24,7 @@ namespace Microsoft.Tools.TeamMate.Windows
             if (isValid)
             {
                 PullRequestPickerViewModel viewModel = (PullRequestPickerViewModel)this.DataContext;
-
-                using (viewModel.Progress = new TaskContext())
-                {
-                    viewModel.Flush();
-                }
-
+                viewModel.Flush();
                 this.DialogResult = true;
             }
         }

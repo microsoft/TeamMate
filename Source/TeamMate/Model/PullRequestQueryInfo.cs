@@ -20,6 +20,10 @@ namespace Microsoft.Tools.TeamMate.Model
 
         public Guid? AssignedTo { get; set; }
 
+        public string SelectedCreatedBy { get; set; }
+
+        public string SelectedAssignedTo { get; set; }
+
         public string Project { get; set; }
     }
     public enum PullRequestQueryReviewStatus
