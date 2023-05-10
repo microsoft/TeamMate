@@ -20,9 +20,9 @@ namespace Microsoft.Tools.TeamMate.Model
 
         public Guid? AssignedTo { get; set; }
 
-        public string SelectedCreatedBy { get; set; }
+        public string UICreatedBy { get; set; }
 
-        public string SelectedAssignedTo { get; set; }
+        public string UIAssignedTo { get; set; }
 
         public string Project { get; set; }
     }

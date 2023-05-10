@@ -78,6 +78,8 @@ namespace Microsoft.Tools.TeamMate.Model
             query.AssignedTo = e.GetAttribute<Guid?>(Schema.AssignedTo);
             query.CreatedBy = e.GetAttribute<Guid?>(Schema.CreatedBy);
             query.Project = e.GetAttribute<string>(Schema.PullRequestProject);
+            query.UIAssignedTo = e.GetAttribute<string>(Schema.UIAssignedTo);
+            query.UICreatedBy = e.GetAttribute<string>(Schema.UICreatedBy);
 
             return query;
         }
@@ -146,6 +148,8 @@ namespace Microsoft.Tools.TeamMate.Model
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
             e.SetAttribute<Guid?>(Schema.CreatedBy, query.CreatedBy);
             e.SetAttribute<Guid?>(Schema.AssignedTo, query.AssignedTo);
+            e.SetAttribute<string>(Schema.UICreatedBy, query.UICreatedBy);
+            e.SetAttribute<string>(Schema.UIAssignedTo, query.UIAssignedTo);
             e.SetAttribute<string>(Schema.PullRequestProject, query.Project);
 
             return e;
@@ -387,6 +391,8 @@ namespace Microsoft.Tools.TeamMate.Model
             public const string State = "State";
             public const string Title = "Title";
             public const string Revision = "Revision";
+            public const string UIAssignedTo = "UIAssignedTo";
+            public const string UICreatedBy = "UICreatedBy";
 
             public static XName RecentItems = "RecentItems";
             public static XName RecentlyViewedWorkItems = "RecentlyViewedWorkItems";

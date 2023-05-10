@@ -71,13 +71,13 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             get { return this.reviewStatus; }
             set { SetProperty(ref this.reviewStatus, value); }
         }
-        public string AssignedTo
+        public string UIAssignedTo
         {
             get { return this.assignedTo; }
             set { SetProperty(ref this.assignedTo, value); }
         }
 
-        public string CreatedBy
+        public string UICreatedBy
         {
             get { return this.createdBy; }
             set { SetProperty(ref this.createdBy, value); }
@@ -123,8 +123,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 this.Name = this.queryInfo.Name;
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
-                this.AssignedTo = this.queryInfo.SelectedAssignedTo;
-                this.CreatedBy = this.queryInfo.SelectedAssignedTo;
+                this.UIAssignedTo = this.queryInfo.UIAssignedTo;
+                this.UICreatedBy = this.queryInfo.UICreatedBy;
             }
 
             var projects = this.SettingsService.Settings.Projects;
@@ -144,8 +144,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.Name = this.Name.Trim();
                 this.queryInfo.ReviewStatus = this.ReviewStatus;
                 this.queryInfo.Project = this.SelectedProject.Trim();
-                this.queryInfo.SelectedAssignedTo = this.AssignedTo;
-                this.queryInfo.SelectedCreatedBy = this.CreatedBy;
+                this.queryInfo.UIAssignedTo = this.UIAssignedTo;
+                this.queryInfo.UICreatedBy = this.UICreatedBy;
             }
         }
 

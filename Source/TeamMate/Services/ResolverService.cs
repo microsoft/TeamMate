@@ -71,7 +71,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return groups;
         }
 
-        public async void FetchDataSync(
+        public void FetchDataSync(
             GraphHttpClient client)
         {
             Tasks.Add(FetchUsersAsync(client));

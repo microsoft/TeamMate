@@ -1000,9 +1000,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Services.MemberEntitlementManagement.WebApi">
-      <Version>16.205.1</Version>
-    </PackageReference>
     <PackageReference Include="SimpleInjector">
       <Version>5.3.3</Version>
     </PackageReference>

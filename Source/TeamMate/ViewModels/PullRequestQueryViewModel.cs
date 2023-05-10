@@ -180,11 +180,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 query.GitPullRequestSearchCriteria.ReviewerId = this.queryInfo.AssignedTo.Value;
             }
-            else if (this.queryInfo.SelectedAssignedTo != null)
+            else if (this.queryInfo.UIAssignedTo != null)
             {
                 query.GitPullRequestSearchCriteria.ReviewerId = await this.ResolverService.Resolve(
                     this.SessionService.Session.ProjectContext.GraphClient,
-                    this.queryInfo.SelectedAssignedTo);
+                    this.queryInfo.UIAssignedTo);
 
                 this.queryInfo.AssignedTo = query.GitPullRequestSearchCriteria.ReviewerId;
             }
@@ -193,11 +193,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 query.GitPullRequestSearchCriteria.CreatorId = this.queryInfo.CreatedBy.Value;
             }
-            else if (this.queryInfo.CreatedBy != null)
+            else if (this.queryInfo.UICreatedBy != null)
             {
                 query.GitPullRequestSearchCriteria.CreatorId = await this.ResolverService.Resolve(
                     this.SessionService.Session.ProjectContext.GraphClient,
-                    this.queryInfo.SelectedCreatedBy);
+                    this.queryInfo.UICreatedBy);
 
                 this.queryInfo.CreatedBy = query.GitPullRequestSearchCriteria.CreatorId;
             }

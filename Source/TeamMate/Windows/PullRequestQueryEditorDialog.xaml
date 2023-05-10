@@ -86,11 +86,11 @@
                               Grid.ColumnSpan="2" IsEditable="True" Grid.Row="1" />
                     <TextBox Grid.Row="2"
                               Margin="82,0,0,6"
-                              Text="{Binding AssignedTo, UpdateSourceTrigger=LostFocus}"
+                              Text="{Binding UIAssignedTo, UpdateSourceTrigger=LostFocus}"
                               Grid.ColumnSpan="2"/>
                     <TextBox Grid.Row="3"
                               Margin="82,0,0,-26"
-                              Text="{Binding CreatedBy, UpdateSourceTrigger=LostFocus}"
+                              Text="{Binding UICreatedBy, UpdateSourceTrigger=LostFocus}"
                               Grid.ColumnSpan="2"/>
                     <ComboBox Grid.Row="3"
                               Margin="82,31,0,-57"
