@@ -86,7 +86,7 @@ jobs:
       uses: microsoft/Setup-MSBuild@v1.0.2
 
     - name: Install WiX
-      run: nuget install WiX3
+      run: nuget install WiX --version 3.11.2
       
     - name: Build Project
       run: msbuild /restore:true /p:Configuration=${{ matrix.Configuration }} /p:Platform=${{ matrix.TargetPlatform }} TeamMate.csproj
