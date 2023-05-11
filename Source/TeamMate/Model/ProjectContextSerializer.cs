@@ -75,8 +75,11 @@ namespace Microsoft.Tools.TeamMate.Model
 
             query.Name = e.GetAttribute<string>(Schema.Name);
             query.ReviewStatus = e.GetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus);
-            query.AssignedTo = e.GetAttribute<string>(Schema.AssignedTo);
-            query.CreatedBy = e.GetAttribute<string>(Schema.CreatedBy);
+            query.AssignedTo = e.GetAttribute<Guid?>(Schema.AssignedTo);
+            query.CreatedBy = e.GetAttribute<Guid?>(Schema.CreatedBy);
+            query.Project = e.GetAttribute<string>(Schema.PullRequestProject);
+            query.UIAssignedTo = e.GetAttribute<string>(Schema.UIAssignedTo);
+            query.UICreatedBy = e.GetAttribute<string>(Schema.UICreatedBy);
 
             return query;
         }
@@ -143,8 +146,11 @@ namespace Microsoft.Tools.TeamMate.Model
             XElement e = new XElement(Schema.PullRequestQueryInfo);
             e.SetAttribute<string>(Schema.Name, query.Name);
             e.SetAttribute<PullRequestQueryReviewStatus>(Schema.ReviewStatus, query.ReviewStatus);
-            e.SetAttribute<string>(Schema.CreatedBy, query.CreatedBy);
-            e.SetAttribute<string>(Schema.AssignedTo, query.AssignedTo);
+            e.SetAttribute<Guid?>(Schema.CreatedBy, query.CreatedBy);
+            e.SetAttribute<Guid?>(Schema.AssignedTo, query.AssignedTo);
+            e.SetAttribute<string>(Schema.UICreatedBy, query.UICreatedBy);
+            e.SetAttribute<string>(Schema.UIAssignedTo, query.UIAssignedTo);
+            e.SetAttribute<string>(Schema.PullRequestProject, query.Project);
 
             return e;
         }
@@ -385,6 +391,8 @@ namespace Microsoft.Tools.TeamMate.Model
             public const string State = "State";
             public const string Title = "Title";
             public const string Revision = "Revision";
+            public const string UIAssignedTo = "UIAssignedTo";
+            public const string UICreatedBy = "UICreatedBy";
 
             public static XName RecentItems = "RecentItems";
             public static XName RecentlyViewedWorkItems = "RecentlyViewedWorkItems";
@@ -421,6 +429,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public static readonly XName PullRequest = "PullRequest";
             public const string PullRequestId = "PullRequestId";
             public const string PullRequestProjectId = "PullRequestProjectId";
+            public const string PullRequestProject = "PullRequestProject";
 
             // ProjectSettings Stuff
             public static readonly XName ProjectSettings = "ProjectSettings";

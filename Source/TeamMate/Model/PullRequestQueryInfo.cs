@@ -16,9 +16,15 @@ namespace Microsoft.Tools.TeamMate.Model
 
         public string Name { get; set; }
         public PullRequestQueryReviewStatus ReviewStatus { get; set; }
-        public string CreatedBy { get; set; }
+        public Guid? CreatedBy { get; set; }
 
-        public string AssignedTo { get; set; }
+        public Guid? AssignedTo { get; set; }
+
+        public string UICreatedBy { get; set; }
+
+        public string UIAssignedTo { get; set; }
+
+        public string Project { get; set; }
     }
     public enum PullRequestQueryReviewStatus
     {

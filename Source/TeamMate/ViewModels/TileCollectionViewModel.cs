@@ -184,7 +184,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         private IList<WorkItemRowViewModel> GetItemsTowardsCount()
         {
-            // TODO: Get CodeReviews too? How do these surface in the UI?
+            // TODO: Get PullRequests too? How do these surface in the UI?
             var allWorkItems = Tiles.OfType<WorkItemQueryTileViewModel>().Where(wiq => wiq.IncludeInItemCountSummary)
                 .Select(q => q.WorkItemQuery.WorkItems).Where(items => items != null).SelectMany(w => w).Distinct().ToArray();
 

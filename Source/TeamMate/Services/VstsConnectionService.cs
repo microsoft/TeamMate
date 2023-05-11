@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient;
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
+using Microsoft.VisualStudio.Services.Graph.Client;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
@@ -35,6 +36,10 @@ namespace Microsoft.Tools.TeamMate.Services
 
         [Import]
         public WindowService WindowService { get; set; }
+    
+        [Import]
+        public ResolverService ResolverService { get; set; }
+
 
         private async Task<VssConnection> ConnectAsync(Uri projectCollectionUri, CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -137,6 +142,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 WorkItemTrackingBatchHttpClient batchWitClient = connection.GetClient<WorkItemTrackingBatchHttpClient>();
                 ProjectHttpClient projectClient = connection.GetClient<ProjectHttpClient>();
                 GitHttpClient gitClient = connection.GetClient<GitHttpClient>();
+                GraphHttpClient graphClient = connection.GetClient<GraphHttpClient>();
 
                 var projectId = projectInfo.Reference.ProjectId;
 
@@ -174,6 +180,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemTrackingClient = witClient;
                 projectContext.WorkItemTrackingBatchClient = batchWitClient;
                 projectContext.GitHttpClient = gitClient;
+                projectContext.GraphClient = graphClient;
                 projectContext.WorkItemTypes = workItemTypeInfos;
                 projectContext.ProjectInfo = projectInfo;
                 projectContext.Identity = identity;
@@ -182,6 +189,9 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemFields = fields;
                 projectContext.WorkItemFieldsByName = fields.ToDictionary(f => f.ReferenceName, StringComparer.OrdinalIgnoreCase);
                 projectContext.RequiredWorkItemFieldNames = GetWorkItemFieldsToPrefetch(projectContext.WorkItemFieldsByName);
+
+                this.ResolverService.FetchDataSync(
+                   graphClient);
 
                 return projectContext;
             }
@@ -207,7 +217,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
             return null;
         }
-
         public ICollection<string> GetWorkItemFieldsToPrefetch(IDictionary<string, WorkItemField> availableFields)
         {
             // Prefetch the fields that are interesting to our services or object model...

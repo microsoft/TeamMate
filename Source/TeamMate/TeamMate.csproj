@@ -198,6 +198,7 @@
     <Compile Include="Services\AsyncWriterService.cs" />
     <Compile Include="Services\ExternalWebBrowserService.cs" />
     <Compile Include="Services\GlobalCommandService.cs" />
+    <Compile Include="Services\ResolverService.cs" />
     <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\SessionService.cs" />

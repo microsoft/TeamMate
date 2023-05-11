@@ -8,6 +8,8 @@ using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.Services.Graph.Client;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
@@ -35,6 +37,10 @@ namespace Microsoft.Tools.TeamMate.Model
         public Microsoft.VisualStudio.Services.Identity.Identity Identity { get; set; }
 
         public WorkItemTrackingBatchHttpClient WorkItemTrackingBatchClient { get; set; }
+
+        public GraphHttpClient GraphClient { get; set; }
+
+        public Task<List<GraphUser>> UsersAsync { get; set; }
 
         public string ProjectName { get; set; }
 
