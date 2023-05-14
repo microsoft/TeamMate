@@ -70,7 +70,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             this.IsPending = this.IsActive && !this.IsSignedOff;
             this.IsCompleted = (this.Reference.Status == PullRequestStatus.Completed);
             this.IsAssignedToMe = this.IsActive && this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef) == 1;
-            this.IsSignedOffOrDeclinedByMe = this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5 || x.HasDeclined.GetValueOrDefault(false))) != 0;
+            this.IsNeedsAction = !this.IsOwnedByMe && (this.Reference.Reviewers.Count(x => x.Id == this.IdentityRef && (x.Vote == 10 || x.Vote == 5 || x.HasDeclined.GetValueOrDefault(false))) == 0);
             this.BottomLeftText = this.CreatedBy;
 
             if (this.IterationCount > 1)
@@ -87,7 +87,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         public bool IsActive { get; set; }
         public bool IsPending { get; set; }
         public bool IsSignedOff { get; set; }
-        public bool IsSignedOffOrDeclinedByMe { get; set; }
+        public bool IsNeedsAction { get; set; }
         public bool IsCompleted { get; set; }
         public bool IsWaiting { get; set; }
 
