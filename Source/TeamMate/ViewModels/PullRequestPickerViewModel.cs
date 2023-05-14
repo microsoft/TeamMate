@@ -132,7 +132,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 foreach (var project in projects)
                 {
-                    AddProject(project.ProjectName);
+                    // Today we can only handle Projects within the same project collection.
+                    if (this.SessionService.Session.ProjectContext.ProjectInfo.ProjectCollectionUri == project.ProjectCollectionUri)
+                    {
+                        AddProject(project.ProjectName);
+                    }
                 }
             }
         }

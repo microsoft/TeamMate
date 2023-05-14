@@ -63,7 +63,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             model.Filters.Add(new ListViewFilter("Pending", (o) => ((PullRequestRowViewModel)o).IsPending));
             model.Filters.Add(new ListViewFilter("Waiting", (o) => ((PullRequestRowViewModel)o).IsWaiting));
             model.Filters.Add(new ListViewFilter("Signed Off", (o) => ((PullRequestRowViewModel)o).IsSignedOff));
-            model.Filters.Add(new ListViewFilter("Not Signed Off / Declined By Me", (o) => !((PullRequestRowViewModel)o).IsSignedOffOrDeclinedByMe));
+            model.Filters.Add(new ListViewFilter("Needs Action", (o) => ((PullRequestRowViewModel)o).IsNeedsAction));
             model.Filters.Add(new ListViewFilter("Completed", (o) => ((PullRequestRowViewModel)o).IsCompleted));
 
             model.Fields.Add(ListFieldInfo.Create<string>("CreatedBy", "Created By"));

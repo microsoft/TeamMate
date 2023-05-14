@@ -40,10 +40,6 @@
                 </fwc:ButtonPanel>
             </fwc:DialogPanel.ButtonPanel>
             <StackPanel Margin="0,5,0,59    ">
-                <fwc:ProgressIndicator
-                    Foreground="{StaticResource ApplicationColorBrush}"
-                    Visibility="{Binding Progress.IsRunning,
-                    Converter={x:Static fw:Converters.VisibilityHidden}}" />
                 <TextBlock Style="{StaticResource LyncDialogTitleStyle}" Text="Pull Request Query"/>
                 <tmc:ValidationErrorView />
                 <Grid Margin="0,12,0,0">
@@ -83,15 +79,16 @@
                               ItemsSource="{Binding Project}"
                               SelectedItem="{Binding SelectedProject}"
                               Text="{Binding NewProject, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2" IsEditable="True" Grid.Row="1" />
-                    <TextBox Grid.Row="2"
+                              Grid.ColumnSpan="2" Grid.Row="1" />
+                    <TextBox x:Name="assignedToTextBox"
+                              Grid.Row="2"
                               Margin="82,0,0,6"
                               Text="{Binding UIAssignedTo, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2"/>
+                              Grid.ColumnSpan="2" fw:UI.HintText="Type an email or leave it empty not to filter..."/>
                     <TextBox Grid.Row="3"
                               Margin="82,0,0,-26"
                               Text="{Binding UICreatedBy, UpdateSourceTrigger=LostFocus}"
-                              Grid.ColumnSpan="2"/>
+                              Grid.ColumnSpan="2" fw:UI.HintText="Type an email or leave it empty not to filter..."/>
                     <ComboBox Grid.Row="3"
                               Margin="82,31,0,-57"
                               ItemTemplate="{StaticResource EnumTemplate}"

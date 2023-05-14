@@ -1,7 +1,11 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.ViewModels;
+using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
