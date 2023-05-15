@@ -70,6 +70,9 @@
                             <MenuItem Header="Show _Notifications"
                                       IsCheckable="True"
                                       IsChecked="{Binding ShowNotifications}" />
+                            <MenuItem Header="_Include In Global Pull Request Count"
+                                      IsCheckable="True"
+                                      IsChecked="{Binding IncludeInItemCountSummary}" />
                             <Separator />
                             <MenuItem Header="Select _Background Color"
                                       Command="{x:Static tmr:TeamMateCommands.SelectTileBackgroundColor}"

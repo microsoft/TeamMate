@@ -39,6 +39,12 @@
                            Visibility="{Binding HasCountGreaterThanZero,
                                                 Converter={x:Static fwc:Converters.Visibility}}" />
         <tmc:ItemCountView Margin="0,1,1,1"
+                           Brush="#00A2E8"
+                           DataContext="{Binding PullRequestsCounter}"
+                           Image="/Resources/Icons/Bugger/BlueGift.png"
+                           Visibility="{Binding HasCountGreaterThanZero,
+                                                Converter={x:Static fwc:Converters.Visibility}}" />
+        <tmc:ItemCountView Margin="0,1,1,1"
                            Brush="#DFDFDF"
                            DataContext="{Binding UnknownCounter}"
                            Image="/Resources/Icons/Bugger/GrayGift.png"
