@@ -587,6 +587,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Icons\Bugger\GreenGift.png" />
     <Resource Include="Resources\Icons\Other\RedDelete_16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -967,7 +968,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Bugger\GrayGift.png" />
-    <Resource Include="Resources\Icons\Bugger\GreenGift.png" />
     <Resource Include="Resources\Icons\Bugger\RedGift.png" />
     <Resource Include="Resources\Icons\Bugger\YellowGift.png" />
     <Resource Include="Resources\Icons\Office15\CheckmarkCompleted.16x16x32.png" />
@@ -984,6 +984,7 @@
     <None Include="Resources\Xml\Samples\Discussion.xml" />
     <None Include="Resources\Xml\Samples\WorkItemCollection.xml" />
     <None Include="Resources\Fonts\Bowtie.readme.txt" />
+    <Resource Include="Resources\Icons\Bugger\BlueGift.png" />
     <Content Include="TeamMate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

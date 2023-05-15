@@ -156,15 +156,24 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             {
                 lock (invalidateItemCountSummaryLock)
                 {
-                    var allWorkItems = GetItemsTowardsCount();
-                    var workItemsByState = allWorkItems.GroupBy(wi => wi.WorkItemState).ToDictionary(g => g.Key, g => g.ToArray());
+                    {
+                        var allWorkItems = GetWorkItemsTowardsCount();
+                        var workItemsByState = allWorkItems.GroupBy(wi => wi.WorkItemState).ToDictionary(g => g.Key, g => g.ToArray());
 
-                    var summary = this.ItemCountSummary;
-                    UpdateCounter(summary.GlobalCounter, allWorkItems);
-                    UpdateCounter(summary.ActiveCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Active));
-                    UpdateCounter(summary.ResolvedCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Resolved));
-                    UpdateCounter(summary.ClosedCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Closed));
-                    UpdateCounter(summary.UnknownCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Unknown));
+                        var summary = this.ItemCountSummary;
+                        UpdateCounter(summary.GlobalCounter, allWorkItems);
+                        UpdateCounter(summary.ActiveCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Active));
+                        UpdateCounter(summary.ResolvedCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Resolved));
+                        UpdateCounter(summary.ClosedCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Closed));
+                        UpdateCounter(summary.UnknownCounter, workItemsByState.TryGetValueOrDefault(WorkItemState.Unknown));
+                    }
+                    {
+                        var allPullRequests = GetPullRequestsTowardsCount();
+                        var pullRequestsByState = allPullRequests.GroupBy(wi => wi.IsRead).ToDictionary(g => g.Key, g => g.ToArray());
+
+                        var summary = this.ItemCountSummary;
+                        UpdateCounter(summary.PullRequestsCounter, pullRequestsByState.TryGetValueOrDefault(false));
+                    }
                 }
             }
             catch (Exception e)
@@ -181,14 +190,28 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             counter.UpdateCount(count, isRead);
         }
-
-        private IList<WorkItemRowViewModel> GetItemsTowardsCount()
+        private static void UpdateCounter(Counter counter, ICollection<PullRequestRowViewModel> items)
         {
-            // TODO: Get PullRequests too? How do these surface in the UI?
+            // items can be null by design, it is an optimization if there are no items
+            int count = (items != null) ? items.Count : 0;
+            bool isRead = (items != null) ? !items.Any(wi => !wi.IsRead) : true;
+
+            counter.UpdateCount(count, isRead);
+        }
+
+        private IList<WorkItemRowViewModel> GetWorkItemsTowardsCount()
+        {
             var allWorkItems = Tiles.OfType<WorkItemQueryTileViewModel>().Where(wiq => wiq.IncludeInItemCountSummary)
                 .Select(q => q.WorkItemQuery.WorkItems).Where(items => items != null).SelectMany(w => w).Distinct().ToArray();
 
             return allWorkItems;
+        }
+        private IList<PullRequestRowViewModel> GetPullRequestsTowardsCount()
+        {
+            var allPullRequests = Tiles.OfType<PullRequestQueryTileViewModel>().Where(wiq => wiq.IncludeInItemCountSummary)
+                .Select(q => q.QueryModel.PullRequests).Where(items => items != null).SelectMany(w => w).Distinct().ToArray();
+
+            return allPullRequests;
         }
 
         private TileViewModel CreateTileViewModel(TileInfo tileInfo)

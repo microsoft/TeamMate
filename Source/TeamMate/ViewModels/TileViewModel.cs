@@ -28,8 +28,8 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                     // On purpose not use the property as we don't want to fire an event here. Also, do this before creating
                     // the query!
-                    this.showNotifications = (this.TileInfo != null) ? this.tileInfo.ShowNotifications : false;
-                    this.includeInItemCountSummary = (this.TileInfo != null) ? this.tileInfo.IncludeInItemCountSummary : false;
+                    this.showNotifications = this.TileInfo != null && this.tileInfo.ShowNotifications;
+                    this.includeInItemCountSummary = this.TileInfo != null && this.tileInfo.IncludeInItemCountSummary;
                     this.backgroundColor = this.GetBackgroundColor();
                     this.isDefaultBackgroundColor = this.IsDefaultBackColor();
                     this.fontColor = this.GetFontColor();

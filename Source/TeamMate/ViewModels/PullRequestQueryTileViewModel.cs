@@ -6,7 +6,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 {
     public class PullRequestQueryTileViewModel : TileViewModel
     {
-        private PullRequestQueryViewModel QueryModel
+        public PullRequestQueryViewModel QueryModel
         {
             get { return this.Query as PullRequestQueryViewModel; }
         }

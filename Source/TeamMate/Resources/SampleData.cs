@@ -15,7 +15,7 @@ namespace Microsoft.Tools.TeamMate.Resources
         public static readonly Uri SampleProjectUri = new Uri("vstfs:///Classification/TeamProject/D31BE5FA-E206-4B4A-B0B8-667071942520");
         public const string SampleQueryPath = @"My Queries\Sandbox Team - Sprint 1 - Backlog";
 
-        private static Random Random = new Random();
+        private static readonly Random Random = new Random();
 
         private static WorkItemQueryTileViewModel workItemQueryTileViewModel;
         private static MainWindowViewModel mainWindowViewModel;
@@ -51,8 +51,10 @@ namespace Microsoft.Tools.TeamMate.Resources
             {
                 if (searchPageViewModel == null)
                 {
-                    searchPageViewModel = new SearchPageViewModel();
-                    searchPageViewModel.SearchText = "crashing bugs";
+                    searchPageViewModel = new SearchPageViewModel()
+                    {
+                        SearchText = "crashing bugs"
+                    };
                 }
 
                 return searchPageViewModel;
@@ -361,6 +363,7 @@ namespace Microsoft.Tools.TeamMate.Resources
                     itemCountSummary = new ItemCountSummary();
                     itemCountSummary.ActiveCounter.UpdateCount(11, true);
                     itemCountSummary.ResolvedCounter.UpdateCount(22, false);
+                    itemCountSummary.PullRequestsCounter.UpdateCount(13, false);
                 }
 
                 return itemCountSummary;
