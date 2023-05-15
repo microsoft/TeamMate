@@ -107,7 +107,19 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                         List<Task<List<GitPullRequestIteration>>> iterationTasks = new List<Task<List<GitPullRequestIteration>>>();
 
-                        var pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                        PullRequestRowViewModel[] pullRequests = null;
+                        if (this.queryInfo.Filter == PullRequestQueryFilter.None)
+                        {
+                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                        }
+                        else if (this.queryInfo.Filter == PullRequestQueryFilter.NeedsAction)
+                        {
+                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).Where(x => x.IsNeedsAction).ToArray();
+                        }
+                        else
+                        {
+                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                        }
 
                         foreach (var pullRequest in pullRequests)
                         {

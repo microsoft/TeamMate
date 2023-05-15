@@ -18,6 +18,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         private string name;
         private PullRequestQueryInfo queryInfo;
         private PullRequestQueryReviewStatus reviewStatus;
+        private PullRequestQueryFilter filter;
 
         private string _selectedProject;
         private ObservableCollection<string> _project = new ObservableCollection<string>()
@@ -83,6 +84,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             set { SetProperty(ref this.createdBy, value); }
         }
 
+        public PullRequestQueryFilter Filter
+        {
+            get { return this.filter; }
+            set { SetProperty(ref this.filter, value); }
+        }
+
         public IEnumerable Project
         {
             get { return this._project; }
@@ -125,6 +132,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.ReviewStatus = this.queryInfo.ReviewStatus;
                 this.UIAssignedTo = this.queryInfo.UIAssignedTo;
                 this.UICreatedBy = this.queryInfo.UICreatedBy;
+                this.Filter = this.queryInfo.Filter;
             }
 
             var projects = this.SettingsService.Settings.Projects;
@@ -150,12 +158,18 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 this.queryInfo.Project = this.SelectedProject.Trim();
                 this.queryInfo.UIAssignedTo = this.UIAssignedTo;
                 this.queryInfo.UICreatedBy = this.UICreatedBy;
+                this.queryInfo.Filter = this.Filter;
             }
         }
 
         public object AllReviewStatuses
         {
             get { return Enum.GetValues(typeof(PullRequestQueryReviewStatus)); }
+        }
+
+        public object AllFilters
+        {
+            get { return Enum.GetValues(typeof(PullRequestQueryFilter)); }
         }
     }
 }
