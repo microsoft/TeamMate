@@ -25,6 +25,8 @@ namespace Microsoft.Tools.TeamMate.Model
         public string UIAssignedTo { get; set; }
 
         public string Project { get; set; }
+
+        public PullRequestQueryFilter Filter { get; set; }
     }
     public enum PullRequestQueryReviewStatus
     {
@@ -36,6 +38,15 @@ namespace Microsoft.Tools.TeamMate.Model
 
         [Description("All")]
         All,
+    }
+
+    public enum PullRequestQueryFilter
+    {
+        [Description("None")]
+        None,
+
+        [Description("Needs Action")]
+        NeedsAction,
     }
 }
 

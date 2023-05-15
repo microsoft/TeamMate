@@ -80,6 +80,7 @@ namespace Microsoft.Tools.TeamMate.Model
             query.Project = e.GetAttribute<string>(Schema.PullRequestProject);
             query.UIAssignedTo = e.GetAttribute<string>(Schema.UIAssignedTo);
             query.UICreatedBy = e.GetAttribute<string>(Schema.UICreatedBy);
+            query.Filter = e.GetAttribute<PullRequestQueryFilter>(Schema.PullRequestFilter);
 
             return query;
         }
@@ -151,6 +152,7 @@ namespace Microsoft.Tools.TeamMate.Model
             e.SetAttribute<string>(Schema.UICreatedBy, query.UICreatedBy);
             e.SetAttribute<string>(Schema.UIAssignedTo, query.UIAssignedTo);
             e.SetAttribute<string>(Schema.PullRequestProject, query.Project);
+            e.SetAttribute<PullRequestQueryFilter>(Schema.PullRequestFilter, query.Filter);
 
             return e;
         }
@@ -430,6 +432,7 @@ namespace Microsoft.Tools.TeamMate.Model
             public const string PullRequestId = "PullRequestId";
             public const string PullRequestProjectId = "PullRequestProjectId";
             public const string PullRequestProject = "PullRequestProject";
+            public const string PullRequestFilter = "PullRequestFilter";
 
             // ProjectSettings Stuff
             public static readonly XName ProjectSettings = "ProjectSettings";
