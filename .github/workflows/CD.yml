@@ -9,12 +9,9 @@ jobs:
   build:
     strategy:
       matrix:
-        channel: [Dev, Production]
+        channel: [Production]
         targetPlatform: [x86]
         include:
-          - channel: Dev
-            Configuration: Debug
-
           - channel: Production
             Configuration: Release
 
