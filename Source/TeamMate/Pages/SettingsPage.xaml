@@ -87,7 +87,7 @@
             <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
                 <StackPanel Margin="24">
                     <TextBlock Style="{StaticResource SettingsGroupHeaderTextStyle}" Text="{x:Static tmm:TeamMateApplicationInfo.ApplicationName}" />
-                    <TextBlock Margin="0,12,0,0">
+                    <TextBlock Margin="0,14,0,0">
                         <LineBreak />
                         <Run Text="Version: " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.PublicVersion}" />
                         <LineBreak />
@@ -96,6 +96,8 @@
                            <Run Text="{x:Static tmm:TeamMateApplicationInfo.FullVersion}" />
                         </Hyperlink>
                         <Run Text="(Click to copy to clipboard)" />
+                        <LineBreak />
+                        <Run Text=".NET: " /><Run Text="{x:Static tmm:TeamMateApplicationInfo.DotNetVersion}" />
                     </TextBlock>
                     <TextBlock Margin="0,12,0,0">
                         GitHub project: 

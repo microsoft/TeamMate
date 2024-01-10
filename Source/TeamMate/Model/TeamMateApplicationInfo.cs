@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
 
 namespace Microsoft.Tools.TeamMate.Model
@@ -219,6 +220,11 @@ namespace Microsoft.Tools.TeamMate.Model
 
                 return fileVersionInfo.ProductVersion.ToString();
             }
+        }
+
+        public static string DotNetVersion
+        { 
+            get { return RuntimeInformation.FrameworkDescription; }
         }
 
         public static string ApplicationName { get; private set; }
