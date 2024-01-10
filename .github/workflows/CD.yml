@@ -101,7 +101,10 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: "**/*.msi"
+        files: |
+          **/*.msi
+          **/*.pdb
+          **/*.exe
         draft: true
         prerelease: true
       env:
