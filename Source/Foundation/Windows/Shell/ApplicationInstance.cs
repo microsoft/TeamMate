@@ -150,7 +150,9 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
         public void SendMessage(object o)
         {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
             BinaryFormatter formatter = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 
             using (FileStream fs = new FileStream(mailslotHandle, FileAccess.Write, 400, false))
             {
@@ -177,7 +179,9 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
                     // Sometimes we get messages of size 0, these have to be "read" and discarded from the queue to check for future messages...
                     if (messageSize > 0)
                     {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                         BinaryFormatter formatter = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
                         byte[] message = new byte[messageSize];
                         fs.Read(message, 0, messageSize);
 
