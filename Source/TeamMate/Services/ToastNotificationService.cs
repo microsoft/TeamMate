@@ -57,10 +57,6 @@ namespace Microsoft.Tools.TeamMate.Services
 
         private void DeveloperSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "ForceLegacyNotifications")
-            {
-                this.InvalidateToastManager();
-            }
         }
 
         private void InvalidateToastManager()
@@ -71,16 +67,9 @@ namespace Microsoft.Tools.TeamMate.Services
                 this.toastManager = null;
             }
 
-            if (Environment.OSVersion.IsWindows10OrGreater() && !this.SettingsService.DeveloperSettings.ForceLegacyNotifications)
-            {
-                this.toastManager = new WindowsToastManager();
-            }
-            else
-            {
-                var dispatcher = this.UIService.Dispatcher;
-                var settingsService = this.SettingsService;
-                this.toastManager = new CustomToastManager(dispatcher, settingsService);
-            }
+            var dispatcher = this.UIService.Dispatcher;
+            var settingsService = this.SettingsService;
+            this.toastManager = new CustomToastManager(dispatcher, settingsService);
 
             this.toastManager.ToastActivated += ToastManager_ToastActivated;
         }

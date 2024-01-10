@@ -9,13 +9,5 @@
             get { return this.debugAllNotifications; }
             set { SetProperty(ref this.debugAllNotifications, value); }
         }
-
-        private bool forceLegacyNotifications;
-
-        public bool ForceLegacyNotifications
-        {
-            get { return this.forceLegacyNotifications; }
-            set { SetProperty(ref this.forceLegacyNotifications, value); }
-        }
     }
 }

@@ -36,7 +36,6 @@
                         Style="{StaticResource SubheaderTextBlockStyle}"
                         Text="Options" />
                     <CheckBox Margin="0,12,0,0" IsChecked="{Binding DeveloperSettings.DebugAllNotifications}">Debug All Notifications</CheckBox>
-                    <CheckBox Margin="0,12,0,0" IsChecked="{Binding DeveloperSettings.ForceLegacyNotifications}">Force Legacy Notification</CheckBox>
                 </StackPanel>
             </ScrollViewer>
         </TabItem>

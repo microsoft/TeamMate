@@ -1,5 +1,4 @@
-﻿using Microsoft.TeamFoundation.WorkItemTracking.Client;
-using Microsoft.Tools.TeamMate.Foundation.Shell;
+﻿using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
