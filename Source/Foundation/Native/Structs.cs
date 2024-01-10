@@ -258,38 +258,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Native
         }
     }
 
-    [StructLayout(LayoutKind.Sequential), SuppressUnmanagedCodeSecurity]
-    public class PROCESS_INFORMATION
-    {
-        private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
-
-        public IntPtr hProcess;
-        public IntPtr hThread;
-        public int dwProcessId;
-        public int dwThreadId;
-
-        ~PROCESS_INFORMATION()
-        {
-            this.Close();
-        }
-
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-        internal void Close()
-        {
-            if ((this.hProcess != IntPtr.Zero) && (this.hProcess != INVALID_HANDLE_VALUE))
-            {
-                NativeMethods.CloseHandle(new HandleRef(this, this.hProcess));
-                this.hProcess = INVALID_HANDLE_VALUE;
-            }
-
-            if ((this.hThread != IntPtr.Zero) && (this.hThread != INVALID_HANDLE_VALUE))
-            {
-                NativeMethods.CloseHandle(new HandleRef(this, this.hThread));
-                this.hThread = INVALID_HANDLE_VALUE;
-            }
-        }
-    }
-
     [StructLayout(LayoutKind.Sequential)]
     public struct IMAGELISTDRAWPARAMS
     {

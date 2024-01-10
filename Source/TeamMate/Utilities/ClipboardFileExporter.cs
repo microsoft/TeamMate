@@ -18,8 +18,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
         // We support files, groups of files, images, and text.
         // ORDER MATTERS, SO RESPECT IT HERE AND IN EXPORT()
         private static readonly ExportableDataFormat[] SupportedDataFormats = new ExportableDataFormat[] {
-            new ExportableDataFormat(CustomDataFormats.FileGroupDescriptorW, ExportFileGroup),
-            new ExportableDataFormat(DataFormats.FileDrop, ExportFileDrop),
             new ExportableDataFormat(DataFormats.Rtf, "PastedText.rtf"),
             new ExportableDataFormat(DataFormats.Html, "PastedText.html"),
             new ExportableDataFormat(DataFormats.CommaSeparatedValue, "PastedTable.csv"),
@@ -165,44 +163,6 @@ namespace Microsoft.Tools.TeamMate.Utilities
                 }
             }
             return dataString;
-        }
-
-        private static void ExportFileDrop(IDataObject data, Func<string, string> createTempFileDelegate, ICollection<string> outputFiles)
-        {
-            string[] fileDrop = data.GetData(DataFormats.FileDrop) as string[];
-            if (fileDrop != null)
-            {
-                foreach (string file in fileDrop)
-                {
-                    if (!String.IsNullOrEmpty(file))
-                    {
-                        outputFiles.Add(file);
-                    }
-                }
-            }
-        }
-
-        private static void ExportFileGroup(IDataObject dataObject, Func<string, string> getOutputPath, ICollection<string> outputFiles)
-        {
-            FileGroup fileGroup = dataObject.GetFileGroup();
-            foreach (var item in fileGroup.Items)
-            {
-                string filename = item.FileName;
-                if (!String.IsNullOrEmpty(filename))
-                {
-                    try
-                    {
-                        string outputFilePath = getOutputPath(filename);
-                        item.CopyTo(outputFilePath);
-                        outputFiles.Add(outputFilePath);
-                    }
-                    catch (Exception e)
-                    {
-                        // Ignore failed issues
-                        Log.WarnAndBreak(e);
-                    }
-                }
-            }
         }
 
         private class ExportableDataFormat
