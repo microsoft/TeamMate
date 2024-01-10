@@ -390,24 +390,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Native
         }
     }
 
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    public struct FILEDESCRIPTOR
-    {
-        public uint dwFlags;
-        public Guid clsid;
-        public System.Drawing.Size sizel;
-        public System.Drawing.Point pointl;
-        public uint dwFileAttributes;
-        public FILETIME ftCreationTime;
-        public FILETIME ftLastAccessTime;
-        public FILETIME ftLastWriteTime;
-        public uint nFileSizeHigh;
-        public uint nFileSizeLow;
-
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-        public string cFileName;
-    }
-
     [StructLayout(LayoutKind.Sequential)]
     public struct ICONINFO
     {
