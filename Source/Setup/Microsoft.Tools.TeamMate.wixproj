@@ -3,12 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <Channel Condition=" '$(Configuration)' == 'Debug' ">Dev</Channel>
-    <Channel Condition=" '$(Configuration)' == 'Release' ">Production</Channel>
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>d8f90795-e254-441c-b231-d4611e574915</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Microsoft.Tools.TeamMate.$(Channel)</OutputName>
+    <OutputName>Microsoft.Tools.TeamMate</OutputName>
     <OutputType>Package</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
