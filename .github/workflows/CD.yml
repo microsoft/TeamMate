@@ -104,7 +104,7 @@ jobs:
         files: |
           **/*.msi
           **/*.pdb
-          **/*.exe
+          **/TeamMate.exe
         draft: true
         prerelease: true
       env:
