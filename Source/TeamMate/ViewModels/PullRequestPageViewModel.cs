@@ -258,7 +258,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             if (pullRequest != null)
             {
                 DataObject dataObject = new DataObject();
-                dataObject.SetUri(pullRequest.Url, pullRequest.GetFullTitle());
+                dataObject.SetText(pullRequest.Url.ToString());
                 Clipboard.SetDataObject(dataObject);
             }
         }

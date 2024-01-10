@@ -61,7 +61,7 @@ namespace Microsoft.Tools.TeamMate.Utilities
             Assert.ParamIsNotNull(pullRequest, "pullRequest");
 
             DataObject dataObject = new DataObject();
-            dataObject.SetUri(pullRequest.Url, pullRequest.GetFullTitle());
+            dataObject.SetText(pullRequest.Url.ToString());
             return dataObject;
         }
 
@@ -70,13 +70,13 @@ namespace Microsoft.Tools.TeamMate.Utilities
             Assert.ParamIsNotNull(workItem, "workItem");
 
             var url = factory.GetWorkItemUrl(workItem);
-            return CopyHyperlink(url, workItem.GetFullTitle(), workItem.GetReference());
+            return CopyHyperlink(url, workItem.GetReference());
         }
 
-        private static IDataObject CopyHyperlink(Uri uri, string fullTitlte, WorkItemReference reference)
+        private static IDataObject CopyHyperlink(Uri uri, WorkItemReference reference)
         {
             DataObject dataObject = new DataObject();
-            dataObject.SetUri(uri, fullTitlte);
+            dataObject.SetText(uri.ToString());
             dataObject.SetData(typeof(WorkItemReference), reference);
 
             return dataObject;
