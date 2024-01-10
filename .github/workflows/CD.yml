@@ -103,7 +103,7 @@ jobs:
       with:
         files: |
           **/*.msi
-          **/*.pdb
+          **/TeamMate.pdb
           **/TeamMate.exe
         draft: true
         prerelease: true
