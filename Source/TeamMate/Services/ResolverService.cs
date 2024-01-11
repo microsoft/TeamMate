@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.Services.Graph.Client;
+using Microsoft.VisualStudio.Services.Users;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,13 +11,13 @@ namespace Microsoft.Tools.TeamMate.Services
 {
     public class ResolverService
     {
-        private List<GraphUser> GraphUserCache { get; set; }
+        private Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor> GraphUserCache { get; set; }
 
-        private List<GraphGroup> GraphGroupCache { get; set; }
+        private Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor> GraphGroupCache { get; set; }
         
         private List<Task> Tasks = new List<Task>();
 
-        private async Task<List<GraphUser>> FetchUsersAsync(
+        private async Task<Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor>> FetchUsersAsync(
             GraphHttpClient graphClient)
         {
             if (GraphUserCache != null)
@@ -24,7 +25,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 return GraphUserCache;
             }
 
-            List<GraphUser> users = new List<GraphUser>();
+            var users = new Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor>();
 
             string continuationToken = null;
             do
@@ -33,7 +34,10 @@ namespace Microsoft.Tools.TeamMate.Services
                 continuationToken = data.ContinuationToken != null ? data.ContinuationToken.First() : null;
                 foreach (var user in data.GraphUsers)
                 {
-                    users.Add(user);
+                    if (user.MailAddress != null)
+                    {
+                        users[user.MailAddress] = user.Descriptor;
+                    }
                 }
             }
             while (continuationToken != null);
@@ -43,7 +47,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return users;
         }
 
-        private async Task<List<GraphGroup>> FetchGroupsAsync(
+        private async Task<Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor>> FetchGroupsAsync(
             GraphHttpClient graphClient)
         {
             if (GraphGroupCache != null)
@@ -51,7 +55,7 @@ namespace Microsoft.Tools.TeamMate.Services
                 return GraphGroupCache;
             }
 
-            List<GraphGroup> groups = new List<GraphGroup>();
+            var groups = new Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor>();
 
             string continuationToken = null;
             do
@@ -61,7 +65,10 @@ namespace Microsoft.Tools.TeamMate.Services
                 continuationToken = data.ContinuationToken != null ? data.ContinuationToken.First() : null;
                 foreach (var group in data.GraphGroups)
                 {
-                    groups.Add(group);
+                    if (group.MailAddress != null)
+                    {
+                        groups[group.MailAddress] = group.Descriptor;
+                    }
                 }
             }
             while (continuationToken != null);
@@ -91,10 +98,9 @@ namespace Microsoft.Tools.TeamMate.Services
 
             foreach (var user in GraphUserCache)
             {
-                if (user.MailAddress != null &&
-                    (user.MailAddress.Contains(value)))
+                if (user.Key.Contains(value))
                 {
-                    var storageKey = client.GetStorageKeyAsync(user.Descriptor).Result;
+                    var storageKey = client.GetStorageKeyAsync(user.Value).Result;
 
                     return storageKey.Value;
                 }
@@ -102,10 +108,9 @@ namespace Microsoft.Tools.TeamMate.Services
 
             foreach (var group in GraphGroupCache)
             {
-                if (group.MailAddress != null &&
-                    (group.MailAddress.Contains(value)))
+                if (group.Key.Contains(value))
                 {
-                    var storageKey = client.GetStorageKeyAsync(group.Descriptor).Result;
+                    var storageKey = client.GetStorageKeyAsync(group.Value).Result;
 
                     return storageKey.Value;
                 }
