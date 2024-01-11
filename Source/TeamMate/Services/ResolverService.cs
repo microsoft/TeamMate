@@ -17,6 +17,8 @@ namespace Microsoft.Tools.TeamMate.Services
         
         private List<Task> Tasks = new List<Task>();
 
+        private bool Cached = false;
+
         private async Task<Dictionary<string, VisualStudio.Services.Common.SubjectDescriptor>> FetchUsersAsync(
             GraphHttpClient graphClient)
         {
@@ -78,11 +80,19 @@ namespace Microsoft.Tools.TeamMate.Services
             return groups;
         }
 
-        public void FetchDataSync(
+        private void FetchDataSyncIfNeeded(
             GraphHttpClient client)
         {
-            Tasks.Add(FetchUsersAsync(client));
-            Tasks.Add(FetchGroupsAsync(client));
+            lock (Tasks)
+            {
+                if (!Cached)
+                {
+                    Tasks.Add(FetchUsersAsync(client));
+                    Tasks.Add(FetchGroupsAsync(client));
+
+                    Cached = true;
+                }
+            }
         }
 
         public async Task<Guid?> Resolve(
@@ -93,6 +103,8 @@ namespace Microsoft.Tools.TeamMate.Services
             {
                 return null;
             }
+
+            this.FetchDataSyncIfNeeded(client);
 
             await Task.Run(() => { foreach (var task in this.Tasks) { task.Wait(); } });
 
@@ -117,7 +129,6 @@ namespace Microsoft.Tools.TeamMate.Services
             }
 
             throw new ArgumentException("Could not resolve '" + value + "'. Try the full email for the person and/or group.");
-
         }
     }
 }
