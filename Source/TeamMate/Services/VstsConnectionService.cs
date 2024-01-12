@@ -190,9 +190,6 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemFieldsByName = fields.ToDictionary(f => f.ReferenceName, StringComparer.OrdinalIgnoreCase);
                 projectContext.RequiredWorkItemFieldNames = GetWorkItemFieldsToPrefetch(projectContext.WorkItemFieldsByName);
 
-                this.ResolverService.FetchDataSync(
-                   graphClient);
-
                 return projectContext;
             }
             catch (Exception e)
