@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -17,48 +17,38 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
     <ApplicationIcon>Resources\Logo\TeamMate.ico</ApplicationIcon>
-    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-arm64-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot;win;win-x64</RuntimeIdentifiers>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-arm64-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot;win;win-x64;win-x86</RuntimeIdentifiers>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <NoWarn>467;618</NoWarn>
+    <BasePublishOutputPath>publish\</BasePublishOutputPath>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <NoWarn>467;618</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
     <NoWarn>467;618</NoWarn>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), Build\Microsoft.Tools.TeamMate.Settings.targets))\Build\Microsoft.Tools.TeamMate.Settings.targets" />
   <PropertyGroup>
     <CustomManifestFile>$(MSBuildThisFileDirectory)\Properties\app_themes.manifest</CustomManifestFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ProjectGuid>{01FCF244-D4B2-43DD-BB77-9D4946868299}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Tools.TeamMate</RootNamespace>
-    <AssemblyName>TeamMate</AssemblyName>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>false</GenerateManifests>
@@ -72,497 +62,27 @@
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="PresentationFramework.Aero2" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq">
+    <Reference Update="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="PresentationCore">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="PresentationFramework">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsFormsIntegration">
+    <Reference Update="WindowsFormsIntegration">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Controls\Bowtie.cs" />
-    <Compile Include="Controls\MsnIcon.cs" />
-    <Compile Include="Controls\BowtieIcon.cs" />
-    <Compile Include="Controls\ItemCountView.xaml.cs">
-      <DependentUpon>ItemCountView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\MsnSymbol.cs" />
-    <Compile Include="Controls\WorkItemTag.xaml.cs">
-      <DependentUpon>WorkItemTag.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\QueryPickerControl.xaml.cs">
-      <DependentUpon>QueryPickerControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TileCollectionView.xaml.cs">
-      <DependentUpon>TileCollectionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Exceptions\ForceCrashException.cs" />
-    <Compile Include="Model\Actions\ActionSerializer.cs" />
-    <Compile Include="Model\Actions\CreateWorkItemAction.cs" />
-    <Compile Include="Model\Actions\TeamMateAction.cs" />
-    <Compile Include="Model\Actions\WorkItemUpdateInfo.cs" />
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controls\PullRequestRowView.xaml.cs">
-      <DependentUpon>PullRequestRowView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DropDownSelector.xaml.cs">
-      <DependentUpon>DropDownSelector.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\GlobalCommandBar.xaml.cs">
-      <DependentUpon>GlobalCommandBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TeamMemberView.xaml.cs">
-      <DependentUpon>TeamMemberView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ValidationErrorView.xaml.cs">
-      <DependentUpon>ValidationErrorView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\WorkItemStateView.xaml.cs">
-      <DependentUpon>WorkItemStateView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Converters\PullRequestStatusConverter.cs" />
-    <Compile Include="Model\Application.cs" />
-    <Compile Include="Model\ApplicationHistory.cs" />
-    <Compile Include="Model\ContainerConfiguration.cs" />
-    <Compile Include="Model\Counter.cs" />
-    <Compile Include="Model\ItemCountSummary.cs" />
-    <Compile Include="Model\ProjectReference.cs" />
-    <Compile Include="Model\PullRequestReference.cs" />
-    <Compile Include="Model\Settings\DeveloperSettings.cs" />
-    <Compile Include="Model\TeamMateApplicationInfo.cs" />
-    <Compile Include="Model\PullRequestQueryInfo.cs" />
-    <Compile Include="Model\ConditionalFormattingRule.cs" />
-    <Compile Include="Model\TileInfo.cs" />
-    <Compile Include="Model\WorkItemQueryReference.cs" />
-    <Compile Include="Model\WorkItemQuerySelection.cs" />
-    <Compile Include="Model\WorkItemReference.cs" />
-    <Compile Include="Model\WorkItemState.cs" />
-    <Compile Include="Model\WorkItemTypeInfo.cs" />
-    <Compile Include="Model\WorkItemTypeReference.cs" />
-    <Compile Include="Model\WorkItemWithUpdates.cs" />
-    <Compile Include="Pages\PullRequestsPage.xaml.cs">
-      <DependentUpon>PullRequestsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\DeveloperOptionsPage.xaml.cs">
-      <DependentUpon>DeveloperOptionsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ErrorPage.xaml.cs">
-      <DependentUpon>ErrorPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FirstRunExperiencePage.xaml.cs">
-      <DependentUpon>FirstRunExperiencePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\IResultsContainer.cs" />
-    <Compile Include="Pages\SearchPage.xaml.cs">
-      <DependentUpon>SearchPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\EmailResources.Designer.cs">
-      <DependentUpon>EmailResources.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Resources\TeamMateGestures.cs" />
-    <Compile Include="Services\ApplicationService.cs" />
-    <Compile Include="Services\AsyncWriterService.cs" />
-    <Compile Include="Services\ExternalWebBrowserService.cs" />
-    <Compile Include="Services\GlobalCommandService.cs" />
-    <Compile Include="Services\ResolverService.cs" />
-    <Compile Include="Services\HistoryService.cs" />
-    <Compile Include="Services\SearchService.cs" />
-    <Compile Include="Services\SessionService.cs" />
-    <Compile Include="Services\UpgradeService.cs" />
-    <Compile Include="Services\VstsClientCredentialCachingStorage.cs" />
-    <Compile Include="Services\WorkItemStateService.cs" />
-    <Compile Include="Model\Settings\ProjectSettings.cs" />
-    <Compile Include="Model\Settings\SettingsBase.cs" />
-    <Compile Include="Utilities\ChaosScenarios.cs" />
-    <Compile Include="Utilities\FileUtilities.cs" />
-    <Compile Include="Utilities\Formatter.cs" />
-    <Compile Include="Utilities\IToastManager.cs" />
-    <Compile Include="Utilities\WindowsToastManager.cs" />
-    <Compile Include="Utilities\WinFormsUtilities.cs" />
-    <Compile Include="Utilities\SearchExpression.cs" />
-    <Compile Include="Utilities\SearchTextHighlighter.cs" />
-    <Compile Include="Utilities\TextMatcher.cs" />
-    <Compile Include="Utilities\WorkItemHtmlFormatter.cs" />
-    <Compile Include="Utilities\WorkItemTextGenerator.cs" />
-    <Compile Include="Utilities\WorkItemHtmlGenerator.cs" />
-    <Compile Include="Utilities\WorkItemQueryFactory.cs" />
-    <Compile Include="ViewModels\ChaosMonkeyViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestPickerViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestQueryTileViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestPageViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestRowViewModel.cs" />
-    <Compile Include="ViewModels\PullRequestQueryViewModel.cs" />
-    <Compile Include="ViewModels\CustomDialogViewModel.cs" />
-    <Compile Include="ViewModels\DeveloperOptionsPageViewModel.cs" />
-    <Compile Include="ViewModels\FlaggedWorkItemsViewModel.cs" />
-    <Compile Include="ViewModels\IFilterable.cs" />
-    <Compile Include="ViewModels\OverviewWindowViewModel.cs" />
-    <Compile Include="ViewModels\PageViewModelBase.cs" />
-    <Compile Include="ViewModels\ProjectPickerDialogViewModel.cs" />
-    <Compile Include="ViewModels\QueryHierarchyItemViewModel.cs" />
-    <Compile Include="ViewModels\QueryViewModelBase.cs" />
-    <Compile Include="ViewModels\SearchPageViewModel.cs" />
-    <Compile Include="ViewModels\TileCollectionViewModel.cs" />
-    <Compile Include="ViewModels\TileViewModel.cs" />
-    <Compile Include="ViewModels\TrackableViewModelBase.cs" />
-    <Compile Include="ViewModels\ViewModelFactory.cs" />
-    <Compile Include="ViewModels\WorkItemAddTagsDialogViewModel.cs" />
-    <Compile Include="ViewModels\WorkItemRowViewModel.cs" />
-    <Compile Include="Resources\TeamMateResources.cs" />
-    <Compile Include="Controls\OverlayTextIcon.xaml.cs">
-      <DependentUpon>OverlayTextIcon.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\SearchBox.xaml.cs">
-      <DependentUpon>SearchBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\WorkItemRowView.xaml.cs">
-      <DependentUpon>WorkItemRowView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TileView.xaml.cs">
-      <DependentUpon>TileView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Converters\TeamMateConverters.cs" />
-    <Compile Include="Model\ConnectionInfo.cs" />
-    <Compile Include="Model\ProjectContext.cs" />
-    <Compile Include="Controls\NavigationFrame.xaml.cs">
-      <DependentUpon>NavigationFrame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\NavigationViewModel.cs" />
-    <Compile Include="Pages\ConnectionStatusPage.xaml.cs">
-      <DependentUpon>ConnectionStatusPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\NewWorkItemPage.xaml.cs">
-      <DependentUpon>NewWorkItemPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ProjectsPage.xaml.cs">
-      <DependentUpon>ProjectsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\WorkItemsPage.xaml.cs">
-      <DependentUpon>WorkItemsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Services\ConfigurationService.cs" />
-    <Compile Include="Model\DefaultWorkItemInfo.cs" />
-    <Compile Include="ViewModels\WorkItemQueryViewModel.cs" />
-    <Compile Include="Model\Session.cs" />
-    <Compile Include="Model\TrackingInfo.cs" />
-    <Compile Include="Pages\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\SampleData.cs" />
-    <Compile Include="Services\CommandLineService.cs" />
-    <Compile Include="Services\FileDialogService.cs" />
-    <Compile Include="Services\CollaborationService.cs" />
-    <Compile Include="Services\StatusService.cs" />
-    <Compile Include="Services\MessageBoxService.cs" />
-    <Compile Include="Services\VstsConnectionService.cs" />
-    <Compile Include="Services\TracingService.cs" />
-    <Compile Include="Services\TrackingService.cs" />
-    <Compile Include="Services\UIService.cs" />
-    <Compile Include="Services\ViewService.cs" />
-    <Compile Include="Model\ProjectInfo.cs" />
-    <Compile Include="Model\Settings\VolatileSettings.cs" />
-    <Compile Include="Utilities\CommandLineArgs.cs" />
-    <Compile Include="Services\ToastNotificationService.cs" />
-    <Compile Include="Services\BackgroundTaskService.cs" />
-    <Compile Include="Services\SettingsService.cs" />
-    <Compile Include="Model\ProjectContextSerializer.cs" />
-    <Compile Include="Services\ProjectDataService.cs" />
-    <Compile Include="Model\Settings\ApplicationSettings.cs" />
-    <Compile Include="Resources\TeamMateCommands.cs" />
-    <Compile Include="Model\Settings\SettingsSerializer.cs" />
-    <Compile Include="Utilities\ScheduledAction.cs" />
-    <Compile Include="Utilities\WindowStateTracker.cs" />
-    <Compile Include="Utilities\DataObjectFactory.cs" />
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\ToastViewModel.cs" />
-    <Compile Include="ViewModels\NewWorkItemPageViewModel.cs" />
-    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
-    <Compile Include="ViewModels\ProjectsPageViewModel.cs" />
-    <Compile Include="ViewModels\WorkItemQueryTileViewModel.cs" />
-    <Compile Include="ViewModels\WorkItemsPageViewModel.cs" />
-    <Compile Include="Services\WindowService.cs" />
-    <Compile Include="Windows\PullRequestQueryEditorDialog.xaml.cs">
-      <DependentUpon>PullRequestQueryEditorDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ConditionalFormattingDialog.xaml.cs">
-      <DependentUpon>ConditionalFormattingDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\CustomDialog.xaml.cs">
-      <DependentUpon>CustomDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\IDirtiableWindow.cs" />
-    <Compile Include="Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\OverviewWindow.xaml.cs">
-      <DependentUpon>OverviewWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\ProjectPickerDialog.xaml.cs">
-      <DependentUpon>ProjectPickerDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WelcomeDialog.xaml.cs">
-      <DependentUpon>WelcomeDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WorkItemAddTagsDialog.xaml.cs">
-      <DependentUpon>WorkItemAddTagsDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WorkItemQueryPickerDialog.xaml.cs">
-      <DependentUpon>WorkItemQueryPickerDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\QuickSearchWindow.xaml.cs">
-      <DependentUpon>QuickSearchWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\ClipboardFileExporter.cs" />
-    <Compile Include="Windows\SplashScreen.xaml.cs">
-      <DependentUpon>SplashScreen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\CustomToastManager.cs" />
-    <Compile Include="Windows\CustomToastWindow.xaml.cs">
-      <DependentUpon>CustomToastWindow.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
     <AppDesigner Include="Properties\" />
-    <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj">
-      <Project>{1967369E-0368-4888-B743-B16ABAE28B1F}</Project>
-      <Name>Microsoft.Tools.TeamMate.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj">
-      <Project>{888e7687-95f8-4049-94df-9dd3398b5592}</Project>
-      <Name>Microsoft.Tools.TeamMate.TeamFoundation.WebApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsRuntime\Microsoft.Tools.TeamMate.WindowsRuntime.csproj">
-      <Project>{5bb3a276-4460-4c5f-b842-42e4618dd034}</Project>
-      <Name>Microsoft.Tools.TeamMate.WindowsRuntime</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Controls\WorkItemTag.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\PullRequestRowView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\DropDownSelector.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\GlobalCommandBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ItemCountView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\OverlayTextIcon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\QueryPickerControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\TeamMemberView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\TileCollectionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\TileView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\SearchBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ValidationErrorView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\WorkItemRowView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\WorkItemStateView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\NavigationFrame.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\PullRequestsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ConnectionStatusPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\DeveloperOptionsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ErrorPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FirstRunExperiencePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\HomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\NewWorkItemPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ProjectsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SearchPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\WorkItemsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\All.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\TeamMateCommands.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Shared.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Brushes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\Styles\Office.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\Styles\Other.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\WindowsUniversal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Images.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\PullRequestQueryEditorDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ConditionalFormattingDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\CustomDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\OverviewWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\ProjectPickerDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\WelcomeDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\WorkItemAddTagsDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\WorkItemQueryPickerDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\QuickSearchWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\SplashScreen.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\CustomToastWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <ProjectReference Include="..\Foundation\Microsoft.Tools.TeamMate.Foundation.csproj" />
+    <ProjectReference Include="..\TeamFoundation.WebApi\Microsoft.Tools.TeamMate.TeamFoundation.WebApi.csproj" />
+    <ProjectReference Include="..\WindowsRuntime\Microsoft.Tools.TeamMate.WindowsRuntime.csproj" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -596,17 +116,6 @@
   <ItemGroup>
     <Resource Include="Resources\Fonts\Bowtie.ttf" />
     <Resource Include="Resources\Fonts\MSNMDL2.ttf" />
-    <None Include="Resources\Xml\Samples\Settings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Xml\Samples\TeamMateFile.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\EmailResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmailResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Office15\114_16_N.16x16x32.png" />
@@ -981,9 +490,6 @@
     <EmbeddedResource Include="Resources\Xml\EmailStylesheet.xslt">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Resources\Xml\Samples\Discussion.xml" />
-    <None Include="Resources\Xml\Samples\WorkItemCollection.xml" />
-    <None Include="Resources\Fonts\Bowtie.readme.txt" />
     <Resource Include="Resources\Icons\Bugger\BlueGift.png" />
     <Content Include="TeamMate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1004,11 +510,16 @@
     <PackageReference Include="SimpleInjector">
       <Version>5.3.3</Version>
     </PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Icons\Codeflow\" />
   </ItemGroup>
-  <Import Project="$(BuildScripts)\Microsoft.Tools.TeamMate.targets" />
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <Compile Remove="Services\IColection.cs" />
+    <Page Remove="Themes\Generic.xaml" />
+  </ItemGroup>
   <Target Name="BeforeBuild" />
   <Target Name="AfterPublish" />
   <Target Name="Upload" />
@@ -1017,6 +528,15 @@
       $(CleanDependsOn);
       CleanPublish;
     </CleanDependsOn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <NoWarn>467;618</NoWarn>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <NoWarn>467;618</NoWarn>
   </PropertyGroup>
   <Target Name="CleanPublish">
     <RemoveDir Directories="$(PublishDir)" />
