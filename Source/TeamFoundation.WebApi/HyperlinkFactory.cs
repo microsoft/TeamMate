@@ -41,16 +41,15 @@ namespace Microsoft.Tools.TeamMate.TeamFoundation.WebApi
 
         public Uri GetNewWorkItemUrl(string workItemType, bool fullScreen = true)
         {
-            // E.g. https://microsofthealth.visualstudio.com/Health/_queries?witd=Bug&id=1&_a=new&fullScreen=true
+            // E.g. https://microsofthealth.visualstudio.com/Health/_workitems/create/User%20Story
             UriBuilder builder = new UriBuilder(this.BaseUrl);
-            builder.Path = CombinePath(builder.Path, ProjectName, "_queries");
+            builder.Path = CombinePath(builder.Path, ProjectName, "_workitems", "create", Uri.EscapeDataString(workItemType));
 
-            AddQueryParam(builder, "witd", workItemType);
-            AddQueryParam(builder, "_a", "new");
             if (fullScreen)
             {
                 AddQueryParam(builder, "fullScreen", "true");
             }
+
             return builder.Uri;
         }
 
