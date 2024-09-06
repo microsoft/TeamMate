@@ -100,8 +100,8 @@ jobs:
       with:
         files: |
           **/*.msi
-          **/bin/x86/Release/TeamMate.pdb
-          **/bin/x86/Release/TeamMate.exe
+          **/bin/x86/Release/**/TeamMate.pdb
+          **/bin/x86/Release/**/TeamMate.exe
         draft: true
         prerelease: true
       env:
