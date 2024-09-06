@@ -25,7 +25,7 @@ jobs:
 
     - name: Get the version
       id: get_version
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       shell: bash
 
     - name: Install GitVersion
