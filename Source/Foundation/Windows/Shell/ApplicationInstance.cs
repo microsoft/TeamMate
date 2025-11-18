@@ -169,8 +169,8 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
             while (numberOfMessages > 0)
             {
-                // KLUDGE: Using deprecated API to prevent slot handle from being closed!
-                using (FileStream fs = new FileStream(mailslotHandle.DangerousGetHandle(), FileAccess.Read, false))
+                // Using SafeFileHandle to prevent slot handle from being closed
+                using (FileStream fs = new FileStream(new SafeFileHandle(mailslotHandle.DangerousGetHandle(), ownsHandle: false), FileAccess.Read))
                 {
                     // Sometimes we get messages of size 0, these have to be "read" and discarded from the queue to check for future messages...
                     if (messageSize > 0)

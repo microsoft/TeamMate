@@ -194,9 +194,10 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
                 fontStyle = control.FontStyle;
             }
 
+            var dpiInfo = VisualTreeHelper.GetDpi(control);
             FormattedText text = new FormattedText(hintText, uiCulture, control.FlowDirection,
                     new Typeface(control.FontFamily, fontStyle, control.FontWeight, control.FontStretch),
-                    control.FontSize, renderBrush);
+                    control.FontSize, renderBrush, dpiInfo.PixelsPerDip);
 
             text.TextAlignment = GetTextAlignment();
             text.MaxTextHeight = Math.Max(control.ActualHeight, 1.0);

@@ -511,11 +511,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <NoWarn>467;618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <NoWarn>467;618</NoWarn>
   </PropertyGroup>
   <Target Name="CleanPublish">
     <RemoveDir Directories="$(PublishDir)" />
