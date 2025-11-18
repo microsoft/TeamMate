@@ -748,10 +748,12 @@ namespace Microsoft.Tools.TeamMate.Foundation.Web
             {
             }
 
+#pragma warning disable SYSLIB0051 // Type or member is obsolete
             protected HttpValueCollection(SerializationInfo info, StreamingContext context)
                 : base(info, context)
             {
             }
+#pragma warning restore SYSLIB0051
 
             internal void MakeReadOnly()
             {
