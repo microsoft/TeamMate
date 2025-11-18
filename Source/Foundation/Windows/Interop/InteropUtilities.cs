@@ -150,7 +150,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Interop
 
                 case WindowIconType.SmallOrAny:
                     iconHandle = GetSmallWindowIcon(hwnd);
-                    if (iconHandle == null)
+                    if (iconHandle == IntPtr.Zero)
                     {
                         iconHandle = GetLargeWindowIcon(hwnd);
                     }
@@ -158,7 +158,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Interop
 
                 case WindowIconType.LargeOrAny:
                     iconHandle = GetLargeWindowIcon(hwnd);
-                    if (iconHandle == null)
+                    if (iconHandle == IntPtr.Zero)
                     {
                         iconHandle = GetSmallWindowIcon(hwnd);
                     }
