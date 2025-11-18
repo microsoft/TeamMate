@@ -154,7 +154,8 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
         {
             using (FileStream fs = new FileStream(mailslotHandle, FileAccess.Write, 400, false))
             {
-                JsonSerializer.Serialize(fs, o);
+                // Use o.GetType() to preserve type information for polymorphic serialization
+                JsonSerializer.Serialize(fs, o, o.GetType());
             }
 
             eventWaitHandle.Set();
