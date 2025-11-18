@@ -91,6 +91,12 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
         Failed
     }
 
+    /// <summary>
+    /// Mirrors Windows.UI.Notifications.ToastDismissalReason values.
+    /// These values are hardcoded to match the Windows API as of Nov 2025.
+    /// If the Windows API changes, update these values accordingly.
+    /// Consider adding runtime validation to ensure values stay in sync.
+    /// </summary>
     public enum ToastDismissalReason
     {
         UserCanceled = 0,
