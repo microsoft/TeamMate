@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Documents;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Documents;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using ListView = Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data.ListView;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class SearchTextHighlighter
     {
 

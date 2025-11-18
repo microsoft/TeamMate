@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.ViewModels;
@@ -10,9 +10,11 @@ using System.Linq;
 using System.Media;
 using System.Windows;
 using System.Windows.Threading;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class CustomToastManager : IToastManager
     {
         private SoundPlayer notificationSound;

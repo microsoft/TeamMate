@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Actions;
 using Microsoft.Tools.TeamMate.Windows;
@@ -6,9 +6,11 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class GlobalCommandService : ICommandProvider
     {
         [Import]

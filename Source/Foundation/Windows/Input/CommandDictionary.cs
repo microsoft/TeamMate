@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Input
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class CommandDictionary
     {
         private IDictionary<string, ICommand> commands = new Dictionary<string, ICommand>();

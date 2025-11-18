@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Transfer;
@@ -14,9 +14,11 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class PullRequestPageViewModel : PageViewModelBase, ICommandProvider, IFilterable, IGlobalCommandProvider
     {
         private PullRequestQueryViewModel query;

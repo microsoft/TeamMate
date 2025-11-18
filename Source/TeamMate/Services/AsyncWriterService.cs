@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.IO;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Timers;
 using System.Xml.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class AsyncWriterService : IDisposable
     {
         private static readonly TimeSpan AsyncSaveDelay = TimeSpan.FromSeconds(1);

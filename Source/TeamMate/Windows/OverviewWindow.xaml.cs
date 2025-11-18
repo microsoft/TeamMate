@@ -1,16 +1,18 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Native;
+using Microsoft.Tools.TeamMate.Foundation.Native;
 using Microsoft.Tools.TeamMate.Foundation.Windows.DragAndDrop;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for OverviewWindow.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class OverviewWindow : Window
     {
         private Point? mouseLeftButtonDownPoint;

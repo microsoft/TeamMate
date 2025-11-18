@@ -1,11 +1,13 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.ComponentModel.Composition;
 using System.Windows;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class UpgradeService
     {
         [Import]

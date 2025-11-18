@@ -6,12 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
 
 namespace Microsoft.Tools.TeamMate.Model.Settings
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     class SettingsSerializer
     {
         public ApplicationSettings ReadSettings(string filename)

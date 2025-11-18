@@ -1,9 +1,11 @@
-﻿using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Services;
 using System.ComponentModel.Composition;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class PullRequestQueryTileViewModel : TileViewModel
     {
         public PullRequestQueryViewModel QueryModel

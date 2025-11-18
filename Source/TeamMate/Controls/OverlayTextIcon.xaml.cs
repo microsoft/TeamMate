@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Media.Imaging;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for OverlayTextIcon.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class OverlayTextIcon : UserControl
     {
         public OverlayTextIcon()

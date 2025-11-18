@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ScheduledAction : IDisposable
     {
         private static TimeSpan UpdateSchedulingBuffer = TimeSpan.FromSeconds(10);

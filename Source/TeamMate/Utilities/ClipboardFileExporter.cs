@@ -7,12 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ClipboardFileExporter
     {
         // We support files, groups of files, images, and text.

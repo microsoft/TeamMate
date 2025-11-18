@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Transfer;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
@@ -10,10 +10,12 @@ using System.Linq;
 using System.Windows;
 using IDataObject = System.Runtime.InteropServices.ComTypes.IDataObject;
 using WorkItem = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItem;
+using System.Runtime.Versioning;
 
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class DataObjectFactory
     {
         public static IDataObject CreateDraggableItem(WorkItem workItem, HyperlinkFactory factory)

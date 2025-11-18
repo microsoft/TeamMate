@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Settings;
@@ -7,9 +7,11 @@ using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ConfigurationService
     {
         public void Initialize()

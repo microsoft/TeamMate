@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
@@ -12,9 +12,11 @@ using System.ComponentModel.Composition;
 using System.Diagnostics;
 using System.Linq;
 using WorkItem = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItem;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ToastNotificationService : IDisposable
     {
         public static readonly string[] RequiredWorkItemFields = {
@@ -332,6 +334,7 @@ namespace Microsoft.Tools.TeamMate.Services
         }
     }
 
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class NotificationScope
     {
         private Dictionary<WorkItemReference, DateTime> currentScope = new Dictionary<WorkItemReference, DateTime>();

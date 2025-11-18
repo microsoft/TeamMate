@@ -1,15 +1,17 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for TileCollectionView.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class TileCollectionView : UserControl
     {
         static TileCollectionView()

@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.Tools.TeamMate.Utilities;
@@ -9,9 +9,11 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using WorkItemReference = Microsoft.Tools.TeamMate.Model.WorkItemReference;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemRowViewModel : TrackableViewModelBase
     {
         public static readonly string[] RequiredWorkItemFields = {

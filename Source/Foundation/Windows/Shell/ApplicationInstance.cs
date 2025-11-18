@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Text.Json;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -12,6 +13,7 @@ using System.Threading;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ApplicationInstance : IDisposable
     {
         /// <summary>

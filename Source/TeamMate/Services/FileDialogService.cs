@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using System.Windows;
@@ -6,9 +6,11 @@ using DialogResult = System.Windows.Forms.DialogResult;
 using FileDialog = System.Windows.Forms.FileDialog;
 using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class FileDialogService
     {
         public FileDialogResult ShowFileDialog(FileDialogOptions options)

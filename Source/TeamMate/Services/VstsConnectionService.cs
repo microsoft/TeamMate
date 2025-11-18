@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Settings;
@@ -25,9 +25,11 @@ using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
 using Microsoft.VisualStudio.Services.Graph.Client;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class VstsConnectionService
     {
         // Cached MSAL public client application - reused across connections

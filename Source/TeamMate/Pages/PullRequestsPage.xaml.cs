@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Utilities;
@@ -6,6 +6,7 @@ using Microsoft.Tools.TeamMate.ViewModels;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Pages
 {
@@ -13,6 +14,7 @@ namespace Microsoft.Tools.TeamMate.Pages
     /// Interaction logic for PullRequestsPage.xaml
     /// </summary>
     [View(typeof(PullRequestPageViewModel))]
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class PullRequestsPage : UserControl, IResultsContainer
     {
         public PullRequestsPage()

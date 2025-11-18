@@ -1,12 +1,14 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.ComponentModel.Composition;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public abstract class TrackableViewModelBase : ViewModelBase
     {
         private bool isFlagged;

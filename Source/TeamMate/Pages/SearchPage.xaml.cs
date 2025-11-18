@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Media;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Pages
 {
@@ -17,6 +18,7 @@ namespace Microsoft.Tools.TeamMate.Pages
     /// Interaction logic for SearchPage.xaml
     /// </summary>
     [View(typeof(SearchPageViewModel))]
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class SearchPage : UserControl, IResultsContainer
     {
         private ContextMenu placeholderItemContextMenu;

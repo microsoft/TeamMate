@@ -1,6 +1,2 @@
 <Project>
-  <PropertyGroup>
-    <!-- Suppress warnings globally for all projects including WPF temp projects -->
-    <NoWarn>$(NoWarn);CA1416</NoWarn>
-  </PropertyGroup>
 </Project>

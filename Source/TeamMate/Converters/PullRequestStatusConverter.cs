@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Resources;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System;
@@ -8,9 +8,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Converters
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class PullRequestStatusConverter : OneWayConverterBase
     {
         public enum PullRequestStatus

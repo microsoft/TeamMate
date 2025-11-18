@@ -1,11 +1,13 @@
-﻿using Microsoft.Tools.TeamMate.Model;
+using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class FlaggedWorkItemsViewModel : WorkItemQueryViewModel
     {
         public FlaggedWorkItemsViewModel()

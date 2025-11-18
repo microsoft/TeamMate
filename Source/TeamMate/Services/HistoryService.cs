@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Xml.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class HistoryService
     {
         private ApplicationHistory history;

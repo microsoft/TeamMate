@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.IO;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
@@ -9,9 +9,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemHtmlGenerator
     {
         private IDictionary<string, WorkItemField> workItemFieldsByName;

@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Settings;
 using Microsoft.Tools.TeamMate.Services;
@@ -9,9 +9,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class SettingsPageViewModel : PageViewModelBase
     {
         private static readonly IList<Tuple<TimeSpan, string>> RefreshIntervals = new Tuple<TimeSpan, string>[] {

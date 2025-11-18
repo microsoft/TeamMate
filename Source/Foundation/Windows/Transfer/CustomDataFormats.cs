@@ -1,6 +1,8 @@
-﻿
+﻿using System.Runtime.Versioning;
+
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class CustomDataFormats
     {
         public const string FileGroupDescriptorW = "FileGroupDescriptorW";

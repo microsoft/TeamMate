@@ -3,10 +3,12 @@ using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.Versioning;
 using System.Windows;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WindowStateTracker
     {
         private Dictionary<Type, WindowStateInfo> states = new Dictionary<Type, WindowStateInfo>();

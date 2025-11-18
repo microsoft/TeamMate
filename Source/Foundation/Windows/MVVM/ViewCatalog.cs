@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Windows;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.MVVM
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ViewCatalog
     {
         private IDictionary<Type, Type> viewMap = new Dictionary<Type, Type>();

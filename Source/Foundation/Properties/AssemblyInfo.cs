@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Windows;
 
 // General Information about an assembly is controlled through the following 
@@ -7,6 +8,9 @@ using System.Windows;
 // associated with an assembly.
 [assembly: AssemblyTitle("Foundation")]
 [assembly: AssemblyDescription("")]
+
+// Platform support
+[assembly: SupportedOSPlatform("windows10.0.19041.0")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

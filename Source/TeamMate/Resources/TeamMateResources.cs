@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
 using System;
 using System.IO;
@@ -6,9 +6,11 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Icon = System.Drawing.Icon;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Resources
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class TeamMateResources
     {
         private static readonly Uri NotificationSoundUri = new Uri("pack://application:,,,/Resources/Audio/Notification.wav");

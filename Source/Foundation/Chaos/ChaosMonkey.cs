@@ -1,9 +1,11 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Chaos
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class ChaosMonkey
     {
         [ThreadStatic]

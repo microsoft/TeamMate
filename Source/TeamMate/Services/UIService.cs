@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Controls;
 using Microsoft.Tools.TeamMate.Exceptions;
 using Microsoft.Tools.TeamMate.Foundation.Collections;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
@@ -19,9 +19,11 @@ using System.Windows.Shell;
 using System.Windows.Threading;
 using NotifyIcon = System.Windows.Forms.NotifyIcon;
 using ToolStripMenuItem = System.Windows.Forms.ToolStripMenuItem;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
 	public class UIService : IDisposable
     {
         private const int MaxJumpListItems = 5;

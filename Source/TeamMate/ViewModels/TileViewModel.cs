@@ -1,12 +1,14 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Services;
 using System;
 using System.Threading.Tasks;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public abstract class TileViewModel : ViewModelBase
     {
         private TileInfo tileInfo;

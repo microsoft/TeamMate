@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Resources;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,11 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model.Settings
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ApplicationSettings : SettingsBase
     {
         private KeyGesture quickSearchGesture;
@@ -188,6 +190,7 @@ namespace Microsoft.Tools.TeamMate.Model.Settings
         }
     }
 
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ProjectsRemovedEventArgs : EventArgs
     {
         public ProjectsRemovedEventArgs(ProjectInfo[] projects)

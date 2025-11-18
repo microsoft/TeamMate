@@ -1,5 +1,6 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Threading
@@ -8,6 +9,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Threading
     /// A utility class to only execute a task if a previous instance of the same task
     /// was not already running.
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class SingleTaskRunner
     {
         private object syncLock = new object();

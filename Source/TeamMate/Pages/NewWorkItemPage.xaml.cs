@@ -1,8 +1,9 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Pages
 {
@@ -10,6 +11,7 @@ namespace Microsoft.Tools.TeamMate.Pages
     /// Interaction logic for NewWorkItemPage.xaml
     /// </summary>
     [View(typeof(NewWorkItemPageViewModel))]
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class NewWorkItemPage : UserControl
     {
         public NewWorkItemPage()

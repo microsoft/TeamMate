@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Interop;
@@ -7,9 +7,11 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class WinFormsUtilities
     {
         public static ToolStripMenuItem CreateMenuItem(ICommand command, Action action = null)

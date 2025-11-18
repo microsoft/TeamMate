@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Controls;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
 using System.Windows;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for WorkItemQueryPickerDialog.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class WorkItemQueryPickerDialog : Window
     {
         public WorkItemQueryPickerDialog()

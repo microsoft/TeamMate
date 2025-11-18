@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
     [Serializable]
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class PullRequestReference
     {
         public PullRequestReference(Guid projectId, int id)
@@ -55,6 +57,7 @@ namespace Microsoft.Tools.TeamMate.Model
 
     public static class PullRequestReferenceExtensions
     {
+        [SupportedOSPlatform("windows10.0.19041.0")]
         public static PullRequestReference GetReference(this GitPullRequest pullRequest)
         {
             Guid projectId = pullRequest.Repository.Id;

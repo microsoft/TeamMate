@@ -1,7 +1,9 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class ChaosScenarios
     {
         public static readonly ChaosScenario ConnectToVsts = new ChaosScenario("ConnectToVsts");

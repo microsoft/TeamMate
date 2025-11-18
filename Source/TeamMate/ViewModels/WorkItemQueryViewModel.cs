@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Foundation.Threading;
@@ -17,9 +17,11 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemQueryViewModel : QueryViewModelBase, ICommandProvider
     {
         private ICollection<WorkItemRowViewModel> workItems;

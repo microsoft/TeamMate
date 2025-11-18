@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System.Collections.Generic;
 using System.Windows;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model.Settings
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class VolatileSettings : SettingsBase
     {
         private ProjectInfo lastUsedProject;

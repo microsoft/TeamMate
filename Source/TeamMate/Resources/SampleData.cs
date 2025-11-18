@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Data;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Resources
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class SampleData
     {
         public static readonly Uri SampleCollectionUri = new Uri("https://sample.visualstudio.com/DefaultCollection");

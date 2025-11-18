@@ -1,4 +1,4 @@
-﻿using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Utilities
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemTextGenerator
     {
         private static IEnumerable<WorkItemUpdate> GetHistoryUpdatesInReverseOrder(ICollection<WorkItemUpdate> updates)
