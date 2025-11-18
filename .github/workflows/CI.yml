@@ -1,26 +1,30 @@
 name: CI
 on: [pull_request]
+permissions:
+  contents: read
 jobs:
   build:
-    name: MSBuild
+    name: Build
     # runs-on: self-hosted
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Setup MSBuild.exe
-      uses: microsoft/Setup-MSBuild@v1.0.2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
 
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.7
+      uses: gittools/actions/gitversion/setup@v1.1.1
       with:
-        versionSpec: '5.x'
+        versionSpec: '6.x'
 
     - name: Determine Version
       id:   gitversion
-      uses: gittools/actions/gitversion/execute@v0.9.7
+      uses: gittools/actions/gitversion/execute@v1.1.1
       with:
         useConfigFile: true
 
@@ -59,7 +63,6 @@ jobs:
         echo "UncommittedChanges: ${{ steps.gitversion.outputs.uncommittedChanges }}"
         echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"
 
-    - name: MSBuild
-      run: msbuild -restore:true TeamMate.csproj
+    - name: Build
+      run: dotnet build --configuration Debug
       working-directory: ./Source/TeamMate
-      shell: cmd
