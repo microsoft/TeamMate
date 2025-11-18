@@ -7,24 +7,24 @@
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
-    <NoWarn>467;618</NoWarn>
+    <NoWarn>467;618;NU1701</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <NoWarn>467;618</NoWarn>
+    <NoWarn>467;618;NU1701</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <NoWarn>467;618</NoWarn>
+    <NoWarn>467;618;NU1701</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <NoWarn>467;618</NoWarn>
+    <NoWarn>467;618;NU1701</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <NoWarn>467;618</NoWarn>
+    <NoWarn>467;618;NU1701</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client">
