@@ -9,7 +9,7 @@
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
   <PropertyGroup>
-    <NoWarn>467;618;CA1416;SYSLIB0013;SYSLIB0051;CS0472;CS8073;NU1603;CA2022</NoWarn>
+    <NoWarn>467;618;CA1416;SYSLIB0013;SYSLIB0051;CS0472;CS8073;NU1603</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">

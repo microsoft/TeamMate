@@ -176,7 +176,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
                     if (messageSize > 0)
                     {
                         byte[] message = new byte[messageSize];
-                        fs.Read(message, 0, messageSize);
+                        fs.ReadExactly(message, 0, messageSize);
 
                         return JsonSerializer.Deserialize<object>(new MemoryStream(message));
                     }
