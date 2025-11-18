@@ -726,7 +726,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Web
 
         // *** Source: ndp/fx/src/xsp/system/web/httpvaluecollection.cs
 
-        [Serializable()]
         internal class HttpValueCollection : NameValueCollection
         {
             internal HttpValueCollection()
@@ -747,13 +746,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Web
                 : base(capacity, StringComparer.OrdinalIgnoreCase)
             {
             }
-
-#pragma warning disable SYSLIB0051 // Type or member is obsolete
-            protected HttpValueCollection(SerializationInfo info, StreamingContext context)
-                : base(info, context)
-            {
-            }
-#pragma warning restore SYSLIB0051
 
             internal void MakeReadOnly()
             {
