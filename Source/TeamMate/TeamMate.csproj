@@ -26,7 +26,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <NoWarn>618;NU1603;NU1701;CA1416</NoWarn>
+    <NoWarn>618;NU1701;CA1416</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
