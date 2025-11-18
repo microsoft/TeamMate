@@ -13,6 +13,21 @@ using System.Threading;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
+    /// <summary>
+    /// Envelope to wrap messages with type metadata for proper deserialization.
+    /// </summary>
+    internal class MessageEnvelope
+    {
+        /// <summary>
+        /// Magic marker to identify valid message envelopes.
+        /// </summary>
+        public const int MagicMarker = 0x544D4154; // "TMAT" in hex
+
+        public int Magic { get; set; }
+        public string TypeName { get; set; }
+        public string PayloadJson { get; set; }
+    }
+
     [SupportedOSPlatform("windows10.0.19041.0")]
     public class ApplicationInstance : IDisposable
     {
@@ -154,8 +169,14 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
         {
             using (FileStream fs = new FileStream(mailslotHandle, FileAccess.Write, 400, false))
             {
-                // Use o.GetType() to preserve type information for polymorphic serialization
-                JsonSerializer.Serialize(fs, o, o.GetType());
+                // Wrap message with type metadata to ensure proper deserialization
+                var envelope = new MessageEnvelope
+                {
+                    Magic = MessageEnvelope.MagicMarker,
+                    TypeName = o.GetType().AssemblyQualifiedName,
+                    PayloadJson = JsonSerializer.Serialize(o, o.GetType())
+                };
+                JsonSerializer.Serialize(fs, envelope);
             }
 
             eventWaitHandle.Set();
@@ -183,7 +204,31 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
                         using (var ms = new MemoryStream(message))
                         {
-                            return JsonSerializer.Deserialize<object>(ms);
+                            // Deserialize the envelope first to get type information
+                            var envelope = JsonSerializer.Deserialize<MessageEnvelope>(ms);
+                            if (envelope == null || string.IsNullOrEmpty(envelope.TypeName) || string.IsNullOrEmpty(envelope.PayloadJson))
+                            {
+                                Log.Warn("Received invalid message envelope");
+                                return null;
+                            }
+
+                            // Verify the magic marker
+                            if (envelope.Magic != MessageEnvelope.MagicMarker)
+                            {
+                                Log.Warn($"Invalid message envelope magic marker: expected {MessageEnvelope.MagicMarker:X8}, got {envelope.Magic:X8}");
+                                return null;
+                            }
+
+                            // Get the type from the type name
+                            Type messageType = Type.GetType(envelope.TypeName);
+                            if (messageType == null)
+                            {
+                                Log.Warn($"Could not resolve type: {envelope.TypeName}");
+                                return null;
+                            }
+
+                            // Deserialize the payload using the correct type
+                            return JsonSerializer.Deserialize(envelope.PayloadJson, messageType);
                         }
                     }
                     else
