@@ -133,7 +133,7 @@ namespace Microsoft.Tools.TeamMate.Services
                         byte[] cacheData = File.ReadAllBytes(cacheFilePath);
                         notificationArgs.TokenCache.DeserializeMsalV3(cacheData);
                     }
-                    catch
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException || ex is System.Security.SecurityException)
                     {
                         // Ignore cache read errors, will just re-authenticate
                     }
@@ -150,7 +150,7 @@ namespace Microsoft.Tools.TeamMate.Services
                         byte[] cacheData = notificationArgs.TokenCache.SerializeMsalV3();
                         File.WriteAllBytes(cacheFilePath, cacheData);
                     }
-                    catch
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException || ex is System.Security.SecurityException)
                     {
                         // Ignore cache write errors
                     }
@@ -171,10 +171,17 @@ namespace Microsoft.Tools.TeamMate.Services
             // Simple in-memory dictionary for tokens - not persisted
             private readonly System.Collections.Concurrent.ConcurrentDictionary<string, string> tokens = new();
             
+            private static string GetTokenKeyString(Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey)
+            {
+                // Create a unique key from token key's hash code
+                // VssTokenKey is a value type, so its hash code is based on its content
+                return tokenKey.GetHashCode().ToString();
+            }
+            
             protected override Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken AddToken(
                 Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey, string tokenValue)
             {
-                string key = tokenKey.ToString();
+                string key = GetTokenKeyString(tokenKey);
                 tokens[key] = tokenValue;
                 return null; // Return null - credential storage will handle token object
             }
@@ -187,7 +194,7 @@ namespace Microsoft.Tools.TeamMate.Services
             
             protected override bool RemoveToken(Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey)
             {
-                string key = tokenKey.ToString();
+                string key = GetTokenKeyString(tokenKey);
                 return tokens.TryRemove(key, out _);
             }
             

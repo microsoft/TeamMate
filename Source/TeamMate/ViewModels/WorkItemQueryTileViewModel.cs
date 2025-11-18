@@ -80,4 +80,5 @@ namespace Microsoft.Tools.TeamMate.ViewModels
             }
         }
     }
+
 }

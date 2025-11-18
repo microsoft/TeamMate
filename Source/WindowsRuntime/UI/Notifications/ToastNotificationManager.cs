@@ -53,7 +53,7 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
             this.ToastOccurred?.Invoke(this, new ToastNotificationManagerEventArgs
             {
                 EventType = ToastNotificationEventType.Dismissed,
-                DismissReason = (ToastDismissalReason)(int)args.Reason
+                DismissReason = (ToastDismissalReason)args.Reason
             });
         }
 

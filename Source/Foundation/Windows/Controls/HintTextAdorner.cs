@@ -165,7 +165,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
         /// <summary>
         /// Get/Set the hint text font style
         /// </summary>
-        public FontStyle HintTextFontStyle { get; set; }
+        public FontStyle? HintTextFontStyle { get; set; }
 
         /// <summary>
         /// Overridden to render the hint text when appropriate.
@@ -188,11 +188,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls
             renderBrush.Opacity = 0.6;
 
             // Draw the hint text on top of the control
-            FontStyle fontStyle = HintTextFontStyle;
-            if (fontStyle == FontStyles.Normal)
-            {
-                fontStyle = control.FontStyle;
-            }
+            FontStyle fontStyle = HintTextFontStyle ?? control.FontStyle;
 
             var dpiInfo = VisualTreeHelper.GetDpi(control);
             FormattedText text = new FormattedText(hintText, uiCulture, control.FlowDirection,

@@ -180,7 +180,10 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
                         byte[] message = new byte[messageSize];
                         fs.ReadExactly(message, 0, messageSize);
 
-                        return JsonSerializer.Deserialize<object>(new MemoryStream(message));
+                        using (var ms = new MemoryStream(message))
+                        {
+                            return JsonSerializer.Deserialize<object>(ms);
+                        }
                     }
                     else
                     {
