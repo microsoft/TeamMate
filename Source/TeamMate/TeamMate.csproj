@@ -26,6 +26,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <!-- Suppress NU1701: Azure DevOps SDK packages have .NET Framework dependencies but work correctly on .NET 9 -->
     <NoWarn>NU1701</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
