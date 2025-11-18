@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,7 +26,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <!-- Suppress NU1701: Azure DevOps SDK packages have .NET Framework dependencies but work correctly on .NET 9 -->
+    <!-- Suppress NU1701: Azure DevOps SDK packages have .NET Framework dependencies but work correctly on .NET 10 -->
     <NoWarn>NU1701</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -492,6 +492,11 @@
     <PackageReference Include="System.ComponentModel.Composition" Version="9.0.0" />
     <PackageReference Include="Azure.Identity" Version="1.13.1" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.66.2" />
+    <!-- Override vulnerable transitive dependencies with secure versions -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.2.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Icons\Codeflow\" />
