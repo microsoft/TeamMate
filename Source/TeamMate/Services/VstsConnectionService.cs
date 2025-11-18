@@ -10,12 +10,17 @@ using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
+using Microsoft.VisualStudio.Services.Common;
+using Azure.Identity;
+using Azure.Core;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient;
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
@@ -25,6 +30,13 @@ namespace Microsoft.Tools.TeamMate.Services
 {
     public class VstsConnectionService
     {
+        // Cached MSAL public client application - reused across connections
+        private static IPublicClientApplication _msalApp;
+        private static readonly object _msalLock = new object();
+        private const string ClientId = "04b07795-8ddb-461a-bbee-02f9e1bf7b46"; // Azure CLI client ID
+        private const string Authority = "https://login.microsoftonline.com/common";
+        private static readonly string[] Scopes = new[] { "499b84ac-1321-427f-aa17-267ca6975798/.default" };
+
         [Import]
         public SettingsService SettingsService { get; set; }
 
@@ -45,9 +57,27 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             Assert.ParamIsNotNull(projectCollectionUri, "projectCollectionUri");
 
-            var credentials = new VssClientCredentials();
-            credentials.PromptType = VisualStudio.Services.Common.CredentialPromptType.PromptIfNeeded;
-            credentials.Storage = GetVssClientCredentialStorage(86400);
+            // Get or create the MSAL app
+            var app = GetOrCreateMsalApp();
+
+            AuthenticationResult authResult;
+            try
+            {
+                // Try to acquire token silently first (from cache)
+                var accounts = await app.GetAccountsAsync();
+                authResult = await app.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+                    .ExecuteAsync(cancellationToken);
+            }
+            catch (MsalUiRequiredException)
+            {
+                // Silent acquisition failed, need interactive login
+                authResult = await app.AcquireTokenInteractive(Scopes)
+                    .WithUseEmbeddedWebView(false) // Use system browser
+                    .ExecuteAsync(cancellationToken);
+            }
+
+            // Use the token with VssAadCredential
+            var credentials = new VssAadCredential(new VssAadToken("Bearer", authResult.AccessToken));
 
             var settings = new VssClientHttpRequestSettings();
             settings.AllowAutoRedirect = true;
@@ -60,9 +90,140 @@ namespace Microsoft.Tools.TeamMate.Services
 
             return connection;
         }
-        private static VstsClientCredentialCachingStorage GetVssClientCredentialStorage(double tokenLeaseInSeconds)
+
+        private static IPublicClientApplication GetOrCreateMsalApp()
         {
-            return new VstsClientCredentialCachingStorage("TeamMate", "TokenStorage", tokenLeaseInSeconds);
+            lock (_msalLock)
+            {
+                if (_msalApp == null)
+                {
+                    // Get the app data folder for token cache
+                    var cacheDirectory = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "Microsoft", "TeamMate", "MsalCache");
+                    
+                    Directory.CreateDirectory(cacheDirectory);
+                    var cacheFileName = Path.Combine(cacheDirectory, "msal.cache");
+
+                    // Build the MSAL public client application with persistent cache
+                    _msalApp = PublicClientApplicationBuilder.Create(ClientId)
+                        .WithAuthority(Authority)
+                        .WithRedirectUri("http://localhost")
+                        .Build();
+
+                    // Register the token cache serialization
+                    RegisterTokenCache(_msalApp.UserTokenCache, cacheFileName);
+                }
+
+                return _msalApp;
+            }
+        }
+
+        private static void RegisterTokenCache(ITokenCache tokenCache, string cacheFilePath)
+        {
+            tokenCache.SetBeforeAccess(notificationArgs =>
+            {
+                // Read cache from file
+                if (File.Exists(cacheFilePath))
+                {
+                    try
+                    {
+                        byte[] cacheData = File.ReadAllBytes(cacheFilePath);
+                        notificationArgs.TokenCache.DeserializeMsalV3(cacheData);
+                    }
+                    catch
+                    {
+                        // Ignore cache read errors, will just re-authenticate
+                    }
+                }
+            });
+
+            tokenCache.SetAfterAccess(notificationArgs =>
+            {
+                // Write cache to file if it has changed
+                if (notificationArgs.HasStateChanged)
+                {
+                    try
+                    {
+                        byte[] cacheData = notificationArgs.TokenCache.SerializeMsalV3();
+                        File.WriteAllBytes(cacheFilePath, cacheData);
+                    }
+                    catch
+                    {
+                        // Ignore cache write errors
+                    }
+                }
+            });
+        }
+        private static VssClientCredentialStorage GetVssClientCredentialStorage(double tokenLeaseInSeconds)
+        {
+            // TODO: Restore custom caching storage for .NET 9 - using in-memory storage for now
+            // The Azure DevOps SDK API has changed significantly and requires a new implementation
+            // For now, use in-memory storage which will work but won't persist across restarts
+            return new VssClientCredentialStorage("TeamMate", new InMemoryTokenStorage());
+        }
+        
+        // Temporary in-memory token storage for .NET 9 migration
+        private class InMemoryTokenStorage : Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenStorage
+        {
+            // Simple in-memory dictionary for tokens - not persisted
+            private readonly System.Collections.Concurrent.ConcurrentDictionary<string, string> tokens = new();
+            
+            protected override Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken AddToken(
+                Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey, string tokenValue)
+            {
+                string key = tokenKey.ToString();
+                tokens[key] = tokenValue;
+                return null; // Return null - credential storage will handle token object
+            }
+            
+            protected override Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken RetrieveToken(
+                Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey)
+            {
+                return null; // Let SDK manage tokens
+            }
+            
+            protected override bool RemoveToken(Microsoft.VisualStudio.Services.Common.TokenStorage.VssTokenKey tokenKey)
+            {
+                string key = tokenKey.ToString();
+                return tokens.TryRemove(key, out _);
+            }
+            
+            public override System.Collections.Generic.IEnumerable<Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken> RetrieveAll(string tokenType)
+            {
+                return System.Linq.Enumerable.Empty<Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken>();
+            }
+            
+            public override bool RemoveAll()
+            {
+                tokens.Clear();
+                return true;
+            }
+            
+            public override string RetrieveTokenSecret(Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken token)
+            {
+                return null;
+            }
+            
+            public override bool SetTokenSecret(Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken token, string tokenValue)
+            {
+                return true;
+            }
+            
+            public override bool RemoveTokenSecret(Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken token)
+            {
+                return true;
+            }
+            
+            public override string GetProperty(Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken token, string propertyName)
+            {
+                return null;
+            }
+            
+            public override bool SetProperty(Microsoft.VisualStudio.Services.Common.TokenStorage.VssToken token, string propertyName, string value)
+            {
+                return true;
+            }
         }
 
         public async Task<ProjectReference> ResolveProjectReferenceAsync(Uri projectCollectionUri, string projectName)

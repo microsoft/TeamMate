@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
@@ -150,11 +150,9 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
         public void SendMessage(object o)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-
             using (FileStream fs = new FileStream(mailslotHandle, FileAccess.Write, 400, false))
             {
-                formatter.Serialize(fs, o);
+                JsonSerializer.Serialize(fs, o);
             }
 
             eventWaitHandle.Set();
@@ -177,11 +175,10 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
                     // Sometimes we get messages of size 0, these have to be "read" and discarded from the queue to check for future messages...
                     if (messageSize > 0)
                     {
-                        BinaryFormatter formatter = new BinaryFormatter();
                         byte[] message = new byte[messageSize];
                         fs.Read(message, 0, messageSize);
 
-                        return formatter.Deserialize(new MemoryStream(message));
+                        return JsonSerializer.Deserialize<object>(new MemoryStream(message));
                     }
                     else
                     {

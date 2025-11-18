@@ -57,7 +57,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
             return base.GetData(format, autoConvert);
         }
 
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         void IDataObject.GetData(ref FORMATETC formatetc, out STGMEDIUM medium)
         {
             if (formatetc.cfFormat == (short)DataFormats.GetFormat(CustomDataFormats.FileContents).Id)

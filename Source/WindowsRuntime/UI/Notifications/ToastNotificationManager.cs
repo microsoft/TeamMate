@@ -33,7 +33,7 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
         {
             if (this.toastNotifier == null)
             {
-                this.toastNotifier = Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier(this.applicationId);
+                this.toastNotifier = global::Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier(this.applicationId);
             }
 
             return this.toastNotifier;
@@ -53,7 +53,7 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
             this.ToastOccurred?.Invoke(this, new ToastNotificationManagerEventArgs
             {
                 EventType = ToastNotificationEventType.Dismissed,
-                DismissReason = (ToastDismissalReason)args.Reason
+                DismissReason = (ToastDismissalReason)(int)args.Reason
             });
         }
 
@@ -93,8 +93,8 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
 
     public enum ToastDismissalReason
     {
-        UserCanceled = Windows.UI.Notifications.ToastDismissalReason.UserCanceled,
-        ApplicationHidden = Windows.UI.Notifications.ToastDismissalReason.ApplicationHidden,
-        TimedOut = Windows.UI.Notifications.ToastDismissalReason.TimedOut
+        UserCanceled = 0,
+        ApplicationHidden = 1,
+        TimedOut = 2
     }
 }
