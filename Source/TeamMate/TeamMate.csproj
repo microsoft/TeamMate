@@ -26,7 +26,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <NoWarn>618;NU1701;CA1416</NoWarn>
+    <NoWarn>NU1701;CA1416</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
@@ -34,11 +34,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <CustomManifestFile>$(MSBuildThisFileDirectory)\Properties\app_themes.manifest</CustomManifestFile>

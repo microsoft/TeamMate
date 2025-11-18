@@ -8,25 +8,21 @@
   </PropertyGroup>
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <NoWarn>618;CA1416</NoWarn>
+    <NoWarn>CA1416</NoWarn>
     <BasePublishOutputPath>publish\</BasePublishOutputPath>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <NoWarn>618</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="readme.txt" />
