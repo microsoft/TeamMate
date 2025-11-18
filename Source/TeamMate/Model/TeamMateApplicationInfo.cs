@@ -278,7 +278,7 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             get
             {
-                string exePath = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+                string exePath = Assembly.GetExecutingAssembly().Location;
                 return exePath;
             }
         }
