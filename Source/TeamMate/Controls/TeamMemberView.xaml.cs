@@ -1,15 +1,17 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Shell;
+using Microsoft.Tools.TeamMate.Foundation.Shell;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for TeamMemberView.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class TeamMemberView : UserControl
     {
         public TeamMemberView()

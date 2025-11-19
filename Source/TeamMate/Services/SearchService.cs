@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.Tools.TeamMate.ViewModels;
@@ -9,9 +9,11 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class SearchService
     {
         private const int MaxItemsFromAdo = 250;
@@ -127,6 +129,7 @@ namespace Microsoft.Tools.TeamMate.Services
         public SearchResultSource Source { get; set; }
     }
 
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class SearchResultSource : IComparable
     {
         private QueryViewModelBase source;

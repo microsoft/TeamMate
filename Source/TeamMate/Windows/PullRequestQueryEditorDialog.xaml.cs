@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Threading;
+using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System;
@@ -6,12 +6,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for PullRequestQueryEditorDialog.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class PullRequestQueryEditorDialog : Window
     {
         public PullRequestQueryEditorDialog()

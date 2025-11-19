@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using WorkItem = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItem;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class TrackingService
     {
         private static readonly TimeSpan CollectionInterval = TimeSpan.FromMinutes(1);
@@ -45,6 +47,7 @@ namespace Microsoft.Tools.TeamMate.Services
         }
 
         // This method should only be called from TrackingToken
+        [SupportedOSPlatform("windows10.0.19041.0")]
         internal void CommitMarkAsRead(object key, int revision)
         {
             var trackingInfo = TrackingInfo;
@@ -55,6 +58,7 @@ namespace Microsoft.Tools.TeamMate.Services
         }
 
         // This method should only be called from TrackingToken
+        [SupportedOSPlatform("windows10.0.19041.0")]
         internal void CommitMarkAsUnread(object key)
         {
             var trackingInfo = TrackingInfo;
@@ -65,6 +69,7 @@ namespace Microsoft.Tools.TeamMate.Services
         }
 
         // This method should only be called from TrackingToken
+        [SupportedOSPlatform("windows10.0.19041.0")]
         internal void CommitSetFlagged(object key, bool isFlagged, object flaggedItem)
         {
             Assert.ParamIsNotNull(key, "key");
@@ -254,6 +259,7 @@ namespace Microsoft.Tools.TeamMate.Services
             this.IsFlagged = isFlagged;
         }
 
+        [SupportedOSPlatform("windows10.0.19041.0")]
         public void SetFlag(bool isFlagged, object flaggedItem)
         {
             if (this.IsFlagged != isFlagged)
@@ -274,6 +280,7 @@ namespace Microsoft.Tools.TeamMate.Services
             return this.LastReadRevision != null && this.LastReadRevision.Value >= revision;
         }
 
+        [SupportedOSPlatform("windows10.0.19041.0")]
         public void MarkAsRead(int revision)
         {
             if (this.LastReadRevision == null || this.LastReadRevision.Value < revision)
@@ -286,6 +293,7 @@ namespace Microsoft.Tools.TeamMate.Services
             }
         }
 
+        [SupportedOSPlatform("windows10.0.19041.0")]
         public void MarkAsUnread()
         {
             if (this.LastReadRevision != null)

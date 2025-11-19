@@ -1,6 +1,7 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 using System.ComponentModel;
+using System.Runtime.Versioning;
 using System.Windows.Data;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
@@ -8,6 +9,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Controls.Data
     /// <summary>
     /// Represents a field displayed in a list view.
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ListFieldInfo : ObservableObjectBase, ISelectableItem
     {
         private string name;

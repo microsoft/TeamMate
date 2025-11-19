@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Chaos
 {
     /// <summary>
     /// Defines a chaos scenario and its metadata for use by the Chaos moneky.
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ChaosScenario : INotifyPropertyChanged
     {
         public const double NeverFail = 0.0;

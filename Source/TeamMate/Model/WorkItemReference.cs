@@ -1,12 +1,14 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
 using System;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
     [Serializable]
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemReference
     {
         public WorkItemReference(Uri projectCollectionUri, int id)
@@ -55,6 +57,7 @@ namespace Microsoft.Tools.TeamMate.Model
 
     public static class WorkItemReferenceExtensions
     {
+        [SupportedOSPlatform("windows10.0.19041.0")]
         public static WorkItemReference GetReference(this WorkItem workItem)
         {
             Uri projectCollectionUri = workItem.GetProjectCollectionUrl();

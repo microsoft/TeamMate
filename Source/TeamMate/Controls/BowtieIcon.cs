@@ -1,8 +1,10 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using System.Windows;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class BowtieIcon : FontIcon
     {
         public static readonly DependencyProperty BowtieProperty = DependencyProperty.Register(

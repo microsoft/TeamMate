@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows;
+using Microsoft.Tools.TeamMate.Foundation.Windows;
 using System;
 using System.Windows;
 using TeamMateApplication = Microsoft.Tools.TeamMate.Model.Application;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class App : System.Windows.Application
     {
         public TeamMateApplication Application { get; private set; }

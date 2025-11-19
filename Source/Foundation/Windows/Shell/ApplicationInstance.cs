@@ -5,13 +5,30 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Versioning;
+using System.Text.Json;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 {
+    /// <summary>
+    /// Envelope to wrap messages with type metadata for proper deserialization.
+    /// </summary>
+    internal class MessageEnvelope
+    {
+        /// <summary>
+        /// Magic marker to identify valid message envelopes.
+        /// </summary>
+        public const int MagicMarker = 0x544D4154; // "TMAT" in hex
+
+        public int Magic { get; set; }
+        public string TypeName { get; set; }
+        public string PayloadJson { get; set; }
+    }
+
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ApplicationInstance : IDisposable
     {
         /// <summary>
@@ -150,11 +167,16 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
         public void SendMessage(object o)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-
             using (FileStream fs = new FileStream(mailslotHandle, FileAccess.Write, 400, false))
             {
-                formatter.Serialize(fs, o);
+                // Wrap message with type metadata to ensure proper deserialization
+                var envelope = new MessageEnvelope
+                {
+                    Magic = MessageEnvelope.MagicMarker,
+                    TypeName = o.GetType().AssemblyQualifiedName,
+                    PayloadJson = JsonSerializer.Serialize(o, o.GetType())
+                };
+                JsonSerializer.Serialize(fs, envelope);
             }
 
             eventWaitHandle.Set();
@@ -171,17 +193,43 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Shell
 
             while (numberOfMessages > 0)
             {
-                // KLUDGE: Using deprecated API to prevent slot handle from being closed!
-                using (FileStream fs = new FileStream(mailslotHandle.DangerousGetHandle(), FileAccess.Read, false))
+                // Using SafeFileHandle to prevent slot handle from being closed
+                using (FileStream fs = new FileStream(new SafeFileHandle(mailslotHandle.DangerousGetHandle(), ownsHandle: false), FileAccess.Read))
                 {
                     // Sometimes we get messages of size 0, these have to be "read" and discarded from the queue to check for future messages...
                     if (messageSize > 0)
                     {
-                        BinaryFormatter formatter = new BinaryFormatter();
                         byte[] message = new byte[messageSize];
-                        fs.Read(message, 0, messageSize);
+                        fs.ReadExactly(message, 0, messageSize);
 
-                        return formatter.Deserialize(new MemoryStream(message));
+                        using (var ms = new MemoryStream(message))
+                        {
+                            // Deserialize the envelope first to get type information
+                            var envelope = JsonSerializer.Deserialize<MessageEnvelope>(ms);
+                            if (envelope == null || string.IsNullOrEmpty(envelope.TypeName) || string.IsNullOrEmpty(envelope.PayloadJson))
+                            {
+                                Log.Warn("Received invalid message envelope");
+                                return null;
+                            }
+
+                            // Verify the magic marker
+                            if (envelope.Magic != MessageEnvelope.MagicMarker)
+                            {
+                                Log.Warn($"Invalid message envelope magic marker: expected {MessageEnvelope.MagicMarker:X8}, got {envelope.Magic:X8}");
+                                return null;
+                            }
+
+                            // Get the type from the type name
+                            Type messageType = Type.GetType(envelope.TypeName);
+                            if (messageType == null)
+                            {
+                                Log.Warn($"Could not resolve type: {envelope.TypeName}");
+                                return null;
+                            }
+
+                            // Deserialize the payload using the correct type
+                            return JsonSerializer.Deserialize(envelope.PayloadJson, messageType);
+                        }
                     }
                     else
                     {

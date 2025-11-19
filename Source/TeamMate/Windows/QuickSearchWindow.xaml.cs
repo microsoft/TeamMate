@@ -1,16 +1,18 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Utilities;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for QuickSearchWindow.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class QuickSearchWindow : Window
     {
         public event QuickSearchTriggeredEventHandler SearchTriggered;
@@ -137,6 +139,7 @@ namespace Microsoft.Tools.TeamMate.Windows
 
     public delegate void QuickSearchTriggeredEventHandler(object sender, QuickSearchTriggeredEventArgs e);
 
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class QuickSearchTriggeredEventArgs : EventArgs
     {
         public QuickSearchTriggeredEventArgs(string searchText)

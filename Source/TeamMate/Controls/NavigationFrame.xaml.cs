@@ -1,14 +1,16 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
 using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for NavigationFrame.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class NavigationFrame : UserControl
     {
         public NavigationFrame()

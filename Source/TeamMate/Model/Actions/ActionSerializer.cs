@@ -1,11 +1,13 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
 using System;
 using System.Linq;
 using System.Xml.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model.Actions
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ActionSerializer
     {
         public TeamMateAction ReadAction(string filename)

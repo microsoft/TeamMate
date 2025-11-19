@@ -1,11 +1,13 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WorkItemTypeInfo
     {
         public WorkItemTypeInfo(WorkItemTypeReference reference)

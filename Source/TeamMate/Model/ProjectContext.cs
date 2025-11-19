@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model.Settings;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi;
@@ -10,9 +10,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Services.Graph.Client;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ProjectContext : ObservableObjectBase
     {
         private TrackingInfo trackingInfo = new TrackingInfo();

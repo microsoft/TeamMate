@@ -1,9 +1,11 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model.Settings
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public abstract class SettingsBase : ObservableObjectBase
     {
         private bool updatesOccurredWhileDeferring;

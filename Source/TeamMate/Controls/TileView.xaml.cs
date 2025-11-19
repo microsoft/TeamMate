@@ -1,13 +1,15 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
+using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
 using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for TileView.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class TileView : UserControl
     {
         private bool buttonPressed;

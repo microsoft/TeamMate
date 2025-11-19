@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System.Runtime.Versioning;
+using System.Windows;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Windows
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WindowStateInfo
     {
         public Rect RestoreBounds { get; private set; }

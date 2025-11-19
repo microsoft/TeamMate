@@ -1,12 +1,14 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System.Linq;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Controls
 {
     /// <summary>
     /// Interaction logic for WorkItemRowView.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class WorkItemRowView : UserControl
     {
         private const int MaxTagsToDisplay = 3;

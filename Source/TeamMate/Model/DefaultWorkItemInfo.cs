@@ -1,7 +1,9 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class DefaultWorkItemInfo
     {
         public DefaultWorkItemInfo(WorkItemTypeReference workItemType)

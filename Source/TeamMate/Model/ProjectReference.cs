@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Foundation;
+using Microsoft.Tools.TeamMate.Foundation;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.VisualStudio.Services.Common;
 using System;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ProjectReference
     {
         public Uri ProjectUri { get; private set; }

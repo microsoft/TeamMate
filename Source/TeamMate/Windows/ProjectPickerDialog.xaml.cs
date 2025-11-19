@@ -1,14 +1,16 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.ViewModels;
 using Microsoft.TeamFoundation.Core.WebApi;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for ProjectPickerDialog.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class ProjectPickerDialog : Window
     {
         public ProjectPickerDialog()

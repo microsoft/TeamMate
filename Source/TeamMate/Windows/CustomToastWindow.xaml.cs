@@ -1,14 +1,16 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for LegacyToastWindow.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class CustomToastWindow : Window
     {
         public CustomToastWindow()

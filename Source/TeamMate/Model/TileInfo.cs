@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using System;
 using System.ComponentModel;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class TileInfo : ObservableObjectBase
     {
         // TODO: Should we make this smarter, with property events, etc...?

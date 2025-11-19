@@ -726,7 +726,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Web
 
         // *** Source: ndp/fx/src/xsp/system/web/httpvaluecollection.cs
 
-        [Serializable()]
         internal class HttpValueCollection : NameValueCollection
         {
             internal HttpValueCollection()
@@ -745,11 +744,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Web
 
             internal HttpValueCollection(int capacity)
                 : base(capacity, StringComparer.OrdinalIgnoreCase)
-            {
-            }
-
-            protected HttpValueCollection(SerializationInfo info, StreamingContext context)
-                : base(info, context)
             {
             }
 

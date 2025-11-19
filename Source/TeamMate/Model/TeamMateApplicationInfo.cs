@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
+using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Foundation.IO;
 using Microsoft.Tools.TeamMate.Foundation.Reflection;
 using Microsoft.Tools.TeamMate.Foundation.Xml;
@@ -9,9 +9,11 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class TeamMateApplicationInfo
     {
         public const string TeamMateFileExtension = ".tmx";
@@ -278,7 +280,7 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             get
             {
-                string exePath = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+                string exePath = Assembly.GetExecutingAssembly().Location;
                 return exePath;
             }
         }

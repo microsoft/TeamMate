@@ -43,21 +43,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
             return GetFormats(autoConvert).Contains(format);
         }
 
-        public override object GetData(string format, bool autoConvert)
-        {
-            if (format == CustomDataFormats.FileGroupDescriptorW)
-            {
-                return GetFileDescriptorStream();
-            }
-            else if (format == CustomDataFormats.FileContents)
-            {
-                return GetFileContents();
-            }
-
-            return base.GetData(format, autoConvert);
-        }
-
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         void IDataObject.GetData(ref FORMATETC formatetc, out STGMEDIUM medium)
         {
             if (formatetc.cfFormat == (short)DataFormats.GetFormat(CustomDataFormats.FileContents).Id)

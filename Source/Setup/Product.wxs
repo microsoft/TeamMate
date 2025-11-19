@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
 	<?define productVersion= !(bind.FileVersion.TeamMate.Exe) ?>
-	<Product Id="*" Name="TeamMate" Language="1033" Version="$(var.productVersion)" Manufacturer="https://github.com/microsoft/teammate" UpgradeCode="df0aeb4a-f671-4641-af7f-9629a80544d5">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
-
+	<Package Name="TeamMate" 
+	         Version="$(var.productVersion)" 
+	         Manufacturer="https://github.com/microsoft/teammate" 
+	         UpgradeCode="df0aeb4a-f671-4641-af7f-9629a80544d5"
+	         Language="1033"
+	         Compressed="yes"
+	         InstallerVersion="500"
+	         Scope="perUser">
+		
 		<Icon Id="TeamMate.ico" SourceFile=".\TeamMate.ico"/>
 		<Property Id="ARPPRODUCTICON" Value="TeamMate.ico" />
 
@@ -16,66 +22,117 @@
 			<ComponentRef Id="ApplicationDirectory" />
 		</Feature>
 
-		<DirectoryRef Id="ApplicationProgramsFolder">
-			<Component Id="ApplicationShortcut" Guid="B4CD7732-0D44-481F-9108-322BC1389D20">
-				<Shortcut Id="ApplicationStartMenuShortcut"
-									Name="TeamMate"
-									Description="Microsoft TeamMate"
-									Target="[#TeamMate.exe]"
-									Icon="TeamMate.ico"
-									WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
-				<RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
-				<RegistryValue Root="HKCU" Key="Software\MyCompany\TeamMate" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
-			</Component>
-		</DirectoryRef>
+		<StandardDirectory Id="LocalAppDataFolder">
+			<Directory Id="INSTALLFOLDER" Name="TeamMate">
+				<Component Id="ApplicationDirectory" Guid="B4CD7732-0D44-481F-9108-322BC1389D21">
+					<RemoveFolder Id="CleanUpDirectory" On="uninstall"/>
+					<RegistryValue Root="HKCU" Key="Software\MyCompany\TeamMate" Name="installed" Type="integer" Value="1" />
+				</Component>
+			</Directory>
+		</StandardDirectory>
 
-		<DirectoryRef Id="INSTALLFOLDER">
-			<Component Id="ApplicationDirectory" Guid="B4CD7732-0D44-481F-9108-322BC1389D21" KeyPath="yes">
-				<RemoveFolder Id="CleanUpDirectory" Directory="INSTALLFOLDER" On="uninstall"/>
-			</Component>
-		</DirectoryRef>
+		<StandardDirectory Id="ProgramMenuFolder">
+			<Directory Id="ApplicationProgramsFolder" Name="TeamMate">
+				<Component Id="ApplicationShortcut" Guid="B4CD7732-0D44-481F-9108-322BC1389D20">
+					<Shortcut Id="ApplicationStartMenuShortcut"
+					          Name="TeamMate"
+					          Description="Microsoft TeamMate"
+					          Target="[#TeamMate.exe]"
+					          Icon="TeamMate.ico"
+					          WorkingDirectory="INSTALLFOLDER"/>
+					<RemoveFolder Id="CleanUpShortCut" On="uninstall"/>
+					<RegistryValue Root="HKCU" Key="Software\MyCompany\TeamMate" Name="shortcut" Type="integer" Value="1" />
+				</Component>
+			</Directory>
+		</StandardDirectory>
 		
-	</Product>
-
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="LocalAppDataFolder" Name="AppData">
-				<Directory Id="INSTALLFOLDER" Name="TeamMate" />
-			</Directory>
-			<Directory Id="ProgramMenuFolder">
-				<Directory Id="ApplicationProgramsFolder" Name="TeamMate"/>
-			</Directory>
-		</Directory>
-	</Fragment>
+	</Package>
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="ProductFoundation" KeyPath="yes" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">
-				<File Source="$(var.Foundation.TargetPath)" />
+			<!-- Main application files -->
+			<Component Id="ProductComponent" Guid="d926b846-9c44-4bcc-a5f4-e859bb435b50">
+				<File Id="TeamMate.exe" Source="$(var.TeamMate.TargetDir)TeamMate.exe" KeyPath="yes" />
+				<File Source="$(var.TeamMate.TargetDir)TeamMate.dll" />
+				<File Source="$(var.TeamMate.TargetDir)TeamMate.runtimeconfig.json" />
+				<File Source="$(var.TeamMate.TargetDir)TeamMate.deps.json" />
 			</Component>
-			<Component Id="ProductWebApi" KeyPath="yes" Guid="7b188df3-c24a-48fb-b39e-03ac63d078d0">
-				<File Source="$(var.WebApi.TargetPath)" />
+			
+			<!-- Foundation library -->
+			<Component Id="ProductFoundation" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Tools.TeamMate.Foundation.dll" KeyPath="yes" />
 			</Component>
-			<Component Id="ProductWindowsRuntime" KeyPath="yes" Guid="b8ca560d-712d-477f-a362-7672ea6f5990">
-				<File Source="$(var.WindowsRuntime.TargetPath)" />
+			
+			<!-- WebApi library -->
+			<Component Id="ProductWebApi" Guid="7b188df3-c24a-48fb-b39e-03ac63d078d0">
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Tools.TeamMate.TeamFoundation.WebApi.dll" KeyPath="yes" />
 			</Component>
-			<Component Id="ProductComponent" KeyPath="yes" Guid="d926b846-9c44-4bcc-a5f4-e859bb435b50">
-				<File Source="$(var.TeamMate.TargetPath)" />
-				<File Source="$(var.TeamMate.TargetDir)\TeamMate.exe.config" />
+			
+			<!-- WindowsRuntime library -->
+			<Component Id="ProductWindowsRuntime" Guid="b8ca560d-712d-477f-a362-7672ea6f5990">
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Tools.TeamMate.WindowsRuntime.dll" KeyPath="yes" />
 			</Component>
-			<Component Id="References" KeyPath="yes" Guid="557b615b-8cdf-4c4b-a15b-f41b74ec9a5e">
-				<File Source="$(var.TeamMate.TargetDir)\SimpleInjector.dll" />
-				<!-- IMPORTANT: Do NOT remove ActiveDirectory. Otherwise, you will see "SP324098: Your browser could not complete the operation when trying to connect to ADO" -->
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Client.Interactive.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.Common.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.VisualStudio.Services.WebApi.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.TeamFoundation.Core.WebApi.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\Newtonsoft.Json.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\System.Net.Http.Formatting.dll" />
-				<File Source="$(var.TeamMate.TargetDir)\System.Web.Http.dll" />
+			
+			<!-- All other dependencies -->
+			<Component Id="References" Guid="557b615b-8cdf-4c4b-a15b-f41b74ec9a5e">
+				<File Source="$(var.TeamMate.TargetDir)SimpleInjector.dll" KeyPath="yes" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.VisualStudio.Services.Client.Interactive.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.VisualStudio.Services.Common.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.VisualStudio.Services.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Core.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.SourceControl.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Newtonsoft.Json.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.Net.Http.Formatting.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.Web.Http.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Azure.Core.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Azure.Identity.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Identity.Client.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Identity.Client.Extensions.Msal.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.IdentityModel.Abstractions.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.IdentityModel.JsonWebTokens.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.IdentityModel.Logging.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.IdentityModel.Tokens.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.IdentityModel.Tokens.Jwt.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Bcl.AsyncInterfaces.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ClientModel.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.Memory.Data.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Windows.SDK.NET.dll" />
+				<File Source="$(var.TeamMate.TargetDir)WinRT.Runtime.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ComponentModel.Composition.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Extensions.ObjectPool.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Newtonsoft.Json.Bson.dll" />
+			</Component>
+			
+			<!-- Azure DevOps related assemblies -->
+			<Component Id="AzureDevOps" Guid="e7f8c9a2-4d5b-4c3a-9e6f-1a2b3c4d5e6f">
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Build2.WebApi.dll" KeyPath="yes" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Common.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Dashboards.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Policy.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Test.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.TestManagement.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Wiki.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.Work.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.Azure.DevOps.Comments.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.VisualStudio.Services.TestManagement.TestPlanning.WebApi.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Microsoft.VisualStudio.Services.TestResults.WebApi.dll" />
+			</Component>
+			
+			<!-- System libraries -->
+			<Component Id="SystemLibs" Guid="f8e9d0b1-5c6a-4d7e-8f9a-2b3c4d5e6f7a">
+				<File Source="$(var.TeamMate.TargetDir)System.Data.SqlClient.dll" KeyPath="yes" />
+				<File Source="$(var.TeamMate.TargetDir)System.Management.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ServiceModel.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ServiceModel.Duplex.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ServiceModel.Primitives.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.ServiceModel.Security.dll" />
+				<File Source="$(var.TeamMate.TargetDir)System.Xml.XPath.XmlDocument.dll" />
+				<File Source="$(var.TeamMate.TargetDir)sni.dll" />
+				<File Source="$(var.TeamMate.TargetDir)Ben.Demystifier.dll" />
 			</Component>
 		</ComponentGroup>
 	</Fragment>

@@ -513,9 +513,10 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows
         private static bool IsTextTrimmed(TextBlock textBlock)
         {
             Typeface typeface = new Typeface(textBlock.FontFamily, textBlock.FontStyle, textBlock.FontWeight, textBlock.FontStretch);
+            var dpiInfo = VisualTreeHelper.GetDpi(textBlock);
 
             FormattedText formattedText = new FormattedText(textBlock.Text, Thread.CurrentThread.CurrentCulture,
-                textBlock.FlowDirection, typeface, textBlock.FontSize, textBlock.Foreground);
+                textBlock.FlowDirection, typeface, textBlock.FontSize, textBlock.Foreground, dpiInfo.PixelsPerDip);
 
             return formattedText.Width > textBlock.ActualWidth;
         }

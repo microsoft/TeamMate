@@ -1,6 +1,7 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using System;
 using System.Diagnostics;
+using System.Runtime.Versioning;
 using System.Threading;
 
 namespace Microsoft.Tools.TeamMate.Foundation.Threading
@@ -8,6 +9,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Threading
     /// <summary>
     /// A default implementation of a task context interface.
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class TaskContext : ObservableObjectBase, ITaskContext, IDisposable
     {
         private const double CompletedProgress = 1.0;

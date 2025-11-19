@@ -1,12 +1,14 @@
-﻿using Microsoft.Tools.TeamMate.ViewModels;
+using Microsoft.Tools.TeamMate.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for WorkItemAddTagsDialog.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class WorkItemAddTagsDialog : Window
     {
         public WorkItemAddTagsDialog()

@@ -33,7 +33,7 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
         {
             if (this.toastNotifier == null)
             {
-                this.toastNotifier = Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier(this.applicationId);
+                this.toastNotifier = global::Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier(this.applicationId);
             }
 
             return this.toastNotifier;
@@ -91,10 +91,16 @@ namespace Microsoft.Tools.TeamMate.WindowsRuntime.UI.Notifications
         Failed
     }
 
+    /// <summary>
+    /// Mirrors Windows.UI.Notifications.ToastDismissalReason values.
+    /// These values are hardcoded to match the Windows API as of Nov 2025.
+    /// If the Windows API changes, update these values accordingly.
+    /// Consider adding runtime validation to ensure values stay in sync.
+    /// </summary>
     public enum ToastDismissalReason
     {
-        UserCanceled = Windows.UI.Notifications.ToastDismissalReason.UserCanceled,
-        ApplicationHidden = Windows.UI.Notifications.ToastDismissalReason.ApplicationHidden,
-        TimedOut = Windows.UI.Notifications.ToastDismissalReason.TimedOut
+        UserCanceled = 0,
+        ApplicationHidden = 1,
+        TimedOut = 2
     }
 }

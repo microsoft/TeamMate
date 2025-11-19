@@ -38,7 +38,11 @@ namespace Microsoft.Tools.TeamMate.Foundation.Shell
             // TODO: When run in a loop, not all URLs might be launched. See
             // http://stackoverflow.com/questions/6208307/process-starturl-in-a-loop-not-launching-every-instance
             string browserUri = uri.AbsoluteUri;
-            Process.Start(browserUri);
+            var startInfo = new ProcessStartInfo(browserUri)
+            {
+                UseShellExecute = true
+            };
+            Process.Start(startInfo);
         }
     }
 }

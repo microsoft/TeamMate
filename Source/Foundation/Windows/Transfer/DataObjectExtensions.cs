@@ -82,7 +82,7 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
 
             if(!dataObject.GetDataPresent(DataFormats.Html) && description != null)
             {
-                dataObject.SetHtml($"<a href=\"{Uri.EscapeUriString(absoluteUri)}\">{WebUtility.HtmlEncode(description)}<a/>");
+                dataObject.SetHtml($"<a href=\"{Uri.EscapeDataString(absoluteUri)}\">{WebUtility.HtmlEncode(description)}<a/>");
             }
 
             if (!dataObject.ContainsFileGroup())

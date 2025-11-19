@@ -34,8 +34,8 @@ namespace Microsoft.Tools.TeamMate.Foundation.Windows.Transfer
                 if (item.WriteTime != null)
                 {
                     Int64 fileWriteTimeUtc = item.WriteTime.Value.ToFileTimeUtc();
-                    fileDescriptor.ftLastWriteTime.dwHighDateTime = (int)(fileWriteTimeUtc >> 32);
-                    fileDescriptor.ftLastWriteTime.dwLowDateTime = (int)(fileWriteTimeUtc & 0xFFFFFFFF);
+                    fileDescriptor.ftLastWriteTime.dwHighDateTime = (uint)(fileWriteTimeUtc >> 32);
+                    fileDescriptor.ftLastWriteTime.dwLowDateTime = (uint)(fileWriteTimeUtc & 0xFFFFFFFF);
                     flags |= (uint)FileDescriptorFlags.FD_WRITESTIME;
                 }
 

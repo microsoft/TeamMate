@@ -1,9 +1,11 @@
 ﻿using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
+using System.Runtime.Versioning;
 using System.Windows.Input;
 
 // TODO: Consider moving this to another namespace, seems annoying here...
 namespace Microsoft.Tools.TeamMate.Resources
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public static class TeamMateCommands
     {
         private static readonly CommandDictionary commands = new CommandDictionary();

@@ -9,6 +9,13 @@ namespace Microsoft.Tools.TeamMate.Foundation.Native
     // Defines struct mappings for PInvoke functions.
 
     [StructLayout(LayoutKind.Sequential)]
+    public struct FILETIME
+    {
+        public uint dwLowDateTime;
+        public uint dwHighDateTime;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct WINDOWINFO
     {
         public uint cbSize;
@@ -273,7 +280,6 @@ namespace Microsoft.Tools.TeamMate.Foundation.Native
             this.Close();
         }
 
-        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         internal void Close()
         {
             if ((this.hProcess != IntPtr.Zero) && (this.hProcess != INVALID_HANDLE_VALUE))

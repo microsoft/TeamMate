@@ -1,4 +1,3 @@
-﻿using Microsoft.TeamFoundation.WorkItemTracking.Client;
 using Microsoft.Tools.TeamMate.Foundation.Shell;
 using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
@@ -16,9 +15,11 @@ using System.Drawing;
 using System.Linq;
 using System.Windows;
 using WindowsForms = System.Windows.Forms;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class WindowService
     {
         private QuickSearchWindow quickSearchWindow;

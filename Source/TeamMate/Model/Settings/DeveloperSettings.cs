@@ -1,5 +1,8 @@
-﻿namespace Microsoft.Tools.TeamMate.Model.Settings
+using System.Runtime.Versioning;
+
+namespace Microsoft.Tools.TeamMate.Model.Settings
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class DeveloperSettings : SettingsBase
     {
         private bool debugAllNotifications;

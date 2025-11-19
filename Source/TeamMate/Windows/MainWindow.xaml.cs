@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Controls;
+using Microsoft.Tools.TeamMate.Controls;
 using Microsoft.Tools.TeamMate.Foundation.Windows;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Input;
 using Microsoft.Tools.TeamMate.Foundation.Windows.MVVM;
@@ -13,12 +13,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public partial class MainWindow
     {
         private const int FilterApplyDelayInMs = 400;

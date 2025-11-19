@@ -1,10 +1,12 @@
-﻿using Microsoft.Tools.TeamMate.Services;
+using Microsoft.Tools.TeamMate.Services;
 using Microsoft.Tools.TeamMate.ViewModels;
 using SimpleInjector;
 using System.Threading.Tasks;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class Application
     {
         private Container container;

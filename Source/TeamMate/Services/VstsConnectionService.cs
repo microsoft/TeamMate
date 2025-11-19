@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Model.Settings;
@@ -10,21 +10,35 @@ using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.WebApi;
+using Microsoft.VisualStudio.Services.Common;
+using Azure.Identity;
+using Azure.Core;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 using ProjectHttpClient = Microsoft.TeamFoundation.Core.WebApi.ProjectHttpClient;
 using WorkItemField = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemField;
 using WorkItemType = Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItemType;
 using Microsoft.VisualStudio.Services.Graph.Client;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Services
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class VstsConnectionService
     {
+        // Cached MSAL public client application - reused across connections
+        private static IPublicClientApplication _msalApp;
+        private static readonly object _msalLock = new object();
+        private const string ClientId = "04b07795-8ddb-461a-bbee-02f9e1bf7b46"; // Azure CLI client ID
+        private const string Authority = "https://login.microsoftonline.com/common";
+        private static readonly string[] Scopes = new[] { "499b84ac-1321-427f-aa17-267ca6975798/.default" };
+
         [Import]
         public SettingsService SettingsService { get; set; }
 
@@ -45,9 +59,27 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             Assert.ParamIsNotNull(projectCollectionUri, "projectCollectionUri");
 
-            var credentials = new VssClientCredentials();
-            credentials.PromptType = VisualStudio.Services.Common.CredentialPromptType.PromptIfNeeded;
-            credentials.Storage = GetVssClientCredentialStorage(86400);
+            // Get or create the MSAL app
+            var app = GetOrCreateMsalApp();
+
+            AuthenticationResult authResult;
+            try
+            {
+                // Try to acquire token silently first (from cache)
+                var accounts = await app.GetAccountsAsync();
+                authResult = await app.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+                    .ExecuteAsync(cancellationToken);
+            }
+            catch (MsalUiRequiredException)
+            {
+                // Silent acquisition failed, need interactive login
+                authResult = await app.AcquireTokenInteractive(Scopes)
+                    .WithUseEmbeddedWebView(false) // Use system browser
+                    .ExecuteAsync(cancellationToken);
+            }
+
+            // Use the token with VssAadCredential
+            var credentials = new VssAadCredential(new VssAadToken("Bearer", authResult.AccessToken));
 
             var settings = new VssClientHttpRequestSettings();
             settings.AllowAutoRedirect = true;
@@ -60,9 +92,70 @@ namespace Microsoft.Tools.TeamMate.Services
 
             return connection;
         }
-        private static VstsClientCredentialCachingStorage GetVssClientCredentialStorage(double tokenLeaseInSeconds)
+
+        private static IPublicClientApplication GetOrCreateMsalApp()
         {
-            return new VstsClientCredentialCachingStorage("TeamMate", "TokenStorage", tokenLeaseInSeconds);
+            lock (_msalLock)
+            {
+                if (_msalApp == null)
+                {
+                    // Get the app data folder for token cache
+                    var cacheDirectory = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "Microsoft", "TeamMate", "MsalCache");
+                    
+                    Directory.CreateDirectory(cacheDirectory);
+                    var cacheFileName = Path.Combine(cacheDirectory, "msal.cache");
+
+                    // Build the MSAL public client application with persistent cache
+                    _msalApp = PublicClientApplicationBuilder.Create(ClientId)
+                        .WithAuthority(Authority)
+                        .WithRedirectUri("http://localhost")
+                        .Build();
+
+                    // Register the token cache serialization
+                    RegisterTokenCache(_msalApp.UserTokenCache, cacheFileName);
+                }
+
+                return _msalApp;
+            }
+        }
+
+        private static void RegisterTokenCache(ITokenCache tokenCache, string cacheFilePath)
+        {
+            tokenCache.SetBeforeAccess(notificationArgs =>
+            {
+                // Read cache from file
+                if (File.Exists(cacheFilePath))
+                {
+                    try
+                    {
+                        byte[] cacheData = File.ReadAllBytes(cacheFilePath);
+                        notificationArgs.TokenCache.DeserializeMsalV3(cacheData);
+                    }
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException || ex is System.Security.SecurityException)
+                    {
+                        // Ignore cache read errors, will just re-authenticate
+                    }
+                }
+            });
+
+            tokenCache.SetAfterAccess(notificationArgs =>
+            {
+                // Write cache to file if it has changed
+                if (notificationArgs.HasStateChanged)
+                {
+                    try
+                    {
+                        byte[] cacheData = notificationArgs.TokenCache.SerializeMsalV3();
+                        File.WriteAllBytes(cacheFilePath, cacheData);
+                    }
+                    catch (Exception ex) when (ex is IOException || ex is UnauthorizedAccessException || ex is System.Security.SecurityException)
+                    {
+                        // Ignore cache write errors
+                    }
+                }
+            });
         }
 
         public async Task<ProjectReference> ResolveProjectReferenceAsync(Uri projectCollectionUri, string projectName)

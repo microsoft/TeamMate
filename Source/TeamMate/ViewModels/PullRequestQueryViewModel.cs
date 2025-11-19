@@ -1,4 +1,4 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.Chaos;
+using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.Foundation.Threading;
 using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.PullRequests;
@@ -11,9 +11,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.TeamFoundation.Build.WebApi;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.ViewModels
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class PullRequestQueryViewModel : QueryViewModelBase
     {
         private PullRequestQueryInfo queryInfo;

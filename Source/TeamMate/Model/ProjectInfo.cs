@@ -1,9 +1,11 @@
-﻿using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
+using Microsoft.Tools.TeamMate.Foundation.ComponentModel;
 using Microsoft.Tools.TeamMate.Foundation.Diagnostics;
 using System;
+using System.Runtime.Versioning;
 
 namespace Microsoft.Tools.TeamMate.Model
 {
+    [SupportedOSPlatform("windows10.0.19041.0")]
     public class ProjectInfo : ObservableObjectBase
     {
         private string projectName;
