@@ -92,15 +92,23 @@ jobs:
       run: dotnet build --configuration ${{ matrix.Configuration }}
       working-directory: ./Source/Setup
 
+    - name: List build outputs
+      run: |
+        echo "Setup bin directory:"
+        ls -R Source/Setup/bin
+        echo ""
+        echo "TeamMate bin directory:"
+        ls -R Source/TeamMate/bin
+      shell: pwsh
+
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          **/*.msi
-          **/bin/x86/Release/**/TeamMate.pdb
-          **/bin/x86/Release/**/TeamMate.exe
+          Source/Setup/bin/x86/${{ matrix.Configuration }}/Microsoft.Tools.TeamMate.msi
+          Source/TeamMate/bin/${{ matrix.Configuration }}/net10.0-windows10.0.19041.0/TeamMate.pdb
+          Source/TeamMate/bin/${{ matrix.Configuration }}/net10.0-windows10.0.19041.0/TeamMate.exe
         draft: true
         prerelease: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_REPOSITORY: my_gh_org/my_gh_repo
