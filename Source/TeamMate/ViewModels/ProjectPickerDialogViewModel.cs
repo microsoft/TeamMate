@@ -34,6 +34,9 @@ namespace Microsoft.Tools.TeamMate.ViewModels
         [Import]
         public MessageBoxService MessageBoxService { get; set; }
 
+        [Import]
+        public VstsConnectionService VstsConnectionService { get; set; }
+
 
         public string UrlText
         {
@@ -134,8 +137,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     using (this.Progress = new TaskContext())
                     {
                         await ChaosMonkey.ChaosAsync(ChaosScenarios.ChooseProject);
-                        VssConnection connection = new VssConnection(projectCollectionUrl, new VssClientCredentials());
-                        await connection.ConnectAsync(cancellationToken);
+                        VssConnection connection = await this.VstsConnectionService.CreateConnectionAsync(projectCollectionUrl, cancellationToken);
 
                         ProjectHttpClient projectClient = connection.GetClient<ProjectHttpClient>();
                         ICollection<TeamProjectReference> allProjects = await projectClient.GetProjectsInBatchesAsync(ProjectState.WellFormed, cancellationToken);

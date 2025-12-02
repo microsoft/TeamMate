@@ -55,7 +55,7 @@ namespace Microsoft.Tools.TeamMate.Services
         public ResolverService ResolverService { get; set; }
 
 
-        private async Task<VssConnection> ConnectAsync(Uri projectCollectionUri, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<VssConnection> CreateConnectionAsync(Uri projectCollectionUri, CancellationToken cancellationToken = default(CancellationToken))
         {
             Assert.ParamIsNotNull(projectCollectionUri, "projectCollectionUri");
 
@@ -160,7 +160,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
         public async Task<ProjectReference> ResolveProjectReferenceAsync(Uri projectCollectionUri, string projectName)
         {
-            var connection = await this.ConnectAsync(projectCollectionUri);
+            var connection = await this.CreateConnectionAsync(projectCollectionUri);
             ProjectHttpClient projectClient = connection.GetClient<ProjectHttpClient>();
             var project = await projectClient.GetProject(projectName);
 
@@ -229,7 +229,7 @@ namespace Microsoft.Tools.TeamMate.Services
             try
             {
                 await ChaosMonkey.ChaosAsync(ChaosScenarios.ConnectToVsts);
-                var connection = await this.ConnectAsync(projectInfo.ProjectCollectionUri, cancellationToken);
+                var connection = await this.CreateConnectionAsync(projectInfo.ProjectCollectionUri, cancellationToken);
 
                 WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();
                 WorkItemTrackingBatchHttpClient batchWitClient = connection.GetClient<WorkItemTrackingBatchHttpClient>();
