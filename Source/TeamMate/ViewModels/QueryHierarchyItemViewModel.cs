@@ -1,5 +1,6 @@
 using Microsoft.Tools.TeamMate.Foundation.Chaos;
 using Microsoft.Tools.TeamMate.Foundation.Windows.Controls;
+using Microsoft.Tools.TeamMate.Model;
 using Microsoft.Tools.TeamMate.Utilities;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
@@ -13,13 +14,11 @@ namespace Microsoft.Tools.TeamMate.ViewModels
     [SupportedOSPlatform("windows10.0.19041.0")]
     public class QueryHierarchyItemViewModel : TreeItemViewModelBase
     {
-        private WorkItemTrackingHttpClient client;
-        private string project;
+        private ProjectContext projectContext;
 
-        public QueryHierarchyItemViewModel(WorkItemTrackingHttpClient client, string project, QueryHierarchyItem item = null)
+        public QueryHierarchyItemViewModel(ProjectContext projectContext, QueryHierarchyItem item = null)
         {
-            this.client = client;
-            this.project = project;
+            this.projectContext = projectContext;
             this.Item = item;
 
             if (this.Item != null)
@@ -41,20 +40,24 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         protected override async Task<IEnumerable<TreeItemViewModelBase>> LoadChildrenAsync()
         {
+            // Get a fresh client from the connection to ensure we have the latest token
+            var client = this.projectContext.Connection.GetClient<WorkItemTrackingHttpClient>();
+            var project = this.projectContext.ProjectName;
+
             IEnumerable<QueryHierarchyItem> children = null;
             if (this.Item != null)
             {
                 if (this.Item.IsFolder == true)
                 {
                     await ChaosMonkey.ChaosAsync(ChaosScenarios.LoadQueryFolder);
-                    var selfWithChildren = await this.client.GetQueryAsync(this.project, this.Item.Id.ToString(), depth: 1, expand: QueryExpand.Wiql);
+                    var selfWithChildren = await client.GetQueryAsync(project, this.Item.Id.ToString(), depth: 1, expand: QueryExpand.Wiql);
                     children = selfWithChildren.Children;
                 }
             }
             else
             {
                 // This is the root, find root query folders (TODO: consider depth: 1 for 1 less call)
-                children = await this.client.GetQueriesAsync(this.project, expand: QueryExpand.Wiql);
+                children = await client.GetQueriesAsync(project, expand: QueryExpand.Wiql);
             }
 
             if (children == null)
@@ -64,7 +67,7 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
             // Make sure children are sorted by folder first and then name
             children = children.OrderBy(c => c.IsFolder != true).ThenBy(c => c.Name);
-            return children.Select(child => new QueryHierarchyItemViewModel(this.client, this.project, child)).ToList();
+            return children.Select(child => new QueryHierarchyItemViewModel(this.projectContext, child)).ToList();
         }
 
         private static QueryHierarchyItemType ToHierarchyItemType(QueryHierarchyItem item)

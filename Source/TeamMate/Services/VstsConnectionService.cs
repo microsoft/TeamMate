@@ -270,6 +270,7 @@ namespace Microsoft.Tools.TeamMate.Services
 
                 ProjectContext projectContext = this.ProjectDataService.Load(projectInfo.Reference);
                 projectContext.ProjectName = project.Name;
+                projectContext.Connection = connection;
                 projectContext.WorkItemTrackingClient = witClient;
                 projectContext.WorkItemTrackingBatchClient = batchWitClient;
                 projectContext.GitHttpClient = gitClient;

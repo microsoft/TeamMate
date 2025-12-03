@@ -267,7 +267,7 @@ namespace Microsoft.Tools.TeamMate.Services
         {
             WorkItemQueryPickerDialog dialog = new WorkItemQueryPickerDialog();
 
-            QueryHierarchyItemViewModel viewModel = new QueryHierarchyItemViewModel(projectContext.WorkItemTrackingClient, projectContext.ProjectName);
+            QueryHierarchyItemViewModel viewModel = new QueryHierarchyItemViewModel(projectContext);
             viewModel.Loaded += delegate (object sender, EventArgs e)
             {
                 dialog.Picker.SelectAndFocusFirstItem();

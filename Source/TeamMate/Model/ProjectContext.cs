@@ -6,6 +6,7 @@ using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using Microsoft.VisualStudio.Services.WebApi;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -31,6 +32,8 @@ namespace Microsoft.Tools.TeamMate.Model
         public ProjectInfo ProjectInfo { get; set; }
 
         public ProjectReference Reference { get; private set; }
+
+        public VssConnection Connection { get; set; }
 
         public WorkItemTrackingHttpClient WorkItemTrackingClient { get; set; }
 
