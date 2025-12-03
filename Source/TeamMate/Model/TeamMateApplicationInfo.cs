@@ -209,7 +209,8 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             get
             {
-                return Version.ToString();
+                var v = Version;
+                return $"{v.Major}.{v.Minor}.{v.Build}";
             }
         }
 
