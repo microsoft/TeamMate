@@ -125,25 +125,19 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
                         await ChaosMonkey.ChaosAsync(ChaosScenarios.WorkItemQueryExecution);
 
-                        List<Task> tasks = new List<Task>();
-
-                        var queryAsyncTask = projectContext.WorkItemTrackingClient.QueryAsync(query);
-                        tasks.Add(queryAsyncTask);
-
-                        Task<QueryHierarchyItem> getQueryTask = null;
-                        if (query.QueryId != Guid.Empty)
+                        // Execute with token refresh in case the token has expired
+                        queryResult = await projectContext.ExecuteWithTokenRefreshAsync(async () =>
                         {
-                            getQueryTask = projectContext.WorkItemTrackingClient.GetQueryAsync(query.ProjectName, query.QueryId.ToString(), QueryExpand.All);
-                            tasks.Add(getQueryTask);
-                        }
+                            var client = projectContext.Connection.GetClient<Microsoft.TeamFoundation.WorkItemTracking.WebApi.WorkItemTrackingHttpClient>();
+                            var result = await client.QueryAsync(query);
 
-                        await Task.WhenAll(tasks.ToArray());
+                            if (query.QueryId != Guid.Empty)
+                            {
+                                result.QueryHierarchyItem = await client.GetQueryAsync(query.ProjectName, query.QueryId.ToString(), QueryExpand.All);
+                            }
 
-                        queryResult = queryAsyncTask.Result;
-                        if (getQueryTask != null)
-                        {
-                            queryResult.QueryHierarchyItem = getQueryTask.Result;
-                        }
+                            return result;
+                        });
 
                         OnQueryCompleted(projectContext, queryResult, notificationScope);
                     }

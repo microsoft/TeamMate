@@ -158,6 +158,24 @@ namespace Microsoft.Tools.TeamMate.Services
             });
         }
 
+        /// <summary>
+        /// Refreshes the connection for an existing ProjectContext by re-acquiring the MSAL token.
+        /// </summary>
+        private async Task RefreshConnectionAsync(ProjectContext projectContext, CancellationToken cancellationToken)
+        {
+            using (Log.PerformanceBlock("Refreshing connection token for {0}", projectContext.ProjectInfo?.ProjectCollectionUri))
+            {
+                var connection = await this.CreateConnectionAsync(projectContext.ProjectInfo.ProjectCollectionUri, cancellationToken);
+
+                // Update the connection and all the clients
+                projectContext.Connection = connection;
+                projectContext.WorkItemTrackingClient = connection.GetClient<WorkItemTrackingHttpClient>();
+                projectContext.WorkItemTrackingBatchClient = connection.GetClient<WorkItemTrackingBatchHttpClient>();
+                projectContext.GitHttpClient = connection.GetClient<GitHttpClient>();
+                projectContext.GraphClient = connection.GetClient<GraphHttpClient>();
+            }
+        }
+
         public async Task<ProjectReference> ResolveProjectReferenceAsync(Uri projectCollectionUri, string projectName)
         {
             var connection = await this.CreateConnectionAsync(projectCollectionUri);
@@ -283,6 +301,9 @@ namespace Microsoft.Tools.TeamMate.Services
                 projectContext.WorkItemFields = fields;
                 projectContext.WorkItemFieldsByName = fields.ToDictionary(f => f.ReferenceName, StringComparer.OrdinalIgnoreCase);
                 projectContext.RequiredWorkItemFieldNames = GetWorkItemFieldsToPrefetch(projectContext.WorkItemFieldsByName);
+
+                // Set up the refresh connection delegate
+                projectContext.RefreshConnectionAsync = async (ct) => await RefreshConnectionAsync(projectContext, ct);
 
                 return projectContext;
             }

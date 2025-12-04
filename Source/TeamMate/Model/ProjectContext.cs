@@ -6,9 +6,12 @@ using Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking;
 using Microsoft.TeamFoundation.SourceControl.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi;
 using Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models;
+using Microsoft.VisualStudio.Services.Common;
 using Microsoft.VisualStudio.Services.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Services.Graph.Client;
 using System.Runtime.Versioning;
@@ -34,6 +37,75 @@ namespace Microsoft.Tools.TeamMate.Model
         public ProjectReference Reference { get; private set; }
 
         public VssConnection Connection { get; set; }
+
+        /// <summary>
+        /// Function to refresh the connection when the token expires.
+        /// </summary>
+        public Func<CancellationToken, Task> RefreshConnectionAsync { get; set; }
+
+        private readonly SemaphoreSlim _refreshLock = new SemaphoreSlim(1, 1);
+
+        /// <summary>
+        /// Executes an API call with automatic token refresh on authentication failure.
+        /// </summary>
+        public async Task<T> ExecuteWithTokenRefreshAsync<T>(Func<Task<T>> apiCall, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await apiCall();
+            }
+            catch (VssUnauthorizedException)
+            {
+                // Token expired, refresh and retry
+                await RefreshConnectionIfNeededAsync(cancellationToken);
+                return await apiCall();
+            }
+            catch (VssServiceException ex) when (ex.Message.Contains("VS30063") || ex.Message.Contains("not authorized"))
+            {
+                // Authorization error, refresh and retry
+                await RefreshConnectionIfNeededAsync(cancellationToken);
+                return await apiCall();
+            }
+        }
+
+        /// <summary>
+        /// Executes an API call with automatic token refresh on authentication failure (for void returns).
+        /// </summary>
+        public async Task ExecuteWithTokenRefreshAsync(Func<Task> apiCall, CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                await apiCall();
+            }
+            catch (VssUnauthorizedException)
+            {
+                // Token expired, refresh and retry
+                await RefreshConnectionIfNeededAsync(cancellationToken);
+                await apiCall();
+            }
+            catch (VssServiceException ex) when (ex.Message.Contains("VS30063") || ex.Message.Contains("not authorized"))
+            {
+                // Authorization error, refresh and retry
+                await RefreshConnectionIfNeededAsync(cancellationToken);
+                await apiCall();
+            }
+        }
+
+        private async Task RefreshConnectionIfNeededAsync(CancellationToken cancellationToken)
+        {
+            await _refreshLock.WaitAsync(cancellationToken);
+            try
+            {
+                if (RefreshConnectionAsync != null)
+                {
+                    await RefreshConnectionAsync(cancellationToken);
+                }
+            }
+            finally
+            {
+                _refreshLock.Release();
+            }
+        }
 
         public WorkItemTrackingHttpClient WorkItemTrackingClient { get; set; }
 

@@ -40,8 +40,6 @@ namespace Microsoft.Tools.TeamMate.ViewModels
 
         protected override async Task<IEnumerable<TreeItemViewModelBase>> LoadChildrenAsync()
         {
-            // Get a fresh client from the connection to ensure we have the latest token
-            var client = this.projectContext.Connection.GetClient<WorkItemTrackingHttpClient>();
             var project = this.projectContext.ProjectName;
 
             IEnumerable<QueryHierarchyItem> children = null;
@@ -50,14 +48,22 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                 if (this.Item.IsFolder == true)
                 {
                     await ChaosMonkey.ChaosAsync(ChaosScenarios.LoadQueryFolder);
-                    var selfWithChildren = await client.GetQueryAsync(project, this.Item.Id.ToString(), depth: 1, expand: QueryExpand.Wiql);
-                    children = selfWithChildren.Children;
+                    children = await this.projectContext.ExecuteWithTokenRefreshAsync(async () =>
+                    {
+                        var client = this.projectContext.Connection.GetClient<WorkItemTrackingHttpClient>();
+                        var selfWithChildren = await client.GetQueryAsync(project, this.Item.Id.ToString(), depth: 1, expand: QueryExpand.Wiql);
+                        return selfWithChildren.Children;
+                    });
                 }
             }
             else
             {
                 // This is the root, find root query folders (TODO: consider depth: 1 for 1 less call)
-                children = await client.GetQueriesAsync(project, expand: QueryExpand.Wiql);
+                children = await this.projectContext.ExecuteWithTokenRefreshAsync(async () =>
+                {
+                    var client = this.projectContext.Connection.GetClient<WorkItemTrackingHttpClient>();
+                    return await client.GetQueriesAsync(project, expand: QueryExpand.Wiql);
+                });
             }
 
             if (children == null)

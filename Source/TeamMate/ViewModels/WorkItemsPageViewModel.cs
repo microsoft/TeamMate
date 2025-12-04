@@ -206,8 +206,12 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     {
                         using (this.StatusService.BusyIndicator())
                         {
-                            var batchClient = this.SessionService.Session.ProjectContext.WorkItemTrackingBatchClient;
-                            var results = await batchClient.BatchUpdateWorkItemsAsync(updateRequests);
+                            var projectContext = this.SessionService.Session.ProjectContext;
+                            await projectContext.ExecuteWithTokenRefreshAsync(async () =>
+                            {
+                                var batchClient = projectContext.Connection.GetClient<Microsoft.Tools.TeamMate.TeamFoundation.WebApi.WorkItemTracking.WorkItemTrackingBatchHttpClient>();
+                                await batchClient.BatchUpdateWorkItemsAsync(updateRequests);
+                            });
 
                             // KLUDGE: To refresh the work item row view models in the easiest way.
                             // Ideally, we can invaliadte each row, but the returned results might not return all the required fields that we

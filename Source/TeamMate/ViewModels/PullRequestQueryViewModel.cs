@@ -97,53 +97,55 @@ namespace Microsoft.Tools.TeamMate.ViewModels
                     {
                         await ChaosMonkey.ChaosAsync(ChaosScenarios.PullRequestQueryExecution);
 
-                        List<Task> tasks = new List<Task>();
-
-                        var queryAsyncTask = projectContext.GitHttpClient.GetPullRequestsByProjectAsync(
-                            query.ProjectName,
-                            query.GitPullRequestSearchCriteria);
-
-                        tasks.Add(queryAsyncTask);
-
-                        await Task.WhenAll(tasks.ToArray());
-
-                        List<Task<List<GitPullRequestIteration>>> iterationTasks = new List<Task<List<GitPullRequestIteration>>>();
-
-                        PullRequestRowViewModel[] pullRequests = null;
-                        if (this.queryInfo.Filter == PullRequestQueryFilter.None)
+                        // Execute with token refresh in case the token has expired
+                        var pullRequests = await projectContext.ExecuteWithTokenRefreshAsync(async () =>
                         {
-                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
-                        }
-                        else if (this.queryInfo.Filter == PullRequestQueryFilter.NeedsAction)
-                        {
-                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).Where(x => x.IsNeedsAction).ToArray();
-                        }
-                        else
-                        {
-                            pullRequests = queryAsyncTask.Result.Select(r => CreateViewModel(r, projectContext)).ToArray();
-                        }
+                            var gitClient = projectContext.Connection.GetClient<Microsoft.TeamFoundation.SourceControl.WebApi.GitHttpClient>();
 
-                        foreach (var pullRequest in pullRequests)
-                        {
-                            var asyncTask = projectContext.GitHttpClient.GetPullRequestIterationsAsync(
-                                pullRequest.Reference.Repository.Id,
-                                pullRequest.Reference.PullRequestId);
-
-                            iterationTasks.Add(asyncTask);
-
-                            pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
-                                pullRequest.Reference.PullRequestId,
+                            var queryResult = await gitClient.GetPullRequestsByProjectAsync(
                                 query.ProjectName,
-                                pullRequest.Reference.Repository.Name);
-                        }
+                                query.GitPullRequestSearchCriteria);
 
-                        await Task.WhenAll(iterationTasks.ToArray());
+                            PullRequestRowViewModel[] prs = null;
+                            if (this.queryInfo.Filter == PullRequestQueryFilter.None)
+                            {
+                                prs = queryResult.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                            }
+                            else if (this.queryInfo.Filter == PullRequestQueryFilter.NeedsAction)
+                            {
+                                prs = queryResult.Select(r => CreateViewModel(r, projectContext)).Where(x => x.IsNeedsAction).ToArray();
+                            }
+                            else
+                            {
+                                prs = queryResult.Select(r => CreateViewModel(r, projectContext)).ToArray();
+                            }
 
-                        int i = 0;
-                        foreach (var pullRequest in pullRequests)
-                        {
-                            pullRequest.Iterations = iterationTasks[i++].Result;
-                        }
+                            List<Task<List<GitPullRequestIteration>>> iterationTasks = new List<Task<List<GitPullRequestIteration>>>();
+
+                            foreach (var pullRequest in prs)
+                            {
+                                var asyncTask = gitClient.GetPullRequestIterationsAsync(
+                                    pullRequest.Reference.Repository.Id,
+                                    pullRequest.Reference.PullRequestId);
+
+                                iterationTasks.Add(asyncTask);
+
+                                pullRequest.Url = projectContext.HyperlinkFactory.GetPullRequestUrl(
+                                    pullRequest.Reference.PullRequestId,
+                                    query.ProjectName,
+                                    pullRequest.Reference.Repository.Name);
+                            }
+
+                            await Task.WhenAll(iterationTasks.ToArray());
+
+                            int i = 0;
+                            foreach (var pullRequest in prs)
+                            {
+                                pullRequest.Iterations = iterationTasks[i++].Result;
+                            }
+
+                            return prs;
+                        });
 
                         OnQueryCompleted(projectContext, pullRequests, notificationScope);
                     }

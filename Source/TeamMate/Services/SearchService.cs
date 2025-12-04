@@ -82,7 +82,11 @@ namespace Microsoft.Tools.TeamMate.Services
 
             await ChaosMonkey.ChaosAsync(ChaosScenarios.VstsSearch);
 
-            var result = await pc.WorkItemTrackingClient.QueryAsync(query);
+            var result = await pc.ExecuteWithTokenRefreshAsync(async () =>
+            {
+                var client = pc.Connection.GetClient<Microsoft.TeamFoundation.WorkItemTracking.WebApi.WorkItemTrackingHttpClient>();
+                return await client.QueryAsync(query);
+            });
             var workItems = result.WorkItems.Select(wi => CreateWorkItemViewModel(wi));
             var searchResults = workItems.Select(wi => new SearchResult(wi, SearchResultSource.Ado)).ToArray();
             return new SearchResults(searchResults, result.QueryResult.WorkItems.Count());
