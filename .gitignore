@@ -351,3 +351,5 @@ MigrationBackup/
 
 # wingetcreate manifests
 manifests/
+
+.vscode/
