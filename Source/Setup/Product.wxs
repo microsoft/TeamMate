@@ -57,6 +57,16 @@
 				<File Source="$(var.TeamMate.TargetDir)TeamMate.runtimeconfig.json" />
 				<File Source="$(var.TeamMate.TargetDir)TeamMate.deps.json" />
 			</Component>
+
+			<!-- Auto-start on user logon -->
+			<Component Id="AutoStart" Guid="6b24f8b5-3db1-4b88-8e15-9a1f1b0c52d7">
+				<RegistryValue Root="HKCU"
+				              Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+				              Name="TeamMate"
+				              Type="string"
+				              Value="&quot;[#TeamMate.exe]&quot; autostart"
+				              KeyPath="yes" />
+			</Component>
 			
 			<!-- Foundation library -->
 			<Component Id="ProductFoundation" Guid="a423459f-7254-44c9-9af3-5e1f9aac99bc">

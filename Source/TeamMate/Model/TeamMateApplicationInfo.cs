@@ -281,8 +281,29 @@ namespace Microsoft.Tools.TeamMate.Model
         {
             get
             {
-                string exePath = Assembly.GetExecutingAssembly().Location;
-                return exePath;
+                // In .NET (Core+), the executing assembly location is often the managed entry DLL (TeamMate.dll),
+                // while the actual app entry point is the native host executable (TeamMate.exe). For shell
+                // registration (file associations, Run-on-startup, shortcuts, etc.) we want the executable.
+                string processPath = Environment.ProcessPath;
+                if (!string.IsNullOrWhiteSpace(processPath))
+                {
+                    return processPath;
+                }
+
+                try
+                {
+                    string mainModulePath = Process.GetCurrentProcess().MainModule?.FileName;
+                    if (!string.IsNullOrWhiteSpace(mainModulePath))
+                    {
+                        return mainModulePath;
+                    }
+                }
+                catch
+                {
+                    // Fall back below.
+                }
+
+                return Assembly.GetExecutingAssembly().Location;
             }
         }
 
